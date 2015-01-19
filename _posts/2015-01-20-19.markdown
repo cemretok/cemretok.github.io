@@ -15,7 +15,7 @@ Dizin;
 adt-bundle-mac-x86_64-20140702/sdk/build-tools/android-4.4W/zipalign 
 {% endhighlight %}
 
-En sonda <b>./</b> Kısmına dikkat etmek gerekiyor
+En baştaki <b>./</b> Kısmına dikkat etmek gerekiyor
 {% highlight ruby %}
 ./zipalign -v 4 Project1.apk Project1-aligned.apk
 {% endhighlight %}
