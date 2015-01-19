@@ -1,0 +1,96 @@
+---
+layout: post
+title:  "DigitalOcean'da Linux Sisteme OpenVPN Kurulumu"
+date:   2014-09-29 21:51:27
+categories: linux
+---
+İşlemlere başlamadan önce yazının tamamını okumanızı tavsiye ederim zira adımlardaki ufak bir değişiklik bütün aşamaları etkilemektedir.
+
+Öncelikle [www.digitalocean.com][1] sitesinden bahsetmek istiyorum. Sitenin amacı ucuz, hızlı, performaslı bir cloud hizmetler vermek. Biraz daha detaya inecek olursak size bulut üstünde yönetmeniz için bir işletim sistemi veriyor. En son halinde Ubuntu, Fedora, Debian ve CentOS işletim sistemlerini kurmanıza izin veriyor. Çok kolay bir kullanıma sahip olan [www.digitalocean.com][1] 55 saniye gibi iddalı bir sürede herşeyi hazır ve nazır bir biçimde önünüze getiriyor.
+
+Üye olmak isterseniz şu adresten [www.digitalocean.com][1] ulaşılabiliyor. Ayrıca DROPLET DODROPLET PYTHONDROPLET promo kodları ile 10 dolar gibi bir miktar kazanabiliyorsunuz. Neredeyse iki ayda bir yeni promo kodu yayınladığı için hiç para vermeden hizmet alan kullanıcılar var.
+
+Şimdi gelelim ana konumuza, VPN  servisi bildiğiniz gibi özel sanal ağ demek yani bizim hükümetin yasakladığı sitelere başka bir ülke aracılığıyla giriş yapabiliriz demek. Ya da başka amaçlar için kullanabilirsiniz orası sizin kullanım amacınıza bağlı.
+
+Üye olduktan sonra CREATE kısmına geliyoruz ve CREATE DROPLET yazan kısma tıklıyoruz. Ardından resimde gösterilen alanları doldurup seçicez.
+
+{% highlight ruby %}
+1) İsim veriyoruz.
+2) Server özelliklerini seçiyoruz.
+3) Amsterdam'ı seçiyoruz. (Türkiye'ye göre hız açısından en iyi verimi burdan alabiliyoruz.)
+4) Ubuntuyu seçip 12.x.x  32 bit versiyonunu seçiyoruz eğer bu sizde gözükmüyorsa yazının tamamını okumanızı tavsiye ederim.
+5) SSH key önemli bunu nasıl ekleyeceğinizi [ŞU ADRESTEN][2] öğrenebilirsiniz.
+6) CREATE DROPLET diyoruz.
+{% endhighlight %}
+
+<br>![My helpful screenshot]({{ site.url }}/assets/10-1.png)<br>
+
+
+
+
+
+İşlem tamam 55 saniye sonra artık sizinde online bir işletim sisteminiz var ve biz buna OpenVPN kurucaz.
+
+OpenVPN yazılımının bizim bulutta şeçtiğimiz işletim sistemine göre olanını şu adresten [OpenVPN][3] üstüne sağ tıklayıp yükleme linkini alıcaz. Eğer sizde CREATE DORPLET kısmındaki sürümle OpenVPN sürümü uyuşmazsa uyuşan bir işletim sistemi yada VPN yazılımı seçebilirsiniz o size kalmış.
+
+<br>![My helpful screenshot]({{ site.url }}/assets/10-2.png)<br>
+
+<br>![My helpful screenshot]({{ site.url }}/assets/10-3.png)<br>
+
+
+
+SSH önemli demiştik Windowsda Putty'i kuruyoruz Mac de ise terminalle direk bağlanabiliyoruz.
+
+<br>![My helpful screenshot]({{ site.url }}/assets/10-4.png)<br>
+
+
+
+Daha sonra başına wget gelecek şekilde kopyaladığımız linki buraya yapıştırıyoruz.
+
+<br>![My helpful screenshot]({{ site.url }}/assets/10-5.png)<br>
+
+
+
+Yukardaki komutu yazdıktan sonra aşağıdaki bir yükleme ekranı çıkacak sonrasında içi boş kırmızı kare içine aldığım ilk yerde yazan yazının aynısını başında dpkg -i gelecek şekilde yazıyoruz.
+
+
+
+<br>![My helpful screenshot]({{ site.url }}/assets/10-6.png)<br>
+
+
+
+Sonrasında karşımıza aşağıdaki gibi bir yazı gelecek.
+
+<br>![My helpful screenshot]({{ site.url }}/assets/10-8.png)<br>
+
+
+
+Artık OpenVPN yüklendi buna bir şifre belirtmek gerekiyor aşağıdaki gibi yapıyoruz.
+
+<br>![My helpful screenshot]({{ site.url }}/assets/10-9.png)<br>
+
+
+
+Bir yukarda yazan http://5.xxx.xxx.159:943/admin yazan linki kendi tarayıcımızda açıyoruz. Karşımıza aşağıdaki gibi bir ekran gelecek giriş yerine openvpn şifre yerine belirtmiş olduğunuz şifreyi yazıyoruz.
+
+<br>![My helpful screenshot]({{ site.url }}/assets/10-9.png)<br>
+
+
+
+Giriş yaptıktan sonra lisans sözleşmeleri okuyup karşınıza çıkan her şeye evet diyoruz. Sonrasında, sonunda admin yazmayan linki tarayıcımızda açıyoruz. http://5.xxx.xxx.159:943 karşımıza gelen ekrana kullanıcı adı ve şifresini yazıyoruz.
+
+<br>![My helpful screenshot]({{ site.url }}/assets/10-10.png)<br>
+
+
+
+Sonrasınada karşınıza aşağıdaki gibi bir ekran gelecek. Oradanda işletim sisteminize uygun olan client yazılımını indiriyoruz.
+
+<br>![My helpful screenshot]({{ site.url }}/assets/10-11.png)<br>
+
+
+
+İndirdiğimiz yazılımı bilgisayara kuruyoruz ve işlemimiz tamam. Eğer size kullanıcı adı ve şifre sorarsa yukarda belirtiğimiz gibi yazarsanız işlem tamam kolay gelsin gayet hızlı size ait bir VPN servisiniz olmuş oldu. Ek olarak aynı anda iki tane makinanın girmesine izin verdiği söyleniyor ama denemek gerek kolay gelsin.
+
+[1]: https://www.digitalocean.com/?refcode=d1aec2dabdc0
+[2]: https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2
+[3]: http://openvpn.net/index.php/access-server/download-openvpn-as-sw.html

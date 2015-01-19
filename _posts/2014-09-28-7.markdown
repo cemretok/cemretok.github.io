@@ -1,0 +1,66 @@
+---
+layout: post
+title:  "Raspberry Pi ile video Oynatmak (Film izlemek)"
+date:   2014-09-28 21:51:27
+categories: linux
+---
+Raspberry'nin video işlemcisi oldukça gelişmiş olduğu için media player olarak kullanılabilmekte ve hatta videolara altyazı dahi eklenebiliyor.
+
+İlk olarak <b>omxplayer</b>'ı kuruyoruz.
+
+
+{% highlight ruby %}
+sudo apt-get update (Paket güncellemesi)
+sudo apt-get -y install omxplayer (omxplayer kurulumu)
+{% endhighlight %}
+<br>![My helpful screenshot]({{ site.url }}/assets/7-1.png)<br>
+İki Yöntem var ilki;
+
+Komut Satırı ile olan:
+Sonrasında Videolarınızın olduğu dizine gelerek (cd komutuyla gelinebiliyor) Aşağıdaki komutu giriyoruz ve filmimiz başlıyor. (Çıkmak için ESC yada Alt + f4)
+
+
+{% highlight ruby %}
+omxplayer filmadi.avi
+{% endhighlight %}
+<br>![My helpful screenshot]({{ site.url }}/assets/7-2.png)<br>
+
+<br>![My helpful screenshot]({{ site.url }}/assets/7-3.png)<br>
+Bu anlattıklarım zor olandı şimdi bilindik çift tıklama yöntemine geçelim:
+
+İlk yüklemeyi yaptıktan sonra aşağıdaki kod ile bir program daha yüklememiz gerekiyor
+
+
+{% highlight ruby %}
+sudo apt-get install xterm
+{% endhighlight %}
+<br>![My helpful screenshot]({{ site.url }}/assets/7-4.png)<br>
+Bunu yükledikten sonra aşağıdaki parametreleri izleyeceğiniz bir avi dosyasına sağ tıklayıp open with sonra customize sonrasında Custom Command Line'a geliyoruz ve oraya aşağıdaki parametreleri yazıyoruz.
+
+
+{% highlight ruby %}
+xterm -fullscreen -fg black -bg black -e omxplayer -o hdmi -r %f
+{% endhighlight %}
+<br>![My helpful screenshot]({{ site.url }}/assets/7-5.png)<br>
+Tamam diyoruz ve çıkıyoruz.
+
+Artık filmin üstüne çift tıkladığınızda açılan esc ye bastığınızda çıkan, space'e bastığınızda duran ok'lara bastığınızda ileri geri giden bir medya playerınız var.
+
+Ayrıca filmle aynı yerde bulunup aynı ismi taşıyan altyazı dosyalarını da oynatabileceksiniz. İngilizcede sorunsuz fakat türkçe desteği için biraz uğraşmak gerekiyor.
+
+Kısa yol tuşları:
+{% highlight ruby %}
+Space veya p (Durdurur)
+q            (Çıkar)
+-            (Sesi Kısar)
++            (Sesi açar)
+Sol ok       (Geriye 30 saniye)
+Sağ ok       (ileriye 30 saniye)
+Aşağı ok     (Geriye 600 saniye)
+Yukarı ok    (Geriye 600 saniye)
+1            (Oynatmayı hızlandırır)
+2            (Oynatmayı yavaşlatır)
+s            (Altyazıyı kaldırır, ekler)
+d            (-250 saniye geri)
+f            (+250 saniye ileri)
+{% endhighlight %}

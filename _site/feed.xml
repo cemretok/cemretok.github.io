@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cemre Tok</title>
+    <description>Bu blog sitesi edindiğim deneyimleri ve bilgileri paylaşmak için oluşturmuş olduğum bir kb -bilgi bankası- dır.
+</description>
+    <link>https://cemretok.github.io/</link>
+    <atom:link href="https://cemretok.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 19 Jan 2015 12:32:45 +0200</pubDate>
+    <lastBuildDate>Mon, 19 Jan 2015 12:32:45 +0200</lastBuildDate>
+    <generator>Jekyll v2.5.3</generator>
+    
+      <item>
+        <title>Crontab -e Komutunun Kullanımı</title>
+        <description>&lt;p&gt;Komut satırına &lt;b&gt;crontab -e&lt;/b&gt; yazıldığında açılan sayfanın en altına aşağıdaki komut yazılır &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/usr/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;wget&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;www&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;google&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Yazılan komut 2 saatte bir google’a sayfa isteği gönderir.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 19 Jan 2015 23:51:27 +0200</pubDate>
+        <link>https://cemretok.github.io/linux/2015/01/19/18.html</link>
+        <guid isPermaLink="true">https://cemretok.github.io/linux/2015/01/19/18.html</guid>
+        
+        
+        <category>linux</category>
+        
+      </item>
+    
+      <item>
+        <title>Linux Terminal Türkçe Karakter Sorunu</title>
+        <description>&lt;p&gt;DigitalOcean’ın dropletlerinde -linux server- Türkçe karakter görüntüleme ve kullanma sorunu olduğu için buna bir çözüm aradım ve debian da çalışan bir yöntem buldum &lt;a href=&quot;http://l10n-turkish.alioth.debian.org/doc/debian-turkish-mini-HOWTO/debian-turkish-mini-HOWTO.html&quot;&gt;KAYNAK&lt;/a&gt; olarak verdiğim linkteki adımlar takip edilince sorunsuz bir şekilde çalışan Türkçe terminaliniz oluyor.&lt;/p&gt;
+
+&lt;p&gt;Olurda link uçarsa;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://web.archive.org/web/20141101143045/http://l10n-turkish.alioth.debian.org/doc/debian-turkish-mini-HOWTO/debian-turkish-mini-HOWTO.html&quot;&gt;archive.org&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://i.imgur.com/mSwLG6P.png&quot;&gt;imgur.com&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+</description>
+        <pubDate>Tue, 30 Sep 2014 00:51:27 +0300</pubDate>
+        <link>https://cemretok.github.io/linux/2014/09/30/17.html</link>
+        <guid isPermaLink="true">https://cemretok.github.io/linux/2014/09/30/17.html</guid>
+        
+        
+        <category>linux</category>
+        
+      </item>
+    
+      <item>
+        <title>Linux ile Modül Programlama</title>
+        <description>&lt;p&gt;Modüller çekirdek için yazılan programlardır. User space olarak tanımladığımız ve hergün kullandığımız işletim sisteminin bir alt katmanıdır. Kısacası linux çekirdeğinin içidir. Bizde burada çalışan bir “Hello World” uygulaması yapıcaz.&lt;/p&gt;
+
+&lt;p&gt;1) Aşağıdaki gibi “&lt;b&gt;/home&lt;/b&gt;” dizininde &lt;b&gt;denemeler&lt;/b&gt; adlı bir klasör oluşturun.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/16-1.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;2) Terminale “&lt;b&gt;cd denemeler&lt;/b&gt;” yazarak dizine girin ve “&lt;b&gt;pico&lt;/b&gt;” editörüyle “&lt;b&gt;hello.c&lt;/b&gt;” dosyası oluşturun.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/16-2.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;3) İçerisine aşağıdaki kodları yazın. Dosyayı kaydetmek için “&lt;b&gt;CTRL + X&lt;/b&gt;” kombinasyonuyla çıkış yapın size kaydetmek istermisiniz diye sorduğunda “&lt;b&gt;E&lt;/b&gt;” ya da “&lt;b&gt;Y&lt;/b&gt;” tuşlarına basarsınız.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/16-3.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;4) Az önceki “&lt;b&gt;C&lt;/b&gt;” kodunun çalışması için bir “&lt;b&gt;Makefile&lt;/b&gt;” dosyası lazım      “&lt;b&gt;pico Makefile&lt;/b&gt;” ile oluşturun.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/16-4.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;5) İçerisine tıpkı aşağıdaki gibi yazın eger all ve clean kısımlarından sonra “&lt;b&gt;TAB&lt;/b&gt;” ile boşluk bırakmazsanız hata alırsınız dikkat edin. Dosyayı kaydetmek için “&lt;b&gt;CTRL + X&lt;/b&gt;” kombinasyonuyla çıkış yapın size kaydetmek istermisiniz diye sorduğunda “&lt;b&gt;E&lt;/b&gt;” ya da “&lt;b&gt;Y&lt;/b&gt;” tuşlarına basarsınız.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/16-5.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;6) Terminale “&lt;b&gt;make&lt;/b&gt;” yazın ve kodunuzu derleyin. Eğer make komutunu çalıştıran program yoksa “&lt;b&gt;sudo apt-get install make&lt;/b&gt;” yazarak yükleyebilirsiniz.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/16-6.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;7) Terminale “&lt;b&gt;ls&lt;/b&gt;” yazın ve klasörün içerisinde &lt;b&gt;hello.ko&lt;/b&gt; oluşmuş mu ona bakın. Eğer oluştuysa “&lt;b&gt;sudo insmod hello.ko&lt;/b&gt;” yazarak modülü çekirdeğe yükleyebilirsiniz. Yüklediğinizde kodun içindeki print ifadelerinin barındırdığı string “&lt;b&gt;log&lt;/b&gt;” dosyalarına yazılır. Neden diye sorarsanız print komutunda &lt;b&gt;KERN_INFO&lt;/b&gt; ile belirttiğiniz için. Sonra terminale “&lt;b&gt;dmesg&lt;/b&gt;” komutu girerseniz bütün logları görüntüleyebilirsiniz.
+&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/16-7.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;8) Görüldüğü gibi “&lt;b&gt;Hello World&lt;/b&gt;” yazısı çıkıyor.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/16-8.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;9) Terminale “&lt;b&gt;sudo rmmod hello.ko&lt;/b&gt;” yazarsanız modülü kaldırır ve log kısmına “&lt;b&gt;Goodby World&lt;/b&gt;” yazar.&lt;/p&gt;
+
+&lt;p&gt;Kolay gelsin.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 30 Sep 2014 00:51:27 +0300</pubDate>
+        <link>https://cemretok.github.io/linux/2014/09/30/16.html</link>
+        <guid isPermaLink="true">https://cemretok.github.io/linux/2014/09/30/16.html</guid>
+        
+        
+        <category>linux</category>
+        
+      </item>
+    
+      <item>
+        <title>Linux Çekirdek Güncellemesi</title>
+        <description>&lt;p&gt;&lt;b&gt;Bu yazıyı tamamen okuduktan sonra işlemleri yapmaya başlarsanız hatayla karşılaşma oranınınız en aza iner. Altta bulunan not kısmı karşılaşılabilecek potansiyel hataları ve çözüm yollarını anlatmaktadır.&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;Linux -Ubuntu- sistemde çekirdek güncellemesi yapıcaz ben sanal sürücüde gerçekleştirdim bu işlemi yaklaşık 2 saat kadar sürdü. Herhangi bir linux dağıtımında da fazla bir değişiklik olmadan aynı kodların çalıştığını belirtmek isterim.&lt;/p&gt;
+
+&lt;p&gt;-Zor Yöntem-&lt;/p&gt;
+
+&lt;p&gt;1) İlk başta “&lt;b&gt;uname -a&lt;/b&gt;” komutu ile çekirdek versiyonunu öğreniyoruz.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/15-1.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;2)  “&lt;b&gt;Kernel&lt;/b&gt;” adında bir dosya oluşturdum ve içerisine Linux’un son stabil versiyonu olan “&lt;b&gt;3.16.3&lt;/b&gt;” paketini taşıdım. Bu paket kernel.org sitesinden indirilebilir. “&lt;b&gt;tar.xz&lt;/b&gt;” uzantılı olanı ve patch dasyasını indireceksiniz.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/15-2.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;3) Kernel dosyası içindeki çekirdeği sıkıştırılmış formattan çıkarttım.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/15-3.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;4)   Sonrasında Linux versiyonunun yanındaki patch’in  çekirdeğe kurulumunu yaptım “&lt;b&gt;-R&lt;/b&gt;” burada “&lt;b&gt;repeat&lt;/b&gt;” yani tekrar anlamı taşıyor.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/15-4.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;5) Çekirdeğin kullanıcı isteğine göre modüllerinin eklenip çıkartılması için gerekli olan “&lt;b&gt;make menuconfig&lt;/b&gt;” komutunu çalıştırdım ama gerekli kütüphaneler olmadığı için çalışmadı bu nedenle “&lt;b&gt;apt-get install libncurses5-dev&lt;/b&gt;” komutuyla “&lt;b&gt;libncurses5-dev&lt;/b&gt;“ paketini kurdum. Eğer “&lt;b&gt;make menuconfig&lt;/b&gt;” işlemini yapmazsanız, yükleme yaparken yaklaşık 50 kadar soruya tek tek cevap vermeniz gerekecek o yüzden yapmanızı tavsiye ederim.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/15-5.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;6) Ardından “&lt;b&gt;make menuconfig&lt;/b&gt;” komutunu çalıştırdım.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/15-6.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/15-7.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Herhangi bir değişiklik yapmadım. İstenirse modüller eklenip çıkartılabiliyor ama sonra USB belleğim ya da Internetim neden çalışmıyor diyebilirsiniz, dikkatli işlem yapmak gerekiyor.&lt;/p&gt;
+
+&lt;p&gt;7) Sonrasında “&lt;b&gt;apt-get install kernel-package&lt;/b&gt;” gerekli olan “&lt;b&gt;kernel-package&lt;/b&gt;” aracını yükledim. Kernel’ı derliyor.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/15-8.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;8) Derleme komutu “&lt;b&gt;make-kpkg kernel-image kernel_headers –initrd&lt;/b&gt;”&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/15-9.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Benim yaptığım derleme işlemi toplamda 1 saat 50 dakika sürdü.&lt;/p&gt;
+
+&lt;p&gt;10) Sonrasında  kernel dosyası içinde oluşan “&lt;b&gt;.deb&lt;/b&gt;” uzantılı paketleri yükledim. Biri image diğeri header paketi. Bunların yedeğini almakta fayda var derlemesi 2 saat sürüyor.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/15-10.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;11) Yükleme işlemi bittikten sonra linux’u yeniden başlatıyoruz. Bilgisayar açıldığı sırada “&lt;b&gt;Shift&lt;/b&gt;” tuşuna basılı tutuyoruz.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/15-11.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Karşımıza buna benzer bir ekran gelecek buradan çalıştırmak istediğimiz çekirdek sürümünü seçiyoruz. Bir önceki sürüm “&lt;b&gt;Previous Linux Versions&lt;/b&gt;” sekmesinde gözükecektir. Biz son yüklediğimiz versiyonu seçiyoruz ve başlatıyoruz.&lt;/p&gt;
+
+&lt;p&gt;12) Terminal satırına “&lt;b&gt;uname -a&lt;/b&gt;” komutunu giriyoruz ve yüklediğiniz çekirdeğin sürümünü görüyorsanız işlem tamam demektir. Görmüyorsanız alttaki not kısmını okuyun. Aynı işi yapan “&lt;b&gt;uname -r&lt;/b&gt;” ile sadece sürümü görüntülersiniz.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;**Not: Eğer yaptığınız kernel güncellemesi mevcut işletim sistemiyle uyuşmazlık yaşarsa sistemdeki bütün sürücüler hata vermeye başlar.  Bu nedenle kullandığınız kernel sürümüyle update edeceğiniz kernel sürümünün yakın olmasına dikkat edin kernel da 3.16.7 diyorsa siz 3.16.40 ya da 3.17.0 gibi güncellemeleri kurun. Zira sistemi kullanılmaz hale getirme olasılığınız çok yüksek.&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;-Kolay Yöntem-&lt;/p&gt;
+
+&lt;p&gt;Aslında işlemler 12. adımda bitti fakat bir yöntem daha var ondan da bahsetmek istiyorum. Yazının başlarında hazır “&lt;b&gt;.deb&lt;/b&gt;” kernel paketlerinden bahsetmiştik işte bunların yüklenmesi ile ilgili bikaç şey söylemek istiyorum.&lt;/p&gt;
+
+&lt;p&gt;Şu sayfada -&amp;gt;http://kernel.ubuntu.com/~kernel-ppa/mainline/ bütün kernel sürümlerini bulmak mümkün örneğin “&lt;b&gt;3.15.10&lt;/b&gt;” sürümünü ele alalım.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/15-12.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;
+Seçtiğimiz paketleri aşağıdaki gibi bir komutla indirip, yüklüyoruz.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/kernel &amp;amp;&amp;amp; wget http:/&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kernel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/~&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kernel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ppa&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mainline&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utopic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;linux&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;031510&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;generic_3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;031510&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;201408132333&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_i386&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kernel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/~&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kernel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ppa&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mainline&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utopic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;linux&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;031510_3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;031510&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;201408132333&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_all&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kernel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ubuntu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/~&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kernel&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ppa&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mainline&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;utopic&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;linux&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;image&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;031510&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;generic_3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;031510&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;201408132333&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_i386&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dpkg&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deb&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Bu dosyaların “&lt;b&gt;cd /kernel&lt;/b&gt;cd /kernel” komutu ile “&lt;b&gt;kernel&lt;/b&gt;” dizinine “&lt;b&gt;wget&lt;/b&gt;” aracı ile indiriyorum sonrasında “&lt;b&gt;sudo dpkg -i *.deb&lt;/b&gt;” ile de inen paketlerin kurulumunu yapıyorum. Böylece 2 saat derlemekle uğraşmadan hazır derlenmiş paketin kurulumunu yapabiliyorum. Gayet kolay bir yöntem.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 30 Sep 2014 00:51:27 +0300</pubDate>
+        <link>https://cemretok.github.io/linux/2014/09/30/15.html</link>
+        <guid isPermaLink="true">https://cemretok.github.io/linux/2014/09/30/15.html</guid>
+        
+        
+        <category>linux</category>
+        
+      </item>
+    
+      <item>
+        <title>SubTeacher (Altyazı Kelime Öğretici)</title>
+        <description>&lt;p&gt;SubTeacher’ı can sıkıntısına JavaFX ile geliştirdim, geliştirmeyede devam ediyorum. İngilizce altyazılı film izlerken aklıma takılan kelimeler oluyordu onları öğrenmek için, en azından aklımda kalması için bir yöntem arıyordum ki bulamadım, bende bu nedenle SubTeacher’ı geliştirmeye başladım. Kaynak kodlar herkese açıktır. Github sayfasından &lt;a href=&quot;https://github.com/cemretok/SubTeacher&quot;&gt;SubTeacher&lt;/a&gt; ulaşılabilir.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/14-1.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/14-2.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;
+*Resimler Matrix’e ait&lt;/p&gt;
+
+&lt;p&gt;Resimlerde de görüldüğü gibi uygulama istenileni yapıyor. Daha sonraki geliştirme sürecinde de &lt;a href=&quot;https://github.com/cemretok/SubTeacher/blob/master/README.md&quot;&gt;README.md&lt;/a&gt; sayfasında belirttiğim gibi geliştirmeler olacak, bunlar;&lt;/p&gt;
+
+&lt;p&gt;Çekimli kelimelerin çevrilmesi.
+Çeviri sıklığı seçeneği eklenmesi. (Cümlede bir ya da on satırda bir çeviri gibi…)
+Bağlaçların çevrilmemesi.
+Veritabanının kaldırılıp online aktarıma geçilmesi.
+Vakit olursa programın online halde de çalışmasını planlıyorum.
+Veritabanındaki kelimelerin düzeltilmesi.
+Seviyeye göre çeviri yapılması. (database’in düzenlenmesi gerekiyor -uzun iş-)
+Çok ütapik olacak ama kim bilir belki ilerde dil işleme bile yapılabilir.&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 30 Sep 2014 00:51:27 +0300</pubDate>
+        <link>https://cemretok.github.io/linux/2014/09/30/14.html</link>
+        <guid isPermaLink="true">https://cemretok.github.io/linux/2014/09/30/14.html</guid>
+        
+        
+        <category>linux</category>
+        
+      </item>
+    
+      <item>
+        <title>Ssh ile dosya gönderimi</title>
+        <description>&lt;p&gt;Herhangi bir ara bağlantı, server olmadan dosya gönderimi biraz meşakatli olmakta. İşte bu nedenden dolayı ssh’ın bize sağladığı kolaylıkları sonuna kadar kullanmak gerekiyor. Aşağıdaki resimde de görüldüğü üzere anahtar kelimemiz “&lt;b&gt;scp&lt;/b&gt;”  bu komutla iki bilgisayar arasında ssh ile dosya yollayabiliriz. Öncelikle “&lt;b&gt;scp&lt;/b&gt;” diyouz ardından göndermek istediğimiz dosyanın dizinini yazıyoruz. Eğer sizde mac kullanıcısı iseniz dosyayı terminal penceresine sürükleyip bıraktığınızda dizini otomatikman yazılacaktır sonrasında bağlanmak istediğiniz bilgisayarın kullanıcı adını yazıyorsunuz ki benimki “&lt;b&gt;pi&lt;/b&gt;” ardından “&lt;b&gt;@&lt;/b&gt;” işareti ve sonrasında diğer bilgisayarın ip adresini yazıyorsunuz görüldüğü gibi benimkisi yerel bir bağlantı olduğu için “&lt;b&gt;192.168.2.246&lt;/b&gt;” olarak yazılmış ardından gönderileceği dizini yazıyoruz ve enter diyerek gönderiyoruz. Sonrasından sizden bir şifre isteyecek bu şifre karşıdaki bilgisayarın “&lt;b&gt;pi&lt;/b&gt;” kullanıcısının şifresi olmalıdır. İşte herşey bu kadar kolay.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/13-1.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Tue, 30 Sep 2014 00:51:27 +0300</pubDate>
+        <link>https://cemretok.github.io/linux/2014/09/30/13.html</link>
+        <guid isPermaLink="true">https://cemretok.github.io/linux/2014/09/30/13.html</guid>
+        
+        
+        <category>linux</category>
+        
+      </item>
+    
+      <item>
+        <title>Mac OS X silinemeyen dosyalar ve yetersiz alan sorunu</title>
+        <description>&lt;p&gt;Mac sistemlerde dosyalar günlüklü bir biçimde tutulduğu için siz dosyalarınızı silseniz bile “&lt;b&gt;Time Machine&lt;/b&gt;” için dosyalar tutulur “&lt;a href=&quot;https://cemretok.github.io/linux/2014/09/29/11.html&quot;&gt;Clever Files&lt;/a&gt;” içerisinde de bunları bulabilirsiniz. İşte bu sorunu çözmek için silinemeyen ya da başla bir uygulama tarafından tutulan uygulamaları aşağıda gösterildiği gibi silebiliyoruz.
+*bu işlemden sonra dosyaları düzgün bir biçimde geri döndürme olanağınız yoktur.
+(Recovery programları ile bazıları hasarlı olarak kurtarılabiliyor.)&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/12-1.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 30 Sep 2014 00:51:27 +0300</pubDate>
+        <link>https://cemretok.github.io/linux/2014/09/30/12.html</link>
+        <guid isPermaLink="true">https://cemretok.github.io/linux/2014/09/30/12.html</guid>
+        
+        
+        <category>linux</category>
+        
+      </item>
+    
+      <item>
+        <title>Mac OS X  cleverfiles dosyasını silme</title>
+        <description>&lt;p&gt;Mac sistemlerde dosyayı çöp kutusundan silmek isteseniz bile sürücünün içindeki gizli “&lt;b&gt;./cleverfiles&lt;/b&gt;” dosyasının içinde bazı dosyalar belirli bir süre kalıyor. Birikmeleri sonucunda dosyalar hatrı sayılır bir yer kapladığı için arada sırada silmek gerekiyor bunun için komut satırına&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/.cleverfiles/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hlink&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ref&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Yazarsanız komple bütün dosyayı uçurur.&lt;/p&gt;
+
+&lt;p&gt;Eğer finder’a sağ tıklar go folder derseniz, açılan pencereye&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;sr&quot;&gt;/.cleverfiles&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Yazdığınızda yeni bir dosya açılacak, o dosyaya gelip “&lt;b&gt;hlink.ref&lt;/b&gt;” yazan dosyayı açın ve içinde fazla yer kaplayanları silin.&lt;/p&gt;
+
+&lt;p&gt;Eğer silme işlemini yaptığımız halde dosyalar silinmiyorsa ya da silme hatası alıyorsanız “&lt;b&gt;cmd + delete&lt;/b&gt;” komutunu uygulayın.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 30 Sep 2014 00:51:27 +0300</pubDate>
+        <link>https://cemretok.github.io/linux/2014/09/30/11.html</link>
+        <guid isPermaLink="true">https://cemretok.github.io/linux/2014/09/30/11.html</guid>
+        
+        
+        <category>linux</category>
+        
+      </item>
+    
+      <item>
+        <title>DigitalOcean&#39;da Linux Sisteme OpenVPN Kurulumu</title>
+        <description>&lt;p&gt;İşlemlere başlamadan önce yazının tamamını okumanızı tavsiye ederim zira adımlardaki ufak bir değişiklik bütün aşamaları etkilemektedir.&lt;/p&gt;
+
+&lt;p&gt;Öncelikle &lt;a href=&quot;https://www.digitalocean.com/?refcode=d1aec2dabdc0&quot;&gt;www.digitalocean.com&lt;/a&gt; sitesinden bahsetmek istiyorum. Sitenin amacı ucuz, hızlı, performaslı bir cloud hizmetler vermek. Biraz daha detaya inecek olursak size bulut üstünde yönetmeniz için bir işletim sistemi veriyor. En son halinde Ubuntu, Fedora, Debian ve CentOS işletim sistemlerini kurmanıza izin veriyor. Çok kolay bir kullanıma sahip olan &lt;a href=&quot;https://www.digitalocean.com/?refcode=d1aec2dabdc0&quot;&gt;www.digitalocean.com&lt;/a&gt; 55 saniye gibi iddalı bir sürede herşeyi hazır ve nazır bir biçimde önünüze getiriyor.&lt;/p&gt;
+
+&lt;p&gt;Üye olmak isterseniz şu adresten &lt;a href=&quot;https://www.digitalocean.com/?refcode=d1aec2dabdc0&quot;&gt;www.digitalocean.com&lt;/a&gt; ulaşılabiliyor. Ayrıca DROPLET DODROPLET PYTHONDROPLET promo kodları ile 10 dolar gibi bir miktar kazanabiliyorsunuz. Neredeyse iki ayda bir yeni promo kodu yayınladığı için hiç para vermeden hizmet alan kullanıcılar var.&lt;/p&gt;
+
+&lt;p&gt;Şimdi gelelim ana konumuza, VPN  servisi bildiğiniz gibi özel sanal ağ demek yani bizim hükümetin yasakladığı sitelere başka bir ülke aracılığıyla giriş yapabiliriz demek. Ya da başka amaçlar için kullanabilirsiniz orası sizin kullanım amacınıza bağlı.&lt;/p&gt;
+
+&lt;p&gt;Üye olduktan sonra CREATE kısmına geliyoruz ve CREATE DROPLET yazan kısma tıklıyoruz. Ardından resimde gösterilen alanları doldurup seçicez.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;İ&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sim&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;veriyoruz&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Server&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;ö&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zelliklerini&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;se&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ç&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iyoruz&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Amsterdam&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;ı seçiyoruz. (Türkiye&amp;#39;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ye&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ö&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;re&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;çı&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ndan&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;en&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iyi&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;verimi&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;burdan&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alabiliyoruz&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Ubuntuyu&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;se&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ç&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ip&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;  &lt;span class=&quot;mi&quot;&gt;32&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bit&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;versiyonunu&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;se&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ç&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;iyoruz&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ğ&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;er&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bu&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sizde&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ö&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ü&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;km&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ü&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yorsa&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;yaz&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tamam&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;okuman&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tavsiye&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ederim&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;SSH&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;ö&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nemli&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bunu&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nas&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ekleyece&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ğ&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inizi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;Ş&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;U&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ADRESTEN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;öğ&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;renebilirsiniz&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;CREATE&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;DROPLET&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;diyoruz&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/10-1.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;İşlem tamam 55 saniye sonra artık sizinde online bir işletim sisteminiz var ve biz buna OpenVPN kurucaz.&lt;/p&gt;
+
+&lt;p&gt;OpenVPN yazılımının bizim bulutta şeçtiğimiz işletim sistemine göre olanını şu adresten &lt;a href=&quot;http://openvpn.net/index.php/access-server/download-openvpn-as-sw.html&quot;&gt;OpenVPN&lt;/a&gt; üstüne sağ tıklayıp yükleme linkini alıcaz. Eğer sizde CREATE DORPLET kısmındaki sürümle OpenVPN sürümü uyuşmazsa uyuşan bir işletim sistemi yada VPN yazılımı seçebilirsiniz o size kalmış.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/10-2.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/10-3.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;SSH önemli demiştik Windowsda Putty’i kuruyoruz Mac de ise terminalle direk bağlanabiliyoruz.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/10-4.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Daha sonra başına wget gelecek şekilde kopyaladığımız linki buraya yapıştırıyoruz.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/10-5.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Yukardaki komutu yazdıktan sonra aşağıdaki bir yükleme ekranı çıkacak sonrasında içi boş kırmızı kare içine aldığım ilk yerde yazan yazının aynısını başında dpkg -i gelecek şekilde yazıyoruz.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/10-6.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Sonrasında karşımıza aşağıdaki gibi bir yazı gelecek.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/10-8.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Artık OpenVPN yüklendi buna bir şifre belirtmek gerekiyor aşağıdaki gibi yapıyoruz.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/10-9.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Bir yukarda yazan http://5.xxx.xxx.159:943/admin yazan linki kendi tarayıcımızda açıyoruz. Karşımıza aşağıdaki gibi bir ekran gelecek giriş yerine openvpn şifre yerine belirtmiş olduğunuz şifreyi yazıyoruz.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/10-9.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Giriş yaptıktan sonra lisans sözleşmeleri okuyup karşınıza çıkan her şeye evet diyoruz. Sonrasında, sonunda admin yazmayan linki tarayıcımızda açıyoruz. http://5.xxx.xxx.159:943 karşımıza gelen ekrana kullanıcı adı ve şifresini yazıyoruz.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/10-10.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Sonrasınada karşınıza aşağıdaki gibi bir ekran gelecek. Oradanda işletim sisteminize uygun olan client yazılımını indiriyoruz.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/10-11.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;İndirdiğimiz yazılımı bilgisayara kuruyoruz ve işlemimiz tamam. Eğer size kullanıcı adı ve şifre sorarsa yukarda belirtiğimiz gibi yazarsanız işlem tamam kolay gelsin gayet hızlı size ait bir VPN servisiniz olmuş oldu. Ek olarak aynı anda iki tane makinanın girmesine izin verdiği söyleniyor ama denemek gerek kolay gelsin.&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 30 Sep 2014 00:51:27 +0300</pubDate>
+        <link>https://cemretok.github.io/linux/2014/09/30/10.html</link>
+        <guid isPermaLink="true">https://cemretok.github.io/linux/2014/09/30/10.html</guid>
+        
+        
+        <category>linux</category>
+        
+      </item>
+    
+      <item>
+        <title>Linux da dosya kısayolu oluşturmak</title>
+        <description>&lt;p&gt;Dosyaların kısa yolunu oluşturmak için gerekli olan komut;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;ln&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/dosya/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yolu&lt;/span&gt;      &lt;span class=&quot;n&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sayolad&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;https://cemretok.github.io/assets/9-1.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;
+Bu kod bulunduğunuz dizine &lt;b&gt;/dosya/yolunu&lt;/b&gt; verdiğiniz dosyanın kısa yolunu yerleştirir.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 29 Sep 2014 00:51:27 +0300</pubDate>
+        <link>https://cemretok.github.io/linux/2014/09/29/9.html</link>
+        <guid isPermaLink="true">https://cemretok.github.io/linux/2014/09/29/9.html</guid>
+        
+        
+        <category>linux</category>
+        
+      </item>
+    
+  </channel>
+</rss>

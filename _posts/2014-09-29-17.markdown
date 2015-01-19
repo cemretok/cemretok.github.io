@@ -1,0 +1,17 @@
+---
+layout: post
+title:  "Linux Terminal Türkçe Karakter Sorunu"
+date:   2014-09-29 21:51:27
+categories: linux
+---
+DigitalOcean'ın dropletlerinde -linux server- Türkçe karakter görüntüleme ve kullanma sorunu olduğu için buna bir çözüm aradım ve debian da çalışan bir yöntem buldum [KAYNAK][3] olarak verdiğim linkteki adımlar takip edilince sorunsuz bir şekilde çalışan Türkçe terminaliniz oluyor.
+
+Olurda link uçarsa;
+
+1. [archive.org][1]
+
+2. [imgur.com][2]
+
+[1]: https://web.archive.org/web/20141101143045/http://l10n-turkish.alioth.debian.org/doc/debian-turkish-mini-HOWTO/debian-turkish-mini-HOWTO.html
+[2]: http://i.imgur.com/mSwLG6P.png
+[3]: http://l10n-turkish.alioth.debian.org/doc/debian-turkish-mini-HOWTO/debian-turkish-mini-HOWTO.html

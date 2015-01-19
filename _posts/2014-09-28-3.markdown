@@ -1,0 +1,59 @@
+---
+layout: post
+title:  "Raspberry Pi otomatik başlatma (Autologin)"
+date:   2014-09-28 21:51:27
+categories: linux
+---
+<b>Sorun yaşanmaması için yazıyı baştan sona kadar iyice okuduktan sonra uygulamaya geçmenizi öneririm.</b>
+
+Raspberry Pi'yi açtığımız her seferde ekrana bağlayıp startx ve login işlemlerini yapmaktansa bunu otomatik yapabilecek bir hale getirebiliyoruz. Örneğin elektrik kesildiğinde raspberry yeniden başlar ama login ekranını geçmeden işletim sistemi açılmaz işte biz bunu otomatik bir hale getireceğiz ve sistem her açılışında bize ihtiyaç duymayacak. Ssh ve Terminal bağlantısı kullanacağımız için eğer bilginiz yoksa  [BU BAĞLANTIDAN][1] yazı size fikir verecektir. İlk olarak /etc kısmında varolan inittab dosyasını okumak için alttaki komutu giriyoruz.
+
+
+
+{% highlight ruby %}
+sudo nano /etc/inittab
+{% endhighlight %}
+![My helpful screenshot]({{ site.url }}/assets/3-1.png)<br>
+Sonrasında açılan dosyada aşağıdaki satırı buluyoruz. (Dosyada dolanmak için klavyedeki ok işaretleri kullanılabilir.)
+
+
+{% highlight ruby %}
+1:2345:respawn:/sbin/getty 115200 tty1
+{% endhighlight %}
+Sonraki adımda bulduğumuz bu satırın başına "<b>#</b>" işaretini koyuyoruz benim klavyemde  "<b>alt+3</b>" işaretiyle yapılıyor.
+
+
+{% highlight ruby %}
+#1:2345:respawn:/sbin/getty 115200 tty1
+{% endhighlight %}
+Artık yukardaki gibi gözükmesi gerekiyor. Bir sonraki adımda değişiklik yaptığımız satırın altına aşağıdaki kodu yapıştırıyoruz.
+
+{% highlight ruby %}
+1:2345:respawn:/bin/login -f pi tty1 </dev/tty1 >/dev/tty1 2>&1
+{% endhighlight %}
+![My helpful screenshot]({{ site.url }}/assets/3-2.png)<br>
+
+Sonrasında <b>ctrl+x</b> diyoruz kaydetmek için Y tuşuna basıyoruz. Çıkmak için Enter'a tıklıyoruz. Login işlemini hallettik sonraki adımlarda masaüstünü yani startx'i otomatik hale getireceğiz. İlk olarak "<b>cd</b>" komutuyla ana dizine gelin.
+
+
+{% highlight ruby %}
+cd
+{% endhighlight %}
+Şimdide aşağıdaki komutu giriyoruz
+
+{% highlight ruby %}
+sudo nano /etc/rc.local
+{% endhighlight %}
+
+![My helpful screenshot]({{ site.url }}/assets/3-3.png)<br>
+
+Çıkan yazıların en sonunda exit 0  (exit sıfır) görmemiz gerekiyor onun bir üst satırına aşağıdaki komutu koyucaz.
+
+{% highlight ruby %}
+su -l pi -c startx
+{% endhighlight %}
+
+![My helpful screenshot]({{ site.url }}/assets/3-4.png)<br>
+ctrl+x yapıyoruz ve Y tuşuna tıklayarak kaydediyoruz. Enter'a basıp çıkıyoruz. İşlemler tamam artık kendi kendine login işlemini yapan ve masaüstü ortamını açabilen bir raspberryniz var.
+
+[1]: {{site.url}}/linux/2014/09/28/1.html
