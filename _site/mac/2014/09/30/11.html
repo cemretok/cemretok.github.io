@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Ssh ile dosya gönderimi</title>
-  <meta name="description" content="Herhangi bir ara bağlantı, server olmadan dosya gönderimi biraz meşakatli olmakta. İşte bu nedenden dolayı ssh’ın bize sağladığı kolaylıkları sonuna kadar ku...">
+  <title>Mac OS X  cleverfiles dosyasını silme</title>
+  <meta name="description" content="Mac sistemlerde dosyayı çöp kutusundan silmek isteseniz bile sürücünün içindeki gizli “./cleverfiles” dosyasının içinde bazı dosyalar belirli bir süre kalıyo...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="https://cemretok.github.io/linux/2014/09/30/13.html">
+  <link rel="canonical" href="https://cemretok.github.io/mac/2014/09/30/11.html">
   <link rel="alternate" type="application/rss+xml" title="Cemre Tok Kişisel Blog ve kb" href="https://cemretok.github.io/feed.xml" />
 </head>
 
@@ -57,14 +57,24 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Ssh ile dosya gönderimi</h1>
+    <h1 class="post-title">Mac OS X  cleverfiles dosyasını silme</h1>
     <p class="post-meta">Sep 30, 2014</p>
   </header>
 
   <article class="post-content">
-    <p>Herhangi bir ara bağlantı, server olmadan dosya gönderimi biraz meşakatli olmakta. İşte bu nedenden dolayı ssh’ın bize sağladığı kolaylıkları sonuna kadar kullanmak gerekiyor. Aşağıdaki resimde de görüldüğü üzere anahtar kelimemiz “<b>scp</b>”  bu komutla iki bilgisayar arasında ssh ile dosya yollayabiliriz. Öncelikle “<b>scp</b>” diyouz ardından göndermek istediğimiz dosyanın dizinini yazıyoruz. Eğer sizde mac kullanıcısı iseniz dosyayı terminal penceresine sürükleyip bıraktığınızda dizini otomatikman yazılacaktır sonrasında bağlanmak istediğiniz bilgisayarın kullanıcı adını yazıyorsunuz ki benimki “<b>pi</b>” ardından “<b>@</b>” işareti ve sonrasında diğer bilgisayarın ip adresini yazıyorsunuz görüldüğü gibi benimkisi yerel bir bağlantı olduğu için “<b>192.168.2.246</b>” olarak yazılmış ardından gönderileceği dizini yazıyoruz ve enter diyerek gönderiyoruz. Sonrasından sizden bir şifre isteyecek bu şifre karşıdaki bilgisayarın “<b>pi</b>” kullanıcısının şifresi olmalıdır. İşte herşey bu kadar kolay.</p>
+    <p>Mac sistemlerde dosyayı çöp kutusundan silmek isteseniz bile sürücünün içindeki gizli “<b>./cleverfiles</b>” dosyasının içinde bazı dosyalar belirli bir süre kalıyor. Birikmeleri sonucunda dosyalar hatrı sayılır bir yer kapladığı için arada sırada silmek gerekiyor bunun için komut satırına</p>
 
-<p><br /><img src="https://cemretok.github.io/assets/13-1.png" alt="My helpful screenshot" /><br /></p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">rm</span> <span class="o">-</span><span class="n">r</span> <span class="sr">/.cleverfiles/</span><span class="n">hlink</span><span class="o">.</span><span class="n">ref</span></code></pre></div>
+
+<p>Yazarsanız komple bütün dosyayı uçurur.</p>
+
+<p>Eğer finder’a sağ tıklar go folder derseniz, açılan pencereye</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="sr">/.cleverfiles</span></code></pre></div>
+
+<p>Yazdığınızda yeni bir dosya açılacak, o dosyaya gelip “<b>hlink.ref</b>” yazan dosyayı açın ve içinde fazla yer kaplayanları silin.</p>
+
+<p>Eğer silme işlemini yaptığımız halde dosyalar silinmiyorsa ya da silme hatası alıyorsanız “<b>cmd + delete</b>” komutunu uygulayın.</p>
 
   </article>
 
