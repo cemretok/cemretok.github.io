@@ -2,7 +2,7 @@
 layout: post
 title:  "Mac OS X silinemeyen dosyalar ve yetersiz alan sorunu"
 date:   2014-09-29 21:51:27
-categories: linux
+categories: mac
 ---
 Mac sistemlerde dosyalar günlüklü bir biçimde tutulduğu için siz dosyalarınızı silseniz bile "<b>Time Machine</b>" için dosyalar tutulur "[Clever Files][1]" içerisinde de bunları bulabilirsiniz. İşte bu sorunu çözmek için silinemeyen ya da başla bir uygulama tarafından tutulan uygulamaları aşağıda gösterildiği gibi silebiliyoruz.
 *bu işlemden sonra dosyaları düzgün bir biçimde geri döndürme olanağınız yoktur.

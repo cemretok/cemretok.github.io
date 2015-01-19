@@ -2,10 +2,10 @@
 layout: post
 title:  "Android APK imzalama"
 date:   2015-01-20 21:51:27
-categories: linux
+categories: android
 ---
 
-Apk'yı imzalamak için gerkli olan işlemler ve ek bilgiler
+Apk'yı imzalamak için gerekli olan işlemler ve ek bilgiler
 
 <br>![My helpful screenshot]({{ site.url }}/assets/19-1.png)<br>
 
