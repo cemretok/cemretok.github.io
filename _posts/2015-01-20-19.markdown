@@ -9,16 +9,31 @@ Apk'yı imzalamak için gerekli olan işlemler ve ek bilgiler
 
 <br>![My helpful screenshot]({{ site.url }}/assets/19-1.png)<br>
 
+{% highlight ruby %}
+cordova build --release android
+{% endhighlight %}
+
+{% highlight ruby %}
+keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+{% endhighlight %}
+
+{% highlight ruby %}
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore HelloWorld-release-unsigned.apk alias_name
+{% endhighlight %}
+
+
 Zipalign için android sdk ile bu işlemi yapmak gerekiyor
 Dizin;
 {% highlight ruby %}
 adt-bundle-mac-x86_64-20140702/sdk/build-tools/android-4.4W/zipalign 
 {% endhighlight %}
 
-En baştaki <b>./</b> Kısmına dikkat etmek gerekiyor
+Komutun başındaki<b> ./ </b>işaretine dikkat etmek gerekiyor.
 {% highlight ruby %}
-./zipalign -v 4 Project1.apk Project1-aligned.apk
+./zipalign -v 4 HelloWorld-release-unsigned.apk HelloWorld.apk
 {% endhighlight %}
+
+
 
 
 
