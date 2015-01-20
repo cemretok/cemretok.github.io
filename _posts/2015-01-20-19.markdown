@@ -22,7 +22,7 @@ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.
 {% endhighlight %}
 
 
-Zipalign için android sdk ile bu işlemi yapmak gerekiyor
+Zipalign için android sdk ile bu işlemi yapmak gerekiyor<br>
 Dizin;
 {% highlight ruby %}
 adt-bundle-mac-x86_64-20140702/sdk/build-tools/android-4.4W/zipalign 
