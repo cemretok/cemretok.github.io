@@ -1,0 +1,247 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Linux ile Modül Programlama &#8211; Cemre Tok</title>
+<meta name="description" content="Deneyim ve kb.">
+<meta name="keywords" content="">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/">
+<meta name="twitter:title" content="Linux ile Modül Programlama">
+<meta name="twitter:description" content="Deneyim ve kb.">
+<meta name="twitter:creator" content="@cemretok">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux ile Modül Programlama">
+<meta property="og:description" content="Deneyim ve kb.">
+<meta property="og:url" content="/linux/16/">
+<meta property="og:site_name" content="Cemre Tok">
+
+
+
+
+
+<link rel="canonical" href="/linux/16/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Cemre Tok Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Ana Sayfa</a></li>
+		<li>
+			<a href="#">Hakkımda</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpg" alt="Cemre Tok photo" class="author-photo">
+					<h4>Cemre Tok</h4>
+					<p>İstanbul</p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Daha Fazlası</span></a></li>
+				
+				<li>
+					<a href="http://twitter.com/cemretok"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				<li>
+					<a href="http://facebook.com/tokcemre"><i class="fa fa-fw fa-facebook"></i> Facebook</a>
+				</li>
+				
+				
+				<li>
+					<a href="http://github.com/cemretok"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Gönderiler</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">Tüm Gönderiler</a></li>
+				<li><a href="/tags/">Tüm Etiketler</a></li>
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/linux/16/" rel="bookmark" title="Linux ile Modül Programlama">Linux ile Modül Programlama</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2014-09-30T00:51:27+03:00">September 30, 2014</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+          Okuma Süresi ~1 Dakika
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>Modüller çekirdek için yazılan programlardır. User space olarak tanımladığımız ve hergün kullandığımız işletim sisteminin bir alt katmanıdır. Kısacası linux çekirdeğinin içidir. Bizde burada çalışan bir “Hello World” uygulaması yapıcaz.</p>
+
+<p>1) Aşağıdaki gibi “<b>/home</b>” dizininde <b>denemeler</b> adlı bir klasör oluşturun.</p>
+
+<p><br /><img src="/assets/16-1.png" alt="My helpful screenshot" /><br /></p>
+
+<p>2) Terminale “<b>cd denemeler</b>” yazarak dizine girin ve “<b>pico</b>” editörüyle “<b>hello.c</b>” dosyası oluşturun.</p>
+
+<p><br /><img src="/assets/16-2.png" alt="My helpful screenshot" /><br /></p>
+
+<p>3) İçerisine aşağıdaki kodları yazın. Dosyayı kaydetmek için “<b>CTRL + X</b>” kombinasyonuyla çıkış yapın size kaydetmek istermisiniz diye sorduğunda “<b>E</b>” ya da “<b>Y</b>” tuşlarına basarsınız.</p>
+
+<p><br /><img src="/assets/16-3.png" alt="My helpful screenshot" /><br /></p>
+
+<p>4) Az önceki “<b>C</b>” kodunun çalışması için bir “<b>Makefile</b>” dosyası lazım      “<b>pico Makefile</b>” ile oluşturun.</p>
+
+<p><br /><img src="/assets/16-4.png" alt="My helpful screenshot" /><br /></p>
+
+<p>5) İçerisine tıpkı aşağıdaki gibi yazın eger all ve clean kısımlarından sonra “<b>TAB</b>” ile boşluk bırakmazsanız hata alırsınız dikkat edin. Dosyayı kaydetmek için “<b>CTRL + X</b>” kombinasyonuyla çıkış yapın size kaydetmek istermisiniz diye sorduğunda “<b>E</b>” ya da “<b>Y</b>” tuşlarına basarsınız.</p>
+
+<p><br /><img src="/assets/16-5.png" alt="My helpful screenshot" /><br /></p>
+
+<p>6) Terminale “<b>make</b>” yazın ve kodunuzu derleyin. Eğer make komutunu çalıştıran program yoksa “<b>sudo apt-get install make</b>” yazarak yükleyebilirsiniz.</p>
+
+<p><br /><img src="/assets/16-6.png" alt="My helpful screenshot" /><br /></p>
+
+<p>7) Terminale “<b>ls</b>” yazın ve klasörün içerisinde <b>hello.ko</b> oluşmuş mu ona bakın. Eğer oluştuysa “<b>sudo insmod hello.ko</b>” yazarak modülü çekirdeğe yükleyebilirsiniz. Yüklediğinizde kodun içindeki print ifadelerinin barındırdığı string “<b>log</b>” dosyalarına yazılır. Neden diye sorarsanız print komutunda <b>KERN_INFO</b> ile belirttiğiniz için. Sonra terminale “<b>dmesg</b>” komutu girerseniz bütün logları görüntüleyebilirsiniz.
+<br /><img src="/assets/16-7.png" alt="My helpful screenshot" /><br /></p>
+
+<p>8) Görüldüğü gibi “<b>Hello World</b>” yazısı çıkıyor.</p>
+
+<p><br /><img src="/assets/16-8.png" alt="My helpful screenshot" /><br /></p>
+
+<p>9) Terminale “<b>sudo rmmod hello.ko</b>” yazarsanız modülü kaldırır ve log kısmına “<b>Goodby World</b>” yazar.</p>
+
+<p>Kolay gelsin.</p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/linux/16/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/linux/16/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/linux/16/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/linux/15/" class="read-more-btn">Daha Fazla Oku</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/android/19/" title="Android APK imzalama">Android APK imzalama</a></h3>
+      <p>Apk'yı imzalamak için gerekli olan işlemler ve ek bilgiler![My helpful screenshot]({{ site.url }}/assets/19-1.png){% highlight ruby %}cor...&hellip; <a href="/android/19/">Okumaya Devam Et</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/linux/18/" title="Crontab -e Komutunun Kullanımı">Crontab -e Komutunun Kullanımı</a></h4>
+        <span>Yayınlandı January 19, 2015</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/linux/17/" title="Linux Terminal Türkçe Karakter Sorunu">Linux Terminal Türkçe Karakter Sorunu</a></h4>
+        <span>Yayınlandı September 30, 2014</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span></span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+
+
+
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'cemretok'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+
+</body>
+</html>
