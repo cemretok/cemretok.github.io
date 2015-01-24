@@ -197,14 +197,16 @@ function notifyMe() {
       if (Notification.permission !== "granted")
         Notification.requestPermission();
 
-      var notification = new Notification('Notification title', {
+      var notification = new Notification('Bloğuma Hoşgeldin!', {
         icon: 'https://cemretok.github.io/images/avatar.jpg',
-        body: "Bloğuma Hoşgeldin! RSS ile takip etmek için tıklaman yeterli.",
+        body: "RSS ile takip etmek için tıklaman yeterli.",
       });
 
 
       notification.onclick = function () {
         window.open("https://cemretok.github.io/feed.xml");
+	  }
+  }
 </script>
 
 <!-- Asynchronous Google Analytics snippet -->
