@@ -132,7 +132,7 @@
 
 <div id="main" role="main">
   
-<article class="hentry">
+<article class="hentry" onload="notifyMe()">
   <header>
     
     <div class="entry-meta">
@@ -203,7 +203,7 @@ Karşınıza aşağıdaki şekildeki gibi bir ekran gelicek.</p>
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
+<article class="hentry" onload="notifyMe()">
   <header>
     
     <div class="entry-meta">
@@ -263,7 +263,7 @@ ctrl+x yapıyoruz ve Y tuşuna tıklayarak kaydediyoruz. Enter’a basıp çık�
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
+<article class="hentry" onload="notifyMe()">
   <header>
     
     <div class="entry-meta">
@@ -346,7 +346,7 @@ Artık otomatik olarak başlayan bir vnc serverımız bulunmaktadır. İp adresi
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
 
-<article class="hentry">
+<article class="hentry" onload="notifyMe()">
   <header>
     
     <div class="entry-meta">
@@ -436,7 +436,25 @@ Artık otomatik olarak başlayan bir vnc serverımız bulunmaktadır. İp adresi
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="/assets/js/scripts.min.js"></script>
+<script>
+function notifyMe() {
+      if (!Notification) {
+        alert('Please us a modern version of Chrome, Firefox, Opera or Firefox.');
+        return;
+      }
 
+      if (Notification.permission !== "granted")
+        Notification.requestPermission();
+
+      var notification = new Notification('Notification title', {
+        icon: 'https://cemretok.github.io/images/avatar.jpg',
+        body: "Bloğuma Hoşgeldin! RSS ile takip etmek için tıklaman yeterli.",
+      });
+
+
+      notification.onclick = function () {
+        window.open("https://cemretok.github.io/feed.xml");
+</script>
 
 <!-- Asynchronous Google Analytics snippet -->
 <script>
