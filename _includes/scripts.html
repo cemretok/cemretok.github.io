@@ -1,7 +1,25 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="{{ site.url }}/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="{{ site.url }}/assets/js/scripts.min.js"></script>
+<script>
+function notifyMe() {
+      if (!Notification) {
+        alert('Please us a modern version of Chrome, Firefox, Opera or Firefox.');
+        return;
+      }
 
+      if (Notification.permission !== "granted")
+        Notification.requestPermission();
+
+      var notification = new Notification('Notification title', {
+        icon: 'https://cemretok.github.io/images/avatar.jpg',
+        body: "Bloğuma Hoşgeldin! RSS ile takip etmek için tıklaman yeterli.",
+      });
+
+
+      notification.onclick = function () {
+        window.open("https://cemretok.github.io/feed.xml");
+</script>
 {% if site.google_analytics %}
 <!-- Asynchronous Google Analytics snippet -->
 <script>

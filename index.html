@@ -10,8 +10,10 @@ image:
   #creditlink: http://www.dargadgetz.com/ios-7-abstract-wallpaper-pack-for-iphone-5-and-ipod-touch-retina/
 ---
 
+
+
 {% for post in paginator.posts %}
-<article class="hentry">
+<article class="hentry" onload="notifyMe()">
   <header>
     {% if post.image.feature %}
       <div class="entry-image-index">
