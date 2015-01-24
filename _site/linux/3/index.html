@@ -224,24 +224,24 @@ ctrl+x yapıyoruz ve Y tuşuna tıklayarak kaydediyoruz. Enter’a basıp çık�
 <script src="/assets/js/scripts.min.js"></script>
 <script>
 function notifyMe() {
-      if (!Notification) {
-        alert('Please us a modern version of Chrome, Firefox, Opera or Firefox.');
-        return;
-      }
-
-      if (Notification.permission !== "granted")
-        Notification.requestPermission();
-
-      var notification = new Notification('Bloğuma Hoşgeldin!', {
-        icon: 'https://cemretok.github.io/images/avatar.jpg',
-        body: "RSS ile takip etmek için tıklaman yeterli.",
-      });
-
-
-      notification.onclick = function () {
-        window.open("https://cemretok.github.io/feed.xml");
-	  }
+  if (!Notification) {
+    alert('Uyarılar sadece Chrome, Firefox ve Opera tarayıcılarında çalışmaktadır.'); 
+    return;
   }
+
+  if (Notification.permission !== "granted")
+    Notification.requestPermission();
+
+  var notification = new Notification('Bloğuma Hoşgeldin!', {
+    icon: 'https://cemretok.github.io/images/avatar.jpg',
+    body: "RSS ile takip etmek için tıklaman yeterli.",
+  });
+
+  notification.onclick = function () {
+    window.open("http://stackoverflow.com/a/13328397/1269037");      
+  };
+}
+
 </script>
 
 <!-- Asynchronous Google Analytics snippet -->
