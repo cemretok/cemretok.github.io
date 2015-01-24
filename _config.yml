@@ -24,7 +24,7 @@ owner:
   # google plus id, include the '+', eg +mmistakes
 
 # Background image to be tiled on all pages
-background: cloud.png
+background: congruent_outline.png
 
 # Analytics and webmaster tools stuff goes here
 google_analytics:   UA-58893455-1
