@@ -1,0 +1,16 @@
+---
+layout: post
+title:  "Dex2jar Mac"
+date:   2015-02-05 21:51:27
+categories: linux
+---
+
+Linux ile dosyaların zip ve unzip 'lenmesi 
+
+{% highlight ruby %}
+sudo apt-get install zip unzip
+
+zip data * // dosyayı zipler
+zip -r data * // alt dosyaları zipler
+unzip  pics.zip
+{% endhighlight %}
