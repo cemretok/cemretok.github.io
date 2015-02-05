@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Dex2jar Mac"
+title:  "Linux Zip / Unzip"
 date:   2015-02-05 21:51:27
 categories: linux
 ---
