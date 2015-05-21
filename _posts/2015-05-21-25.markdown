@@ -37,4 +37,11 @@ gem install bundler
 bundle install
 {% endhighlight %}
 
+Çalıştırılmak istendiğinde;
+
+{% highlight ruby %}
+bundle exec jekyll serve
+bundle exec jekyll build
+{% endhighlight %}
+
 [1]: https://help.github.com/articles/using-jekyll-with-pages/
