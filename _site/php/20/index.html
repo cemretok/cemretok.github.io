@@ -1,0 +1,509 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Php Proxy için gerekenler &#8211; Cemre Tok</title>
+<meta name="description" content="Deneyim ve kb.">
+<meta name="keywords" content="">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/">
+<meta name="twitter:title" content="Php Proxy için gerekenler">
+<meta name="twitter:description" content="Deneyim ve kb.">
+<meta name="twitter:creator" content="@cemretok">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Php Proxy için gerekenler">
+<meta property="og:description" content="Deneyim ve kb.">
+<meta property="og:url" content="/php/20/">
+<meta property="og:site_name" content="Cemre Tok">
+
+
+
+
+
+<link rel="canonical" href="/php/20/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Cemre Tok Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+
+<style type="text/css">body {background-image:url(/images/transmit.png);}</style>
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Ana Sayfa</a></li>
+		<li>
+			<a href="#">Hakkımda</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpg" alt="Cemre Tok photo" class="author-photo">
+					<h4>Cemre Tok</h4>
+					<p>İstanbul</p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Daha Fazlası</span></a></li>
+				
+				<li>
+					<a href="http://twitter.com/cemretok"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				<li>
+					<a href="http://facebook.com/tokcemre"><i class="fa fa-fw fa-facebook"></i> Facebook</a>
+				</li>
+				
+				
+				<li>
+					<a href="http://github.com/cemretok"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Yazılarım</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">Tüm Yazılarım</a></li>
+				<li><a href="/tags/">Tüm Etiketler</a></li>
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/php/20/" rel="bookmark" title="Php Proxy için gerekenler">Php Proxy için gerekenler</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2015-01-26T23:51:27+02:00">January 26, 2015</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+          Okuma Süresi ~9 Dakika
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <p>Server’a aşağıdaki eklentileri yükle</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">php5</span><span class="o">-</span><span class="n">curl</span>
+<span class="err">$</span> <span class="n">sudo</span> <span class="sr">/etc/ini</span><span class="n">t</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">apache2</span> <span class="n">restart</span></code></pre></div>
+
+<p>Php dosyasını çalıştır parametre olarak <b>?url=</b> istediğin sitenin adresini yaz.</p>
+
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?PHP</span>
+
+<span class="c1">// Script: Simple PHP Proxy: Get external HTML, JSON and more!</span>
+<span class="c1">//</span>
+<span class="c1">// *Version: 1.6, Last updated: 1/24/2009*</span>
+<span class="c1">// </span>
+<span class="c1">// Project Home - http://benalman.com/projects/php-simple-proxy/</span>
+<span class="c1">// GitHub       - http://github.com/cowboy/php-simple-proxy/</span>
+<span class="c1">// Source       - http://github.com/cowboy/php-simple-proxy/raw/master/ba-simple-proxy.php</span>
+<span class="c1">// </span>
+<span class="c1">// About: License</span>
+<span class="c1">// </span>
+<span class="c1">// Copyright (c) 2010 &quot;Cowboy&quot; Ben Alman,</span>
+<span class="c1">// Dual licensed under the MIT and GPL licenses.</span>
+<span class="c1">// http://benalman.com/about/license/</span>
+<span class="c1">// </span>
+<span class="c1">// About: Examples</span>
+<span class="c1">// </span>
+<span class="c1">// This working example, complete with fully commented code, illustrates one way</span>
+<span class="c1">// in which this PHP script can be used.</span>
+<span class="c1">// </span>
+<span class="c1">// Simple - http://benalman.com/code/projects/php-simple-proxy/examples/simple/</span>
+<span class="c1">// </span>
+<span class="c1">// About: Release History</span>
+<span class="c1">// </span>
+<span class="c1">// 1.6 - (1/24/2009) Now defaults to JSON mode, which can now be changed to</span>
+<span class="c1">//       native mode by specifying ?mode=native. Native and JSONP modes are</span>
+<span class="c1">//       disabled by default because of possible XSS vulnerability issues, but</span>
+<span class="c1">//       are configurable in the PHP script along with a url validation regex.</span>
+<span class="c1">// 1.5 - (12/27/2009) Initial release</span>
+<span class="c1">// </span>
+<span class="c1">// Topic: GET Parameters</span>
+<span class="c1">// </span>
+<span class="c1">// Certain GET (query string) parameters may be passed into ba-simple-proxy.php</span>
+<span class="c1">// to control its behavior, this is a list of these parameters. </span>
+<span class="c1">// </span>
+<span class="c1">//   url - The remote URL resource to fetch. Any GET parameters to be passed</span>
+<span class="c1">//     through to the remote URL resource must be urlencoded in this parameter.</span>
+<span class="c1">//   mode - If mode=native, the response will be sent using the same content</span>
+<span class="c1">//     type and headers that the remote URL resource returned. If omitted, the</span>
+<span class="c1">//     response will be JSON (or JSONP). &lt;Native requests&gt; and &lt;JSONP requests&gt;</span>
+<span class="c1">//     are disabled by default, see &lt;Configuration Options&gt; for more information.</span>
+<span class="c1">//   callback - If specified, the response JSON will be wrapped in this named</span>
+<span class="c1">//     function call. This parameter and &lt;JSONP requests&gt; are disabled by</span>
+<span class="c1">//     default, see &lt;Configuration Options&gt; for more information.</span>
+<span class="c1">//   user_agent - This value will be sent to the remote URL request as the</span>
+<span class="c1">//     `User-Agent:` HTTP request header. If omitted, the browser user agent</span>
+<span class="c1">//     will be passed through.</span>
+<span class="c1">//   send_cookies - If send_cookies=1, all cookies will be forwarded through to</span>
+<span class="c1">//     the remote URL request.</span>
+<span class="c1">//   send_session - If send_session=1 and send_cookies=1, the SID cookie will be</span>
+<span class="c1">//     forwarded through to the remote URL request.</span>
+<span class="c1">//   full_headers - If a JSON request and full_headers=1, the JSON response will</span>
+<span class="c1">//     contain detailed header information.</span>
+<span class="c1">//   full_status - If a JSON request and full_status=1, the JSON response will</span>
+<span class="c1">//     contain detailed cURL status information, otherwise it will just contain</span>
+<span class="c1">//     the `http_code` property.</span>
+<span class="c1">// </span>
+<span class="c1">// Topic: POST Parameters</span>
+<span class="c1">// </span>
+<span class="c1">// All POST parameters are automatically passed through to the remote URL</span>
+<span class="c1">// request.</span>
+<span class="c1">// </span>
+<span class="c1">// Topic: JSON requests</span>
+<span class="c1">// </span>
+<span class="c1">// This request will return the contents of the specified url in JSON format.</span>
+<span class="c1">// </span>
+<span class="c1">// Request:</span>
+<span class="c1">// </span>
+<span class="c1">// &gt; ba-simple-proxy.php?url=http://example.com/</span>
+<span class="c1">// </span>
+<span class="c1">// Response:</span>
+<span class="c1">// </span>
+<span class="c1">// &gt; { &quot;contents&quot;: &quot;&lt;html&gt;...&lt;/html&gt;&quot;, &quot;headers&quot;: {...}, &quot;status&quot;: {...} }</span>
+<span class="c1">// </span>
+<span class="c1">// JSON object properties:</span>
+<span class="c1">// </span>
+<span class="c1">//   contents - (String) The contents of the remote URL resource.</span>
+<span class="c1">//   headers - (Object) A hash of HTTP headers returned by the remote URL</span>
+<span class="c1">//     resource.</span>
+<span class="c1">//   status - (Object) A hash of status codes returned by cURL.</span>
+<span class="c1">// </span>
+<span class="c1">// Topic: JSONP requests</span>
+<span class="c1">// </span>
+<span class="c1">// This request will return the contents of the specified url in JSONP format</span>
+<span class="c1">// (but only if $enable_jsonp is enabled in the PHP script).</span>
+<span class="c1">// </span>
+<span class="c1">// Request:</span>
+<span class="c1">// </span>
+<span class="c1">// &gt; ba-simple-proxy.php?url=http://example.com/&amp;callback=foo</span>
+<span class="c1">// </span>
+<span class="c1">// Response:</span>
+<span class="c1">// </span>
+<span class="c1">// &gt; foo({ &quot;contents&quot;: &quot;&lt;html&gt;...&lt;/html&gt;&quot;, &quot;headers&quot;: {...}, &quot;status&quot;: {...} })</span>
+<span class="c1">// </span>
+<span class="c1">// JSON object properties:</span>
+<span class="c1">// </span>
+<span class="c1">//   contents - (String) The contents of the remote URL resource.</span>
+<span class="c1">//   headers - (Object) A hash of HTTP headers returned by the remote URL</span>
+<span class="c1">//     resource.</span>
+<span class="c1">//   status - (Object) A hash of status codes returned by cURL.</span>
+<span class="c1">// </span>
+<span class="c1">// Topic: Native requests</span>
+<span class="c1">// </span>
+<span class="c1">// This request will return the contents of the specified url in the format it</span>
+<span class="c1">// was received in, including the same content-type and other headers (but only</span>
+<span class="c1">// if $enable_native is enabled in the PHP script).</span>
+<span class="c1">// </span>
+<span class="c1">// Request:</span>
+<span class="c1">// </span>
+<span class="c1">// &gt; ba-simple-proxy.php?url=http://example.com/&amp;mode=native</span>
+<span class="c1">// </span>
+<span class="c1">// Response:</span>
+<span class="c1">// </span>
+<span class="c1">// &gt; &lt;html&gt;...&lt;/html&gt;</span>
+<span class="c1">// </span>
+<span class="c1">// Topic: Notes</span>
+<span class="c1">// </span>
+<span class="c1">// * Assumes magic_quotes_gpc = Off in php.ini</span>
+<span class="c1">// </span>
+<span class="c1">// Topic: Configuration Options</span>
+<span class="c1">// </span>
+<span class="c1">// These variables can be manually edited in the PHP file if necessary.</span>
+<span class="c1">// </span>
+<span class="c1">//   $enable_jsonp - Only enable &lt;JSONP requests&gt; if you really need to. If you</span>
+<span class="c1">//     install this script on the same server as the page you&#39;re calling it</span>
+<span class="c1">//     from, plain JSON will work. Defaults to false.</span>
+<span class="c1">//   $enable_native - You can enable &lt;Native requests&gt;, but you should only do</span>
+<span class="c1">//     this if you also whitelist specific URLs using $valid_url_regex, to avoid</span>
+<span class="c1">//     possible XSS vulnerabilities. Defaults to false.</span>
+<span class="c1">//   $valid_url_regex - This regex is matched against the url parameter to</span>
+<span class="c1">//     ensure that it is valid. This setting only needs to be used if either</span>
+<span class="c1">//     $enable_jsonp or $enable_native are enabled. Defaults to &#39;/.*/&#39; which</span>
+<span class="c1">//     validates all URLs.</span>
+<span class="c1">// </span>
+<span class="c1">// ############################################################################</span>
+
+<span class="c1">// Change these configuration options if needed, see above descriptions for info.</span>
+<span class="nv">$enable_jsonp</span>    <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$enable_native</span>   <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$valid_url_regex</span> <span class="o">=</span> <span class="s1">&#39;/.*/&#39;</span><span class="p">;</span>
+
+<span class="c1">// ############################################################################</span>
+
+<span class="nv">$url</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">];</span>
+
+<span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nv">$url</span> <span class="p">)</span> <span class="p">{</span>
+  
+  <span class="c1">// Passed url not specified.</span>
+  <span class="nv">$contents</span> <span class="o">=</span> <span class="s1">&#39;ERROR: url not specified&#39;</span><span class="p">;</span>
+  <span class="nv">$status</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;http_code&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;ERROR&#39;</span> <span class="p">);</span>
+  
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nb">preg_match</span><span class="p">(</span> <span class="nv">$valid_url_regex</span><span class="p">,</span> <span class="nv">$url</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+  
+  <span class="c1">// Passed url doesn&#39;t match $valid_url_regex.</span>
+  <span class="nv">$contents</span> <span class="o">=</span> <span class="s1">&#39;ERROR: invalid url&#39;</span><span class="p">;</span>
+  <span class="nv">$status</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;http_code&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;ERROR&#39;</span> <span class="p">);</span>
+  
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">(</span> <span class="nv">$url</span> <span class="p">);</span>
+  
+  <span class="k">if</span> <span class="p">(</span> <span class="nb">strtolower</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REQUEST_METHOD&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="s1">&#39;post&#39;</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nb">curl_setopt</span><span class="p">(</span> <span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="k">true</span> <span class="p">);</span>
+    <span class="nb">curl_setopt</span><span class="p">(</span> <span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nv">$_POST</span> <span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="k">if</span> <span class="p">(</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;send_cookies&#39;</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$cookie</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+    <span class="k">foreach</span> <span class="p">(</span> <span class="nv">$_COOKIE</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$value</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="nv">$cookie</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$key</span> <span class="o">.</span> <span class="s1">&#39;=&#39;</span> <span class="o">.</span> <span class="nv">$value</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;send_session&#39;</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="nv">$cookie</span><span class="p">[]</span> <span class="o">=</span> <span class="nx">SID</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nv">$cookie</span> <span class="o">=</span> <span class="nb">implode</span><span class="p">(</span> <span class="s1">&#39;; &#39;</span><span class="p">,</span> <span class="nv">$cookie</span> <span class="p">);</span>
+    
+    <span class="nb">curl_setopt</span><span class="p">(</span> <span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_COOKIE</span><span class="p">,</span> <span class="nv">$cookie</span> <span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="nb">curl_setopt</span><span class="p">(</span> <span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_FOLLOWLOCATION</span><span class="p">,</span> <span class="k">true</span> <span class="p">);</span>
+  <span class="nb">curl_setopt</span><span class="p">(</span> <span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HEADER</span><span class="p">,</span> <span class="k">true</span> <span class="p">);</span>
+  <span class="nb">curl_setopt</span><span class="p">(</span> <span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">true</span> <span class="p">);</span>
+  
+  <span class="nb">curl_setopt</span><span class="p">(</span> <span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_USERAGENT</span><span class="p">,</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;user_agent&#39;</span><span class="p">]</span> <span class="o">?</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;user_agent&#39;</span><span class="p">]</span> <span class="o">:</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_USER_AGENT&#39;</span><span class="p">]</span> <span class="p">);</span>
+  
+  <span class="k">list</span><span class="p">(</span> <span class="nv">$header</span><span class="p">,</span> <span class="nv">$contents</span> <span class="p">)</span> <span class="o">=</span> <span class="nb">preg_split</span><span class="p">(</span> <span class="s1">&#39;/([\r\n][\r\n])\\1/&#39;</span><span class="p">,</span> <span class="nb">curl_exec</span><span class="p">(</span> <span class="nv">$ch</span> <span class="p">),</span> <span class="mi">2</span> <span class="p">);</span>
+  
+  <span class="nv">$status</span> <span class="o">=</span> <span class="nb">curl_getinfo</span><span class="p">(</span> <span class="nv">$ch</span> <span class="p">);</span>
+  
+  <span class="nb">curl_close</span><span class="p">(</span> <span class="nv">$ch</span> <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Split header text into an array.</span>
+<span class="nv">$header_text</span> <span class="o">=</span> <span class="nb">preg_split</span><span class="p">(</span> <span class="s1">&#39;/[\r\n]+/&#39;</span><span class="p">,</span> <span class="nv">$header</span> <span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;mode&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;native&#39;</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nv">$enable_native</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$contents</span> <span class="o">=</span> <span class="s1">&#39;ERROR: invalid mode&#39;</span><span class="p">;</span>
+    <span class="nv">$status</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;http_code&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;ERROR&#39;</span> <span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="c1">// Propagate headers to response.</span>
+  <span class="k">foreach</span> <span class="p">(</span> <span class="nv">$header_text</span> <span class="k">as</span> <span class="nv">$header</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="nb">preg_match</span><span class="p">(</span> <span class="s1">&#39;/^(?:Content-Type|Content-Language|Set-Cookie):/i&#39;</span><span class="p">,</span> <span class="nv">$header</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="nb">header</span><span class="p">(</span> <span class="nv">$header</span> <span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">print</span> <span class="nv">$contents</span><span class="p">;</span>
+  
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  
+  <span class="c1">// $data will be serialized into JSON data.</span>
+  <span class="nv">$data</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+  
+  <span class="c1">// Propagate all HTTP headers into the JSON data object.</span>
+  <span class="k">if</span> <span class="p">(</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;full_headers&#39;</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;headers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+    
+    <span class="k">foreach</span> <span class="p">(</span> <span class="nv">$header_text</span> <span class="k">as</span> <span class="nv">$header</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="nb">preg_match</span><span class="p">(</span> <span class="s1">&#39;/^(.+?):\s+(.*)$/&#39;</span><span class="p">,</span> <span class="nv">$header</span><span class="p">,</span> <span class="nv">$matches</span> <span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span> <span class="nv">$matches</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;headers&#39;</span><span class="p">][</span> <span class="nv">$matches</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">]</span> <span class="o">=</span> <span class="nv">$matches</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="c1">// Propagate all cURL request / response info to the JSON data object.</span>
+  <span class="k">if</span> <span class="p">(</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;full_status&#39;</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$status</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+    <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">][</span><span class="s1">&#39;http_code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$status</span><span class="p">[</span><span class="s1">&#39;http_code&#39;</span><span class="p">];</span>
+  <span class="p">}</span>
+  
+  <span class="c1">// Set the JSON data object contents, decoding it from JSON if possible.</span>
+  <span class="nv">$decoded_json</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span> <span class="nv">$contents</span> <span class="p">);</span>
+  <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;contents&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$decoded_json</span> <span class="o">?</span> <span class="nv">$decoded_json</span> <span class="o">:</span> <span class="nv">$contents</span><span class="p">;</span>
+  
+  <span class="c1">// Generate appropriate content-type header.</span>
+  <span class="nv">$is_xhr</span> <span class="o">=</span> <span class="nb">strtolower</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_X_REQUESTED_WITH&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="s1">&#39;xmlhttprequest&#39;</span><span class="p">;</span>
+  <span class="nb">header</span><span class="p">(</span> <span class="s1">&#39;Content-type: application/&#39;</span> <span class="o">.</span> <span class="p">(</span> <span class="nv">$is_xhr</span> <span class="o">?</span> <span class="s1">&#39;json&#39;</span> <span class="o">:</span> <span class="s1">&#39;x-javascript&#39;</span> <span class="p">)</span> <span class="p">);</span>
+  
+  <span class="c1">// Get JSONP callback.</span>
+  <span class="nv">$jsonp_callback</span> <span class="o">=</span> <span class="nv">$enable_jsonp</span> <span class="o">&amp;&amp;</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;callback&#39;</span><span class="p">])</span> <span class="o">?</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;callback&#39;</span><span class="p">]</span> <span class="o">:</span> <span class="k">null</span><span class="p">;</span>
+  
+  <span class="c1">// Generate JSON/JSONP string</span>
+  <span class="nv">$json</span> <span class="o">=</span> <span class="nb">json_encode</span><span class="p">(</span> <span class="nv">$data</span> <span class="p">);</span>
+  
+  <span class="k">print</span> <span class="nv">$jsonp_callback</span> <span class="o">?</span> <span class="s2">&quot;</span><span class="si">$jsonp_callback</span><span class="s2">(</span><span class="si">$json</span><span class="s2">)&quot;</span> <span class="o">:</span> <span class="nv">$json</span><span class="p">;</span>
+  
+<span class="p">}</span>
+
+<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
+
+
+      <footer class="entry-meta">
+        <span class="entry-tags"></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/php/20/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/php/20/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/php/20/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/android/19/" class="read-more-btn">Daha Fazla Oku</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/oracle,/pl/sql/26/" title="PL/SQL Notları">PL/SQL Notları</a></h3>
+      <p>{% highlight ruby %}	DECLARE –Değişken Tanımlama	   message  varchar2(20):= 'Merhaba Dünya!';	BEGIN -- Gövde	   dbms_output.put_line(mess...&hellip; <a href="/oracle,/pl/sql/26/">Okumaya Devam Et</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/jekyll/25/" title="Jekyll derleme hatası">Jekyll derleme hatası</a></h4>
+        <span>Yayınlandı May 22, 2015</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/linux,/mac/24/" title="SSH ile sansürü önleme, yasaklı sitelere girme, güvenli internet">SSH ile sansürü önleme, yasaklı sitelere girme, güvenli internet</a></h4>
+        <span>Yayınlandı April 01, 2015</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span></span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+<script>
+function notifyMe() {
+  if (!Notification) {
+    alert('Uyarılar sadece Chrome, Firefox ve Opera tarayıcılarında çalışmaktadır.'); 
+    return;
+  }
+
+  if (Notification.permission !== "granted")
+    Notification.requestPermission();
+
+  var notification = new Notification('Bloğuma Hoşgeldin!', {
+    icon: 'https://cemretok.github.io/images/avatar.jpg',
+    body: "RSS ile takip etmek için tıklaman yeterli.",
+  });
+
+  notification.onclick = function () {
+    window.open("https://cemretok.github.io/feed.xml/");      
+  };
+}
+
+</script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58893455-1', 'auto');  
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
+
+
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'cemretok'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+
+</body>
+</html>

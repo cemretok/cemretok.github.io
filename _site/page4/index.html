@@ -64,7 +64,7 @@
 
 
 
-<style type="text/css">body {background-image:url(/images/cloud.jpg);}</style>
+<style type="text/css">body {background-image:url(/images/transmit.png);}</style>
 
 
 </head>
@@ -136,7 +136,7 @@
   <header>
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2014-09-29T00:51:27+03:00"><a href="/linux/4/">September 29, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2014-09-30T00:51:27+03:00"><a href="/mac/11/">September 30, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
       
       <span class="entry-reading-time">
         <i class="fa fa-clock-o"></i>
@@ -146,58 +146,105 @@
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="/linux/4/" rel="bookmark" title="Raspberry Pi'ye Sabit İp vermek (Yerel İp)" itemprop="url">Raspberry Pi'ye Sabit İp vermek (Yerel İp)</a></h1>
+      <h1 class="entry-title"><a href="/mac/11/" rel="bookmark" title="Mac OS X  cleverfiles dosyasını silme" itemprop="url">Mac OS X  cleverfiles dosyasını silme</a></h1>
     
   </header>
   <div class="entry-content">
-    <p><b>Sorunla karşılaşmamak için uygulamaya geçmeden önce yazıyı baştan sona kadar okumanızı tavsiye ederim.</b></p>
+    <p>Mac sistemlerde dosyayı çöp kutusundan silmek isteseniz bile sürücünün içindeki gizli “<b>./cleverfiles</b>” dosyasının içinde bazı dosyalar belirli bir süre kalıyor. Birikmeleri sonucunda dosyalar hatrı sayılır bir yer kapladığı için arada sırada silmek gerekiyor bunun için komut satırına</p>
 
-<p>Yerel ağımızda bazen cihazların ip adresleri değişir gerek kira süresi gerekse başka bir cihazın sizin eski ip adresinizi almasıyla meydana gelen bu sorunu önlemek için yapılan bir yöntem var. Oldukça kolay olan bu yöntemi aşağıdaki adımları sırasıyla yaparsanız kolayca halledebilirsiniz. Ben ssh ile bağlanıcam <a href="/linux/2014/09/28/1.html">BU BAĞLANTIDAN</a> ssh ile ilgili fikir edinebilirsiniz.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">rm</span> <span class="o">-</span><span class="n">r</span> <span class="sr">/.cleverfiles/</span><span class="n">hlink</span><span class="o">.</span><span class="n">ref</span></code></pre></div>
 
-<p>Aşağıdaki kod ağ ayarlarına girerek oradan sabit bir yerel ip vermemize olanak sağlayacak</p>
+<p>Yazarsanız komple bütün dosyayı uçurur.</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">nano</span> <span class="sr">/etc/ne</span><span class="n">twork</span><span class="o">/</span><span class="n">interfaces4</span><span class="o">-</span><span class="mi">2</span></code></pre></div>
+<p>Eğer finder’a sağ tıklar go folder derseniz, açılan pencereye</p>
 
-<p><img src="/assets/4-1.png" alt="My helpful screenshot" /><br />
-Karşınıza aşağıdaki şekildeki gibi bir ekran gelicek.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="sr">/.cleverfiles</span></code></pre></div>
 
-<p><img src="/assets/4-2.png" alt="My helpful screenshot" /><br /></p>
+<p>Yazdığınızda yeni bir dosya açılacak, o dosyaya gelip “<b>hlink.ref</b>” yazan dosyayı açın ve içinde fazla yer kaplayanları silin.</p>
 
-<p>Sonrasında açılan sayfada aşağıda anlattıklarımı kendinize göre ekleyin.</p>
+<p>Eğer silme işlemini yaptığımız halde dosyalar silinmiyorsa ya da silme hatası alıyorsanız “<b>cmd + delete</b>” komutunu uygulayın.</p>
 
-<p>address 192.168.2.24  (Görüldüğü gibi ben 24 verdim bu benim şu anki mevcut yerel ip adresim size tavsiyem sizde mevcut ip adresinizi verin mevcut ip adresinizi öğrenmek istiyorsanız komut satırınıza ifconfig yazmanız yeterli )</p>
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
 
-<p><img src="/assets/4-3.png" alt="My helpful screenshot" /><br /></p>
+<article class="hentry" onclick="notifyMe()">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2014-09-30T00:51:27+03:00"><a href="/linux/10/">September 30, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+        Okuma Zamanı ~3 Dakika
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/linux/10/" rel="bookmark" title="DigitalOcean'da Linux Sisteme OpenVPN Kurulumu" itemprop="url">DigitalOcean'da Linux Sisteme OpenVPN Kurulumu</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>İşlemlere başlamadan önce yazının tamamını okumanızı tavsiye ederim zira adımlardaki ufak bir değişiklik bütün aşamaları etkilemektedir.</p>
 
-<p>netmask 255.255.255.0 (255 cihaza kadar ip adresi verebileceğinizi belirtiyor. Bu alt ağ içerisindesiniz )</p>
+<p>Öncelikle <a href="https://www.digitalocean.com/?refcode=d1aec2dabdc0">www.digitalocean.com</a> sitesinden bahsetmek istiyorum. Sitenin amacı ucuz, hızlı, performaslı bir cloud hizmetler vermek. Biraz daha detaya inecek olursak size bulut üstünde yönetmeniz için bir işletim sistemi veriyor. En son halinde Ubuntu, Fedora, Debian ve CentOS işletim sistemlerini kurmanıza izin veriyor. Çok kolay bir kullanıma sahip olan <a href="https://www.digitalocean.com/?refcode=d1aec2dabdc0">www.digitalocean.com</a> 55 saniye gibi iddalı bir sürede herşeyi hazır ve nazır bir biçimde önünüze getiriyor.</p>
 
-<p>gateway 192.168.2.1  (Bu aslında modemin ip adresi. Siz kendi modeminizin ip adresini gireceksiniz. Mevcut ip adresiniz xxx.xxx.xxx.xxx olduğunu varsayalım. Mevcut ip adresinizin sonuna 1 koyun. xxx.xxx.xxx.1 )</p>
+<p>Üye olmak isterseniz şu adresten <a href="https://www.digitalocean.com/?refcode=d1aec2dabdc0">www.digitalocean.com</a> ulaşılabiliyor. Ayrıca DROPLET DODROPLET PYTHONDROPLET promo kodları ile 10 dolar gibi bir miktar kazanabiliyorsunuz. Neredeyse iki ayda bir yeni promo kodu yayınladığı için hiç para vermeden hizmet alan kullanıcılar var.</p>
 
-<p>network 192.168.2.0  (Modemin ip adresi xxx.xxx.xxx.0 olmalıdır.)</p>
+<p>Şimdi gelelim ana konumuza, VPN  servisi bildiğiniz gibi özel sanal ağ demek yani bizim hükümetin yasakladığı sitelere başka bir ülke aracılığıyla giriş yapabiliriz demek. Ya da başka amaçlar için kullanabilirsiniz orası sizin kullanım amacınıza bağlı.</p>
 
-<p>broadcast 192.168.2.255 (xxx.xxx.xxx.255 olmalıdır.)</p>
+<p>Üye olduktan sonra CREATE kısmına geliyoruz ve CREATE DROPLET yazan kısma tıklıyoruz. Ardından resimde gösterilen alanları doldurup seçicez.</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">address</span> <span class="mi">192</span><span class="o">.</span><span class="mi">168</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">24</span>
-<span class="n">netmask</span> <span class="mi">255</span><span class="o">.</span><span class="mi">255</span><span class="o">.</span><span class="mi">255</span><span class="o">.</span><span class="mi">0</span>
-<span class="n">gateway</span> <span class="mi">192</span><span class="o">.</span><span class="mi">168</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">1</span>
-<span class="n">network</span> <span class="mi">192</span><span class="o">.</span><span class="mi">168</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span>
-<span class="n">broadcast</span> <span class="mi">192</span><span class="o">.</span><span class="mi">168</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">255</span></code></pre></div>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mi">1</span><span class="p">)</span> <span class="err">İ</span><span class="n">sim</span> <span class="n">veriyoruz</span><span class="o">.</span>
+<span class="mi">2</span><span class="p">)</span> <span class="no">Server</span> <span class="err">ö</span><span class="n">zelliklerini</span> <span class="n">se</span><span class="err">ç</span><span class="n">iyoruz</span><span class="o">.</span>
+<span class="mi">3</span><span class="p">)</span> <span class="no">Amsterdam</span><span class="s1">&#39;ı seçiyoruz. (Türkiye&#39;</span><span class="n">ye</span> <span class="n">g</span><span class="err">ö</span><span class="n">re</span> <span class="n">h</span><span class="err">ı</span><span class="n">z</span> <span class="n">a</span><span class="err">çı</span><span class="n">s</span><span class="err">ı</span><span class="n">ndan</span> <span class="n">en</span> <span class="n">iyi</span> <span class="n">verimi</span> <span class="n">burdan</span> <span class="n">alabiliyoruz</span><span class="o">.</span><span class="p">)</span>
+<span class="mi">4</span><span class="p">)</span> <span class="no">Ubuntuyu</span> <span class="n">se</span><span class="err">ç</span><span class="n">ip</span> <span class="mi">12</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">x</span>  <span class="mi">32</span> <span class="n">bit</span> <span class="n">versiyonunu</span> <span class="n">se</span><span class="err">ç</span><span class="n">iyoruz</span> <span class="n">e</span><span class="err">ğ</span><span class="n">er</span> <span class="n">bu</span> <span class="n">sizde</span> <span class="n">g</span><span class="err">ö</span><span class="n">z</span><span class="err">ü</span><span class="n">km</span><span class="err">ü</span><span class="n">yorsa</span> <span class="n">yaz</span><span class="err">ı</span><span class="n">n</span><span class="err">ı</span><span class="n">n</span> <span class="n">tamam</span><span class="err">ı</span><span class="n">n</span><span class="err">ı</span> <span class="n">okuman</span><span class="err">ı</span><span class="n">z</span><span class="err">ı</span> <span class="n">tavsiye</span> <span class="n">ederim</span><span class="o">.</span>
+<span class="mi">5</span><span class="p">)</span> <span class="no">SSH</span> <span class="n">key</span> <span class="err">ö</span><span class="n">nemli</span> <span class="n">bunu</span> <span class="n">nas</span><span class="err">ı</span><span class="n">l</span> <span class="n">ekleyece</span><span class="err">ğ</span><span class="n">inizi</span> <span class="o">[</span><span class="err">Ş</span><span class="n">U</span> <span class="no">ADRESTEN</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span> <span class="err">öğ</span><span class="n">renebilirsiniz</span><span class="o">.</span>
+<span class="mi">6</span><span class="p">)</span> <span class="no">CREATE</span> <span class="no">DROPLET</span> <span class="n">diyoruz</span><span class="o">.</span></code></pre></div>
 
-<p>Şu sekilde gözükecektir.</p>
+<p><br /><img src="/assets/10-1.png" alt="My helpful screenshot" /><br /></p>
 
-<p><img src="/assets/4-4.png" alt="My helpful screenshot" /><br /></p>
+<p>İşlem tamam 55 saniye sonra artık sizinde online bir işletim sisteminiz var ve biz buna OpenVPN kurucaz.</p>
 
-<p>Son olarak Ctrl + X diyoruz ve Y tuşuna başıyoruz. Enter’a tıkladıktan sonra sistemi yeniden başlatmamız gerekiyor.</p>
+<p>OpenVPN yazılımının bizim bulutta şeçtiğimiz işletim sistemine göre olanını şu adresten <a href="http://openvpn.net/index.php/access-server/download-openvpn-as-sw.html">OpenVPN</a> üstüne sağ tıklayıp yükleme linkini alıcaz. Eğer sizde CREATE DORPLET kısmındaki sürümle OpenVPN sürümü uyuşmazsa uyuşan bir işletim sistemi yada VPN yazılımı seçebilirsiniz o size kalmış.</p>
 
-<p>isterseniz reboot komutunu kullanın istersenizde fişini çıkarıp takabilirsiniz.</p>
+<p><br /><img src="/assets/10-2.png" alt="My helpful screenshot" /><br /></p>
 
-<p>Not: reboot komutunun uygulanması için Super User olmak gerekiyor onun içinde aşağıdaki komutu kullanın.</p>
+<p><br /><img src="/assets/10-3.png" alt="My helpful screenshot" /><br /></p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">su</span></code></pre></div>
+<p>SSH önemli demiştik Windowsda Putty’i kuruyoruz Mac de ise terminalle direk bağlanabiliyoruz.</p>
 
-<p>Şifre sorabilir Raspberry’nin kendi şifresi raspberry</p>
+<p><br /><img src="/assets/10-4.png" alt="My helpful screenshot" /><br /></p>
 
-<p>Sonrasında reboot derseniz sistem yeniden başlar.</p>
+<p>Daha sonra başına wget gelecek şekilde kopyaladığımız linki buraya yapıştırıyoruz.</p>
+
+<p><br /><img src="/assets/10-5.png" alt="My helpful screenshot" /><br /></p>
+
+<p>Yukardaki komutu yazdıktan sonra aşağıdaki bir yükleme ekranı çıkacak sonrasında içi boş kırmızı kare içine aldığım ilk yerde yazan yazının aynısını başında dpkg -i gelecek şekilde yazıyoruz.</p>
+
+<p><br /><img src="/assets/10-6.png" alt="My helpful screenshot" /><br /></p>
+
+<p>Sonrasında karşımıza aşağıdaki gibi bir yazı gelecek.</p>
+
+<p><br /><img src="/assets/10-8.png" alt="My helpful screenshot" /><br /></p>
+
+<p>Artık OpenVPN yüklendi buna bir şifre belirtmek gerekiyor aşağıdaki gibi yapıyoruz.</p>
+
+<p><br /><img src="/assets/10-9.png" alt="My helpful screenshot" /><br /></p>
+
+<p>Bir yukarda yazan http://5.xxx.xxx.159:943/admin yazan linki kendi tarayıcımızda açıyoruz. Karşımıza aşağıdaki gibi bir ekran gelecek giriş yerine openvpn şifre yerine belirtmiş olduğunuz şifreyi yazıyoruz.</p>
+
+<p><br /><img src="/assets/10-9.png" alt="My helpful screenshot" /><br /></p>
+
+<p>Giriş yaptıktan sonra lisans sözleşmeleri okuyup karşınıza çıkan her şeye evet diyoruz. Sonrasında, sonunda admin yazmayan linki tarayıcımızda açıyoruz. http://5.xxx.xxx.159:943 karşımıza gelen ekrana kullanıcı adı ve şifresini yazıyoruz.</p>
+
+<p><br /><img src="/assets/10-10.png" alt="My helpful screenshot" /><br /></p>
+
+<p>Sonrasınada karşınıza aşağıdaki gibi bir ekran gelecek. Oradanda işletim sisteminize uygun olan client yazılımını indiriyoruz.</p>
+
+<p><br /><img src="/assets/10-11.png" alt="My helpful screenshot" /><br /></p>
+
+<p>İndirdiğimiz yazılımı bilgisayara kuruyoruz ve işlemimiz tamam. Eğer size kullanıcı adı ve şifre sorarsa yukarda belirtiğimiz gibi yazarsanız işlem tamam kolay gelsin gayet hızlı size ait bir VPN servisiniz olmuş oldu. Ek olarak aynı anda iki tane makinanın girmesine izin verdiği söyleniyor ama denemek gerek kolay gelsin.</p>
 
 
   </div><!-- /.entry-content -->
@@ -207,7 +254,7 @@ Karşınıza aşağıdaki şekildeki gibi bir ekran gelicek.</p>
   <header>
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2014-09-29T00:51:27+03:00"><a href="/linux/3/">September 29, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2014-09-29T00:51:27+03:00"><a href="/linux/9/">September 29, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
       
       <span class="entry-reading-time">
         <i class="fa fa-clock-o"></i>
@@ -217,48 +264,16 @@ Karşınıza aşağıdaki şekildeki gibi bir ekran gelicek.</p>
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="/linux/3/" rel="bookmark" title="Raspberry Pi otomatik başlatma (Autologin)" itemprop="url">Raspberry Pi otomatik başlatma (Autologin)</a></h1>
+      <h1 class="entry-title"><a href="/linux/9/" rel="bookmark" title="Linux da dosya kısayolu oluşturmak" itemprop="url">Linux da dosya kısayolu oluşturmak</a></h1>
     
   </header>
   <div class="entry-content">
-    <p><b>Sorun yaşanmaması için yazıyı baştan sona kadar iyice okuduktan sonra uygulamaya geçmenizi öneririm.</b></p>
+    <p>Dosyaların kısa yolunu oluşturmak için gerekli olan komut;</p>
 
-<p>Raspberry Pi’yi açtığımız her seferde ekrana bağlayıp startx ve login işlemlerini yapmaktansa bunu otomatik yapabilecek bir hale getirebiliyoruz. Örneğin elektrik kesildiğinde raspberry yeniden başlar ama login ekranını geçmeden işletim sistemi açılmaz işte biz bunu otomatik bir hale getireceğiz ve sistem her açılışında bize ihtiyaç duymayacak. Ssh ve Terminal bağlantısı kullanacağımız için eğer bilginiz yoksa  <a href="/linux/2014/09/28/1.html">BU BAĞLANTIDAN</a> yazı size fikir verecektir. İlk olarak /etc kısmında varolan inittab dosyasını okumak için alttaki komutu giriyoruz.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="sr">/dosya/</span><span class="n">yolu</span>      <span class="n">k</span><span class="err">ı</span><span class="n">sayolad</span><span class="err">ı</span></code></pre></div>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">nano</span> <span class="sr">/etc/ini</span><span class="n">ttab</span></code></pre></div>
-
-<p><img src="/assets/3-1.png" alt="My helpful screenshot" /><br />
-Sonrasında açılan dosyada aşağıdaki satırı buluyoruz. (Dosyada dolanmak için klavyedeki ok işaretleri kullanılabilir.)</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mi">1</span><span class="p">:</span><span class="mi">2345</span><span class="ss">:respawn:/</span><span class="n">sbin</span><span class="o">/</span><span class="n">getty</span> <span class="mi">115200</span> <span class="n">tty1</span></code></pre></div>
-
-<p>Sonraki adımda bulduğumuz bu satırın başına “<b>#</b>” işaretini koyuyoruz benim klavyemde  “<b>alt+3</b>” işaretiyle yapılıyor.</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#1:2345:respawn:/sbin/getty 115200 tty1</span></code></pre></div>
-
-<p>Artık yukardaki gibi gözükmesi gerekiyor. Bir sonraki adımda değişiklik yaptığımız satırın altına aşağıdaki kodu yapıştırıyoruz.</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mi">1</span><span class="p">:</span><span class="mi">2345</span><span class="ss">:respawn:/</span><span class="n">bin</span><span class="o">/</span><span class="n">login</span> <span class="o">-</span><span class="n">f</span> <span class="n">pi</span> <span class="n">tty1</span> <span class="o">&lt;</span><span class="sr">/dev/</span><span class="n">tty1</span> <span class="o">&gt;</span><span class="sr">/dev/</span><span class="n">tty1</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span></code></pre></div>
-
-<p><img src="/assets/3-2.png" alt="My helpful screenshot" /><br /></p>
-
-<p>Sonrasında <b>ctrl+x</b> diyoruz kaydetmek için Y tuşuna basıyoruz. Çıkmak için Enter’a tıklıyoruz. Login işlemini hallettik sonraki adımlarda masaüstünü yani startx’i otomatik hale getireceğiz. İlk olarak “<b>cd</b>” komutuyla ana dizine gelin.</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">cd</span></code></pre></div>
-
-<p>Şimdide aşağıdaki komutu giriyoruz</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">nano</span> <span class="sr">/etc/</span><span class="n">rc</span><span class="o">.</span><span class="n">local</span></code></pre></div>
-
-<p><img src="/assets/3-3.png" alt="My helpful screenshot" /><br /></p>
-
-<p>Çıkan yazıların en sonunda exit 0  (exit sıfır) görmemiz gerekiyor onun bir üst satırına aşağıdaki komutu koyucaz.</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">su</span> <span class="o">-</span><span class="n">l</span> <span class="n">pi</span> <span class="o">-</span><span class="n">c</span> <span class="n">startx</span></code></pre></div>
-
-<p><img src="/assets/3-4.png" alt="My helpful screenshot" /><br />
-ctrl+x yapıyoruz ve Y tuşuna tıklayarak kaydediyoruz. Enter’a basıp çıkıyoruz. İşlemler tamam artık kendi kendine login işlemini yapan ve masaüstü ortamını açabilen bir raspberryniz var.</p>
-
+<p><br /><img src="/assets/9-1.png" alt="My helpful screenshot" /><br />
+Bu kod bulunduğunuz dizine <b>/dosya/yolunu</b> verdiğiniz dosyanın kısa yolunu yerleştirir.</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -267,7 +282,36 @@ ctrl+x yapıyoruz ve Y tuşuna tıklayarak kaydediyoruz. Enter’a basıp çık�
   <header>
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2014-09-29T00:51:27+03:00"><a href="/linux/2/">September 29, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2014-09-29T00:51:27+03:00"><a href="/linux/8/">September 29, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+        Okuma Zamanı ~1 Dakika
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/linux/8/" rel="bookmark" title="Raspberry dosya taşıma okuma hatası (İzin)" itemprop="url">Raspberry dosya taşıma okuma hatası (İzin)</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>Raspberry linux dağıtımı olduğu için aşağıdaki kod hangi dizine “<b>777</b>” yani tam izin vereceğinizi belirtiyor.</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">chmod</span> <span class="mi">777</span> <span class="o">/</span><span class="no">Klas</span><span class="err">ö</span><span class="n">r</span><span class="o">/</span><span class="n">yolu</span> <span class="p">(</span><span class="no">Tek</span> <span class="n">bir</span> <span class="n">klas</span><span class="err">ö</span><span class="n">r</span> <span class="n">i</span><span class="err">ç</span><span class="k">in</span><span class="p">)</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">chmod</span> <span class="o">-</span><span class="n">R</span> <span class="mi">777</span> <span class="o">/</span><span class="no">Klas</span><span class="err">ö</span><span class="n">r</span><span class="o">/</span><span class="n">yolu</span> <span class="p">(</span><span class="no">Hem</span> <span class="n">klas</span><span class="err">ö</span><span class="n">r</span> <span class="n">hemde</span> <span class="n">alt</span> <span class="n">dizinleri</span> <span class="n">i</span><span class="err">ç</span><span class="k">in</span><span class="p">)</span></code></pre></div>
+
+<p><br /><img src="/assets/8-1.png" alt="My helpful screenshot" /><br /></p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry" onclick="notifyMe()">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2014-09-29T00:51:27+03:00"><a href="/linux/7/">September 29, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
       
       <span class="entry-reading-time">
         <i class="fa fa-clock-o"></i>
@@ -277,112 +321,61 @@ ctrl+x yapıyoruz ve Y tuşuna tıklayarak kaydediyoruz. Enter’a basıp çık�
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="/linux/2/" rel="bookmark" title="Linux'e VNC ile bağlanmak (Masaüstüne)" itemprop="url">Linux'e VNC ile bağlanmak (Masaüstüne)</a></h1>
+      <h1 class="entry-title"><a href="/linux/7/" rel="bookmark" title="Raspberry Pi ile video Oynatmak (Film izlemek)" itemprop="url">Raspberry Pi ile video Oynatmak (Film izlemek)</a></h1>
     
   </header>
   <div class="entry-content">
-    <p>Öncelikle <b>VNC</b> herhangi bir bilgisayarın masaüstüne uzaktan bağlanmaya yarayan bir protokoldür.</p>
+    <p>Raspberry’nin video işlemcisi oldukça gelişmiş olduğu için media player olarak kullanılabilmekte ve hatta videolara altyazı dahi eklenebiliyor.</p>
 
-<p>Ben örnek verirken linux üzerinden deniycem. Tabi bu nerede işime yarar diyebilirsiniz. Eğer cloud bir hizmet satın aldıysanız bu server büyük ihtimal linux türevi bir işletim sistemi kullanıyordur ve komut satırı bazen can sıkıcı olabiliyor işte bundan dolayı vnc ile linux’un X server’ına yani masaüstü görünümüne erişebiliyoruz. Anlayacağınız büyük kolaylık.</p>
+<p>İlk olarak <b>omxplayer</b>‘ı kuruyoruz.</p>
 
-<p>Kullanacağımız programlar <b>tightvncserver ve vncviewer</b></p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="p">(</span><span class="no">Paket</span> <span class="n">g</span><span class="err">ü</span><span class="n">ncellemesi</span><span class="p">)</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">omxplayer</span> <span class="p">(</span><span class="n">omxplayer</span> <span class="n">kurulumu</span><span class="p">)</span></code></pre></div>
 
-<p>Öncelikle vnc kuracağımız linux sisteme ssh ile ya da doğrudan terminale erişebiliyor olmamız lazım. Ben raspberry pi kullandığım için ona bağlanıcam eğer ssh kullanımını bilmiyorsanız  <a href="/linux/2014/09/28/1.html">BU BAĞLANTIDAN</a> fikir edinebilirsiniz.</p>
+<p><br /><img src="/assets/7-1.png" alt="My helpful screenshot" /><br />
+İki Yöntem var ilki;</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>  <span class="p">(</span><span class="no">APT</span> <span class="n">paketini</span> <span class="n">g</span><span class="err">ü</span><span class="n">celledik</span><span class="p">)</span></code></pre></div>
+<p>Komut Satırı ile olan:
+Sonrasında Videolarınızın olduğu dizine gelerek (cd komutuyla gelinebiliyor) Aşağıdaki komutu giriyoruz ve filmimiz başlıyor. (Çıkmak için ESC yada Alt + f4)</p>
 
-<p><img src="/assets/2-1.png" alt="My helpful screenshot" /><br /></p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">omxplayer</span> <span class="n">filmadi</span><span class="o">.</span><span class="n">avi</span></code></pre></div>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">tightvncserver</span> <span class="p">(</span><span class="no">Ba</span><span class="err">ğ</span><span class="n">lant</span><span class="err">ı</span><span class="n">y</span><span class="err">ı</span> <span class="err">ç</span><span class="n">ekti</span> <span class="n">ve</span> <span class="n">y</span><span class="err">ü</span><span class="n">klemeye</span> <span class="n">ba</span><span class="err">ş</span><span class="n">lad</span><span class="err">ı</span><span class="p">)</span></code></pre></div>
+<p><br /><img src="/assets/7-2.png" alt="My helpful screenshot" /><br /></p>
 
-<p><img src="/assets/2-2.png" alt="My helpful screenshot" /><br />
-Yükleme işlemi bittikten sonra aşağıdaki komutu yazıyoruz.<br /></p>
+<p><br /><img src="/assets/7-3.png" alt="My helpful screenshot" /><br />
+Bu anlattıklarım zor olandı şimdi bilindik çift tıklama yöntemine geçelim:</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">vncserver</span> <span class="p">:</span><span class="mi">1</span> <span class="p">(</span><span class="no">Bo</span><span class="err">ş</span><span class="n">lu</span><span class="err">ğ</span><span class="n">a</span> <span class="n">dikkat!</span><span class="p">)</span></code></pre></div>
+<p>İlk yüklemeyi yaptıktan sonra aşağıdaki kod ile bir program daha yüklememiz gerekiyor</p>
 
-<p><img src="/assets/2-3.png" alt="My helpful screenshot" /><br /><br />
-Tabi bu sırada size bağlandığınız bilgisayarın kullanıcı adı şifresini sorabilir, girdikten sonra işlem tamam. VNC servisini artık kullanabilirisiniz.<br /><br />
-<img src="/assets/2-4.png" alt="My helpful screenshot" /><br />
-VNC copy
-VNC viewer
-Şimdi sıra geldi nasıl bağlantı kuracağımıza eğer benim gibi Mac sistem kullanıyorsanız vncviewer güzel bir program tavsiye ederim. Programı kurun yükleyin karşınıza aşağıdaki gibi bir ekran gelecek oradaki ip kısmına yerel/genel bağlandığınız bilgisayarın ip adresini girip sonuna :1 yazarak bağlanabilirsiniz. Tabi tekrardan kullanıcı adı şifre sorabilir onlarıda girmeyi unutmayın.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">xterm</span></code></pre></div>
 
-<p><b>VNC server’ı otomatik başlatmaz</b></p>
+<p><br /><img src="/assets/7-4.png" alt="My helpful screenshot" /><br />
+Bunu yükledikten sonra aşağıdaki parametreleri izleyeceğiniz bir avi dosyasına sağ tıklayıp open with sonra customize sonrasında Custom Command Line’a geliyoruz ve oraya aşağıdaki parametreleri yazıyoruz.</p>
 
-<p>Eğer bu işlemi yapmazsanız her yeniden başlatmada vnc server’ı manuel olarak açmak gerekiyor. Bunu otomatik bir hale getirmek içinse sırayla anlattığım adımları yapmak yeterli bu sayede büyük bir dertten kuruluyoruz.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">xterm</span> <span class="o">-</span><span class="n">fullscreen</span> <span class="o">-</span><span class="n">fg</span> <span class="n">black</span> <span class="o">-</span><span class="n">bg</span> <span class="n">black</span> <span class="o">-</span><span class="n">e</span> <span class="n">omxplayer</span> <span class="o">-</span><span class="n">o</span> <span class="n">hdmi</span> <span class="o">-</span><span class="n">r</span> <span class="o">%</span><span class="n">f</span></code></pre></div>
 
-<p>Öncelikle aşağıdaki komutla home dizininden pi kullanıcısına geçiş yaptık. Burada pi yerine sizin kullanıcı adınız olacak.</p>
+<p><br /><img src="/assets/7-5.png" alt="My helpful screenshot" /><br />
+Tamam diyoruz ve çıkıyoruz.</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">cd</span> <span class="sr">/home/</span><span class="n">pi</span></code></pre></div>
+<p>Artık filmin üstüne çift tıkladığınızda açılan esc ye bastığınızda çıkan, space’e bastığınızda duran ok’lara bastığınızda ileri geri giden bir medya playerınız var.</p>
 
-<p><img src="/assets/2-5.png" alt="My helpful screenshot" /><br />
-Daha sonra bu dizinde aşağıdaki komutla bir gizli config dosyası açıyoruz.</p>
+<p>Ayrıca filmle aynı yerde bulunup aynı ismi taşıyan altyazı dosyalarını da oynatabileceksiniz. İngilizcede sorunsuz fakat türkçe desteği için biraz uğraşmak gerekiyor.</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">cd</span> <span class="o">.</span><span class="n">config</span></code></pre></div>
+<p>Kısa yol tuşları:</p>
 
-<p><img src="/assets/2-6.png" alt="My helpful screenshot" /><br />
-Daha sonra autostart diye bir klasör açıyoruz</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">mkdir</span> <span class="n">autostart</span></code></pre></div>
-
-<p><img src="/assets/2-7.png" alt="My helpful screenshot" /><br />
-İçine bir dosya açıyoruz.</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">nano</span> <span class="n">tightvnc</span><span class="o">.</span><span class="n">desktop</span></code></pre></div>
-
-<p><img src="/assets/2-8.png" alt="My helpful screenshot" /><br />
-Son olarak aşağıdaki komutları içersine kopyalıyoruz. CTRL + X kombinasyonunu uygulayıp (kaydedip) enter’a basıp kapatıyoruz.</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">[</span><span class="no">Desktop</span> <span class="no">Entry</span><span class="o">]</span>
-<span class="no">Type</span><span class="o">=</span><span class="no">Application</span>
-<span class="no">Name</span><span class="o">=</span><span class="no">TightVNC</span>
-<span class="no">Exec</span><span class="o">=</span><span class="n">vncserver</span> <span class="p">:</span><span class="mi">1</span>
-<span class="no">StartupNotify</span><span class="o">=</span><span class="kp">false</span></code></pre></div>
-
-<p><img src="/assets/2-9.png" alt="My helpful screenshot" /><br />
-Artık otomatik olarak başlayan bir vnc serverımız bulunmaktadır. İp adresini bildiğiniz sürece istediğiniz yerden anında bağlanabilirsiniz.</p>
-
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry" onclick="notifyMe()">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2014-09-29T00:51:27+03:00"><a href="/linux/1/">September 29, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-        Okuma Zamanı ~1 Dakika
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/linux/1/" rel="bookmark" title="Ssh bağlantısında RSA sorunu (Shh host key verification failed)" itemprop="url">Ssh bağlantısında RSA sorunu (Shh host key verification failed)</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><b>Bir hata ile karşılaşmamak için tüm yazıyı okuduktan sonra uygulamaya geçmenizde fayda var.</b></p>
-
-<p>Normalde terminal yada komut satırına “<b>ssh kullanıcıadı@ipadresi</b>” yazdığımızda ssh ile karşı tarafa kolayca bağlanabiliyorduk. Ama şimdi karşımıza şu görseldekine benzer bir sorun çıktı.</p>
-
-<p><img src="/assets/1-1.png" alt="My helpful screenshot" /></p>
-
-<p>Sorunun ana nedeni daha önceden aynı ip ile bir bağlantı gerçekleştirilmiş olmasıdır. Bundan ötürüde iki taraf arasında RSA şifresi atanmıştır. Bir farklılık olduğunu anlayan sistem “<b>man in the middle attack</b>” saldırısı olabileceğinden süphelenir işte bu yüzden önceki ip (pc) ye ait olan RSA şifresini kaldırmak gerekir bunun içinde komut satırına ana dizine gelerek (cd komutu ile gelinebilir)</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">R</span> <span class="n">hostname</span></code></pre></div>
-
-<p>yazılması gerekir. Host name kısmına bağlanılmak istenen bilgisayarın ip adresi yazılır.</p>
-
-<p>Örnek olarak;</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">ssh</span><span class="o">-</span><span class="n">keygen</span> <span class="o">-</span><span class="n">R</span> <span class="mi">192</span><span class="o">.</span><span class="mi">168</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">10</span></code></pre></div>
-
-<p>Sonrasında terminale “<b>ssh kullanıcıadı@192.168.2.10</b>” yazılır yeni bir RSA şifresi atansın mı diye sorar evet dersiniz.</p>
-
-<p>Not: Kullanıcı adı bağlanacağınız pc’nin kullanıcı adıdır. İp adresi yine bağlanılacak pc’nin ip adresidir.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Space</span> <span class="n">veya</span> <span class="nb">p</span> <span class="p">(</span><span class="no">Durdurur</span><span class="p">)</span>
+<span class="n">q</span>            <span class="p">(</span><span class="err">Çı</span><span class="n">kar</span><span class="p">)</span>
+<span class="o">-</span>            <span class="p">(</span><span class="no">Sesi</span> <span class="n">K</span><span class="err">ı</span><span class="n">sar</span><span class="p">)</span>
+<span class="o">+</span>            <span class="p">(</span><span class="no">Sesi</span> <span class="n">a</span><span class="err">ç</span><span class="n">ar</span><span class="p">)</span>
+<span class="no">Sol</span> <span class="n">ok</span>       <span class="p">(</span><span class="no">Geriye</span> <span class="mi">30</span> <span class="n">saniye</span><span class="p">)</span>
+<span class="no">Sa</span><span class="err">ğ</span> <span class="n">ok</span>       <span class="p">(</span><span class="n">ileriye</span> <span class="mi">30</span> <span class="n">saniye</span><span class="p">)</span>
+<span class="n">A</span><span class="err">ş</span><span class="n">a</span><span class="err">ğı</span> <span class="n">ok</span>     <span class="p">(</span><span class="no">Geriye</span> <span class="mi">600</span> <span class="n">saniye</span><span class="p">)</span>
+<span class="no">Yukar</span><span class="err">ı</span> <span class="n">ok</span>    <span class="p">(</span><span class="no">Geriye</span> <span class="mi">600</span> <span class="n">saniye</span><span class="p">)</span>
+<span class="mi">1</span>            <span class="p">(</span><span class="no">Oynatmay</span><span class="err">ı</span> <span class="n">h</span><span class="err">ı</span><span class="n">zland</span><span class="err">ı</span><span class="n">r</span><span class="err">ı</span><span class="n">r</span><span class="p">)</span>
+<span class="mi">2</span>            <span class="p">(</span><span class="no">Oynatmay</span><span class="err">ı</span> <span class="n">yava</span><span class="err">ş</span><span class="n">lat</span><span class="err">ı</span><span class="n">r</span><span class="p">)</span>
+<span class="n">s</span>            <span class="p">(</span><span class="no">Altyaz</span><span class="err">ı</span><span class="n">y</span><span class="err">ı</span> <span class="n">kald</span><span class="err">ı</span><span class="n">r</span><span class="err">ı</span><span class="n">r</span><span class="p">,</span> <span class="n">ekler</span><span class="p">)</span>
+<span class="n">d</span>            <span class="p">(</span><span class="o">-</span><span class="mi">250</span> <span class="n">saniye</span> <span class="n">geri</span><span class="p">)</span>
+<span class="n">f</span>            <span class="p">(</span><span class="o">+</span><span class="mi">250</span> <span class="n">saniye</span> <span class="n">ileri</span><span class="p">)</span></code></pre></div>
 
 
   </div><!-- /.entry-content -->
@@ -420,9 +413,21 @@ Artık otomatik olarak başlayan bir vnc serverımız bulunmaktadır. İp adresi
         
       </li>
     
+      <li>
+        
+          <a href="/page5">5</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/page6">6</a>
+        
+      </li>
+    
   </ul>
   
-    Sonraki
+    <a href="/page5" class="btn">Sonraki</a>
   
 </div><!-- /.pagination -->
 </div><!-- /#main -->

@@ -64,7 +64,7 @@
 
 
 
-<style type="text/css">body {background-image:url(/images/cloud.jpg);}</style>
+<style type="text/css">body {background-image:url(/images/transmit.png);}</style>
 
 
 </head>
@@ -136,7 +136,293 @@
   <header>
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-01-20T23:51:27+02:00"><a href="/android/19/">January 20, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2015-05-22T00:00:00+03:00"><a href="/oracle,/pl/sql/26/">May 22, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+        Okuma Zamanı ~4 Dakika
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/oracle,/pl/sql/26/" rel="bookmark" title="PL/SQL Notları" itemprop="url">PL/SQL Notları</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">DECLARE</span> <span class="err">–</span><span class="no">De</span><span class="err">ğ</span><span class="n">i</span><span class="err">ş</span><span class="n">ken</span> <span class="no">Tan</span><span class="err">ı</span><span class="n">mlama</span>
+	   <span class="n">message</span>  <span class="n">varchar2</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span><span class="o">=</span> <span class="s1">&#39;Merhaba Dünya!&#39;</span><span class="p">;</span>
+	<span class="k">BEGIN</span> <span class="o">--</span> <span class="n">G</span><span class="err">ö</span><span class="n">vde</span>
+	   <span class="n">dbms_output</span><span class="o">.</span><span class="n">put_line</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+	<span class="k">END</span><span class="p">;</span> <span class="o">--</span> <span class="no">Biti</span><span class="err">ş</span></code></pre></div>
+
+<pre><code>/
+
+Declare
+	num1 Integer:= 5;
+	num2 Real:=5;
+	num3 double precision:=5;
+Begin
+	dbms_output.put_line(num1); --5
+	dbms_output.put_line(num2); --5
+	dbms_output.put_line(num3); --5
+End;
+
+
+Large Object (LOB) Veri Tipi – BFILE, BLOB, CLOB, NCLOB – Büyük verileri tutmak için Video binary gibi tipler. 
+Subtype –Alt tipler, kullanıcının oluşturduğu.
+
+DECLARE
+   SUBTYPE name IS char(20);
+   SUBTYPE message IS varchar2(100);
+   salutation name; -- salutation char(20) türünde bir değişken
+   greetings message; --  greetings varchar2(100) türünde bir değişken
+BEGIN
+   salutation := 'Reader '; 
+   greetings := 'Welcome to the World of PL/SQL';
+   dbms_output.put_line('Hello ' || salutation || greetings); -- || birleştirme operatörü
+END;
+/
+
+Yerel ve Genel Değişken tanımlamaları
+
+DECLARE
+   -- Genel değişkene iç bloğun içinden ulaşılabilir.
+   num1 number := 95; 
+BEGIN 
+   dbms_output.put_line('Dış Değişken num1: ' || num1);
+   DECLARE 
+	  -- Yerel değişkene bloğun dışından ulaşılamaz.
+	  num1 number := 195; 
+   BEGIN 
+	  dbms_output.put_line('İç Değişken num1: ' || num1);
+   END; 
+END;
+/
+
+Constant (Sabit) Tanımlama 
+PI CONSTANT NUMBER := 3.141592654;
+
+(') işaretinin yazımı
+ message  varchar2(30):= ''That''s tutorialspoint.com!'';
+ 
+Conditions
+
+IF
+
+IF (a &lt;= 20) THEN
+   S1; 
+ELSE 
+   S2;
+END IF;
+
+IF ( a = 10 ) THEN
+	  dbms_output.put_line('Value of a is 10' );
+   ELSIF ( a = 20 ) THEN
+	  dbms_output.put_line('Value of a is 20' );
+   ELSE
+	   dbms_output.put_line('None of the values is matching');
+END IF;
+</code></pre>
+
+<p>CASE grade
+      when ‘A’ then dbms_output.put_line(‘Excellent’);
+      when ‘B’ then dbms_output.put_line(‘Very good’);
+      when ‘F’ then dbms_output.put_line(‘Better try again’);
+      else dbms_output.put_line(‘No such grade’);
+   END CASE;</p>
+
+<p>case 
+      when grade = ‘A’ then dbms_output.put_line(‘Excellent’);
+      when grade = ‘B’ then dbms_output.put_line(‘Very good’);
+      when grade = ‘F’ then dbms_output.put_line(‘Better try again’);
+      else dbms_output.put_line(‘No such grade’);
+   end case;</p>
+
+<p>LOOP</p>
+
+<p>DECLARE
+	   x number := 10;
+	BEGIN
+	   LOOP
+		  dbms_output.put_line(x);
+		  x := x + 10;
+		  IF x &gt; 50 THEN
+			 exit;
+		  END IF;
+	   END LOOP;
+	   – after exit, control resumes here
+	   dbms_output.put_line(‘After Exit x is: ‘ || x);
+	END;
+	/</p>
+
+<pre><code>LOOP
+  dbms_output.put_line(x);
+  x := x + 10;
+  exit WHEN x &gt; 50;    END LOOP;
+</code></pre>
+
+<p>WHILE</p>
+
+<pre><code>WHILE a &lt; 20 LOOP
+  dbms_output.put_line('value of a: ' || a);
+  a := a + 1;    END LOOP;
+</code></pre>
+
+<p>FOR</p>
+
+<pre><code>DECLARE
+   a number(2);
+BEGIN
+   FOR a in 10 .. 20 LOOP
+	   dbms_output.put_line('value of a: ' || a);
+  END LOOP;
+END;
+/
+
+DECLARE
+   a number(2) ;
+BEGIN
+   FOR a IN REVERSE 10 .. 20 LOOP
+	  dbms_output.put_line('value of a: ' || a);
+   END LOOP;
+END;
+/
+
+IF a &gt; 15 THEN EXIT;   or    EXIT WHEN a &gt; 15; 
+--Loopdan çıkmak için kullanılır.
+
+CONTINUE -- Loopda atlamak için kullanılır.
+GOTO loopstart; -- &lt;&lt;loopstart&gt;&gt; etiketine gider
+
+Genel Fonksiyonlar
+</code></pre>
+
+<p>greetings varchar2(11) := ‘hello world’;
+   dbms_output.put_line(UPPER(greetings)); – HELLO WORLD
+   dbms_output.put_line(LOWER(greetings)); – hello world
+   dbms_output.put_line(INITCAP(greetings)); – Hello World
+   dbms_output.put_line ( SUBSTR (greetings, 1, 1)); – h
+   dbms_output.put_line ( SUBSTR (greetings, -1, 1)); – d
+   dbms_output.put_line ( SUBSTR (greetings, 7, 5)); – World
+   dbms_output.put_line ( SUBSTR (greetings, 2)); – ello World
+   dbms_output.put_line ( INSTR (greetings, ‘e’)); – 2</p>
+
+<p>greetings varchar2(30) := ‘……Hello World…..’;
+   dbms_output.put_line(RTRIM(greetings,’.’)); – ……Hello World 
+   dbms_output.put_line(LTRIM(greetings, ‘.’)); – Hello World…..
+   dbms_output.put_line(TRIM( ‘.’ from greetings)); – Hello World</p>
+
+<p>Array (Varray)</p>
+
+<p>CREATE OR REPLACE TYPE varray_type_name IS VARRAY(n) of <element_type> -- Tip oluşturma
+   CREATE Or REPLACE TYPE namearray AS VARRAY(3) OF VARCHAR2(10); -- Tip oluşturma</element_type></p>
+
+<p>TYPE namearray IS VARRAY(5) OF VARCHAR2(10); – Basitleştirilmiş tip oluşturma</p>
+
+<p>DECLARE
+	   type namesarray IS VARRAY(5) OF VARCHAR2(10);
+	   type grades IS VARRAY(5) OF INTEGER;
+	   names namesarray;
+	   marks grades;
+	   total integer;
+	BEGIN
+	   names := namesarray(‘Kavita’, ‘Pritam’, ‘Ayan’, ‘Rishav’, ‘Aziz’);
+	   marks:= grades(98, 97, 78, 87, 92);
+	   total := names.count;
+	   dbms_output.put_line(‘Total ‘|| total || ‘ Students’);
+	   FOR i in 1 .. total LOOP
+		  dbms_output.put_line(‘Student: ‘ || names(i) || ‘
+		  Marks: ‘ || marks(i));
+	   END LOOP;
+	END;
+	/</p>
+
+<pre><code>Tanımlamalar
+
+v_EmpName  emp.ename%TYPE; -- ename kolonu tipinde değişken oluşturur.
+
+DECLARE
+   v_EmpName  emp.ename%TYPE;
+BEGIN
+   SELECT ename INTO v_EmpName FROM emp WHERE ROWNUM = 1;
+   DBMS_OUTPUT.PUT_LINE('Name = ' || v_EmpName);
+END;
+/
+
+v_emp emp%ROWTYPE; -- emp tablosu tipinde değişken oluşturur.	
+
+DECLARE
+  v_emp emp%ROWTYPE;
+BEGIN
+  v_emp.empno := 10;
+  v_emp.ename := 'XXXXXXX';
+END;
+/
+ 
+Procedure
+
+CREATE OR REPLACE PROCEDURE -- Yeni oluştur yada varolanı değiştir.
+
+CREATE OR REPLACE PROCEDURE deneme1
+AS
+BEGIN
+   dbms_output.put_line('Merhaba Dünya!');
+END;
+/
+
+BEGIN
+   greetings; -- bu şekilde çağrılırsa Merhaba Dünya! basılır.
+   DROP PROCEDURE greetings; -- Prosedür silinir.
+END;
+/
+
+DECLARE
+   a number;
+PROCEDURE squareNum(x IN OUT number) IS --Parametre x alıyor ve dönüyor.
+BEGIN
+  x := x * x;
+END; --prosedür bitti
+BEGIN -- başka bir sorgu
+   a:= 23;
+   squareNum(a); -- prosedürü çağır
+   dbms_output.put_line(' Square of (23): ' || a);
+END;
+/
+
+Function
+ 
+CREATE OR REPLACE FUNCTION -- Yeni oluştur yada varolanı değiştir.
+
+CREATE OR REPLACE FUNCTION totalCustomers
+RETURN number IS
+   total number(2) := 0;
+BEGIN
+   SELECT count(*) into total
+   FROM customers;
+   
+   RETURN total;
+END;
+/
+
+DECLARE
+   c number(2);
+BEGIN
+   c := totalCustomers();
+   dbms_output.put_line('Total no. of Customers: ' || c);
+END;
+/
+</code></pre>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry" onclick="notifyMe()">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2015-05-22T00:00:00+03:00"><a href="/jekyll/25/">May 22, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
       
       <span class="entry-reading-time">
         <i class="fa fa-clock-o"></i>
@@ -146,28 +432,37 @@
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="/android/19/" rel="bookmark" title="Android APK imzalama" itemprop="url">Android APK imzalama</a></h1>
+      <h1 class="entry-title"><a href="/jekyll/25/" rel="bookmark" title="Jekyll derleme hatası" itemprop="url">Jekyll derleme hatası</a></h1>
     
   </header>
   <div class="entry-content">
-    <p>Apk’yı imzalamak için gerekli olan işlemler ve ek bilgiler</p>
+    <p>Aşağıdaki hata alınırsa <a href="https://help.github.com/articles/using-jekyll-with-pages/">KAYNAK</a> linkindeki talimatlar takip edilmeli</p>
 
-<p><br /><img src="/assets/19-1.png" alt="My helpful screenshot" /><br /></p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="sr">/Library/</span><span class="no">Ruby</span><span class="o">/</span><span class="no">Site</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">rubygems</span><span class="o">/</span><span class="n">core_ext</span><span class="o">/</span><span class="n">kernel_require</span><span class="o">.</span><span class="n">rb</span><span class="p">:</span><span class="mi">54</span><span class="ss">:in</span> <span class="sb">`require&#39;: cannot load such file -- jekyll-sitemap (LoadError)</span>
+<span class="sb">	from /Library/Ruby/Site/2.0.0/rubygems/core_ext/kernel_require.rb:54:in `</span><span class="nb">require</span><span class="s1">&#39;</span>
+<span class="s1">	from /Library/Ruby/Gems/2.0.0/gems/jekyll-2.5.3/lib/jekyll/plugin_manager.rb:29:in `block in require_gems&#39;</span>
+	<span class="n">from</span> <span class="sr">/Library/</span><span class="no">Ruby</span><span class="o">/</span><span class="no">Gems</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">jekyll</span><span class="o">-</span><span class="mi">2</span><span class="o">.</span><span class="mi">5</span><span class="o">.</span><span class="mi">3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">jekyll</span><span class="o">/</span><span class="n">plugin_manager</span><span class="o">.</span><span class="n">rb</span><span class="p">:</span><span class="mi">26</span><span class="ss">:in</span> <span class="sb">`each&#39;</span>
+<span class="sb">	from /Library/Ruby/Gems/2.0.0/gems/jekyll-2.5.3/lib/jekyll/plugin_manager.rb:26:in `</span><span class="n">require_gems</span><span class="s1">&#39;</span>
+<span class="s1">	from /Library/Ruby/Gems/2.0.0/gems/jekyll-2.5.3/lib/jekyll/plugin_manager.rb:19:in `conscientious_require&#39;</span>
+	<span class="n">from</span> <span class="sr">/Library/</span><span class="no">Ruby</span><span class="o">/</span><span class="no">Gems</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">jekyll</span><span class="o">-</span><span class="mi">2</span><span class="o">.</span><span class="mi">5</span><span class="o">.</span><span class="mi">3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">jekyll</span><span class="o">/</span><span class="n">site</span><span class="o">.</span><span class="n">rb</span><span class="p">:</span><span class="mi">79</span><span class="ss">:in</span> <span class="sb">`setup&#39;</span>
+<span class="sb">	from /Library/Ruby/Gems/2.0.0/gems/jekyll-2.5.3/lib/jekyll/site.rb:41:in `</span><span class="kp">initialize</span><span class="s1">&#39;</span>
+<span class="s1">	from /Library/Ruby/Gems/2.0.0/gems/jekyll-2.5.3/lib/jekyll/commands/build.rb:29:in `new&#39;</span>
+	<span class="n">from</span> <span class="sr">/Library/</span><span class="no">Ruby</span><span class="o">/</span><span class="no">Gems</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">jekyll</span><span class="o">-</span><span class="mi">2</span><span class="o">.</span><span class="mi">5</span><span class="o">.</span><span class="mi">3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">jekyll</span><span class="o">/</span><span class="n">commands</span><span class="o">/</span><span class="n">build</span><span class="o">.</span><span class="n">rb</span><span class="p">:</span><span class="mi">29</span><span class="ss">:in</span> <span class="sb">`process&#39;</span>
+<span class="sb">	from /Library/Ruby/Gems/2.0.0/gems/jekyll-2.5.3/lib/jekyll/commands/serve.rb:26:in `</span><span class="n">block</span> <span class="p">(</span><span class="mi">2</span> <span class="n">levels</span><span class="p">)</span> <span class="k">in</span> <span class="n">init_with_program</span><span class="s1">&#39;</span>
+<span class="s1">	from /Library/Ruby/Gems/2.0.0/gems/mercenary-0.3.5/lib/mercenary/command.rb:220:in `call&#39;</span>
+	<span class="n">from</span> <span class="sr">/Library/</span><span class="no">Ruby</span><span class="o">/</span><span class="no">Gems</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">mercenary</span><span class="o">-</span><span class="mi">0</span><span class="o">.</span><span class="mi">3</span><span class="o">.</span><span class="mi">5</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">mercenary</span><span class="o">/</span><span class="n">command</span><span class="o">.</span><span class="n">rb</span><span class="p">:</span><span class="mi">220</span><span class="ss">:in</span> <span class="sb">`block in execute&#39;</span>
+<span class="sb">	from /Library/Ruby/Gems/2.0.0/gems/mercenary-0.3.5/lib/mercenary/command.rb:220:in `</span><span class="n">each</span><span class="s1">&#39;</span>
+<span class="s1">	from /Library/Ruby/Gems/2.0.0/gems/mercenary-0.3.5/lib/mercenary/command.rb:220:in `execute&#39;</span>
+	<span class="n">from</span> <span class="sr">/Library/</span><span class="no">Ruby</span><span class="o">/</span><span class="no">Gems</span><span class="o">/</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">/</span><span class="n">gems</span><span class="o">/</span><span class="n">mercenary</span><span class="o">-</span><span class="mi">0</span><span class="o">.</span><span class="mi">3</span><span class="o">.</span><span class="mi">5</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">mercenary</span><span class="o">/</span><span class="n">program</span><span class="o">.</span><span class="n">rb</span><span class="p">:</span><span class="mi">42</span><span class="ss">:in</span> <span class="sb">`go&#39;</span>
+<span class="sb">	from /Library/Ruby/Gems/2.0.0/gems/mercenary-0.3.5/lib/mercenary.rb:19:in `</span><span class="n">program</span><span class="s1">&#39;</span>
+<span class="s1">	from /Library/Ruby/Gems/2.0.0/gems/jekyll-2.5.3/bin/jekyll:20:in `&lt;top (required)&gt;&#39;</span>
+	<span class="n">from</span> <span class="sr">/usr/</span><span class="n">bin</span><span class="o">/</span><span class="ss">jekyll</span><span class="p">:</span><span class="mi">23</span><span class="ss">:in</span> <span class="sb">`load&#39;</span>
+<span class="sb">	from /usr/bin/jekyll:23:in `</span><span class="o">&lt;</span><span class="n">main</span><span class="o">&gt;</span><span class="err">&#39;</span></code></pre></div>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">cordova</span> <span class="n">build</span> <span class="o">--</span><span class="n">release</span> <span class="n">android</span></code></pre></div>
+<p>Talimatlar;</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">keytool</span> <span class="o">-</span><span class="n">genkey</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">keystore</span> <span class="n">my</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">key</span><span class="o">.</span><span class="n">keystore</span> <span class="o">-</span><span class="k">alias</span> <span class="n">alias_name</span> <span class="o">-</span><span class="n">keyalg</span> <span class="no">RSA</span> <span class="o">-</span><span class="n">keysize</span> <span class="mi">2048</span> <span class="o">-</span><span class="n">validity</span> <span class="mi">10000</span></code></pre></div>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">jarsigner</span> <span class="o">-</span><span class="n">verbose</span> <span class="o">-</span><span class="n">sigalg</span> <span class="no">SHA1withRSA</span> <span class="o">-</span><span class="n">digestalg</span> <span class="no">SHA1</span> <span class="o">-</span><span class="n">keystore</span> <span class="n">my</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">key</span><span class="o">.</span><span class="n">keystore</span> <span class="no">HelloWorld</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">unsigned</span><span class="o">.</span><span class="n">apk</span> <span class="n">alias_name</span></code></pre></div>
-
-<p>Zipalign için android sdk ile bu işlemi yapmak gerekiyor<br />
-Dizin;</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">adt</span><span class="o">-</span><span class="n">bundle</span><span class="o">-</span><span class="n">mac</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="mi">20140702</span><span class="o">/</span><span class="n">sdk</span><span class="o">/</span><span class="n">build</span><span class="o">-</span><span class="n">tools</span><span class="o">/</span><span class="n">android</span><span class="o">-</span><span class="mi">4</span><span class="o">.</span><span class="mi">4</span><span class="n">W</span><span class="o">/</span><span class="n">zipalign</span></code></pre></div>
-
-<p>Komutun başındaki<b> ./ </b>işaretine dikkat etmek gerekiyor.</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">.</span><span class="n">/zipalign</span> <span class="o">-</span><span class="n">v</span> <span class="mi">4</span> <span class="no">HelloWorld</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">unsigned</span><span class="o">.</span><span class="n">apk</span> <span class="no">HelloWorld</span><span class="o">.</span><span class="n">apk</span></code></pre></div>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="n">install</span> <span class="n">bundler</span>
+<span class="n">bundle</span> <span class="n">install</span></code></pre></div>
 
 
   </div><!-- /.entry-content -->
@@ -177,7 +472,7 @@ Dizin;</p>
   <header>
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2015-01-19T23:51:27+02:00"><a href="/linux/18/">January 19, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2015-04-01T16:32:27+03:00"><a href="/linux,/mac/24/">April 01, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
       
       <span class="entry-reading-time">
         <i class="fa fa-clock-o"></i>
@@ -187,15 +482,22 @@ Dizin;</p>
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="/linux/18/" rel="bookmark" title="Crontab -e Komutunun Kullanımı" itemprop="url">Crontab -e Komutunun Kullanımı</a></h1>
+      <h1 class="entry-title"><a href="/linux,/mac/24/" rel="bookmark" title="SSH ile sansürü önleme, yasaklı sitelere girme, güvenli internet" itemprop="url">SSH ile sansürü önleme, yasaklı sitelere girme, güvenli internet</a></h1>
     
   </header>
   <div class="entry-content">
-    <p>Komut satırına <b>crontab -e</b> yazıldığında açılan sayfanın en altına aşağıdaki komut yazılır </p>
+    <p>SSH terminal aracılığıyla uzaktan yönetimi sahlayan bir teknoloji ve iki taraflı şifreleme sağlıyor. Yani güvenli bir bağlantı kuruluyor. Develeporler da demişki biz bunu interneti iletmek içinde kullanabiliriz hadi yapalım o zaman demişler ve Ssh üzerinden internet’e bağlanma olayı gerçekleşmiş. Mac için anlatacağım bu yöntem windows makinalarda da işliyor ama Putty adlı aracı kullanmak gerek nette nasıl olduğu bulunabilir. Ben burayı knowladge base olarak kullandığımdan dolayı mac için olanı anlatıcam öncelikle SSHTunnel uygulamasını indiriyoruz.</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mi">0</span> <span class="o">*/</span><span class="mi">2</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="sr">/usr/</span><span class="n">bin</span><span class="o">/</span><span class="n">wget</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">www</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">com</span><span class="o">/</span></code></pre></div>
+<p><img src="/assets/24-1.png" alt="My helpful screenshot" /><br /></p>
 
-<p>Yazılan komut 2 saatte bir google’a sayfa isteği gönderir.</p>
+<p>Server yazan kısma tıklıyoruz ve linux serverımızın ip adresini yazıyoruz port’u 22 yazıyoruz kullanıcı adını yeni oluşturduğumuz yetkisiz kullanıcının adını yazıyoruz ben “tunnel” dedim şifreyide yine belirlediğimiz şifreyi yazıyoruz. Bu kullanıcı açma içini bilmiyorsanız nette bulunabilir çok kolay 1 dakikanızı almaz. Neyse şimdi asıl olaya gelelim dediğimiz gibi 22. porttan ssh ile bağlanıcaz. Yukardan Sessions’a gelip oturum açmamız gerek oluşturduğumuz server’ı seçiyoruz. AirPort’u seçiyoruz ve 8080 portunu ayarlıyoruz ki bu 8080 portu üzerinden bütün interneti aktarız. Aşağıdaki toggle butonu “on” konumuna getirdikten sonra işi yarılıyoruz. Sonraki adımda Mac’in proxy ayarını yapıcaz bunun için ağ ayarlarına giricez. </p>
+
+<p><img src="/assets/24-2.png" alt="My helpful screenshot" /><br /></p>
+
+<p>Resimdeki kısmı heralde herkes biliyordur, bilmiyorsanızda sistem ayarları bölümünden ağ ayarlarına tıklayınca geliyor. Burda SOCKS Proxy’i seçip server adına “localhost” yazıyoruz. Port kısmınada 8080 yazarsak Tamam deyip uygularsak ayarları artık işlem tamam demektir.</p>
+
+<p>Bu işlemi yaptıktan sonra diyelimki bilgisayarı açıp kapattınız bunun için de bu SSHTunnel uygulamasına giriyorsunuz ki onu başlangıçta otomatik açılacak şekilde ayarlarsanız işiniz kolaylaşır, neyse girdikten sonra AirProxy’e gelip on konumuna getirmeniz yeterli yada programı açtıktan sonra en tepede oluşan küçük ikona tıklayıp “Start All Sessions” dersenizde işlem tamam demektir. Kapatmak içinde aynısını yapabilirsiniz. Eğer torrent falanda kullanıyorsanız onun içinde programın “Session” kısmından gerekli ayarları yapabilirsiniz. </p>
+
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -204,7 +506,7 @@ Dizin;</p>
   <header>
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2014-09-30T00:51:27+03:00"><a href="/linux/17/">September 30, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2015-03-30T14:13:27+03:00"><a href="/linux/23/">March 30, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
       
       <span class="entry-reading-time">
         <i class="fa fa-clock-o"></i>
@@ -214,22 +516,14 @@ Dizin;</p>
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="/linux/17/" rel="bookmark" title="Linux Terminal Türkçe Karakter Sorunu" itemprop="url">Linux Terminal Türkçe Karakter Sorunu</a></h1>
+      <h1 class="entry-title"><a href="/linux/23/" rel="bookmark" title="Linux daemon -init.d" itemprop="url">Linux daemon -init.d</a></h1>
     
   </header>
   <div class="entry-content">
-    <p>DigitalOcean’ın dropletlerinde -linux server- Türkçe karakter görüntüleme ve kullanma sorunu olduğu için buna bir çözüm aradım ve debian da çalışan bir yöntem buldum <a href="http://l10n-turkish.alioth.debian.org/doc/debian-turkish-mini-HOWTO/debian-turkish-mini-HOWTO.html">KAYNAK</a> olarak verdiğim linkteki adımlar takip edilince sorunsuz bir şekilde çalışan Türkçe terminaliniz oluyor.</p>
+    <p>Linux ile programların servis gibi otomatik başlaması.</p>
 
-<p>Olurda link uçarsa;</p>
-
-<ol>
-  <li>
-    <p><a href="https://web.archive.org/web/20141101143045/http://l10n-turkish.alioth.debian.org/doc/debian-turkish-mini-HOWTO/debian-turkish-mini-HOWTO.html">archive.org</a></p>
-  </li>
-  <li>
-    <p><a href="http://i.imgur.com/mSwLG6P.png">imgur.com</a></p>
-  </li>
-</ol>
+<p><img src="/assets/23-1.png" alt="My helpful screenshot" /><br />
+<img src="/assets/23-2.png" alt="My helpful screenshot" /><br /></p>
 
 
   </div><!-- /.entry-content -->
@@ -239,7 +533,7 @@ Dizin;</p>
   <header>
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2014-09-30T00:51:27+03:00"><a href="/linux/16/">September 30, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2015-02-05T23:51:27+02:00"><a href="/linux/22/">February 05, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
       
       <span class="entry-reading-time">
         <i class="fa fa-clock-o"></i>
@@ -249,138 +543,17 @@ Dizin;</p>
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="/linux/16/" rel="bookmark" title="Linux ile Modül Programlama" itemprop="url">Linux ile Modül Programlama</a></h1>
+      <h1 class="entry-title"><a href="/linux/22/" rel="bookmark" title="Linux Zip / Unzip" itemprop="url">Linux Zip / Unzip</a></h1>
     
   </header>
   <div class="entry-content">
-    <p>Modüller çekirdek için yazılan programlardır. User space olarak tanımladığımız ve hergün kullandığımız işletim sisteminin bir alt katmanıdır. Kısacası linux çekirdeğinin içidir. Bizde burada çalışan bir “Hello World” uygulaması yapıcaz.</p>
+    <p>Linux ile dosyaların zip ve unzip ‘lenmesi </p>
 
-<p>1) Aşağıdaki gibi “<b>/home</b>” dizininde <b>denemeler</b> adlı bir klasör oluşturun.</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">zip</span> <span class="n">unzip</span>
 
-<p><br /><img src="/assets/16-1.png" alt="My helpful screenshot" /><br /></p>
-
-<p>2) Terminale “<b>cd denemeler</b>” yazarak dizine girin ve “<b>pico</b>” editörüyle “<b>hello.c</b>” dosyası oluşturun.</p>
-
-<p><br /><img src="/assets/16-2.png" alt="My helpful screenshot" /><br /></p>
-
-<p>3) İçerisine aşağıdaki kodları yazın. Dosyayı kaydetmek için “<b>CTRL + X</b>” kombinasyonuyla çıkış yapın size kaydetmek istermisiniz diye sorduğunda “<b>E</b>” ya da “<b>Y</b>” tuşlarına basarsınız.</p>
-
-<p><br /><img src="/assets/16-3.png" alt="My helpful screenshot" /><br /></p>
-
-<p>4) Az önceki “<b>C</b>” kodunun çalışması için bir “<b>Makefile</b>” dosyası lazım      “<b>pico Makefile</b>” ile oluşturun.</p>
-
-<p><br /><img src="/assets/16-4.png" alt="My helpful screenshot" /><br /></p>
-
-<p>5) İçerisine tıpkı aşağıdaki gibi yazın eger all ve clean kısımlarından sonra “<b>TAB</b>” ile boşluk bırakmazsanız hata alırsınız dikkat edin. Dosyayı kaydetmek için “<b>CTRL + X</b>” kombinasyonuyla çıkış yapın size kaydetmek istermisiniz diye sorduğunda “<b>E</b>” ya da “<b>Y</b>” tuşlarına basarsınız.</p>
-
-<p><br /><img src="/assets/16-5.png" alt="My helpful screenshot" /><br /></p>
-
-<p>6) Terminale “<b>make</b>” yazın ve kodunuzu derleyin. Eğer make komutunu çalıştıran program yoksa “<b>sudo apt-get install make</b>” yazarak yükleyebilirsiniz.</p>
-
-<p><br /><img src="/assets/16-6.png" alt="My helpful screenshot" /><br /></p>
-
-<p>7) Terminale “<b>ls</b>” yazın ve klasörün içerisinde <b>hello.ko</b> oluşmuş mu ona bakın. Eğer oluştuysa “<b>sudo insmod hello.ko</b>” yazarak modülü çekirdeğe yükleyebilirsiniz. Yüklediğinizde kodun içindeki print ifadelerinin barındırdığı string “<b>log</b>” dosyalarına yazılır. Neden diye sorarsanız print komutunda <b>KERN_INFO</b> ile belirttiğiniz için. Sonra terminale “<b>dmesg</b>” komutu girerseniz bütün logları görüntüleyebilirsiniz.
-<br /><img src="/assets/16-7.png" alt="My helpful screenshot" /><br /></p>
-
-<p>8) Görüldüğü gibi “<b>Hello World</b>” yazısı çıkıyor.</p>
-
-<p><br /><img src="/assets/16-8.png" alt="My helpful screenshot" /><br /></p>
-
-<p>9) Terminale “<b>sudo rmmod hello.ko</b>” yazarsanız modülü kaldırır ve log kısmına “<b>Goodby World</b>” yazar.</p>
-
-<p>Kolay gelsin.</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry" onclick="notifyMe()">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2014-09-30T00:51:27+03:00"><a href="/linux/15/">September 30, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-        Okuma Zamanı ~3 Dakika
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/linux/15/" rel="bookmark" title="Linux Çekirdek Güncellemesi" itemprop="url">Linux Çekirdek Güncellemesi</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p><b>Bu yazıyı tamamen okuduktan sonra işlemleri yapmaya başlarsanız hatayla karşılaşma oranınınız en aza iner. Altta bulunan not kısmı karşılaşılabilecek potansiyel hataları ve çözüm yollarını anlatmaktadır.</b></p>
-
-<p>Linux -Ubuntu- sistemde çekirdek güncellemesi yapıcaz ben sanal sürücüde gerçekleştirdim bu işlemi yaklaşık 2 saat kadar sürdü. Herhangi bir linux dağıtımında da fazla bir değişiklik olmadan aynı kodların çalıştığını belirtmek isterim.</p>
-
-<p>-Zor Yöntem-</p>
-
-<p>1) İlk başta “<b>uname -a</b>” komutu ile çekirdek versiyonunu öğreniyoruz.</p>
-
-<p><br /><img src="/assets/15-1.png" alt="My helpful screenshot" /><br /></p>
-
-<p>2)  “<b>Kernel</b>” adında bir dosya oluşturdum ve içerisine Linux’un son stabil versiyonu olan “<b>3.16.3</b>” paketini taşıdım. Bu paket kernel.org sitesinden indirilebilir. “<b>tar.xz</b>” uzantılı olanı ve patch dasyasını indireceksiniz.</p>
-
-<p><br /><img src="/assets/15-2.png" alt="My helpful screenshot" /><br /></p>
-
-<p>3) Kernel dosyası içindeki çekirdeği sıkıştırılmış formattan çıkarttım.</p>
-
-<p><br /><img src="/assets/15-3.png" alt="My helpful screenshot" /><br /></p>
-
-<p>4)   Sonrasında Linux versiyonunun yanındaki patch’in  çekirdeğe kurulumunu yaptım “<b>-R</b>” burada “<b>repeat</b>” yani tekrar anlamı taşıyor.</p>
-
-<p><br /><img src="/assets/15-4.png" alt="My helpful screenshot" /><br /></p>
-
-<p>5) Çekirdeğin kullanıcı isteğine göre modüllerinin eklenip çıkartılması için gerekli olan “<b>make menuconfig</b>” komutunu çalıştırdım ama gerekli kütüphaneler olmadığı için çalışmadı bu nedenle “<b>apt-get install libncurses5-dev</b>” komutuyla “<b>libncurses5-dev</b>“ paketini kurdum. Eğer “<b>make menuconfig</b>” işlemini yapmazsanız, yükleme yaparken yaklaşık 50 kadar soruya tek tek cevap vermeniz gerekecek o yüzden yapmanızı tavsiye ederim.</p>
-
-<p><br /><img src="/assets/15-5.png" alt="My helpful screenshot" /><br /></p>
-
-<p>6) Ardından “<b>make menuconfig</b>” komutunu çalıştırdım.</p>
-
-<p><br /><img src="/assets/15-6.png" alt="My helpful screenshot" /><br /></p>
-
-<p><br /><img src="/assets/15-7.png" alt="My helpful screenshot" /><br /></p>
-
-<p>Herhangi bir değişiklik yapmadım. İstenirse modüller eklenip çıkartılabiliyor ama sonra USB belleğim ya da Internetim neden çalışmıyor diyebilirsiniz, dikkatli işlem yapmak gerekiyor.</p>
-
-<p>7) Sonrasında “<b>apt-get install kernel-package</b>” gerekli olan “<b>kernel-package</b>” aracını yükledim. Kernel’ı derliyor.</p>
-
-<p><br /><img src="/assets/15-8.png" alt="My helpful screenshot" /><br /></p>
-
-<p>8) Derleme komutu “<b>make-kpkg kernel-image kernel_headers –initrd</b>”</p>
-
-<p><br /><img src="/assets/15-9.png" alt="My helpful screenshot" /><br /></p>
-
-<p>Benim yaptığım derleme işlemi toplamda 1 saat 50 dakika sürdü.</p>
-
-<p>10) Sonrasında  kernel dosyası içinde oluşan “<b>.deb</b>” uzantılı paketleri yükledim. Biri image diğeri header paketi. Bunların yedeğini almakta fayda var derlemesi 2 saat sürüyor.</p>
-
-<p><br /><img src="/assets/15-10.png" alt="My helpful screenshot" /><br /></p>
-
-<p>11) Yükleme işlemi bittikten sonra linux’u yeniden başlatıyoruz. Bilgisayar açıldığı sırada “<b>Shift</b>” tuşuna basılı tutuyoruz.</p>
-
-<p><br /><img src="/assets/15-11.png" alt="My helpful screenshot" /><br /></p>
-
-<p>Karşımıza buna benzer bir ekran gelecek buradan çalıştırmak istediğimiz çekirdek sürümünü seçiyoruz. Bir önceki sürüm “<b>Previous Linux Versions</b>” sekmesinde gözükecektir. Biz son yüklediğimiz versiyonu seçiyoruz ve başlatıyoruz.</p>
-
-<p>12) Terminal satırına “<b>uname -a</b>” komutunu giriyoruz ve yüklediğiniz çekirdeğin sürümünü görüyorsanız işlem tamam demektir. Görmüyorsanız alttaki not kısmını okuyun. Aynı işi yapan “<b>uname -r</b>” ile sadece sürümü görüntülersiniz.</p>
-
-<p><b>**Not: Eğer yaptığınız kernel güncellemesi mevcut işletim sistemiyle uyuşmazlık yaşarsa sistemdeki bütün sürücüler hata vermeye başlar.  Bu nedenle kullandığınız kernel sürümüyle update edeceğiniz kernel sürümünün yakın olmasına dikkat edin kernel da 3.16.7 diyorsa siz 3.16.40 ya da 3.17.0 gibi güncellemeleri kurun. Zira sistemi kullanılmaz hale getirme olasılığınız çok yüksek.</b></p>
-
-<p>-Kolay Yöntem-</p>
-
-<p>Aslında işlemler 12. adımda bitti fakat bir yöntem daha var ondan da bahsetmek istiyorum. Yazının başlarında hazır “<b>.deb</b>” kernel paketlerinden bahsetmiştik işte bunların yüklenmesi ile ilgili bikaç şey söylemek istiyorum.</p>
-
-<p>Şu sayfada -&gt;http://kernel.ubuntu.com/~kernel-ppa/mainline/ bütün kernel sürümlerini bulmak mümkün örneğin “<b>3.15.10</b>” sürümünü ele alalım.</p>
-
-<p><br /><img src="/assets/15-12.png" alt="My helpful screenshot" /><br />
-Seçtiğimiz paketleri aşağıdaki gibi bir komutla indirip, yüklüyoruz.</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">cd</span> <span class="sr">/kernel &amp;&amp; wget http:/</span><span class="o">/</span><span class="n">kernel</span><span class="o">.</span><span class="n">ubuntu</span><span class="o">.</span><span class="n">com</span><span class="o">/~</span><span class="n">kernel</span><span class="o">-</span><span class="n">ppa</span><span class="o">/</span><span class="n">mainline</span><span class="o">/</span><span class="n">v3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="n">utopic</span><span class="o">/</span><span class="n">linux</span><span class="o">-</span><span class="n">headers</span><span class="o">-</span><span class="mi">3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="mo">031510</span><span class="o">-</span><span class="n">generic_3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="mo">031510</span><span class="o">.</span><span class="mi">201408132333</span><span class="n">_i386</span><span class="o">.</span><span class="n">deb</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">kernel</span><span class="o">.</span><span class="n">ubuntu</span><span class="o">.</span><span class="n">com</span><span class="o">/~</span><span class="n">kernel</span><span class="o">-</span><span class="n">ppa</span><span class="o">/</span><span class="n">mainline</span><span class="o">/</span><span class="n">v3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="n">utopic</span><span class="o">/</span><span class="n">linux</span><span class="o">-</span><span class="n">headers</span><span class="o">-</span><span class="mi">3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="mo">031510_3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="mo">031510</span><span class="o">.</span><span class="mi">201408132333</span><span class="n">_all</span><span class="o">.</span><span class="n">deb</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">kernel</span><span class="o">.</span><span class="n">ubuntu</span><span class="o">.</span><span class="n">com</span><span class="o">/~</span><span class="n">kernel</span><span class="o">-</span><span class="n">ppa</span><span class="o">/</span><span class="n">mainline</span><span class="o">/</span><span class="n">v3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="n">utopic</span><span class="o">/</span><span class="n">linux</span><span class="o">-</span><span class="n">image</span><span class="o">-</span><span class="mi">3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="mo">031510</span><span class="o">-</span><span class="n">generic_3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="mo">031510</span><span class="o">.</span><span class="mi">201408132333</span><span class="n">_i386</span><span class="o">.</span><span class="n">deb</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="o">*.</span><span class="n">deb</span></code></pre></div>
-
-<p>Bu dosyaların “<b>cd /kernel</b>cd /kernel” komutu ile “<b>kernel</b>” dizinine “<b>wget</b>” aracı ile indiriyorum sonrasında “<b>sudo dpkg -i *.deb</b>” ile de inen paketlerin kurulumunu yapıyorum. Böylece 2 saat derlemekle uğraşmadan hazır derlenmiş paketin kurulumunu yapabiliyorum. Gayet kolay bir yöntem.</p>
+<span class="n">zip</span> <span class="n">data</span> <span class="o">*</span> <span class="sr">//</span> <span class="n">dosyay</span><span class="err">ı</span> <span class="n">zipler</span>
+<span class="n">zip</span> <span class="o">-</span><span class="n">r</span> <span class="n">data</span> <span class="o">*</span> <span class="sr">//</span> <span class="n">alt</span> <span class="n">dosyalar</span><span class="err">ı</span> <span class="n">zipler</span>
+<span class="n">unzip</span>  <span class="n">pics</span><span class="o">.</span><span class="n">zip</span></code></pre></div>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -412,6 +585,18 @@ Seçtiğimiz paketleri aşağıdaki gibi bir komutla indirip, yüklüyoruz.</p>
       <li>
         
           <a href="/page4">4</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/page5">5</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/page6">6</a>
         
       </li>
     

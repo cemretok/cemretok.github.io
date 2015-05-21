@@ -4,13 +4,708 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="/feed.xml" />
 <link rel="alternate" type="text/html" href="" />
-<updated>2015-01-24T20:18:47+02:00</updated>
+<updated>2015-05-21T22:01:56+03:00</updated>
 <id>/</id>
 <author>
   <name>Cemre Tok</name>
   <uri>/</uri>
   
 </author>
+
+
+<entry>
+  <title type="html"><![CDATA[PL/SQL Notları]]></title>
+ <link rel="alternate" type="text/html" href="/oracle,/pl/sql/26/" />
+  <id>/oracle,/pl/sql/26</id>
+  <published>2015-05-22T00:00:00+03:00</published>
+  <updated>2015-05-22T00:00:00+03:00</updated>
+  <author>
+    <name>Cemre Tok</name>
+    <uri></uri>
+    <email></email>
+  </author>
+  <content type="html">
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;DECLARE&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;–&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;De&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ğ&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ş&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ken&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Tan&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mlama&lt;/span&gt;
+	   &lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;varchar2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Merhaba Dünya!&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;BEGIN&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;G&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ö&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vde&lt;/span&gt;
+	   &lt;span class=&quot;n&quot;&gt;dbms_output&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;put_line&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+	&lt;span class=&quot;k&quot;&gt;END&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Biti&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ş&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;pre&gt;&lt;code&gt;/
+
+Declare
+	num1 Integer:= 5;
+	num2 Real:=5;
+	num3 double precision:=5;
+Begin
+	dbms_output.put_line(num1); --5
+	dbms_output.put_line(num2); --5
+	dbms_output.put_line(num3); --5
+End;
+
+
+Large Object (LOB) Veri Tipi – BFILE, BLOB, CLOB, NCLOB – Büyük verileri tutmak için Video binary gibi tipler. 
+Subtype –Alt tipler, kullanıcının oluşturduğu.
+
+DECLARE
+   SUBTYPE name IS char(20);
+   SUBTYPE message IS varchar2(100);
+   salutation name; -- salutation char(20) türünde bir değişken
+   greetings message; --  greetings varchar2(100) türünde bir değişken
+BEGIN
+   salutation := &#39;Reader &#39;; 
+   greetings := &#39;Welcome to the World of PL/SQL&#39;;
+   dbms_output.put_line(&#39;Hello &#39; || salutation || greetings); -- || birleştirme operatörü
+END;
+/
+
+Yerel ve Genel Değişken tanımlamaları
+
+DECLARE
+   -- Genel değişkene iç bloğun içinden ulaşılabilir.
+   num1 number := 95; 
+BEGIN 
+   dbms_output.put_line(&#39;Dış Değişken num1: &#39; || num1);
+   DECLARE 
+	  -- Yerel değişkene bloğun dışından ulaşılamaz.
+	  num1 number := 195; 
+   BEGIN 
+	  dbms_output.put_line(&#39;İç Değişken num1: &#39; || num1);
+   END; 
+END;
+/
+
+Constant (Sabit) Tanımlama 
+PI CONSTANT NUMBER := 3.141592654;
+
+(&#39;) işaretinin yazımı
+ message  varchar2(30):= &#39;&#39;That&#39;&#39;s tutorialspoint.com!&#39;&#39;;
+ 
+Conditions
+
+IF
+
+IF (a &amp;lt;= 20) THEN
+   S1; 
+ELSE 
+   S2;
+END IF;
+
+IF ( a = 10 ) THEN
+	  dbms_output.put_line(&#39;Value of a is 10&#39; );
+   ELSIF ( a = 20 ) THEN
+	  dbms_output.put_line(&#39;Value of a is 20&#39; );
+   ELSE
+	   dbms_output.put_line(&#39;None of the values is matching&#39;);
+END IF;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;CASE grade
+      when ‘A’ then dbms_output.put_line(‘Excellent’);
+      when ‘B’ then dbms_output.put_line(‘Very good’);
+      when ‘F’ then dbms_output.put_line(‘Better try again’);
+      else dbms_output.put_line(‘No such grade’);
+   END CASE;&lt;/p&gt;
+
+&lt;p&gt;case 
+      when grade = ‘A’ then dbms_output.put_line(‘Excellent’);
+      when grade = ‘B’ then dbms_output.put_line(‘Very good’);
+      when grade = ‘F’ then dbms_output.put_line(‘Better try again’);
+      else dbms_output.put_line(‘No such grade’);
+   end case;&lt;/p&gt;
+
+&lt;p&gt;LOOP&lt;/p&gt;
+
+&lt;p&gt;DECLARE
+	   x number := 10;
+	BEGIN
+	   LOOP
+		  dbms_output.put_line(x);
+		  x := x + 10;
+		  IF x &amp;gt; 50 THEN
+			 exit;
+		  END IF;
+	   END LOOP;
+	   – after exit, control resumes here
+	   dbms_output.put_line(‘After Exit x is: ‘ || x);
+	END;
+	/&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;LOOP
+  dbms_output.put_line(x);
+  x := x + 10;
+  exit WHEN x &amp;gt; 50;    END LOOP;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;WHILE&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;WHILE a &amp;lt; 20 LOOP
+  dbms_output.put_line(&#39;value of a: &#39; || a);
+  a := a + 1;    END LOOP;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;FOR&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;DECLARE
+   a number(2);
+BEGIN
+   FOR a in 10 .. 20 LOOP
+	   dbms_output.put_line(&#39;value of a: &#39; || a);
+  END LOOP;
+END;
+/
+
+DECLARE
+   a number(2) ;
+BEGIN
+   FOR a IN REVERSE 10 .. 20 LOOP
+	  dbms_output.put_line(&#39;value of a: &#39; || a);
+   END LOOP;
+END;
+/
+
+IF a &amp;gt; 15 THEN EXIT;   or    EXIT WHEN a &amp;gt; 15; 
+--Loopdan çıkmak için kullanılır.
+
+CONTINUE -- Loopda atlamak için kullanılır.
+GOTO loopstart; -- &amp;lt;&amp;lt;loopstart&amp;gt;&amp;gt; etiketine gider
+
+Genel Fonksiyonlar
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;greetings varchar2(11) := ‘hello world’;
+   dbms_output.put_line(UPPER(greetings)); – HELLO WORLD
+   dbms_output.put_line(LOWER(greetings)); – hello world
+   dbms_output.put_line(INITCAP(greetings)); – Hello World
+   dbms_output.put_line ( SUBSTR (greetings, 1, 1)); – h
+   dbms_output.put_line ( SUBSTR (greetings, -1, 1)); – d
+   dbms_output.put_line ( SUBSTR (greetings, 7, 5)); – World
+   dbms_output.put_line ( SUBSTR (greetings, 2)); – ello World
+   dbms_output.put_line ( INSTR (greetings, ‘e’)); – 2&lt;/p&gt;
+
+&lt;p&gt;greetings varchar2(30) := ‘……Hello World…..’;
+   dbms_output.put_line(RTRIM(greetings,’.’)); – ……Hello World 
+   dbms_output.put_line(LTRIM(greetings, ‘.’)); – Hello World…..
+   dbms_output.put_line(TRIM( ‘.’ from greetings)); – Hello World&lt;/p&gt;
+
+&lt;p&gt;Array (Varray)&lt;/p&gt;
+
+&lt;p&gt;CREATE OR REPLACE TYPE varray_type_name IS VARRAY(n) of &lt;element_type&gt; -- Tip oluşturma
+   CREATE Or REPLACE TYPE namearray AS VARRAY(3) OF VARCHAR2(10); -- Tip oluşturma&lt;/element_type&gt;&lt;/p&gt;
+
+&lt;p&gt;TYPE namearray IS VARRAY(5) OF VARCHAR2(10); – Basitleştirilmiş tip oluşturma&lt;/p&gt;
+
+&lt;p&gt;DECLARE
+	   type namesarray IS VARRAY(5) OF VARCHAR2(10);
+	   type grades IS VARRAY(5) OF INTEGER;
+	   names namesarray;
+	   marks grades;
+	   total integer;
+	BEGIN
+	   names := namesarray(‘Kavita’, ‘Pritam’, ‘Ayan’, ‘Rishav’, ‘Aziz’);
+	   marks:= grades(98, 97, 78, 87, 92);
+	   total := names.count;
+	   dbms_output.put_line(‘Total ‘|| total || ‘ Students’);
+	   FOR i in 1 .. total LOOP
+		  dbms_output.put_line(‘Student: ‘ || names(i) || ‘
+		  Marks: ‘ || marks(i));
+	   END LOOP;
+	END;
+	/&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Tanımlamalar
+
+v_EmpName  emp.ename%TYPE; -- ename kolonu tipinde değişken oluşturur.
+
+DECLARE
+   v_EmpName  emp.ename%TYPE;
+BEGIN
+   SELECT ename INTO v_EmpName FROM emp WHERE ROWNUM = 1;
+   DBMS_OUTPUT.PUT_LINE(&#39;Name = &#39; || v_EmpName);
+END;
+/
+
+v_emp emp%ROWTYPE; -- emp tablosu tipinde değişken oluşturur.	
+
+DECLARE
+  v_emp emp%ROWTYPE;
+BEGIN
+  v_emp.empno := 10;
+  v_emp.ename := &#39;XXXXXXX&#39;;
+END;
+/
+ 
+Procedure
+
+CREATE OR REPLACE PROCEDURE -- Yeni oluştur yada varolanı değiştir.
+
+CREATE OR REPLACE PROCEDURE deneme1
+AS
+BEGIN
+   dbms_output.put_line(&#39;Merhaba Dünya!&#39;);
+END;
+/
+
+BEGIN
+   greetings; -- bu şekilde çağrılırsa Merhaba Dünya! basılır.
+   DROP PROCEDURE greetings; -- Prosedür silinir.
+END;
+/
+
+DECLARE
+   a number;
+PROCEDURE squareNum(x IN OUT number) IS --Parametre x alıyor ve dönüyor.
+BEGIN
+  x := x * x;
+END; --prosedür bitti
+BEGIN -- başka bir sorgu
+   a:= 23;
+   squareNum(a); -- prosedürü çağır
+   dbms_output.put_line(&#39; Square of (23): &#39; || a);
+END;
+/
+
+Function
+ 
+CREATE OR REPLACE FUNCTION -- Yeni oluştur yada varolanı değiştir.
+
+CREATE OR REPLACE FUNCTION totalCustomers
+RETURN number IS
+   total number(2) := 0;
+BEGIN
+   SELECT count(*) into total
+   FROM customers;
+   
+   RETURN total;
+END;
+/
+
+DECLARE
+   c number(2);
+BEGIN
+   c := totalCustomers();
+   dbms_output.put_line(&#39;Total no. of Customers: &#39; || c);
+END;
+/
+&lt;/code&gt;&lt;/pre&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/oracle,/pl/sql/26/&quot;&gt;PL/SQL Notları&lt;/a&gt; was originally published by Cemre Tok at &lt;a href=&quot;&quot;&gt;Cemre Tok&lt;/a&gt; on May 22, 2015.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Jekyll derleme hatası]]></title>
+ <link rel="alternate" type="text/html" href="/jekyll/25/" />
+  <id>/jekyll/25</id>
+  <published>2015-05-22T00:00:00+03:00</published>
+  <updated>2015-05-22T00:00:00+03:00</updated>
+  <author>
+    <name>Cemre Tok</name>
+    <uri></uri>
+    <email></email>
+  </author>
+  <content type="html">&lt;p&gt;Aşağıdaki hata alınırsa &lt;a href=&quot;https://help.github.com/articles/using-jekyll-with-pages/&quot;&gt;KAYNAK&lt;/a&gt; linkindeki talimatlar takip edilmeli&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;sr&quot;&gt;/Library/&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rubygems&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;core_ext&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;kernel_require&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;54&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`require&amp;#39;: cannot load such file -- jekyll-sitemap (LoadError)&lt;/span&gt;
+&lt;span class=&quot;sb&quot;&gt;	from /Library/Ruby/Site/2.0.0/rubygems/core_ext/kernel_require.rb:54:in `&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;s1&quot;&gt;	from /Library/Ruby/Gems/2.0.0/gems/jekyll-2.5.3/lib/jekyll/plugin_manager.rb:29:in `block in require_gems&amp;#39;&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/Library/&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Gems&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gems&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jekyll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jekyll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;plugin_manager&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;26&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`each&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;sb&quot;&gt;	from /Library/Ruby/Gems/2.0.0/gems/jekyll-2.5.3/lib/jekyll/plugin_manager.rb:26:in `&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;require_gems&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;s1&quot;&gt;	from /Library/Ruby/Gems/2.0.0/gems/jekyll-2.5.3/lib/jekyll/plugin_manager.rb:19:in `conscientious_require&amp;#39;&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/Library/&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Gems&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gems&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jekyll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jekyll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;site&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;79&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`setup&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;sb&quot;&gt;	from /Library/Ruby/Gems/2.0.0/gems/jekyll-2.5.3/lib/jekyll/site.rb:41:in `&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;initialize&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;s1&quot;&gt;	from /Library/Ruby/Gems/2.0.0/gems/jekyll-2.5.3/lib/jekyll/commands/build.rb:29:in `new&amp;#39;&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/Library/&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Gems&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gems&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jekyll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jekyll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;commands&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;build&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;29&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`process&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;sb&quot;&gt;	from /Library/Ruby/Gems/2.0.0/gems/jekyll-2.5.3/lib/jekyll/commands/serve.rb:26:in `&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;block&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;levels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;init_with_program&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;s1&quot;&gt;	from /Library/Ruby/Gems/2.0.0/gems/mercenary-0.3.5/lib/mercenary/command.rb:220:in `call&amp;#39;&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/Library/&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Gems&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gems&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mercenary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mercenary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;command&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;220&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`block in execute&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;sb&quot;&gt;	from /Library/Ruby/Gems/2.0.0/gems/mercenary-0.3.5/lib/mercenary/command.rb:220:in `&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;each&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;s1&quot;&gt;	from /Library/Ruby/Gems/2.0.0/gems/mercenary-0.3.5/lib/mercenary/command.rb:220:in `execute&amp;#39;&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/Library/&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Ruby&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Gems&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gems&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mercenary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mercenary&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;program&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;42&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`go&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;sb&quot;&gt;	from /Library/Ruby/Gems/2.0.0/gems/mercenary-0.3.5/lib/mercenary.rb:19:in `&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;program&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;s1&quot;&gt;	from /Library/Ruby/Gems/2.0.0/gems/jekyll-2.5.3/bin/jekyll:20:in `&amp;lt;top (required)&amp;gt;&amp;#39;&lt;/span&gt;
+	&lt;span class=&quot;n&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/usr/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;jekyll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;23&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:in&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`load&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;sb&quot;&gt;	from /usr/bin/jekyll:23:in `&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Talimatlar;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bundler&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;bundle&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;/jekyll/25/&quot;&gt;Jekyll derleme hatası&lt;/a&gt; was originally published by Cemre Tok at &lt;a href=&quot;&quot;&gt;Cemre Tok&lt;/a&gt; on May 22, 2015.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[SSH ile sansürü önleme, yasaklı sitelere girme, güvenli internet]]></title>
+ <link rel="alternate" type="text/html" href="/linux,/mac/24/" />
+  <id>/linux,/mac/24</id>
+  <published>2015-04-01T16:32:27+03:00</published>
+  <updated>2015-04-01T16:32:27+03:00</updated>
+  <author>
+    <name>Cemre Tok</name>
+    <uri></uri>
+    <email></email>
+  </author>
+  <content type="html">&lt;p&gt;SSH terminal aracılığıyla uzaktan yönetimi sahlayan bir teknoloji ve iki taraflı şifreleme sağlıyor. Yani güvenli bir bağlantı kuruluyor. Develeporler da demişki biz bunu interneti iletmek içinde kullanabiliriz hadi yapalım o zaman demişler ve Ssh üzerinden internet’e bağlanma olayı gerçekleşmiş. Mac için anlatacağım bu yöntem windows makinalarda da işliyor ama Putty adlı aracı kullanmak gerek nette nasıl olduğu bulunabilir. Ben burayı knowladge base olarak kullandığımdan dolayı mac için olanı anlatıcam öncelikle SSHTunnel uygulamasını indiriyoruz.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/24-1.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Server yazan kısma tıklıyoruz ve linux serverımızın ip adresini yazıyoruz port’u 22 yazıyoruz kullanıcı adını yeni oluşturduğumuz yetkisiz kullanıcının adını yazıyoruz ben “tunnel” dedim şifreyide yine belirlediğimiz şifreyi yazıyoruz. Bu kullanıcı açma içini bilmiyorsanız nette bulunabilir çok kolay 1 dakikanızı almaz. Neyse şimdi asıl olaya gelelim dediğimiz gibi 22. porttan ssh ile bağlanıcaz. Yukardan Sessions’a gelip oturum açmamız gerek oluşturduğumuz server’ı seçiyoruz. AirPort’u seçiyoruz ve 8080 portunu ayarlıyoruz ki bu 8080 portu üzerinden bütün interneti aktarız. Aşağıdaki toggle butonu “on” konumuna getirdikten sonra işi yarılıyoruz. Sonraki adımda Mac’in proxy ayarını yapıcaz bunun için ağ ayarlarına giricez. &lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/24-2.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Resimdeki kısmı heralde herkes biliyordur, bilmiyorsanızda sistem ayarları bölümünden ağ ayarlarına tıklayınca geliyor. Burda SOCKS Proxy’i seçip server adına “localhost” yazıyoruz. Port kısmınada 8080 yazarsak Tamam deyip uygularsak ayarları artık işlem tamam demektir.&lt;/p&gt;
+
+&lt;p&gt;Bu işlemi yaptıktan sonra diyelimki bilgisayarı açıp kapattınız bunun için de bu SSHTunnel uygulamasına giriyorsunuz ki onu başlangıçta otomatik açılacak şekilde ayarlarsanız işiniz kolaylaşır, neyse girdikten sonra AirProxy’e gelip on konumuna getirmeniz yeterli yada programı açtıktan sonra en tepede oluşan küçük ikona tıklayıp “Start All Sessions” dersenizde işlem tamam demektir. Kapatmak içinde aynısını yapabilirsiniz. Eğer torrent falanda kullanıyorsanız onun içinde programın “Session” kısmından gerekli ayarları yapabilirsiniz. &lt;/p&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;/linux,/mac/24/&quot;&gt;SSH ile sansürü önleme, yasaklı sitelere girme, güvenli internet&lt;/a&gt; was originally published by Cemre Tok at &lt;a href=&quot;&quot;&gt;Cemre Tok&lt;/a&gt; on April 01, 2015.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Linux daemon -init.d]]></title>
+ <link rel="alternate" type="text/html" href="/linux/23/" />
+  <id>/linux/23</id>
+  <published>2015-03-30T14:13:27+03:00</published>
+  <updated>2015-03-30T14:13:27+03:00</updated>
+  <author>
+    <name>Cemre Tok</name>
+    <uri></uri>
+    <email></email>
+  </author>
+  <content type="html">&lt;p&gt;Linux ile programların servis gibi otomatik başlaması.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/23-1.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/23-2.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;/linux/23/&quot;&gt;Linux daemon -init.d&lt;/a&gt; was originally published by Cemre Tok at &lt;a href=&quot;&quot;&gt;Cemre Tok&lt;/a&gt; on March 30, 2015.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Linux Zip / Unzip]]></title>
+ <link rel="alternate" type="text/html" href="/linux/22/" />
+  <id>/linux/22</id>
+  <published>2015-02-05T23:51:27+02:00</published>
+  <updated>2015-02-05T23:51:27+02:00</updated>
+  <author>
+    <name>Cemre Tok</name>
+    <uri></uri>
+    <email></email>
+  </author>
+  <content type="html">&lt;p&gt;Linux ile dosyaların zip ve unzip ‘lenmesi &lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zip&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;unzip&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;zip&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dosyay&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zipler&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;zip&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;alt&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dosyalar&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zipler&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;unzip&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;pics&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zip&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/linux/22/&quot;&gt;Linux Zip / Unzip&lt;/a&gt; was originally published by Cemre Tok at &lt;a href=&quot;&quot;&gt;Cemre Tok&lt;/a&gt; on February 05, 2015.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Dex2jar Mac]]></title>
+ <link rel="alternate" type="text/html" href="/android/21/" />
+  <id>/android/21</id>
+  <published>2015-01-26T23:51:27+02:00</published>
+  <updated>2015-01-26T23:51:27+02:00</updated>
+  <author>
+    <name>Cemre Tok</name>
+    <uri></uri>
+    <email></email>
+  </author>
+  <content type="html">&lt;p&gt;Apk’nın sonuna .zip ekle dosyayı aç &lt;b&gt;classes.dex&lt;/b&gt; dosyasını al dex2jar’ın içine koy cd ile dex2jar’ın içine git ve aşağıdaki komutu çalıştır.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;/dex2jar&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;classes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dex&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Çıkan dosyayı JD-Gui’ye koy.&lt;/p&gt;
+
+  &lt;p&gt;&lt;a href=&quot;/android/21/&quot;&gt;Dex2jar Mac&lt;/a&gt; was originally published by Cemre Tok at &lt;a href=&quot;&quot;&gt;Cemre Tok&lt;/a&gt; on January 26, 2015.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Php Proxy için gerekenler]]></title>
+ <link rel="alternate" type="text/html" href="/php/20/" />
+  <id>/php/20</id>
+  <published>2015-01-26T23:51:27+02:00</published>
+  <updated>2015-01-26T23:51:27+02:00</updated>
+  <author>
+    <name>Cemre Tok</name>
+    <uri></uri>
+    <email></email>
+  </author>
+  <content type="html">&lt;p&gt;Server’a aşağıdaki eklentileri yükle&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;php5&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;curl&lt;/span&gt;
+&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/etc/ini&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;apache2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;restart&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Php dosyasını çalıştır parametre olarak &lt;b&gt;?url=&lt;/b&gt; istediğin sitenin adresini yaz.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-php&quot; data-lang=&quot;php&quot;&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;?PHP&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Script: Simple PHP Proxy: Get external HTML, JSON and more!&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// *Version: 1.6, Last updated: 1/24/2009*&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Project Home - http://benalman.com/projects/php-simple-proxy/&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// GitHub       - http://github.com/cowboy/php-simple-proxy/&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Source       - http://github.com/cowboy/php-simple-proxy/raw/master/ba-simple-proxy.php&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// About: License&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Copyright (c) 2010 &amp;quot;Cowboy&amp;quot; Ben Alman,&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Dual licensed under the MIT and GPL licenses.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// http://benalman.com/about/license/&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// About: Examples&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// This working example, complete with fully commented code, illustrates one way&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// in which this PHP script can be used.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Simple - http://benalman.com/code/projects/php-simple-proxy/examples/simple/&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// About: Release History&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 1.6 - (1/24/2009) Now defaults to JSON mode, which can now be changed to&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//       native mode by specifying ?mode=native. Native and JSONP modes are&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//       disabled by default because of possible XSS vulnerability issues, but&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//       are configurable in the PHP script along with a url validation regex.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 1.5 - (12/27/2009) Initial release&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Topic: GET Parameters&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Certain GET (query string) parameters may be passed into ba-simple-proxy.php&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// to control its behavior, this is a list of these parameters. &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//   url - The remote URL resource to fetch. Any GET parameters to be passed&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     through to the remote URL resource must be urlencoded in this parameter.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//   mode - If mode=native, the response will be sent using the same content&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     type and headers that the remote URL resource returned. If omitted, the&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     response will be JSON (or JSONP). &amp;lt;Native requests&amp;gt; and &amp;lt;JSONP requests&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     are disabled by default, see &amp;lt;Configuration Options&amp;gt; for more information.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//   callback - If specified, the response JSON will be wrapped in this named&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     function call. This parameter and &amp;lt;JSONP requests&amp;gt; are disabled by&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     default, see &amp;lt;Configuration Options&amp;gt; for more information.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//   user_agent - This value will be sent to the remote URL request as the&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     `User-Agent:` HTTP request header. If omitted, the browser user agent&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     will be passed through.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//   send_cookies - If send_cookies=1, all cookies will be forwarded through to&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     the remote URL request.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//   send_session - If send_session=1 and send_cookies=1, the SID cookie will be&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     forwarded through to the remote URL request.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//   full_headers - If a JSON request and full_headers=1, the JSON response will&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     contain detailed header information.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//   full_status - If a JSON request and full_status=1, the JSON response will&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     contain detailed cURL status information, otherwise it will just contain&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     the `http_code` property.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Topic: POST Parameters&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// All POST parameters are automatically passed through to the remote URL&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// request.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Topic: JSON requests&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// This request will return the contents of the specified url in JSON format.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Request:&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &amp;gt; ba-simple-proxy.php?url=http://example.com/&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Response:&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &amp;gt; { &amp;quot;contents&amp;quot;: &amp;quot;&amp;lt;html&amp;gt;...&amp;lt;/html&amp;gt;&amp;quot;, &amp;quot;headers&amp;quot;: {...}, &amp;quot;status&amp;quot;: {...} }&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// JSON object properties:&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//   contents - (String) The contents of the remote URL resource.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//   headers - (Object) A hash of HTTP headers returned by the remote URL&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     resource.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//   status - (Object) A hash of status codes returned by cURL.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Topic: JSONP requests&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// This request will return the contents of the specified url in JSONP format&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// (but only if $enable_jsonp is enabled in the PHP script).&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Request:&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &amp;gt; ba-simple-proxy.php?url=http://example.com/&amp;amp;callback=foo&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Response:&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &amp;gt; foo({ &amp;quot;contents&amp;quot;: &amp;quot;&amp;lt;html&amp;gt;...&amp;lt;/html&amp;gt;&amp;quot;, &amp;quot;headers&amp;quot;: {...}, &amp;quot;status&amp;quot;: {...} })&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// JSON object properties:&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//   contents - (String) The contents of the remote URL resource.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//   headers - (Object) A hash of HTTP headers returned by the remote URL&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     resource.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//   status - (Object) A hash of status codes returned by cURL.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Topic: Native requests&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// This request will return the contents of the specified url in the format it&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// was received in, including the same content-type and other headers (but only&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// if $enable_native is enabled in the PHP script).&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Request:&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &amp;gt; ba-simple-proxy.php?url=http://example.com/&amp;amp;mode=native&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Response:&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &amp;gt; &amp;lt;html&amp;gt;...&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Topic: Notes&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// * Assumes magic_quotes_gpc = Off in php.ini&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Topic: Configuration Options&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// These variables can be manually edited in the PHP file if necessary.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//   $enable_jsonp - Only enable &amp;lt;JSONP requests&amp;gt; if you really need to. If you&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     install this script on the same server as the page you&amp;#39;re calling it&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     from, plain JSON will work. Defaults to false.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//   $enable_native - You can enable &amp;lt;Native requests&amp;gt;, but you should only do&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     this if you also whitelist specific URLs using $valid_url_regex, to avoid&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     possible XSS vulnerabilities. Defaults to false.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//   $valid_url_regex - This regex is matched against the url parameter to&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     ensure that it is valid. This setting only needs to be used if either&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     $enable_jsonp or $enable_native are enabled. Defaults to &amp;#39;/.*/&amp;#39; which&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//     validates all URLs.&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// &lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// ############################################################################&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Change these configuration options if needed, see above descriptions for info.&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$enable_jsonp&lt;/span&gt;    &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$enable_native&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$valid_url_regex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/.*/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// ############################################################################&lt;/span&gt;
+
+&lt;span class=&quot;nv&quot;&gt;$url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;url&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$url&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  
+  &lt;span class=&quot;c1&quot;&gt;// Passed url not specified.&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$contents&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;ERROR: url not specified&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;http_code&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;ERROR&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;preg_match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$valid_url_regex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$url&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  
+  &lt;span class=&quot;c1&quot;&gt;// Passed url doesn&amp;#39;t match $valid_url_regex.&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$contents&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;ERROR: invalid url&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;http_code&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;ERROR&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$ch&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;curl_init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$url&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;strtolower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_SERVER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;REQUEST_METHOD&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;post&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;curl_setopt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CURLOPT_POST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;curl_setopt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CURLOPT_POSTFIELDS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_POST&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;send_cookies&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$cookie&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_COOKIE&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nv&quot;&gt;$cookie&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$key&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;=&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;send_session&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nv&quot;&gt;$cookie&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;SID&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$cookie&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;implode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;; &amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$cookie&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    
+    &lt;span class=&quot;nb&quot;&gt;curl_setopt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CURLOPT_COOKIE&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$cookie&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  
+  &lt;span class=&quot;nb&quot;&gt;curl_setopt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CURLOPT_FOLLOWLOCATION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;curl_setopt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CURLOPT_HEADER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;curl_setopt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CURLOPT_RETURNTRANSFER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  
+  &lt;span class=&quot;nb&quot;&gt;curl_setopt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ch&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;CURLOPT_USERAGENT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;user_agent&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;user_agent&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_SERVER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;HTTP_USER_AGENT&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  
+  &lt;span class=&quot;k&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$contents&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;preg_split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/([\r\n][\r\n])\\1/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;curl_exec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  
+  &lt;span class=&quot;nv&quot;&gt;$status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;curl_getinfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  
+  &lt;span class=&quot;nb&quot;&gt;curl_close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ch&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// Split header text into an array.&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$header_text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;preg_split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/[\r\n]+/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$header&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;mode&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;native&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$enable_native&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$contents&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;ERROR: invalid mode&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$status&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;http_code&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;ERROR&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  
+  &lt;span class=&quot;c1&quot;&gt;// Propagate headers to response.&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$header_text&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$header&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;preg_match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/^(?:Content-Type|Content-Language|Set-Cookie):/i&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$header&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$header&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  
+  &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$contents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  
+  &lt;span class=&quot;c1&quot;&gt;// $data will be serialized into JSON data.&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  
+  &lt;span class=&quot;c1&quot;&gt;// Propagate all HTTP headers into the JSON data object.&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;full_headers&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;headers&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    
+    &lt;span class=&quot;k&quot;&gt;foreach&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$header_text&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$header&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;preg_match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;/^(.+?):\s+(.*)$/&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$matches&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$matches&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nv&quot;&gt;$data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;headers&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$matches&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$matches&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  
+  &lt;span class=&quot;c1&quot;&gt;// Propagate all cURL request / response info to the JSON data object.&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;full_status&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;status&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;status&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;status&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;http_code&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$status&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;http_code&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  
+  &lt;span class=&quot;c1&quot;&gt;// Set the JSON data object contents, decoding it from JSON if possible.&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$decoded_json&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;json_decode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$contents&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;contents&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$decoded_json&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$decoded_json&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$contents&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  
+  &lt;span class=&quot;c1&quot;&gt;// Generate appropriate content-type header.&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$is_xhr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;strtolower&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_SERVER&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;HTTP_X_REQUESTED_WITH&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;xmlhttprequest&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;header&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Content-type: application/&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$is_xhr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;json&amp;#39;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;x-javascript&amp;#39;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  
+  &lt;span class=&quot;c1&quot;&gt;// Get JSONP callback.&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$jsonp_callback&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$enable_jsonp&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;isset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;callback&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$_GET&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;callback&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  
+  &lt;span class=&quot;c1&quot;&gt;// Generate JSON/JSONP string&lt;/span&gt;
+  &lt;span class=&quot;nv&quot;&gt;$json&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;json_encode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$data&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  
+  &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$jsonp_callback&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$jsonp_callback&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;$json&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;)&amp;quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;cp&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+  &lt;p&gt;&lt;a href=&quot;/php/20/&quot;&gt;Php Proxy için gerekenler&lt;/a&gt; was originally published by Cemre Tok at &lt;a href=&quot;&quot;&gt;Cemre Tok&lt;/a&gt; on January 26, 2015.&lt;/p&gt;</content>
+</entry>
 
 
 <entry>
@@ -526,348 +1221,6 @@ Tamam diyoruz ve çıkıyoruz.&lt;/p&gt;
 
 
   &lt;p&gt;&lt;a href=&quot;/linux/7/&quot;&gt;Raspberry Pi ile video Oynatmak (Film izlemek)&lt;/a&gt; was originally published by Cemre Tok at &lt;a href=&quot;&quot;&gt;Cemre Tok&lt;/a&gt; on September 29, 2014.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Raspberry Pi'ye Java yüklemek]]></title>
- <link rel="alternate" type="text/html" href="/linux/6/" />
-  <id>/linux/6</id>
-  <published>2014-09-29T00:51:27+03:00</published>
-  <updated>2014-09-29T00:51:27+03:00</updated>
-  <author>
-    <name>Cemre Tok</name>
-    <uri></uri>
-    <email></email>
-  </author>
-  <content type="html">&lt;p&gt;Java heryerde çalıştığı için neden Raspberryde de olmasın dedim ve basit kurulumunun nasıl olacağını, ardından “.jar” dosyalarını nasıl çalıştıracağınızı anlattım.&lt;/p&gt;
-
-&lt;p&gt;Terminal kullanıcaz, öncelikle aşağıdaki kod ile güncelleme yapıyoruz.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;update&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Sonrasında kurulum dosyalarını aşağıdaki kod ile yüklüyoruz&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;openjdk&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jre&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;img src=&quot;/assets/6-1.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;
-Herşey tamam şimdi komut satırından programı çalıştırabiliriz. (Programın bulunduğu dizine cd komutuyla gitmeniz gerekmektedir.)&lt;br /&gt;
-&lt;img src=&quot;/assets/6-2.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;java&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jar&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;program&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nad&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;jar&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/6-3.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;
-Eğer bu işi otomatik bir hale getirmek istiyorsanız. Programın üstüne sağ tıklayıp OpenJDK Java 7 Runtime’a tıklamanız gerekmektedir. Tabi bu yöntem Raspberry ekrana bağlıysa ya da vnc ile bağlandıysanız yapılabilmektedir.&lt;br /&gt;
-&lt;img src=&quot;/assets/6-4.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
-
-  &lt;p&gt;&lt;a href=&quot;/linux/6/&quot;&gt;Raspberry Pi'ye Java yüklemek&lt;/a&gt; was originally published by Cemre Tok at &lt;a href=&quot;&quot;&gt;Cemre Tok&lt;/a&gt; on September 29, 2014.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Dinamik DNS ile Raspberry pi'ye Sabit İp vermek (DDNS)]]></title>
- <link rel="alternate" type="text/html" href="/linux/5/" />
-  <id>/linux/5</id>
-  <published>2014-09-29T00:51:27+03:00</published>
-  <updated>2014-09-29T00:51:27+03:00</updated>
-  <author>
-    <name>Cemre Tok</name>
-    <uri></uri>
-    <email></email>
-  </author>
-  <content type="html">&lt;p&gt;Sorunla karşılaşmamak için uygulamaya geçmeden önce konuyu baştan sona kadar okumanızı tavsiye ederim.&lt;/p&gt;
-
-&lt;p&gt;Mevcut internet bağlantınızda modeminizi kapattığınız an ip adresiniz anında değişir tabi aylık ekstra ücret karşılığında statik ip adresi almadıysanız. İşte bizde para vermemek için ip adresimiz değiştiği an bunu dns server’a iletecek bir yazılım kurulumu yapacağız.&lt;/p&gt;
-
-&lt;p&gt;İlk olarak bu hizmeti veren &lt;a href=&quot;http://freedns.afraid.org/signup/&quot;&gt;http://freedns.afraid.org/signup/&lt;/a&gt; siteye üye oluyoruz. Sonrasında sol üst köşeden Dynamic DNS linkine tıklıyoruz.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/5-1.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Sonra add a new subdomain butonuna tıklayarak aşağıdaki  ilk 3 kısmı dolduruyoruz.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/5-2.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;İçi boş kırmızı kare’nin üstüne geliyoruz ve sağ tıklayıp adresi kopyala diyoruz.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/5-3.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;b&gt;http://www.freedns.afraid.org/dynamic/update.php?Z09NUEtktOamNvQ&lt;strong&gt;**&lt;/strong&gt;&lt;em&gt;**&lt;/em&gt;Q5MTMz&lt;/b&gt;
-Yukardakine benzer bir adres karşınıza çıkacak bu adresdeki kırmızı kısım ilerki adımlarda işimize yarıycak bi kenarda dursun şimdilik.&lt;/p&gt;
-
-&lt;p&gt;Şimdi Raspberry pi’nin terminal kısmına aşağıdaki kodu yazıyoruz.&lt;/p&gt;
-
-&lt;p&gt;sudo apt-get install inadyn (inadyn programını yüklemiş olduk)
-Şimdi bu programdaki şeyleri biraz değiştirmek gerekiyor, aşağıdaki komutu giriyoruz.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nano&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/etc/in&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;adyn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;conf&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Karşınıza gelen ekrana;&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;username&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;kullan&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ad&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;ş&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ifreniz&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;update_period&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3600&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;forced_update_period&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;14400&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;alias&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;adresiniz&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mooo&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Z09NUEtktOamNvQ&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**********&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Q5MTMz&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;background&lt;/span&gt; 
-&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dyndns_system&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;default&lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@freedns&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;afraid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;org&lt;/span&gt; 
-&lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;syslog&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Yukarıdaki değişiklikleri yapıyoruz ve Ctrl + X deyip kaydediyoruz. Y’ye basıyoruz Enter’a basıp çıkıyoruz.
-update_period 3600 kısmından 3600 saniyede bir değişim oluyor siz bunu değiştirebilirsiniz.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/5-4.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;İşlem tamam ama raspberry her açıldığında bunu otomatik hale getirmemiz gerekiyor bunun içinde aşağıdaki adımları yapmanız gerekiyor.&lt;/p&gt;
-
-&lt;p&gt;İlk olarak aşağıdaki komutu yazıyoruz;&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;EDITOR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gedit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;crontab&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Sonrasında açılan kısımda aşağıdaki kodu en alt kısma ekliyoruz.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;vi&quot;&gt;@reboot&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/usr/s&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inadyn&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Ctrl + X ‘e basıp kaydediyoruz. Sonra Y ve Enter diyoruz. Artık işlem tamam reboot komutuyla yada fişi takıp çıkararak raspberry’i tekrar başlatıyoruz. ve yeniden açılınca aşağıdaki kodu yazıyoruz bu sayede yaptığımız işlemler başarılı olup olmadığını anlayabiliyoruz.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;ps&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inadyn&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Kendi ip adresinizi bulup birde linke tıklayıp ikisininde aynı olduğunu gördüğünüzde işlem tamam demektir.
-Kolay gelsin.&lt;/p&gt;
-
-
-  &lt;p&gt;&lt;a href=&quot;/linux/5/&quot;&gt;Dinamik DNS ile Raspberry pi'ye Sabit İp vermek (DDNS)&lt;/a&gt; was originally published by Cemre Tok at &lt;a href=&quot;&quot;&gt;Cemre Tok&lt;/a&gt; on September 29, 2014.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Raspberry Pi'ye Sabit İp vermek (Yerel İp)]]></title>
- <link rel="alternate" type="text/html" href="/linux/4/" />
-  <id>/linux/4</id>
-  <published>2014-09-29T00:51:27+03:00</published>
-  <updated>2014-09-29T00:51:27+03:00</updated>
-  <author>
-    <name>Cemre Tok</name>
-    <uri></uri>
-    <email></email>
-  </author>
-  <content type="html">&lt;p&gt;&lt;b&gt;Sorunla karşılaşmamak için uygulamaya geçmeden önce yazıyı baştan sona kadar okumanızı tavsiye ederim.&lt;/b&gt;&lt;/p&gt;
-
-&lt;p&gt;Yerel ağımızda bazen cihazların ip adresleri değişir gerek kira süresi gerekse başka bir cihazın sizin eski ip adresinizi almasıyla meydana gelen bu sorunu önlemek için yapılan bir yöntem var. Oldukça kolay olan bu yöntemi aşağıdaki adımları sırasıyla yaparsanız kolayca halledebilirsiniz. Ben ssh ile bağlanıcam &lt;a href=&quot;/linux/2014/09/28/1.html&quot;&gt;BU BAĞLANTIDAN&lt;/a&gt; ssh ile ilgili fikir edinebilirsiniz.&lt;/p&gt;
-
-&lt;p&gt;Aşağıdaki kod ağ ayarlarına girerek oradan sabit bir yerel ip vermemize olanak sağlayacak&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nano&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/etc/ne&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;twork&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;interfaces4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/4-1.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;
-Karşınıza aşağıdaki şekildeki gibi bir ekran gelicek.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/4-2.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Sonrasında açılan sayfada aşağıda anlattıklarımı kendinize göre ekleyin.&lt;/p&gt;
-
-&lt;p&gt;address 192.168.2.24  (Görüldüğü gibi ben 24 verdim bu benim şu anki mevcut yerel ip adresim size tavsiyem sizde mevcut ip adresinizi verin mevcut ip adresinizi öğrenmek istiyorsanız komut satırınıza ifconfig yazmanız yeterli )&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/4-3.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;netmask 255.255.255.0 (255 cihaza kadar ip adresi verebileceğinizi belirtiyor. Bu alt ağ içerisindesiniz )&lt;/p&gt;
-
-&lt;p&gt;gateway 192.168.2.1  (Bu aslında modemin ip adresi. Siz kendi modeminizin ip adresini gireceksiniz. Mevcut ip adresiniz xxx.xxx.xxx.xxx olduğunu varsayalım. Mevcut ip adresinizin sonuna 1 koyun. xxx.xxx.xxx.1 )&lt;/p&gt;
-
-&lt;p&gt;network 192.168.2.0  (Modemin ip adresi xxx.xxx.xxx.0 olmalıdır.)&lt;/p&gt;
-
-&lt;p&gt;broadcast 192.168.2.255 (xxx.xxx.xxx.255 olmalıdır.)&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;address&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;192&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;168&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;24&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;netmask&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;gateway&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;192&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;168&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;network&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;192&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;168&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;broadcast&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;192&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;168&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;255&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Şu sekilde gözükecektir.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/4-4.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Son olarak Ctrl + X diyoruz ve Y tuşuna başıyoruz. Enter’a tıkladıktan sonra sistemi yeniden başlatmamız gerekiyor.&lt;/p&gt;
-
-&lt;p&gt;isterseniz reboot komutunu kullanın istersenizde fişini çıkarıp takabilirsiniz.&lt;/p&gt;
-
-&lt;p&gt;Not: reboot komutunun uygulanması için Super User olmak gerekiyor onun içinde aşağıdaki komutu kullanın.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;su&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Şifre sorabilir Raspberry’nin kendi şifresi raspberry&lt;/p&gt;
-
-&lt;p&gt;Sonrasında reboot derseniz sistem yeniden başlar.&lt;/p&gt;
-
-
-  &lt;p&gt;&lt;a href=&quot;/linux/4/&quot;&gt;Raspberry Pi'ye Sabit İp vermek (Yerel İp)&lt;/a&gt; was originally published by Cemre Tok at &lt;a href=&quot;&quot;&gt;Cemre Tok&lt;/a&gt; on September 29, 2014.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Raspberry Pi otomatik başlatma (Autologin)]]></title>
- <link rel="alternate" type="text/html" href="/linux/3/" />
-  <id>/linux/3</id>
-  <published>2014-09-29T00:51:27+03:00</published>
-  <updated>2014-09-29T00:51:27+03:00</updated>
-  <author>
-    <name>Cemre Tok</name>
-    <uri></uri>
-    <email></email>
-  </author>
-  <content type="html">&lt;p&gt;&lt;b&gt;Sorun yaşanmaması için yazıyı baştan sona kadar iyice okuduktan sonra uygulamaya geçmenizi öneririm.&lt;/b&gt;&lt;/p&gt;
-
-&lt;p&gt;Raspberry Pi’yi açtığımız her seferde ekrana bağlayıp startx ve login işlemlerini yapmaktansa bunu otomatik yapabilecek bir hale getirebiliyoruz. Örneğin elektrik kesildiğinde raspberry yeniden başlar ama login ekranını geçmeden işletim sistemi açılmaz işte biz bunu otomatik bir hale getireceğiz ve sistem her açılışında bize ihtiyaç duymayacak. Ssh ve Terminal bağlantısı kullanacağımız için eğer bilginiz yoksa  &lt;a href=&quot;/linux/2014/09/28/1.html&quot;&gt;BU BAĞLANTIDAN&lt;/a&gt; yazı size fikir verecektir. İlk olarak /etc kısmında varolan inittab dosyasını okumak için alttaki komutu giriyoruz.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nano&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/etc/ini&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ttab&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/3-1.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;
-Sonrasında açılan dosyada aşağıdaki satırı buluyoruz. (Dosyada dolanmak için klavyedeki ok işaretleri kullanılabilir.)&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2345&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:respawn:/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sbin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getty&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;115200&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tty1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Sonraki adımda bulduğumuz bu satırın başına “&lt;b&gt;#&lt;/b&gt;” işaretini koyuyoruz benim klavyemde  “&lt;b&gt;alt+3&lt;/b&gt;” işaretiyle yapılıyor.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#1:2345:respawn:/sbin/getty 115200 tty1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Artık yukardaki gibi gözükmesi gerekiyor. Bir sonraki adımda değişiklik yaptığımız satırın altına aşağıdaki kodu yapıştırıyoruz.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2345&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:respawn:/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;login&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pi&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tty1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/dev/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tty1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/dev/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tty1&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/3-2.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Sonrasında &lt;b&gt;ctrl+x&lt;/b&gt; diyoruz kaydetmek için Y tuşuna basıyoruz. Çıkmak için Enter’a tıklıyoruz. Login işlemini hallettik sonraki adımlarda masaüstünü yani startx’i otomatik hale getireceğiz. İlk olarak “&lt;b&gt;cd&lt;/b&gt;” komutuyla ana dizine gelin.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;cd&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Şimdide aşağıdaki komutu giriyoruz&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nano&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/etc/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;local&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/3-3.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Çıkan yazıların en sonunda exit 0  (exit sıfır) görmemiz gerekiyor onun bir üst satırına aşağıdaki komutu koyucaz.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;su&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;l&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pi&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;startx&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/3-4.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;
-ctrl+x yapıyoruz ve Y tuşuna tıklayarak kaydediyoruz. Enter’a basıp çıkıyoruz. İşlemler tamam artık kendi kendine login işlemini yapan ve masaüstü ortamını açabilen bir raspberryniz var.&lt;/p&gt;
-
-
-  &lt;p&gt;&lt;a href=&quot;/linux/3/&quot;&gt;Raspberry Pi otomatik başlatma (Autologin)&lt;/a&gt; was originally published by Cemre Tok at &lt;a href=&quot;&quot;&gt;Cemre Tok&lt;/a&gt; on September 29, 2014.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Linux'e VNC ile bağlanmak (Masaüstüne)]]></title>
- <link rel="alternate" type="text/html" href="/linux/2/" />
-  <id>/linux/2</id>
-  <published>2014-09-29T00:51:27+03:00</published>
-  <updated>2014-09-29T00:51:27+03:00</updated>
-  <author>
-    <name>Cemre Tok</name>
-    <uri></uri>
-    <email></email>
-  </author>
-  <content type="html">&lt;p&gt;Öncelikle &lt;b&gt;VNC&lt;/b&gt; herhangi bir bilgisayarın masaüstüne uzaktan bağlanmaya yarayan bir protokoldür.&lt;/p&gt;
-
-&lt;p&gt;Ben örnek verirken linux üzerinden deniycem. Tabi bu nerede işime yarar diyebilirsiniz. Eğer cloud bir hizmet satın aldıysanız bu server büyük ihtimal linux türevi bir işletim sistemi kullanıyordur ve komut satırı bazen can sıkıcı olabiliyor işte bundan dolayı vnc ile linux’un X server’ına yani masaüstü görünümüne erişebiliyoruz. Anlayacağınız büyük kolaylık.&lt;/p&gt;
-
-&lt;p&gt;Kullanacağımız programlar &lt;b&gt;tightvncserver ve vncviewer&lt;/b&gt;&lt;/p&gt;
-
-&lt;p&gt;Öncelikle vnc kuracağımız linux sisteme ssh ile ya da doğrudan terminale erişebiliyor olmamız lazım. Ben raspberry pi kullandığım için ona bağlanıcam eğer ssh kullanımını bilmiyorsanız  &lt;a href=&quot;/linux/2014/09/28/1.html&quot;&gt;BU BAĞLANTIDAN&lt;/a&gt; fikir edinebilirsiniz.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;update&lt;/span&gt;  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;APT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;paketini&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ü&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;celledik&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2-1.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;apt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tightvncserver&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Ba&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ğ&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lant&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;ç&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ekti&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ve&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ü&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;klemeye&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ba&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ş&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lad&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ı&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2-2.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;
-Yükleme işlemi bittikten sonra aşağıdaki komutu yazıyoruz.&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;vncserver&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Bo&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ş&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lu&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;ğ&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dikkat!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2-3.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;br /&gt;
-Tabi bu sırada size bağlandığınız bilgisayarın kullanıcı adı şifresini sorabilir, girdikten sonra işlem tamam. VNC servisini artık kullanabilirisiniz.&lt;br /&gt;&lt;br /&gt;
-&lt;img src=&quot;/assets/2-4.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;
-VNC copy
-VNC viewer
-Şimdi sıra geldi nasıl bağlantı kuracağımıza eğer benim gibi Mac sistem kullanıyorsanız vncviewer güzel bir program tavsiye ederim. Programı kurun yükleyin karşınıza aşağıdaki gibi bir ekran gelecek oradaki ip kısmına yerel/genel bağlandığınız bilgisayarın ip adresini girip sonuna :1 yazarak bağlanabilirsiniz. Tabi tekrardan kullanıcı adı şifre sorabilir onlarıda girmeyi unutmayın.&lt;/p&gt;
-
-&lt;p&gt;&lt;b&gt;VNC server’ı otomatik başlatmaz&lt;/b&gt;&lt;/p&gt;
-
-&lt;p&gt;Eğer bu işlemi yapmazsanız her yeniden başlatmada vnc server’ı manuel olarak açmak gerekiyor. Bunu otomatik bir hale getirmek içinse sırayla anlattığım adımları yapmak yeterli bu sayede büyük bir dertten kuruluyoruz.&lt;/p&gt;
-
-&lt;p&gt;Öncelikle aşağıdaki komutla home dizininden pi kullanıcısına geçiş yaptık. Burada pi yerine sizin kullanıcı adınız olacak.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;sr&quot;&gt;/home/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pi&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2-5.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;
-Daha sonra bu dizinde aşağıdaki komutla bir gizli config dosyası açıyoruz.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;cd&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2-6.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;
-Daha sonra autostart diye bir klasör açıyoruz&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;mkdir&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;autostart&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2-7.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;
-İçine bir dosya açıyoruz.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;nano&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tightvnc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;desktop&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2-8.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;
-Son olarak aşağıdaki komutları içersine kopyalıyoruz. CTRL + X kombinasyonunu uygulayıp (kaydedip) enter’a basıp kapatıyoruz.&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Desktop&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Entry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Application&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;TightVNC&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;Exec&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vncserver&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-&lt;span class=&quot;no&quot;&gt;StartupNotify&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/2-9.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;
-Artık otomatik olarak başlayan bir vnc serverımız bulunmaktadır. İp adresini bildiğiniz sürece istediğiniz yerden anında bağlanabilirsiniz.&lt;/p&gt;
-
-
-  &lt;p&gt;&lt;a href=&quot;/linux/2/&quot;&gt;Linux'e VNC ile bağlanmak (Masaüstüne)&lt;/a&gt; was originally published by Cemre Tok at &lt;a href=&quot;&quot;&gt;Cemre Tok&lt;/a&gt; on September 29, 2014.&lt;/p&gt;</content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Ssh bağlantısında RSA sorunu (Shh host key verification failed)]]></title>
- <link rel="alternate" type="text/html" href="/linux/1/" />
-  <id>/linux/1</id>
-  <published>2014-09-29T00:51:27+03:00</published>
-  <updated>2014-09-29T00:51:27+03:00</updated>
-  <author>
-    <name>Cemre Tok</name>
-    <uri></uri>
-    <email></email>
-  </author>
-  <content type="html">&lt;p&gt;&lt;b&gt;Bir hata ile karşılaşmamak için tüm yazıyı okuduktan sonra uygulamaya geçmenizde fayda var.&lt;/b&gt;&lt;/p&gt;
-
-&lt;p&gt;Normalde terminal yada komut satırına “&lt;b&gt;ssh kullanıcıadı@ipadresi&lt;/b&gt;” yazdığımızda ssh ile karşı tarafa kolayca bağlanabiliyorduk. Ama şimdi karşımıza şu görseldekine benzer bir sorun çıktı.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/1-1.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Sorunun ana nedeni daha önceden aynı ip ile bir bağlantı gerçekleştirilmiş olmasıdır. Bundan ötürüde iki taraf arasında RSA şifresi atanmıştır. Bir farklılık olduğunu anlayan sistem “&lt;b&gt;man in the middle attack&lt;/b&gt;” saldırısı olabileceğinden süphelenir işte bu yüzden önceki ip (pc) ye ait olan RSA şifresini kaldırmak gerekir bunun içinde komut satırına ana dizine gelerek (cd komutu ile gelinebilir)&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;ssh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keygen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hostname&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;yazılması gerekir. Host name kısmına bağlanılmak istenen bilgisayarın ip adresi yazılır.&lt;/p&gt;
-
-&lt;p&gt;Örnek olarak;&lt;/p&gt;
-
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;ssh&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;keygen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;192&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;168&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;Sonrasında terminale “&lt;b&gt;ssh kullanıcıadı@192.168.2.10&lt;/b&gt;” yazılır yeni bir RSA şifresi atansın mı diye sorar evet dersiniz.&lt;/p&gt;
-
-&lt;p&gt;Not: Kullanıcı adı bağlanacağınız pc’nin kullanıcı adıdır. İp adresi yine bağlanılacak pc’nin ip adresidir.&lt;/p&gt;
-
-
-  &lt;p&gt;&lt;a href=&quot;/linux/1/&quot;&gt;Ssh bağlantısında RSA sorunu (Shh host key verification failed)&lt;/a&gt; was originally published by Cemre Tok at &lt;a href=&quot;&quot;&gt;Cemre Tok&lt;/a&gt; on September 29, 2014.&lt;/p&gt;</content>
 </entry>
 
 </feed>

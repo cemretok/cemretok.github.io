@@ -64,7 +64,7 @@
 
 
 
-<style type="text/css">body {background-image:url(/images/cloud.jpg);}</style>
+<style type="text/css">body {background-image:url(/images/transmit.png);}</style>
 
 
 </head>
@@ -136,7 +136,7 @@
   <header>
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2014-09-30T00:51:27+03:00"><a href="/java/14/">September 30, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2015-01-26T23:51:27+02:00"><a href="/android/21/">January 26, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
       
       <span class="entry-reading-time">
         <i class="fa fa-clock-o"></i>
@@ -146,26 +146,298 @@
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="/java/14/" rel="bookmark" title="SubTeacher (Altyazı Kelime Öğretici)" itemprop="url">SubTeacher (Altyazı Kelime Öğretici)</a></h1>
+      <h1 class="entry-title"><a href="/android/21/" rel="bookmark" title="Dex2jar Mac" itemprop="url">Dex2jar Mac</a></h1>
     
   </header>
   <div class="entry-content">
-    <p>SubTeacher’ı can sıkıntısına JavaFX ile geliştirdim, geliştirmeyede devam ediyorum. İngilizce altyazılı film izlerken aklıma takılan kelimeler oluyordu onları öğrenmek için, en azından aklımda kalması için bir yöntem arıyordum ki bulamadım, bende bu nedenle SubTeacher’ı geliştirmeye başladım. Kaynak kodlar herkese açıktır. Github sayfasından <a href="https://github.com/cemretok/SubTeacher">SubTeacher</a> ulaşılabilir.</p>
+    <p>Apk’nın sonuna .zip ekle dosyayı aç <b>classes.dex</b> dosyasını al dex2jar’ın içine koy cd ile dex2jar’ın içine git ve aşağıdaki komutu çalıştır.</p>
 
-<p><br /><img src="/assets/14-1.png" alt="My helpful screenshot" /><br />
-<br /><img src="/assets/14-2.png" alt="My helpful screenshot" /><br />
-*Resimler Matrix’e ait</p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">.</span><span class="n">/dex2jar</span><span class="o">.</span><span class="n">sh</span> <span class="n">classes</span><span class="o">.</span><span class="n">dex</span></code></pre></div>
 
-<p>Resimlerde de görüldüğü gibi uygulama istenileni yapıyor. Daha sonraki geliştirme sürecinde de <a href="https://github.com/cemretok/SubTeacher/blob/master/README.md">README.md</a> sayfasında belirttiğim gibi geliştirmeler olacak, bunlar;</p>
+<p>Çıkan dosyayı JD-Gui’ye koy.</p>
 
-<p>Çekimli kelimelerin çevrilmesi.
-Çeviri sıklığı seçeneği eklenmesi. (Cümlede bir ya da on satırda bir çeviri gibi…)
-Bağlaçların çevrilmemesi.
-Veritabanının kaldırılıp online aktarıma geçilmesi.
-Vakit olursa programın online halde de çalışmasını planlıyorum.
-Veritabanındaki kelimelerin düzeltilmesi.
-Seviyeye göre çeviri yapılması. (database’in düzenlenmesi gerekiyor -uzun iş-)
-Çok ütapik olacak ama kim bilir belki ilerde dil işleme bile yapılabilir.</p>
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry" onclick="notifyMe()">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2015-01-26T23:51:27+02:00"><a href="/php/20/">January 26, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+        Okuma Zamanı ~9 Dakika
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/php/20/" rel="bookmark" title="Php Proxy için gerekenler" itemprop="url">Php Proxy için gerekenler</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p>Server’a aşağıdaki eklentileri yükle</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">php5</span><span class="o">-</span><span class="n">curl</span>
+<span class="err">$</span> <span class="n">sudo</span> <span class="sr">/etc/ini</span><span class="n">t</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">apache2</span> <span class="n">restart</span></code></pre></div>
+
+<p>Php dosyasını çalıştır parametre olarak <b>?url=</b> istediğin sitenin adresini yaz.</p>
+
+<div class="highlight"><pre><code class="language-php" data-lang="php"><span class="cp">&lt;?PHP</span>
+
+<span class="c1">// Script: Simple PHP Proxy: Get external HTML, JSON and more!</span>
+<span class="c1">//</span>
+<span class="c1">// *Version: 1.6, Last updated: 1/24/2009*</span>
+<span class="c1">// </span>
+<span class="c1">// Project Home - http://benalman.com/projects/php-simple-proxy/</span>
+<span class="c1">// GitHub       - http://github.com/cowboy/php-simple-proxy/</span>
+<span class="c1">// Source       - http://github.com/cowboy/php-simple-proxy/raw/master/ba-simple-proxy.php</span>
+<span class="c1">// </span>
+<span class="c1">// About: License</span>
+<span class="c1">// </span>
+<span class="c1">// Copyright (c) 2010 &quot;Cowboy&quot; Ben Alman,</span>
+<span class="c1">// Dual licensed under the MIT and GPL licenses.</span>
+<span class="c1">// http://benalman.com/about/license/</span>
+<span class="c1">// </span>
+<span class="c1">// About: Examples</span>
+<span class="c1">// </span>
+<span class="c1">// This working example, complete with fully commented code, illustrates one way</span>
+<span class="c1">// in which this PHP script can be used.</span>
+<span class="c1">// </span>
+<span class="c1">// Simple - http://benalman.com/code/projects/php-simple-proxy/examples/simple/</span>
+<span class="c1">// </span>
+<span class="c1">// About: Release History</span>
+<span class="c1">// </span>
+<span class="c1">// 1.6 - (1/24/2009) Now defaults to JSON mode, which can now be changed to</span>
+<span class="c1">//       native mode by specifying ?mode=native. Native and JSONP modes are</span>
+<span class="c1">//       disabled by default because of possible XSS vulnerability issues, but</span>
+<span class="c1">//       are configurable in the PHP script along with a url validation regex.</span>
+<span class="c1">// 1.5 - (12/27/2009) Initial release</span>
+<span class="c1">// </span>
+<span class="c1">// Topic: GET Parameters</span>
+<span class="c1">// </span>
+<span class="c1">// Certain GET (query string) parameters may be passed into ba-simple-proxy.php</span>
+<span class="c1">// to control its behavior, this is a list of these parameters. </span>
+<span class="c1">// </span>
+<span class="c1">//   url - The remote URL resource to fetch. Any GET parameters to be passed</span>
+<span class="c1">//     through to the remote URL resource must be urlencoded in this parameter.</span>
+<span class="c1">//   mode - If mode=native, the response will be sent using the same content</span>
+<span class="c1">//     type and headers that the remote URL resource returned. If omitted, the</span>
+<span class="c1">//     response will be JSON (or JSONP). &lt;Native requests&gt; and &lt;JSONP requests&gt;</span>
+<span class="c1">//     are disabled by default, see &lt;Configuration Options&gt; for more information.</span>
+<span class="c1">//   callback - If specified, the response JSON will be wrapped in this named</span>
+<span class="c1">//     function call. This parameter and &lt;JSONP requests&gt; are disabled by</span>
+<span class="c1">//     default, see &lt;Configuration Options&gt; for more information.</span>
+<span class="c1">//   user_agent - This value will be sent to the remote URL request as the</span>
+<span class="c1">//     `User-Agent:` HTTP request header. If omitted, the browser user agent</span>
+<span class="c1">//     will be passed through.</span>
+<span class="c1">//   send_cookies - If send_cookies=1, all cookies will be forwarded through to</span>
+<span class="c1">//     the remote URL request.</span>
+<span class="c1">//   send_session - If send_session=1 and send_cookies=1, the SID cookie will be</span>
+<span class="c1">//     forwarded through to the remote URL request.</span>
+<span class="c1">//   full_headers - If a JSON request and full_headers=1, the JSON response will</span>
+<span class="c1">//     contain detailed header information.</span>
+<span class="c1">//   full_status - If a JSON request and full_status=1, the JSON response will</span>
+<span class="c1">//     contain detailed cURL status information, otherwise it will just contain</span>
+<span class="c1">//     the `http_code` property.</span>
+<span class="c1">// </span>
+<span class="c1">// Topic: POST Parameters</span>
+<span class="c1">// </span>
+<span class="c1">// All POST parameters are automatically passed through to the remote URL</span>
+<span class="c1">// request.</span>
+<span class="c1">// </span>
+<span class="c1">// Topic: JSON requests</span>
+<span class="c1">// </span>
+<span class="c1">// This request will return the contents of the specified url in JSON format.</span>
+<span class="c1">// </span>
+<span class="c1">// Request:</span>
+<span class="c1">// </span>
+<span class="c1">// &gt; ba-simple-proxy.php?url=http://example.com/</span>
+<span class="c1">// </span>
+<span class="c1">// Response:</span>
+<span class="c1">// </span>
+<span class="c1">// &gt; { &quot;contents&quot;: &quot;&lt;html&gt;...&lt;/html&gt;&quot;, &quot;headers&quot;: {...}, &quot;status&quot;: {...} }</span>
+<span class="c1">// </span>
+<span class="c1">// JSON object properties:</span>
+<span class="c1">// </span>
+<span class="c1">//   contents - (String) The contents of the remote URL resource.</span>
+<span class="c1">//   headers - (Object) A hash of HTTP headers returned by the remote URL</span>
+<span class="c1">//     resource.</span>
+<span class="c1">//   status - (Object) A hash of status codes returned by cURL.</span>
+<span class="c1">// </span>
+<span class="c1">// Topic: JSONP requests</span>
+<span class="c1">// </span>
+<span class="c1">// This request will return the contents of the specified url in JSONP format</span>
+<span class="c1">// (but only if $enable_jsonp is enabled in the PHP script).</span>
+<span class="c1">// </span>
+<span class="c1">// Request:</span>
+<span class="c1">// </span>
+<span class="c1">// &gt; ba-simple-proxy.php?url=http://example.com/&amp;callback=foo</span>
+<span class="c1">// </span>
+<span class="c1">// Response:</span>
+<span class="c1">// </span>
+<span class="c1">// &gt; foo({ &quot;contents&quot;: &quot;&lt;html&gt;...&lt;/html&gt;&quot;, &quot;headers&quot;: {...}, &quot;status&quot;: {...} })</span>
+<span class="c1">// </span>
+<span class="c1">// JSON object properties:</span>
+<span class="c1">// </span>
+<span class="c1">//   contents - (String) The contents of the remote URL resource.</span>
+<span class="c1">//   headers - (Object) A hash of HTTP headers returned by the remote URL</span>
+<span class="c1">//     resource.</span>
+<span class="c1">//   status - (Object) A hash of status codes returned by cURL.</span>
+<span class="c1">// </span>
+<span class="c1">// Topic: Native requests</span>
+<span class="c1">// </span>
+<span class="c1">// This request will return the contents of the specified url in the format it</span>
+<span class="c1">// was received in, including the same content-type and other headers (but only</span>
+<span class="c1">// if $enable_native is enabled in the PHP script).</span>
+<span class="c1">// </span>
+<span class="c1">// Request:</span>
+<span class="c1">// </span>
+<span class="c1">// &gt; ba-simple-proxy.php?url=http://example.com/&amp;mode=native</span>
+<span class="c1">// </span>
+<span class="c1">// Response:</span>
+<span class="c1">// </span>
+<span class="c1">// &gt; &lt;html&gt;...&lt;/html&gt;</span>
+<span class="c1">// </span>
+<span class="c1">// Topic: Notes</span>
+<span class="c1">// </span>
+<span class="c1">// * Assumes magic_quotes_gpc = Off in php.ini</span>
+<span class="c1">// </span>
+<span class="c1">// Topic: Configuration Options</span>
+<span class="c1">// </span>
+<span class="c1">// These variables can be manually edited in the PHP file if necessary.</span>
+<span class="c1">// </span>
+<span class="c1">//   $enable_jsonp - Only enable &lt;JSONP requests&gt; if you really need to. If you</span>
+<span class="c1">//     install this script on the same server as the page you&#39;re calling it</span>
+<span class="c1">//     from, plain JSON will work. Defaults to false.</span>
+<span class="c1">//   $enable_native - You can enable &lt;Native requests&gt;, but you should only do</span>
+<span class="c1">//     this if you also whitelist specific URLs using $valid_url_regex, to avoid</span>
+<span class="c1">//     possible XSS vulnerabilities. Defaults to false.</span>
+<span class="c1">//   $valid_url_regex - This regex is matched against the url parameter to</span>
+<span class="c1">//     ensure that it is valid. This setting only needs to be used if either</span>
+<span class="c1">//     $enable_jsonp or $enable_native are enabled. Defaults to &#39;/.*/&#39; which</span>
+<span class="c1">//     validates all URLs.</span>
+<span class="c1">// </span>
+<span class="c1">// ############################################################################</span>
+
+<span class="c1">// Change these configuration options if needed, see above descriptions for info.</span>
+<span class="nv">$enable_jsonp</span>    <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$enable_native</span>   <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$valid_url_regex</span> <span class="o">=</span> <span class="s1">&#39;/.*/&#39;</span><span class="p">;</span>
+
+<span class="c1">// ############################################################################</span>
+
+<span class="nv">$url</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">];</span>
+
+<span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nv">$url</span> <span class="p">)</span> <span class="p">{</span>
+  
+  <span class="c1">// Passed url not specified.</span>
+  <span class="nv">$contents</span> <span class="o">=</span> <span class="s1">&#39;ERROR: url not specified&#39;</span><span class="p">;</span>
+  <span class="nv">$status</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;http_code&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;ERROR&#39;</span> <span class="p">);</span>
+  
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nb">preg_match</span><span class="p">(</span> <span class="nv">$valid_url_regex</span><span class="p">,</span> <span class="nv">$url</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+  
+  <span class="c1">// Passed url doesn&#39;t match $valid_url_regex.</span>
+  <span class="nv">$contents</span> <span class="o">=</span> <span class="s1">&#39;ERROR: invalid url&#39;</span><span class="p">;</span>
+  <span class="nv">$status</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;http_code&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;ERROR&#39;</span> <span class="p">);</span>
+  
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nv">$ch</span> <span class="o">=</span> <span class="nb">curl_init</span><span class="p">(</span> <span class="nv">$url</span> <span class="p">);</span>
+  
+  <span class="k">if</span> <span class="p">(</span> <span class="nb">strtolower</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;REQUEST_METHOD&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="s1">&#39;post&#39;</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nb">curl_setopt</span><span class="p">(</span> <span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POST</span><span class="p">,</span> <span class="k">true</span> <span class="p">);</span>
+    <span class="nb">curl_setopt</span><span class="p">(</span> <span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="nv">$_POST</span> <span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="k">if</span> <span class="p">(</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;send_cookies&#39;</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$cookie</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+    <span class="k">foreach</span> <span class="p">(</span> <span class="nv">$_COOKIE</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$value</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="nv">$cookie</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$key</span> <span class="o">.</span> <span class="s1">&#39;=&#39;</span> <span class="o">.</span> <span class="nv">$value</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;send_session&#39;</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="nv">$cookie</span><span class="p">[]</span> <span class="o">=</span> <span class="nx">SID</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nv">$cookie</span> <span class="o">=</span> <span class="nb">implode</span><span class="p">(</span> <span class="s1">&#39;; &#39;</span><span class="p">,</span> <span class="nv">$cookie</span> <span class="p">);</span>
+    
+    <span class="nb">curl_setopt</span><span class="p">(</span> <span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_COOKIE</span><span class="p">,</span> <span class="nv">$cookie</span> <span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="nb">curl_setopt</span><span class="p">(</span> <span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_FOLLOWLOCATION</span><span class="p">,</span> <span class="k">true</span> <span class="p">);</span>
+  <span class="nb">curl_setopt</span><span class="p">(</span> <span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_HEADER</span><span class="p">,</span> <span class="k">true</span> <span class="p">);</span>
+  <span class="nb">curl_setopt</span><span class="p">(</span> <span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_RETURNTRANSFER</span><span class="p">,</span> <span class="k">true</span> <span class="p">);</span>
+  
+  <span class="nb">curl_setopt</span><span class="p">(</span> <span class="nv">$ch</span><span class="p">,</span> <span class="nx">CURLOPT_USERAGENT</span><span class="p">,</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;user_agent&#39;</span><span class="p">]</span> <span class="o">?</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;user_agent&#39;</span><span class="p">]</span> <span class="o">:</span> <span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_USER_AGENT&#39;</span><span class="p">]</span> <span class="p">);</span>
+  
+  <span class="k">list</span><span class="p">(</span> <span class="nv">$header</span><span class="p">,</span> <span class="nv">$contents</span> <span class="p">)</span> <span class="o">=</span> <span class="nb">preg_split</span><span class="p">(</span> <span class="s1">&#39;/([\r\n][\r\n])\\1/&#39;</span><span class="p">,</span> <span class="nb">curl_exec</span><span class="p">(</span> <span class="nv">$ch</span> <span class="p">),</span> <span class="mi">2</span> <span class="p">);</span>
+  
+  <span class="nv">$status</span> <span class="o">=</span> <span class="nb">curl_getinfo</span><span class="p">(</span> <span class="nv">$ch</span> <span class="p">);</span>
+  
+  <span class="nb">curl_close</span><span class="p">(</span> <span class="nv">$ch</span> <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Split header text into an array.</span>
+<span class="nv">$header_text</span> <span class="o">=</span> <span class="nb">preg_split</span><span class="p">(</span> <span class="s1">&#39;/[\r\n]+/&#39;</span><span class="p">,</span> <span class="nv">$header</span> <span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;mode&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;native&#39;</span> <span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nv">$enable_native</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$contents</span> <span class="o">=</span> <span class="s1">&#39;ERROR: invalid mode&#39;</span><span class="p">;</span>
+    <span class="nv">$status</span> <span class="o">=</span> <span class="k">array</span><span class="p">(</span> <span class="s1">&#39;http_code&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;ERROR&#39;</span> <span class="p">);</span>
+  <span class="p">}</span>
+  
+  <span class="c1">// Propagate headers to response.</span>
+  <span class="k">foreach</span> <span class="p">(</span> <span class="nv">$header_text</span> <span class="k">as</span> <span class="nv">$header</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="nb">preg_match</span><span class="p">(</span> <span class="s1">&#39;/^(?:Content-Type|Content-Language|Set-Cookie):/i&#39;</span><span class="p">,</span> <span class="nv">$header</span> <span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="nb">header</span><span class="p">(</span> <span class="nv">$header</span> <span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="k">print</span> <span class="nv">$contents</span><span class="p">;</span>
+  
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  
+  <span class="c1">// $data will be serialized into JSON data.</span>
+  <span class="nv">$data</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+  
+  <span class="c1">// Propagate all HTTP headers into the JSON data object.</span>
+  <span class="k">if</span> <span class="p">(</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;full_headers&#39;</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;headers&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+    
+    <span class="k">foreach</span> <span class="p">(</span> <span class="nv">$header_text</span> <span class="k">as</span> <span class="nv">$header</span> <span class="p">)</span> <span class="p">{</span>
+      <span class="nb">preg_match</span><span class="p">(</span> <span class="s1">&#39;/^(.+?):\s+(.*)$/&#39;</span><span class="p">,</span> <span class="nv">$header</span><span class="p">,</span> <span class="nv">$matches</span> <span class="p">);</span>
+      <span class="k">if</span> <span class="p">(</span> <span class="nv">$matches</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;headers&#39;</span><span class="p">][</span> <span class="nv">$matches</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">]</span> <span class="o">=</span> <span class="nv">$matches</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+  
+  <span class="c1">// Propagate all cURL request / response info to the JSON data object.</span>
+  <span class="k">if</span> <span class="p">(</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;full_status&#39;</span><span class="p">]</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$status</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">array</span><span class="p">();</span>
+    <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">][</span><span class="s1">&#39;http_code&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$status</span><span class="p">[</span><span class="s1">&#39;http_code&#39;</span><span class="p">];</span>
+  <span class="p">}</span>
+  
+  <span class="c1">// Set the JSON data object contents, decoding it from JSON if possible.</span>
+  <span class="nv">$decoded_json</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span> <span class="nv">$contents</span> <span class="p">);</span>
+  <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;contents&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$decoded_json</span> <span class="o">?</span> <span class="nv">$decoded_json</span> <span class="o">:</span> <span class="nv">$contents</span><span class="p">;</span>
+  
+  <span class="c1">// Generate appropriate content-type header.</span>
+  <span class="nv">$is_xhr</span> <span class="o">=</span> <span class="nb">strtolower</span><span class="p">(</span><span class="nv">$_SERVER</span><span class="p">[</span><span class="s1">&#39;HTTP_X_REQUESTED_WITH&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="s1">&#39;xmlhttprequest&#39;</span><span class="p">;</span>
+  <span class="nb">header</span><span class="p">(</span> <span class="s1">&#39;Content-type: application/&#39;</span> <span class="o">.</span> <span class="p">(</span> <span class="nv">$is_xhr</span> <span class="o">?</span> <span class="s1">&#39;json&#39;</span> <span class="o">:</span> <span class="s1">&#39;x-javascript&#39;</span> <span class="p">)</span> <span class="p">);</span>
+  
+  <span class="c1">// Get JSONP callback.</span>
+  <span class="nv">$jsonp_callback</span> <span class="o">=</span> <span class="nv">$enable_jsonp</span> <span class="o">&amp;&amp;</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;callback&#39;</span><span class="p">])</span> <span class="o">?</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;callback&#39;</span><span class="p">]</span> <span class="o">:</span> <span class="k">null</span><span class="p">;</span>
+  
+  <span class="c1">// Generate JSON/JSONP string</span>
+  <span class="nv">$json</span> <span class="o">=</span> <span class="nb">json_encode</span><span class="p">(</span> <span class="nv">$data</span> <span class="p">);</span>
+  
+  <span class="k">print</span> <span class="nv">$jsonp_callback</span> <span class="o">?</span> <span class="s2">&quot;</span><span class="si">$jsonp_callback</span><span class="s2">(</span><span class="si">$json</span><span class="s2">)&quot;</span> <span class="o">:</span> <span class="nv">$json</span><span class="p">;</span>
+  
+<span class="p">}</span>
+
+<span class="cp">?&gt;</span><span class="x"></span></code></pre></div>
 
 
   </div><!-- /.entry-content -->
@@ -175,7 +447,7 @@ Seviyeye göre çeviri yapılması. (database’in düzenlenmesi gerekiyor -uzun
   <header>
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2014-09-30T00:51:27+03:00"><a href="/linux/13/">September 30, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2015-01-20T23:51:27+02:00"><a href="/android/19/">January 20, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
       
       <span class="entry-reading-time">
         <i class="fa fa-clock-o"></i>
@@ -185,13 +457,29 @@ Seviyeye göre çeviri yapılması. (database’in düzenlenmesi gerekiyor -uzun
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="/linux/13/" rel="bookmark" title="Ssh ile dosya gönderimi" itemprop="url">Ssh ile dosya gönderimi</a></h1>
+      <h1 class="entry-title"><a href="/android/19/" rel="bookmark" title="Android APK imzalama" itemprop="url">Android APK imzalama</a></h1>
     
   </header>
   <div class="entry-content">
-    <p>Herhangi bir ara bağlantı, server olmadan dosya gönderimi biraz meşakatli olmakta. İşte bu nedenden dolayı ssh’ın bize sağladığı kolaylıkları sonuna kadar kullanmak gerekiyor. Aşağıdaki resimde de görüldüğü üzere anahtar kelimemiz “<b>scp</b>”  bu komutla iki bilgisayar arasında ssh ile dosya yollayabiliriz. Öncelikle “<b>scp</b>” diyouz ardından göndermek istediğimiz dosyanın dizinini yazıyoruz. Eğer sizde mac kullanıcısı iseniz dosyayı terminal penceresine sürükleyip bıraktığınızda dizini otomatikman yazılacaktır sonrasında bağlanmak istediğiniz bilgisayarın kullanıcı adını yazıyorsunuz ki benimki “<b>pi</b>” ardından “<b>@</b>” işareti ve sonrasında diğer bilgisayarın ip adresini yazıyorsunuz görüldüğü gibi benimkisi yerel bir bağlantı olduğu için “<b>192.168.2.246</b>” olarak yazılmış ardından gönderileceği dizini yazıyoruz ve enter diyerek gönderiyoruz. Sonrasından sizden bir şifre isteyecek bu şifre karşıdaki bilgisayarın “<b>pi</b>” kullanıcısının şifresi olmalıdır. İşte herşey bu kadar kolay.</p>
+    <p>Apk’yı imzalamak için gerekli olan işlemler ve ek bilgiler</p>
 
-<p><br /><img src="/assets/13-1.png" alt="My helpful screenshot" /><br /></p>
+<p><br /><img src="/assets/19-1.png" alt="My helpful screenshot" /><br /></p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">cordova</span> <span class="n">build</span> <span class="o">--</span><span class="n">release</span> <span class="n">android</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">keytool</span> <span class="o">-</span><span class="n">genkey</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">keystore</span> <span class="n">my</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">key</span><span class="o">.</span><span class="n">keystore</span> <span class="o">-</span><span class="k">alias</span> <span class="n">alias_name</span> <span class="o">-</span><span class="n">keyalg</span> <span class="no">RSA</span> <span class="o">-</span><span class="n">keysize</span> <span class="mi">2048</span> <span class="o">-</span><span class="n">validity</span> <span class="mi">10000</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">jarsigner</span> <span class="o">-</span><span class="n">verbose</span> <span class="o">-</span><span class="n">sigalg</span> <span class="no">SHA1withRSA</span> <span class="o">-</span><span class="n">digestalg</span> <span class="no">SHA1</span> <span class="o">-</span><span class="n">keystore</span> <span class="n">my</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">key</span><span class="o">.</span><span class="n">keystore</span> <span class="no">HelloWorld</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">unsigned</span><span class="o">.</span><span class="n">apk</span> <span class="n">alias_name</span></code></pre></div>
+
+<p>Zipalign için android sdk ile bu işlemi yapmak gerekiyor<br />
+Dizin;</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">adt</span><span class="o">-</span><span class="n">bundle</span><span class="o">-</span><span class="n">mac</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="mi">20140702</span><span class="o">/</span><span class="n">sdk</span><span class="o">/</span><span class="n">build</span><span class="o">-</span><span class="n">tools</span><span class="o">/</span><span class="n">android</span><span class="o">-</span><span class="mi">4</span><span class="o">.</span><span class="mi">4</span><span class="n">W</span><span class="o">/</span><span class="n">zipalign</span></code></pre></div>
+
+<p>Komutun başındaki<b> ./ </b>işaretine dikkat etmek gerekiyor.</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">.</span><span class="n">/zipalign</span> <span class="o">-</span><span class="n">v</span> <span class="mi">4</span> <span class="no">HelloWorld</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">unsigned</span><span class="o">.</span><span class="n">apk</span> <span class="no">HelloWorld</span><span class="o">.</span><span class="n">apk</span></code></pre></div>
+
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -200,7 +488,7 @@ Seviyeye göre çeviri yapılması. (database’in düzenlenmesi gerekiyor -uzun
   <header>
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2014-09-30T00:51:27+03:00"><a href="/mac/12/">September 30, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2015-01-19T23:51:27+02:00"><a href="/linux/18/">January 19, 2015</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
       
       <span class="entry-reading-time">
         <i class="fa fa-clock-o"></i>
@@ -210,16 +498,15 @@ Seviyeye göre çeviri yapılması. (database’in düzenlenmesi gerekiyor -uzun
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="/mac/12/" rel="bookmark" title="Mac OS X silinemeyen dosyalar ve yetersiz alan sorunu" itemprop="url">Mac OS X silinemeyen dosyalar ve yetersiz alan sorunu</a></h1>
+      <h1 class="entry-title"><a href="/linux/18/" rel="bookmark" title="Crontab -e Komutunun Kullanımı" itemprop="url">Crontab -e Komutunun Kullanımı</a></h1>
     
   </header>
   <div class="entry-content">
-    <p>Mac sistemlerde dosyalar günlüklü bir biçimde tutulduğu için siz dosyalarınızı silseniz bile “<b>Time Machine</b>” için dosyalar tutulur “<a href="/linux/2014/09/29/11.html">Clever Files</a>” içerisinde de bunları bulabilirsiniz. İşte bu sorunu çözmek için silinemeyen ya da başla bir uygulama tarafından tutulan uygulamaları aşağıda gösterildiği gibi silebiliyoruz.
-*bu işlemden sonra dosyaları düzgün bir biçimde geri döndürme olanağınız yoktur.
-(Recovery programları ile bazıları hasarlı olarak kurtarılabiliyor.)</p>
+    <p>Komut satırına <b>crontab -e</b> yazıldığında açılan sayfanın en altına aşağıdaki komut yazılır </p>
 
-<p><br /><img src="/assets/12-1.png" alt="My helpful screenshot" /><br /></p>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mi">0</span> <span class="o">*/</span><span class="mi">2</span> <span class="o">*</span> <span class="o">*</span> <span class="o">*</span> <span class="sr">/usr/</span><span class="n">bin</span><span class="o">/</span><span class="n">wget</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">www</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">com</span><span class="o">/</span></code></pre></div>
 
+<p>Yazılan komut 2 saatte bir google’a sayfa isteği gönderir.</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -228,7 +515,7 @@ Seviyeye göre çeviri yapılması. (database’in düzenlenmesi gerekiyor -uzun
   <header>
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2014-09-30T00:51:27+03:00"><a href="/mac/11/">September 30, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2014-09-30T00:51:27+03:00"><a href="/linux/17/">September 30, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
       
       <span class="entry-reading-time">
         <i class="fa fa-clock-o"></i>
@@ -238,105 +525,22 @@ Seviyeye göre çeviri yapılması. (database’in düzenlenmesi gerekiyor -uzun
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="/mac/11/" rel="bookmark" title="Mac OS X  cleverfiles dosyasını silme" itemprop="url">Mac OS X  cleverfiles dosyasını silme</a></h1>
+      <h1 class="entry-title"><a href="/linux/17/" rel="bookmark" title="Linux Terminal Türkçe Karakter Sorunu" itemprop="url">Linux Terminal Türkçe Karakter Sorunu</a></h1>
     
   </header>
   <div class="entry-content">
-    <p>Mac sistemlerde dosyayı çöp kutusundan silmek isteseniz bile sürücünün içindeki gizli “<b>./cleverfiles</b>” dosyasının içinde bazı dosyalar belirli bir süre kalıyor. Birikmeleri sonucunda dosyalar hatrı sayılır bir yer kapladığı için arada sırada silmek gerekiyor bunun için komut satırına</p>
+    <p>DigitalOcean’ın dropletlerinde -linux server- Türkçe karakter görüntüleme ve kullanma sorunu olduğu için buna bir çözüm aradım ve debian da çalışan bir yöntem buldum <a href="http://l10n-turkish.alioth.debian.org/doc/debian-turkish-mini-HOWTO/debian-turkish-mini-HOWTO.html">KAYNAK</a> olarak verdiğim linkteki adımlar takip edilince sorunsuz bir şekilde çalışan Türkçe terminaliniz oluyor.</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">rm</span> <span class="o">-</span><span class="n">r</span> <span class="sr">/.cleverfiles/</span><span class="n">hlink</span><span class="o">.</span><span class="n">ref</span></code></pre></div>
+<p>Olurda link uçarsa;</p>
 
-<p>Yazarsanız komple bütün dosyayı uçurur.</p>
-
-<p>Eğer finder’a sağ tıklar go folder derseniz, açılan pencereye</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="sr">/.cleverfiles</span></code></pre></div>
-
-<p>Yazdığınızda yeni bir dosya açılacak, o dosyaya gelip “<b>hlink.ref</b>” yazan dosyayı açın ve içinde fazla yer kaplayanları silin.</p>
-
-<p>Eğer silme işlemini yaptığımız halde dosyalar silinmiyorsa ya da silme hatası alıyorsanız “<b>cmd + delete</b>” komutunu uygulayın.</p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry" onclick="notifyMe()">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2014-09-30T00:51:27+03:00"><a href="/linux/10/">September 30, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-        Okuma Zamanı ~3 Dakika
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/linux/10/" rel="bookmark" title="DigitalOcean'da Linux Sisteme OpenVPN Kurulumu" itemprop="url">DigitalOcean'da Linux Sisteme OpenVPN Kurulumu</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>İşlemlere başlamadan önce yazının tamamını okumanızı tavsiye ederim zira adımlardaki ufak bir değişiklik bütün aşamaları etkilemektedir.</p>
-
-<p>Öncelikle <a href="https://www.digitalocean.com/?refcode=d1aec2dabdc0">www.digitalocean.com</a> sitesinden bahsetmek istiyorum. Sitenin amacı ucuz, hızlı, performaslı bir cloud hizmetler vermek. Biraz daha detaya inecek olursak size bulut üstünde yönetmeniz için bir işletim sistemi veriyor. En son halinde Ubuntu, Fedora, Debian ve CentOS işletim sistemlerini kurmanıza izin veriyor. Çok kolay bir kullanıma sahip olan <a href="https://www.digitalocean.com/?refcode=d1aec2dabdc0">www.digitalocean.com</a> 55 saniye gibi iddalı bir sürede herşeyi hazır ve nazır bir biçimde önünüze getiriyor.</p>
-
-<p>Üye olmak isterseniz şu adresten <a href="https://www.digitalocean.com/?refcode=d1aec2dabdc0">www.digitalocean.com</a> ulaşılabiliyor. Ayrıca DROPLET DODROPLET PYTHONDROPLET promo kodları ile 10 dolar gibi bir miktar kazanabiliyorsunuz. Neredeyse iki ayda bir yeni promo kodu yayınladığı için hiç para vermeden hizmet alan kullanıcılar var.</p>
-
-<p>Şimdi gelelim ana konumuza, VPN  servisi bildiğiniz gibi özel sanal ağ demek yani bizim hükümetin yasakladığı sitelere başka bir ülke aracılığıyla giriş yapabiliriz demek. Ya da başka amaçlar için kullanabilirsiniz orası sizin kullanım amacınıza bağlı.</p>
-
-<p>Üye olduktan sonra CREATE kısmına geliyoruz ve CREATE DROPLET yazan kısma tıklıyoruz. Ardından resimde gösterilen alanları doldurup seçicez.</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mi">1</span><span class="p">)</span> <span class="err">İ</span><span class="n">sim</span> <span class="n">veriyoruz</span><span class="o">.</span>
-<span class="mi">2</span><span class="p">)</span> <span class="no">Server</span> <span class="err">ö</span><span class="n">zelliklerini</span> <span class="n">se</span><span class="err">ç</span><span class="n">iyoruz</span><span class="o">.</span>
-<span class="mi">3</span><span class="p">)</span> <span class="no">Amsterdam</span><span class="s1">&#39;ı seçiyoruz. (Türkiye&#39;</span><span class="n">ye</span> <span class="n">g</span><span class="err">ö</span><span class="n">re</span> <span class="n">h</span><span class="err">ı</span><span class="n">z</span> <span class="n">a</span><span class="err">çı</span><span class="n">s</span><span class="err">ı</span><span class="n">ndan</span> <span class="n">en</span> <span class="n">iyi</span> <span class="n">verimi</span> <span class="n">burdan</span> <span class="n">alabiliyoruz</span><span class="o">.</span><span class="p">)</span>
-<span class="mi">4</span><span class="p">)</span> <span class="no">Ubuntuyu</span> <span class="n">se</span><span class="err">ç</span><span class="n">ip</span> <span class="mi">12</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">x</span>  <span class="mi">32</span> <span class="n">bit</span> <span class="n">versiyonunu</span> <span class="n">se</span><span class="err">ç</span><span class="n">iyoruz</span> <span class="n">e</span><span class="err">ğ</span><span class="n">er</span> <span class="n">bu</span> <span class="n">sizde</span> <span class="n">g</span><span class="err">ö</span><span class="n">z</span><span class="err">ü</span><span class="n">km</span><span class="err">ü</span><span class="n">yorsa</span> <span class="n">yaz</span><span class="err">ı</span><span class="n">n</span><span class="err">ı</span><span class="n">n</span> <span class="n">tamam</span><span class="err">ı</span><span class="n">n</span><span class="err">ı</span> <span class="n">okuman</span><span class="err">ı</span><span class="n">z</span><span class="err">ı</span> <span class="n">tavsiye</span> <span class="n">ederim</span><span class="o">.</span>
-<span class="mi">5</span><span class="p">)</span> <span class="no">SSH</span> <span class="n">key</span> <span class="err">ö</span><span class="n">nemli</span> <span class="n">bunu</span> <span class="n">nas</span><span class="err">ı</span><span class="n">l</span> <span class="n">ekleyece</span><span class="err">ğ</span><span class="n">inizi</span> <span class="o">[</span><span class="err">Ş</span><span class="n">U</span> <span class="no">ADRESTEN</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span> <span class="err">öğ</span><span class="n">renebilirsiniz</span><span class="o">.</span>
-<span class="mi">6</span><span class="p">)</span> <span class="no">CREATE</span> <span class="no">DROPLET</span> <span class="n">diyoruz</span><span class="o">.</span></code></pre></div>
-
-<p><br /><img src="/assets/10-1.png" alt="My helpful screenshot" /><br /></p>
-
-<p>İşlem tamam 55 saniye sonra artık sizinde online bir işletim sisteminiz var ve biz buna OpenVPN kurucaz.</p>
-
-<p>OpenVPN yazılımının bizim bulutta şeçtiğimiz işletim sistemine göre olanını şu adresten <a href="http://openvpn.net/index.php/access-server/download-openvpn-as-sw.html">OpenVPN</a> üstüne sağ tıklayıp yükleme linkini alıcaz. Eğer sizde CREATE DORPLET kısmındaki sürümle OpenVPN sürümü uyuşmazsa uyuşan bir işletim sistemi yada VPN yazılımı seçebilirsiniz o size kalmış.</p>
-
-<p><br /><img src="/assets/10-2.png" alt="My helpful screenshot" /><br /></p>
-
-<p><br /><img src="/assets/10-3.png" alt="My helpful screenshot" /><br /></p>
-
-<p>SSH önemli demiştik Windowsda Putty’i kuruyoruz Mac de ise terminalle direk bağlanabiliyoruz.</p>
-
-<p><br /><img src="/assets/10-4.png" alt="My helpful screenshot" /><br /></p>
-
-<p>Daha sonra başına wget gelecek şekilde kopyaladığımız linki buraya yapıştırıyoruz.</p>
-
-<p><br /><img src="/assets/10-5.png" alt="My helpful screenshot" /><br /></p>
-
-<p>Yukardaki komutu yazdıktan sonra aşağıdaki bir yükleme ekranı çıkacak sonrasında içi boş kırmızı kare içine aldığım ilk yerde yazan yazının aynısını başında dpkg -i gelecek şekilde yazıyoruz.</p>
-
-<p><br /><img src="/assets/10-6.png" alt="My helpful screenshot" /><br /></p>
-
-<p>Sonrasında karşımıza aşağıdaki gibi bir yazı gelecek.</p>
-
-<p><br /><img src="/assets/10-8.png" alt="My helpful screenshot" /><br /></p>
-
-<p>Artık OpenVPN yüklendi buna bir şifre belirtmek gerekiyor aşağıdaki gibi yapıyoruz.</p>
-
-<p><br /><img src="/assets/10-9.png" alt="My helpful screenshot" /><br /></p>
-
-<p>Bir yukarda yazan http://5.xxx.xxx.159:943/admin yazan linki kendi tarayıcımızda açıyoruz. Karşımıza aşağıdaki gibi bir ekran gelecek giriş yerine openvpn şifre yerine belirtmiş olduğunuz şifreyi yazıyoruz.</p>
-
-<p><br /><img src="/assets/10-9.png" alt="My helpful screenshot" /><br /></p>
-
-<p>Giriş yaptıktan sonra lisans sözleşmeleri okuyup karşınıza çıkan her şeye evet diyoruz. Sonrasında, sonunda admin yazmayan linki tarayıcımızda açıyoruz. http://5.xxx.xxx.159:943 karşımıza gelen ekrana kullanıcı adı ve şifresini yazıyoruz.</p>
-
-<p><br /><img src="/assets/10-10.png" alt="My helpful screenshot" /><br /></p>
-
-<p>Sonrasınada karşınıza aşağıdaki gibi bir ekran gelecek. Oradanda işletim sisteminize uygun olan client yazılımını indiriyoruz.</p>
-
-<p><br /><img src="/assets/10-11.png" alt="My helpful screenshot" /><br /></p>
-
-<p>İndirdiğimiz yazılımı bilgisayara kuruyoruz ve işlemimiz tamam. Eğer size kullanıcı adı ve şifre sorarsa yukarda belirtiğimiz gibi yazarsanız işlem tamam kolay gelsin gayet hızlı size ait bir VPN servisiniz olmuş oldu. Ek olarak aynı anda iki tane makinanın girmesine izin verdiği söyleniyor ama denemek gerek kolay gelsin.</p>
+<ol>
+  <li>
+    <p><a href="https://web.archive.org/web/20141101143045/http://l10n-turkish.alioth.debian.org/doc/debian-turkish-mini-HOWTO/debian-turkish-mini-HOWTO.html">archive.org</a></p>
+  </li>
+  <li>
+    <p><a href="http://i.imgur.com/mSwLG6P.png">imgur.com</a></p>
+  </li>
+</ol>
 
 
   </div><!-- /.entry-content -->
@@ -371,6 +575,18 @@ Seviyeye göre çeviri yapılması. (database’in düzenlenmesi gerekiyor -uzun
       <li>
         
           <a href="/page4">4</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/page5">5</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/page6">6</a>
         
       </li>
     

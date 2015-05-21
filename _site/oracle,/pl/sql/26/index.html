@@ -1,0 +1,511 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>PL/SQL Notları &#8211; Cemre Tok</title>
+<meta name="description" content="Deneyim ve kb.">
+<meta name="keywords" content="">
+
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="/images/">
+<meta name="twitter:title" content="PL/SQL Notları">
+<meta name="twitter:description" content="Deneyim ve kb.">
+<meta name="twitter:creator" content="@cemretok">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PL/SQL Notları">
+<meta property="og:description" content="Deneyim ve kb.">
+<meta property="og:url" content="/oracle,/pl/sql/26/">
+<meta property="og:site_name" content="Cemre Tok">
+
+
+
+
+
+<link rel="canonical" href="/oracle,/pl/sql/26/">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Cemre Tok Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+<!-- Webfonts -->
+<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic" rel="stylesheet" type="text/css">
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- Load Modernizr -->
+<script src="/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png">
+
+
+
+
+<style type="text/css">body {background-image:url(/images/transmit.png);}</style>
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Ana Sayfa</a></li>
+		<li>
+			<a href="#">Hakkımda</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpg" alt="Cemre Tok photo" class="author-photo">
+					<h4>Cemre Tok</h4>
+					<p>İstanbul</p>
+				</li>
+				<li><a href="/about/"><span class="btn btn-inverse">Daha Fazlası</span></a></li>
+				
+				<li>
+					<a href="http://twitter.com/cemretok"><i class="fa fa-fw fa-twitter"></i> Twitter</a>
+				</li>
+				<li>
+					<a href="http://facebook.com/tokcemre"><i class="fa fa-fw fa-facebook"></i> Facebook</a>
+				</li>
+				
+				
+				<li>
+					<a href="http://github.com/cemretok"><i class="fa fa-fw fa-github"></i> GitHub</a>
+				</li>
+				
+				
+				
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Yazılarım</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">Tüm Yazılarım</a></li>
+				<li><a href="/tags/">Tüm Etiketler</a></li>
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/oracle,/pl/sql/26/" rel="bookmark" title="PL/SQL Notları">PL/SQL Notları</a></h1>
+        
+        <h2><span class="entry-date date published"><time datetime="2015-05-22T00:00:00+03:00">May 22, 2015</time></span></h2>
+        
+        <p class="entry-reading-time">
+          <i class="fa fa-clock-o"></i>
+          
+          Okuma Süresi ~4 Dakika
+        </p><!-- /.entry-reading-time -->
+        
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">DECLARE</span> <span class="err">–</span><span class="no">De</span><span class="err">ğ</span><span class="n">i</span><span class="err">ş</span><span class="n">ken</span> <span class="no">Tan</span><span class="err">ı</span><span class="n">mlama</span>
+	   <span class="n">message</span>  <span class="n">varchar2</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span><span class="o">=</span> <span class="s1">&#39;Merhaba Dünya!&#39;</span><span class="p">;</span>
+	<span class="k">BEGIN</span> <span class="o">--</span> <span class="n">G</span><span class="err">ö</span><span class="n">vde</span>
+	   <span class="n">dbms_output</span><span class="o">.</span><span class="n">put_line</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+	<span class="k">END</span><span class="p">;</span> <span class="o">--</span> <span class="no">Biti</span><span class="err">ş</span></code></pre></div>
+
+<pre><code>/
+
+Declare
+	num1 Integer:= 5;
+	num2 Real:=5;
+	num3 double precision:=5;
+Begin
+	dbms_output.put_line(num1); --5
+	dbms_output.put_line(num2); --5
+	dbms_output.put_line(num3); --5
+End;
+
+
+Large Object (LOB) Veri Tipi – BFILE, BLOB, CLOB, NCLOB – Büyük verileri tutmak için Video binary gibi tipler. 
+Subtype –Alt tipler, kullanıcının oluşturduğu.
+
+DECLARE
+   SUBTYPE name IS char(20);
+   SUBTYPE message IS varchar2(100);
+   salutation name; -- salutation char(20) türünde bir değişken
+   greetings message; --  greetings varchar2(100) türünde bir değişken
+BEGIN
+   salutation := 'Reader '; 
+   greetings := 'Welcome to the World of PL/SQL';
+   dbms_output.put_line('Hello ' || salutation || greetings); -- || birleştirme operatörü
+END;
+/
+
+Yerel ve Genel Değişken tanımlamaları
+
+DECLARE
+   -- Genel değişkene iç bloğun içinden ulaşılabilir.
+   num1 number := 95; 
+BEGIN 
+   dbms_output.put_line('Dış Değişken num1: ' || num1);
+   DECLARE 
+	  -- Yerel değişkene bloğun dışından ulaşılamaz.
+	  num1 number := 195; 
+   BEGIN 
+	  dbms_output.put_line('İç Değişken num1: ' || num1);
+   END; 
+END;
+/
+
+Constant (Sabit) Tanımlama 
+PI CONSTANT NUMBER := 3.141592654;
+
+(') işaretinin yazımı
+ message  varchar2(30):= ''That''s tutorialspoint.com!'';
+ 
+Conditions
+
+IF
+
+IF (a &lt;= 20) THEN
+   S1; 
+ELSE 
+   S2;
+END IF;
+
+IF ( a = 10 ) THEN
+	  dbms_output.put_line('Value of a is 10' );
+   ELSIF ( a = 20 ) THEN
+	  dbms_output.put_line('Value of a is 20' );
+   ELSE
+	   dbms_output.put_line('None of the values is matching');
+END IF;
+</code></pre>
+
+<p>CASE grade
+      when ‘A’ then dbms_output.put_line(‘Excellent’);
+      when ‘B’ then dbms_output.put_line(‘Very good’);
+      when ‘F’ then dbms_output.put_line(‘Better try again’);
+      else dbms_output.put_line(‘No such grade’);
+   END CASE;</p>
+
+<p>case 
+      when grade = ‘A’ then dbms_output.put_line(‘Excellent’);
+      when grade = ‘B’ then dbms_output.put_line(‘Very good’);
+      when grade = ‘F’ then dbms_output.put_line(‘Better try again’);
+      else dbms_output.put_line(‘No such grade’);
+   end case;</p>
+
+<p>LOOP</p>
+
+<p>DECLARE
+	   x number := 10;
+	BEGIN
+	   LOOP
+		  dbms_output.put_line(x);
+		  x := x + 10;
+		  IF x &gt; 50 THEN
+			 exit;
+		  END IF;
+	   END LOOP;
+	   – after exit, control resumes here
+	   dbms_output.put_line(‘After Exit x is: ‘ || x);
+	END;
+	/</p>
+
+<pre><code>LOOP
+  dbms_output.put_line(x);
+  x := x + 10;
+  exit WHEN x &gt; 50;    END LOOP;
+</code></pre>
+
+<p>WHILE</p>
+
+<pre><code>WHILE a &lt; 20 LOOP
+  dbms_output.put_line('value of a: ' || a);
+  a := a + 1;    END LOOP;
+</code></pre>
+
+<p>FOR</p>
+
+<pre><code>DECLARE
+   a number(2);
+BEGIN
+   FOR a in 10 .. 20 LOOP
+	   dbms_output.put_line('value of a: ' || a);
+  END LOOP;
+END;
+/
+
+DECLARE
+   a number(2) ;
+BEGIN
+   FOR a IN REVERSE 10 .. 20 LOOP
+	  dbms_output.put_line('value of a: ' || a);
+   END LOOP;
+END;
+/
+
+IF a &gt; 15 THEN EXIT;   or    EXIT WHEN a &gt; 15; 
+--Loopdan çıkmak için kullanılır.
+
+CONTINUE -- Loopda atlamak için kullanılır.
+GOTO loopstart; -- &lt;&lt;loopstart&gt;&gt; etiketine gider
+
+Genel Fonksiyonlar
+</code></pre>
+
+<p>greetings varchar2(11) := ‘hello world’;
+   dbms_output.put_line(UPPER(greetings)); – HELLO WORLD
+   dbms_output.put_line(LOWER(greetings)); – hello world
+   dbms_output.put_line(INITCAP(greetings)); – Hello World
+   dbms_output.put_line ( SUBSTR (greetings, 1, 1)); – h
+   dbms_output.put_line ( SUBSTR (greetings, -1, 1)); – d
+   dbms_output.put_line ( SUBSTR (greetings, 7, 5)); – World
+   dbms_output.put_line ( SUBSTR (greetings, 2)); – ello World
+   dbms_output.put_line ( INSTR (greetings, ‘e’)); – 2</p>
+
+<p>greetings varchar2(30) := ‘……Hello World…..’;
+   dbms_output.put_line(RTRIM(greetings,’.’)); – ……Hello World 
+   dbms_output.put_line(LTRIM(greetings, ‘.’)); – Hello World…..
+   dbms_output.put_line(TRIM( ‘.’ from greetings)); – Hello World</p>
+
+<p>Array (Varray)</p>
+
+<p>CREATE OR REPLACE TYPE varray_type_name IS VARRAY(n) of <element_type> -- Tip oluşturma
+   CREATE Or REPLACE TYPE namearray AS VARRAY(3) OF VARCHAR2(10); -- Tip oluşturma</element_type></p>
+
+<p>TYPE namearray IS VARRAY(5) OF VARCHAR2(10); – Basitleştirilmiş tip oluşturma</p>
+
+<p>DECLARE
+	   type namesarray IS VARRAY(5) OF VARCHAR2(10);
+	   type grades IS VARRAY(5) OF INTEGER;
+	   names namesarray;
+	   marks grades;
+	   total integer;
+	BEGIN
+	   names := namesarray(‘Kavita’, ‘Pritam’, ‘Ayan’, ‘Rishav’, ‘Aziz’);
+	   marks:= grades(98, 97, 78, 87, 92);
+	   total := names.count;
+	   dbms_output.put_line(‘Total ‘|| total || ‘ Students’);
+	   FOR i in 1 .. total LOOP
+		  dbms_output.put_line(‘Student: ‘ || names(i) || ‘
+		  Marks: ‘ || marks(i));
+	   END LOOP;
+	END;
+	/</p>
+
+<pre><code>Tanımlamalar
+
+v_EmpName  emp.ename%TYPE; -- ename kolonu tipinde değişken oluşturur.
+
+DECLARE
+   v_EmpName  emp.ename%TYPE;
+BEGIN
+   SELECT ename INTO v_EmpName FROM emp WHERE ROWNUM = 1;
+   DBMS_OUTPUT.PUT_LINE('Name = ' || v_EmpName);
+END;
+/
+
+v_emp emp%ROWTYPE; -- emp tablosu tipinde değişken oluşturur.	
+
+DECLARE
+  v_emp emp%ROWTYPE;
+BEGIN
+  v_emp.empno := 10;
+  v_emp.ename := 'XXXXXXX';
+END;
+/
+ 
+Procedure
+
+CREATE OR REPLACE PROCEDURE -- Yeni oluştur yada varolanı değiştir.
+
+CREATE OR REPLACE PROCEDURE deneme1
+AS
+BEGIN
+   dbms_output.put_line('Merhaba Dünya!');
+END;
+/
+
+BEGIN
+   greetings; -- bu şekilde çağrılırsa Merhaba Dünya! basılır.
+   DROP PROCEDURE greetings; -- Prosedür silinir.
+END;
+/
+
+DECLARE
+   a number;
+PROCEDURE squareNum(x IN OUT number) IS --Parametre x alıyor ve dönüyor.
+BEGIN
+  x := x * x;
+END; --prosedür bitti
+BEGIN -- başka bir sorgu
+   a:= 23;
+   squareNum(a); -- prosedürü çağır
+   dbms_output.put_line(' Square of (23): ' || a);
+END;
+/
+
+Function
+ 
+CREATE OR REPLACE FUNCTION -- Yeni oluştur yada varolanı değiştir.
+
+CREATE OR REPLACE FUNCTION totalCustomers
+RETURN number IS
+   total number(2) := 0;
+BEGIN
+   SELECT count(*) into total
+   FROM customers;
+   
+   RETURN total;
+END;
+/
+
+DECLARE
+   c number(2);
+BEGIN
+   c := totalCustomers();
+   dbms_output.put_line('Total no. of Customers: ' || c);
+END;
+/
+</code></pre>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"></span>
+        
+        <div class="social-share">
+  <ul class="socialcount socialcount-small inline-list">
+    <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/oracle,/pl/sql/26/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+    <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/oracle,/pl/sql/26/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+    <li class="googleplus"><a href="https://plus.google.com/share?url=/oracle,/pl/sql/26/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+  </ul>
+</div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+    <div class="read-more">
+  
+    <div class="read-more-header">
+      <a href="/jekyll/25/" class="read-more-btn">Daha Fazla Oku</a>
+    </div><!-- /.read-more-header -->
+    <div class="read-more-content">
+      <h3><a href="/jekyll/25/" title="Jekyll derleme hatası">Jekyll derleme hatası</a></h3>
+      <p>Aşağıdaki hata alınırsa KAYNAK linkindeki talimatlar takip edilmeli/Library/Ruby/Site/2.0.0/rubygems/core_ext/kernel_require.rb:54:in `re...&hellip; <a href="/jekyll/25/">Okumaya Devam Et</a></p>
+    </div><!-- /.read-more-content -->
+  
+  <div class="read-more-list">
+    
+      <div class="list-item">
+        <h4><a href="/linux,/mac/24/" title="SSH ile sansürü önleme, yasaklı sitelere girme, güvenli internet">SSH ile sansürü önleme, yasaklı sitelere girme, güvenli internet</a></h4>
+        <span>Yayınlandı April 01, 2015</span>
+      </div><!-- /.list-item -->
+    
+      <div class="list-item">
+        <h4><a href="/linux/23/" title="Linux daemon -init.d">Linux daemon -init.d</a></h4>
+        <span>Yayınlandı March 30, 2015</span>
+      </div><!-- /.list-item -->
+    
+  </div><!-- /.read-more-list -->
+</div><!-- /.read-more -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span></span>
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/assets/js/scripts.min.js"></script>
+<script>
+function notifyMe() {
+  if (!Notification) {
+    alert('Uyarılar sadece Chrome, Firefox ve Opera tarayıcılarında çalışmaktadır.'); 
+    return;
+  }
+
+  if (Notification.permission !== "granted")
+    Notification.requestPermission();
+
+  var notification = new Notification('Bloğuma Hoşgeldin!', {
+    icon: 'https://cemretok.github.io/images/avatar.jpg',
+    body: "RSS ile takip etmek için tıklaman yeterli.",
+  });
+
+  notification.onclick = function () {
+    window.open("https://cemretok.github.io/feed.xml/");      
+  };
+}
+
+</script>
+
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58893455-1', 'auto');  
+  ga('require', 'linkid', 'linkid.js');
+  ga('send', 'pageview');
+</script>
+
+
+
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'cemretok'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script'); s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	        
+
+</body>
+</html>

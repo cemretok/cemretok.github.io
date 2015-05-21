@@ -64,7 +64,7 @@
 
 
 
-<style type="text/css">body {background-image:url(/images/cloud.jpg);}</style>
+<style type="text/css">body {background-image:url(/images/transmit.png);}</style>
 
 
 </head>
@@ -136,7 +136,7 @@
   <header>
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2014-09-29T00:51:27+03:00"><a href="/linux/9/">September 29, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2014-09-30T00:51:27+03:00"><a href="/linux/16/">September 30, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
       
       <span class="entry-reading-time">
         <i class="fa fa-clock-o"></i>
@@ -146,16 +146,46 @@
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="/linux/9/" rel="bookmark" title="Linux da dosya kısayolu oluşturmak" itemprop="url">Linux da dosya kısayolu oluşturmak</a></h1>
+      <h1 class="entry-title"><a href="/linux/16/" rel="bookmark" title="Linux ile Modül Programlama" itemprop="url">Linux ile Modül Programlama</a></h1>
     
   </header>
   <div class="entry-content">
-    <p>Dosyaların kısa yolunu oluşturmak için gerekli olan komut;</p>
+    <p>Modüller çekirdek için yazılan programlardır. User space olarak tanımladığımız ve hergün kullandığımız işletim sisteminin bir alt katmanıdır. Kısacası linux çekirdeğinin içidir. Bizde burada çalışan bir “Hello World” uygulaması yapıcaz.</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="sr">/dosya/</span><span class="n">yolu</span>      <span class="n">k</span><span class="err">ı</span><span class="n">sayolad</span><span class="err">ı</span></code></pre></div>
+<p>1) Aşağıdaki gibi “<b>/home</b>” dizininde <b>denemeler</b> adlı bir klasör oluşturun.</p>
 
-<p><br /><img src="/assets/9-1.png" alt="My helpful screenshot" /><br />
-Bu kod bulunduğunuz dizine <b>/dosya/yolunu</b> verdiğiniz dosyanın kısa yolunu yerleştirir.</p>
+<p><br /><img src="/assets/16-1.png" alt="My helpful screenshot" /><br /></p>
+
+<p>2) Terminale “<b>cd denemeler</b>” yazarak dizine girin ve “<b>pico</b>” editörüyle “<b>hello.c</b>” dosyası oluşturun.</p>
+
+<p><br /><img src="/assets/16-2.png" alt="My helpful screenshot" /><br /></p>
+
+<p>3) İçerisine aşağıdaki kodları yazın. Dosyayı kaydetmek için “<b>CTRL + X</b>” kombinasyonuyla çıkış yapın size kaydetmek istermisiniz diye sorduğunda “<b>E</b>” ya da “<b>Y</b>” tuşlarına basarsınız.</p>
+
+<p><br /><img src="/assets/16-3.png" alt="My helpful screenshot" /><br /></p>
+
+<p>4) Az önceki “<b>C</b>” kodunun çalışması için bir “<b>Makefile</b>” dosyası lazım      “<b>pico Makefile</b>” ile oluşturun.</p>
+
+<p><br /><img src="/assets/16-4.png" alt="My helpful screenshot" /><br /></p>
+
+<p>5) İçerisine tıpkı aşağıdaki gibi yazın eger all ve clean kısımlarından sonra “<b>TAB</b>” ile boşluk bırakmazsanız hata alırsınız dikkat edin. Dosyayı kaydetmek için “<b>CTRL + X</b>” kombinasyonuyla çıkış yapın size kaydetmek istermisiniz diye sorduğunda “<b>E</b>” ya da “<b>Y</b>” tuşlarına basarsınız.</p>
+
+<p><br /><img src="/assets/16-5.png" alt="My helpful screenshot" /><br /></p>
+
+<p>6) Terminale “<b>make</b>” yazın ve kodunuzu derleyin. Eğer make komutunu çalıştıran program yoksa “<b>sudo apt-get install make</b>” yazarak yükleyebilirsiniz.</p>
+
+<p><br /><img src="/assets/16-6.png" alt="My helpful screenshot" /><br /></p>
+
+<p>7) Terminale “<b>ls</b>” yazın ve klasörün içerisinde <b>hello.ko</b> oluşmuş mu ona bakın. Eğer oluştuysa “<b>sudo insmod hello.ko</b>” yazarak modülü çekirdeğe yükleyebilirsiniz. Yüklediğinizde kodun içindeki print ifadelerinin barındırdığı string “<b>log</b>” dosyalarına yazılır. Neden diye sorarsanız print komutunda <b>KERN_INFO</b> ile belirttiğiniz için. Sonra terminale “<b>dmesg</b>” komutu girerseniz bütün logları görüntüleyebilirsiniz.
+<br /><img src="/assets/16-7.png" alt="My helpful screenshot" /><br /></p>
+
+<p>8) Görüldüğü gibi “<b>Hello World</b>” yazısı çıkıyor.</p>
+
+<p><br /><img src="/assets/16-8.png" alt="My helpful screenshot" /><br /></p>
+
+<p>9) Terminale “<b>sudo rmmod hello.ko</b>” yazarsanız modülü kaldırır ve log kısmına “<b>Goodby World</b>” yazar.</p>
+
+<p>Kolay gelsin.</p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -164,7 +194,99 @@ Bu kod bulunduğunuz dizine <b>/dosya/yolunu</b> verdiğiniz dosyanın kısa yol
   <header>
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2014-09-29T00:51:27+03:00"><a href="/linux/8/">September 29, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2014-09-30T00:51:27+03:00"><a href="/linux/15/">September 30, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
+      
+      <span class="entry-reading-time">
+        <i class="fa fa-clock-o"></i>
+        
+        Okuma Zamanı ~3 Dakika
+      </span><!-- /.entry-reading-time -->
+      
+    </div><!-- /.entry-meta -->
+    
+      <h1 class="entry-title"><a href="/linux/15/" rel="bookmark" title="Linux Çekirdek Güncellemesi" itemprop="url">Linux Çekirdek Güncellemesi</a></h1>
+    
+  </header>
+  <div class="entry-content">
+    <p><b>Bu yazıyı tamamen okuduktan sonra işlemleri yapmaya başlarsanız hatayla karşılaşma oranınınız en aza iner. Altta bulunan not kısmı karşılaşılabilecek potansiyel hataları ve çözüm yollarını anlatmaktadır.</b></p>
+
+<p>Linux -Ubuntu- sistemde çekirdek güncellemesi yapıcaz ben sanal sürücüde gerçekleştirdim bu işlemi yaklaşık 2 saat kadar sürdü. Herhangi bir linux dağıtımında da fazla bir değişiklik olmadan aynı kodların çalıştığını belirtmek isterim.</p>
+
+<p>-Zor Yöntem-</p>
+
+<p>1) İlk başta “<b>uname -a</b>” komutu ile çekirdek versiyonunu öğreniyoruz.</p>
+
+<p><br /><img src="/assets/15-1.png" alt="My helpful screenshot" /><br /></p>
+
+<p>2)  “<b>Kernel</b>” adında bir dosya oluşturdum ve içerisine Linux’un son stabil versiyonu olan “<b>3.16.3</b>” paketini taşıdım. Bu paket kernel.org sitesinden indirilebilir. “<b>tar.xz</b>” uzantılı olanı ve patch dasyasını indireceksiniz.</p>
+
+<p><br /><img src="/assets/15-2.png" alt="My helpful screenshot" /><br /></p>
+
+<p>3) Kernel dosyası içindeki çekirdeği sıkıştırılmış formattan çıkarttım.</p>
+
+<p><br /><img src="/assets/15-3.png" alt="My helpful screenshot" /><br /></p>
+
+<p>4)   Sonrasında Linux versiyonunun yanındaki patch’in  çekirdeğe kurulumunu yaptım “<b>-R</b>” burada “<b>repeat</b>” yani tekrar anlamı taşıyor.</p>
+
+<p><br /><img src="/assets/15-4.png" alt="My helpful screenshot" /><br /></p>
+
+<p>5) Çekirdeğin kullanıcı isteğine göre modüllerinin eklenip çıkartılması için gerekli olan “<b>make menuconfig</b>” komutunu çalıştırdım ama gerekli kütüphaneler olmadığı için çalışmadı bu nedenle “<b>apt-get install libncurses5-dev</b>” komutuyla “<b>libncurses5-dev</b>“ paketini kurdum. Eğer “<b>make menuconfig</b>” işlemini yapmazsanız, yükleme yaparken yaklaşık 50 kadar soruya tek tek cevap vermeniz gerekecek o yüzden yapmanızı tavsiye ederim.</p>
+
+<p><br /><img src="/assets/15-5.png" alt="My helpful screenshot" /><br /></p>
+
+<p>6) Ardından “<b>make menuconfig</b>” komutunu çalıştırdım.</p>
+
+<p><br /><img src="/assets/15-6.png" alt="My helpful screenshot" /><br /></p>
+
+<p><br /><img src="/assets/15-7.png" alt="My helpful screenshot" /><br /></p>
+
+<p>Herhangi bir değişiklik yapmadım. İstenirse modüller eklenip çıkartılabiliyor ama sonra USB belleğim ya da Internetim neden çalışmıyor diyebilirsiniz, dikkatli işlem yapmak gerekiyor.</p>
+
+<p>7) Sonrasında “<b>apt-get install kernel-package</b>” gerekli olan “<b>kernel-package</b>” aracını yükledim. Kernel’ı derliyor.</p>
+
+<p><br /><img src="/assets/15-8.png" alt="My helpful screenshot" /><br /></p>
+
+<p>8) Derleme komutu “<b>make-kpkg kernel-image kernel_headers –initrd</b>”</p>
+
+<p><br /><img src="/assets/15-9.png" alt="My helpful screenshot" /><br /></p>
+
+<p>Benim yaptığım derleme işlemi toplamda 1 saat 50 dakika sürdü.</p>
+
+<p>10) Sonrasında  kernel dosyası içinde oluşan “<b>.deb</b>” uzantılı paketleri yükledim. Biri image diğeri header paketi. Bunların yedeğini almakta fayda var derlemesi 2 saat sürüyor.</p>
+
+<p><br /><img src="/assets/15-10.png" alt="My helpful screenshot" /><br /></p>
+
+<p>11) Yükleme işlemi bittikten sonra linux’u yeniden başlatıyoruz. Bilgisayar açıldığı sırada “<b>Shift</b>” tuşuna basılı tutuyoruz.</p>
+
+<p><br /><img src="/assets/15-11.png" alt="My helpful screenshot" /><br /></p>
+
+<p>Karşımıza buna benzer bir ekran gelecek buradan çalıştırmak istediğimiz çekirdek sürümünü seçiyoruz. Bir önceki sürüm “<b>Previous Linux Versions</b>” sekmesinde gözükecektir. Biz son yüklediğimiz versiyonu seçiyoruz ve başlatıyoruz.</p>
+
+<p>12) Terminal satırına “<b>uname -a</b>” komutunu giriyoruz ve yüklediğiniz çekirdeğin sürümünü görüyorsanız işlem tamam demektir. Görmüyorsanız alttaki not kısmını okuyun. Aynı işi yapan “<b>uname -r</b>” ile sadece sürümü görüntülersiniz.</p>
+
+<p><b>**Not: Eğer yaptığınız kernel güncellemesi mevcut işletim sistemiyle uyuşmazlık yaşarsa sistemdeki bütün sürücüler hata vermeye başlar.  Bu nedenle kullandığınız kernel sürümüyle update edeceğiniz kernel sürümünün yakın olmasına dikkat edin kernel da 3.16.7 diyorsa siz 3.16.40 ya da 3.17.0 gibi güncellemeleri kurun. Zira sistemi kullanılmaz hale getirme olasılığınız çok yüksek.</b></p>
+
+<p>-Kolay Yöntem-</p>
+
+<p>Aslında işlemler 12. adımda bitti fakat bir yöntem daha var ondan da bahsetmek istiyorum. Yazının başlarında hazır “<b>.deb</b>” kernel paketlerinden bahsetmiştik işte bunların yüklenmesi ile ilgili bikaç şey söylemek istiyorum.</p>
+
+<p>Şu sayfada -&gt;http://kernel.ubuntu.com/~kernel-ppa/mainline/ bütün kernel sürümlerini bulmak mümkün örneğin “<b>3.15.10</b>” sürümünü ele alalım.</p>
+
+<p><br /><img src="/assets/15-12.png" alt="My helpful screenshot" /><br />
+Seçtiğimiz paketleri aşağıdaki gibi bir komutla indirip, yüklüyoruz.</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">cd</span> <span class="sr">/kernel &amp;&amp; wget http:/</span><span class="o">/</span><span class="n">kernel</span><span class="o">.</span><span class="n">ubuntu</span><span class="o">.</span><span class="n">com</span><span class="o">/~</span><span class="n">kernel</span><span class="o">-</span><span class="n">ppa</span><span class="o">/</span><span class="n">mainline</span><span class="o">/</span><span class="n">v3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="n">utopic</span><span class="o">/</span><span class="n">linux</span><span class="o">-</span><span class="n">headers</span><span class="o">-</span><span class="mi">3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="mo">031510</span><span class="o">-</span><span class="n">generic_3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="mo">031510</span><span class="o">.</span><span class="mi">201408132333</span><span class="n">_i386</span><span class="o">.</span><span class="n">deb</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">kernel</span><span class="o">.</span><span class="n">ubuntu</span><span class="o">.</span><span class="n">com</span><span class="o">/~</span><span class="n">kernel</span><span class="o">-</span><span class="n">ppa</span><span class="o">/</span><span class="n">mainline</span><span class="o">/</span><span class="n">v3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="n">utopic</span><span class="o">/</span><span class="n">linux</span><span class="o">-</span><span class="n">headers</span><span class="o">-</span><span class="mi">3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="mo">031510_3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="mo">031510</span><span class="o">.</span><span class="mi">201408132333</span><span class="n">_all</span><span class="o">.</span><span class="n">deb</span> <span class="ss">http</span><span class="p">:</span><span class="sr">//</span><span class="n">kernel</span><span class="o">.</span><span class="n">ubuntu</span><span class="o">.</span><span class="n">com</span><span class="o">/~</span><span class="n">kernel</span><span class="o">-</span><span class="n">ppa</span><span class="o">/</span><span class="n">mainline</span><span class="o">/</span><span class="n">v3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="n">utopic</span><span class="o">/</span><span class="n">linux</span><span class="o">-</span><span class="n">image</span><span class="o">-</span><span class="mi">3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="mo">031510</span><span class="o">-</span><span class="n">generic_3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="mo">031510</span><span class="o">.</span><span class="mi">201408132333</span><span class="n">_i386</span><span class="o">.</span><span class="n">deb</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="o">*.</span><span class="n">deb</span></code></pre></div>
+
+<p>Bu dosyaların “<b>cd /kernel</b>cd /kernel” komutu ile “<b>kernel</b>” dizinine “<b>wget</b>” aracı ile indiriyorum sonrasında “<b>sudo dpkg -i *.deb</b>” ile de inen paketlerin kurulumunu yapıyorum. Böylece 2 saat derlemekle uğraşmadan hazır derlenmiş paketin kurulumunu yapabiliyorum. Gayet kolay bir yöntem.</p>
+
+  </div><!-- /.entry-content -->
+</article><!-- /.hentry -->
+
+<article class="hentry" onclick="notifyMe()">
+  <header>
+    
+    <div class="entry-meta">
+      <span class="entry-date date published updated"><time datetime="2014-09-30T00:51:27+03:00"><a href="/java/14/">September 30, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
       
       <span class="entry-reading-time">
         <i class="fa fa-clock-o"></i>
@@ -174,90 +296,26 @@ Bu kod bulunduğunuz dizine <b>/dosya/yolunu</b> verdiğiniz dosyanın kısa yol
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="/linux/8/" rel="bookmark" title="Raspberry dosya taşıma okuma hatası (İzin)" itemprop="url">Raspberry dosya taşıma okuma hatası (İzin)</a></h1>
+      <h1 class="entry-title"><a href="/java/14/" rel="bookmark" title="SubTeacher (Altyazı Kelime Öğretici)" itemprop="url">SubTeacher (Altyazı Kelime Öğretici)</a></h1>
     
   </header>
   <div class="entry-content">
-    <p>Raspberry linux dağıtımı olduğu için aşağıdaki kod hangi dizine “<b>777</b>” yani tam izin vereceğinizi belirtiyor.</p>
+    <p>SubTeacher’ı can sıkıntısına JavaFX ile geliştirdim, geliştirmeyede devam ediyorum. İngilizce altyazılı film izlerken aklıma takılan kelimeler oluyordu onları öğrenmek için, en azından aklımda kalması için bir yöntem arıyordum ki bulamadım, bende bu nedenle SubTeacher’ı geliştirmeye başladım. Kaynak kodlar herkese açıktır. Github sayfasından <a href="https://github.com/cemretok/SubTeacher">SubTeacher</a> ulaşılabilir.</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">chmod</span> <span class="mi">777</span> <span class="o">/</span><span class="no">Klas</span><span class="err">ö</span><span class="n">r</span><span class="o">/</span><span class="n">yolu</span> <span class="p">(</span><span class="no">Tek</span> <span class="n">bir</span> <span class="n">klas</span><span class="err">ö</span><span class="n">r</span> <span class="n">i</span><span class="err">ç</span><span class="k">in</span><span class="p">)</span></code></pre></div>
+<p><br /><img src="/assets/14-1.png" alt="My helpful screenshot" /><br />
+<br /><img src="/assets/14-2.png" alt="My helpful screenshot" /><br />
+*Resimler Matrix’e ait</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">chmod</span> <span class="o">-</span><span class="n">R</span> <span class="mi">777</span> <span class="o">/</span><span class="no">Klas</span><span class="err">ö</span><span class="n">r</span><span class="o">/</span><span class="n">yolu</span> <span class="p">(</span><span class="no">Hem</span> <span class="n">klas</span><span class="err">ö</span><span class="n">r</span> <span class="n">hemde</span> <span class="n">alt</span> <span class="n">dizinleri</span> <span class="n">i</span><span class="err">ç</span><span class="k">in</span><span class="p">)</span></code></pre></div>
+<p>Resimlerde de görüldüğü gibi uygulama istenileni yapıyor. Daha sonraki geliştirme sürecinde de <a href="https://github.com/cemretok/SubTeacher/blob/master/README.md">README.md</a> sayfasında belirttiğim gibi geliştirmeler olacak, bunlar;</p>
 
-<p><br /><img src="/assets/8-1.png" alt="My helpful screenshot" /><br /></p>
-
-  </div><!-- /.entry-content -->
-</article><!-- /.hentry -->
-
-<article class="hentry" onclick="notifyMe()">
-  <header>
-    
-    <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2014-09-29T00:51:27+03:00"><a href="/linux/7/">September 29, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
-      
-      <span class="entry-reading-time">
-        <i class="fa fa-clock-o"></i>
-        
-        Okuma Zamanı ~2 Dakika
-      </span><!-- /.entry-reading-time -->
-      
-    </div><!-- /.entry-meta -->
-    
-      <h1 class="entry-title"><a href="/linux/7/" rel="bookmark" title="Raspberry Pi ile video Oynatmak (Film izlemek)" itemprop="url">Raspberry Pi ile video Oynatmak (Film izlemek)</a></h1>
-    
-  </header>
-  <div class="entry-content">
-    <p>Raspberry’nin video işlemcisi oldukça gelişmiş olduğu için media player olarak kullanılabilmekte ve hatta videolara altyazı dahi eklenebiliyor.</p>
-
-<p>İlk olarak <b>omxplayer</b>‘ı kuruyoruz.</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="p">(</span><span class="no">Paket</span> <span class="n">g</span><span class="err">ü</span><span class="n">ncellemesi</span><span class="p">)</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">y</span> <span class="n">install</span> <span class="n">omxplayer</span> <span class="p">(</span><span class="n">omxplayer</span> <span class="n">kurulumu</span><span class="p">)</span></code></pre></div>
-
-<p><br /><img src="/assets/7-1.png" alt="My helpful screenshot" /><br />
-İki Yöntem var ilki;</p>
-
-<p>Komut Satırı ile olan:
-Sonrasında Videolarınızın olduğu dizine gelerek (cd komutuyla gelinebiliyor) Aşağıdaki komutu giriyoruz ve filmimiz başlıyor. (Çıkmak için ESC yada Alt + f4)</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">omxplayer</span> <span class="n">filmadi</span><span class="o">.</span><span class="n">avi</span></code></pre></div>
-
-<p><br /><img src="/assets/7-2.png" alt="My helpful screenshot" /><br /></p>
-
-<p><br /><img src="/assets/7-3.png" alt="My helpful screenshot" /><br />
-Bu anlattıklarım zor olandı şimdi bilindik çift tıklama yöntemine geçelim:</p>
-
-<p>İlk yüklemeyi yaptıktan sonra aşağıdaki kod ile bir program daha yüklememiz gerekiyor</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">xterm</span></code></pre></div>
-
-<p><br /><img src="/assets/7-4.png" alt="My helpful screenshot" /><br />
-Bunu yükledikten sonra aşağıdaki parametreleri izleyeceğiniz bir avi dosyasına sağ tıklayıp open with sonra customize sonrasında Custom Command Line’a geliyoruz ve oraya aşağıdaki parametreleri yazıyoruz.</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">xterm</span> <span class="o">-</span><span class="n">fullscreen</span> <span class="o">-</span><span class="n">fg</span> <span class="n">black</span> <span class="o">-</span><span class="n">bg</span> <span class="n">black</span> <span class="o">-</span><span class="n">e</span> <span class="n">omxplayer</span> <span class="o">-</span><span class="n">o</span> <span class="n">hdmi</span> <span class="o">-</span><span class="n">r</span> <span class="o">%</span><span class="n">f</span></code></pre></div>
-
-<p><br /><img src="/assets/7-5.png" alt="My helpful screenshot" /><br />
-Tamam diyoruz ve çıkıyoruz.</p>
-
-<p>Artık filmin üstüne çift tıkladığınızda açılan esc ye bastığınızda çıkan, space’e bastığınızda duran ok’lara bastığınızda ileri geri giden bir medya playerınız var.</p>
-
-<p>Ayrıca filmle aynı yerde bulunup aynı ismi taşıyan altyazı dosyalarını da oynatabileceksiniz. İngilizcede sorunsuz fakat türkçe desteği için biraz uğraşmak gerekiyor.</p>
-
-<p>Kısa yol tuşları:</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Space</span> <span class="n">veya</span> <span class="nb">p</span> <span class="p">(</span><span class="no">Durdurur</span><span class="p">)</span>
-<span class="n">q</span>            <span class="p">(</span><span class="err">Çı</span><span class="n">kar</span><span class="p">)</span>
-<span class="o">-</span>            <span class="p">(</span><span class="no">Sesi</span> <span class="n">K</span><span class="err">ı</span><span class="n">sar</span><span class="p">)</span>
-<span class="o">+</span>            <span class="p">(</span><span class="no">Sesi</span> <span class="n">a</span><span class="err">ç</span><span class="n">ar</span><span class="p">)</span>
-<span class="no">Sol</span> <span class="n">ok</span>       <span class="p">(</span><span class="no">Geriye</span> <span class="mi">30</span> <span class="n">saniye</span><span class="p">)</span>
-<span class="no">Sa</span><span class="err">ğ</span> <span class="n">ok</span>       <span class="p">(</span><span class="n">ileriye</span> <span class="mi">30</span> <span class="n">saniye</span><span class="p">)</span>
-<span class="n">A</span><span class="err">ş</span><span class="n">a</span><span class="err">ğı</span> <span class="n">ok</span>     <span class="p">(</span><span class="no">Geriye</span> <span class="mi">600</span> <span class="n">saniye</span><span class="p">)</span>
-<span class="no">Yukar</span><span class="err">ı</span> <span class="n">ok</span>    <span class="p">(</span><span class="no">Geriye</span> <span class="mi">600</span> <span class="n">saniye</span><span class="p">)</span>
-<span class="mi">1</span>            <span class="p">(</span><span class="no">Oynatmay</span><span class="err">ı</span> <span class="n">h</span><span class="err">ı</span><span class="n">zland</span><span class="err">ı</span><span class="n">r</span><span class="err">ı</span><span class="n">r</span><span class="p">)</span>
-<span class="mi">2</span>            <span class="p">(</span><span class="no">Oynatmay</span><span class="err">ı</span> <span class="n">yava</span><span class="err">ş</span><span class="n">lat</span><span class="err">ı</span><span class="n">r</span><span class="p">)</span>
-<span class="n">s</span>            <span class="p">(</span><span class="no">Altyaz</span><span class="err">ı</span><span class="n">y</span><span class="err">ı</span> <span class="n">kald</span><span class="err">ı</span><span class="n">r</span><span class="err">ı</span><span class="n">r</span><span class="p">,</span> <span class="n">ekler</span><span class="p">)</span>
-<span class="n">d</span>            <span class="p">(</span><span class="o">-</span><span class="mi">250</span> <span class="n">saniye</span> <span class="n">geri</span><span class="p">)</span>
-<span class="n">f</span>            <span class="p">(</span><span class="o">+</span><span class="mi">250</span> <span class="n">saniye</span> <span class="n">ileri</span><span class="p">)</span></code></pre></div>
+<p>Çekimli kelimelerin çevrilmesi.
+Çeviri sıklığı seçeneği eklenmesi. (Cümlede bir ya da on satırda bir çeviri gibi…)
+Bağlaçların çevrilmemesi.
+Veritabanının kaldırılıp online aktarıma geçilmesi.
+Vakit olursa programın online halde de çalışmasını planlıyorum.
+Veritabanındaki kelimelerin düzeltilmesi.
+Seviyeye göre çeviri yapılması. (database’in düzenlenmesi gerekiyor -uzun iş-)
+Çok ütapik olacak ama kim bilir belki ilerde dil işleme bile yapılabilir.</p>
 
 
   </div><!-- /.entry-content -->
@@ -267,7 +325,7 @@ Tamam diyoruz ve çıkıyoruz.</p>
   <header>
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2014-09-29T00:51:27+03:00"><a href="/linux/6/">September 29, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2014-09-30T00:51:27+03:00"><a href="/linux/13/">September 30, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
       
       <span class="entry-reading-time">
         <i class="fa fa-clock-o"></i>
@@ -277,29 +335,13 @@ Tamam diyoruz ve çıkıyoruz.</p>
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="/linux/6/" rel="bookmark" title="Raspberry Pi'ye Java yüklemek" itemprop="url">Raspberry Pi'ye Java yüklemek</a></h1>
+      <h1 class="entry-title"><a href="/linux/13/" rel="bookmark" title="Ssh ile dosya gönderimi" itemprop="url">Ssh ile dosya gönderimi</a></h1>
     
   </header>
   <div class="entry-content">
-    <p>Java heryerde çalıştığı için neden Raspberryde de olmasın dedim ve basit kurulumunun nasıl olacağını, ardından “.jar” dosyalarını nasıl çalıştıracağınızı anlattım.</p>
+    <p>Herhangi bir ara bağlantı, server olmadan dosya gönderimi biraz meşakatli olmakta. İşte bu nedenden dolayı ssh’ın bize sağladığı kolaylıkları sonuna kadar kullanmak gerekiyor. Aşağıdaki resimde de görüldüğü üzere anahtar kelimemiz “<b>scp</b>”  bu komutla iki bilgisayar arasında ssh ile dosya yollayabiliriz. Öncelikle “<b>scp</b>” diyouz ardından göndermek istediğimiz dosyanın dizinini yazıyoruz. Eğer sizde mac kullanıcısı iseniz dosyayı terminal penceresine sürükleyip bıraktığınızda dizini otomatikman yazılacaktır sonrasında bağlanmak istediğiniz bilgisayarın kullanıcı adını yazıyorsunuz ki benimki “<b>pi</b>” ardından “<b>@</b>” işareti ve sonrasında diğer bilgisayarın ip adresini yazıyorsunuz görüldüğü gibi benimkisi yerel bir bağlantı olduğu için “<b>192.168.2.246</b>” olarak yazılmış ardından gönderileceği dizini yazıyoruz ve enter diyerek gönderiyoruz. Sonrasından sizden bir şifre isteyecek bu şifre karşıdaki bilgisayarın “<b>pi</b>” kullanıcısının şifresi olmalıdır. İşte herşey bu kadar kolay.</p>
 
-<p>Terminal kullanıcaz, öncelikle aşağıdaki kod ile güncelleme yapıyoruz.</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span></code></pre></div>
-
-<p>Sonrasında kurulum dosyalarını aşağıdaki kod ile yüklüyoruz</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">openjdk</span><span class="o">-</span><span class="mi">7</span><span class="o">-</span><span class="n">jre</span></code></pre></div>
-
-<p><br /><img src="/assets/6-1.png" alt="My helpful screenshot" /><br />
-Herşey tamam şimdi komut satırından programı çalıştırabiliriz. (Programın bulunduğu dizine cd komutuyla gitmeniz gerekmektedir.)<br />
-<img src="/assets/6-2.png" alt="My helpful screenshot" /><br /></p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">java</span> <span class="o">-</span><span class="n">jar</span> <span class="n">program</span><span class="err">ı</span><span class="n">nad</span><span class="err">ı</span><span class="o">.</span><span class="n">jar</span></code></pre></div>
-
-<p><img src="/assets/6-3.png" alt="My helpful screenshot" /><br />
-Eğer bu işi otomatik bir hale getirmek istiyorsanız. Programın üstüne sağ tıklayıp OpenJDK Java 7 Runtime’a tıklamanız gerekmektedir. Tabi bu yöntem Raspberry ekrana bağlıysa ya da vnc ile bağlandıysanız yapılabilmektedir.<br />
-<img src="/assets/6-4.png" alt="My helpful screenshot" /><br /></p>
+<p><br /><img src="/assets/13-1.png" alt="My helpful screenshot" /><br /></p>
 
   </div><!-- /.entry-content -->
 </article><!-- /.hentry -->
@@ -308,7 +350,7 @@ Eğer bu işi otomatik bir hale getirmek istiyorsanız. Programın üstüne sağ
   <header>
     
     <div class="entry-meta">
-      <span class="entry-date date published updated"><time datetime="2014-09-29T00:51:27+03:00"><a href="/linux/5/">September 29, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
+      <span class="entry-date date published updated"><time datetime="2014-09-30T00:51:27+03:00"><a href="/mac/12/">September 30, 2014</a></time></span><span class="author vcard"><span class="fn"><a href="/about/" title="About Cemre Tok">Cemre Tok</a></span></span>
       
       <span class="entry-reading-time">
         <i class="fa fa-clock-o"></i>
@@ -318,68 +360,15 @@ Eğer bu işi otomatik bir hale getirmek istiyorsanız. Programın üstüne sağ
       
     </div><!-- /.entry-meta -->
     
-      <h1 class="entry-title"><a href="/linux/5/" rel="bookmark" title="Dinamik DNS ile Raspberry pi'ye Sabit İp vermek (DDNS)" itemprop="url">Dinamik DNS ile Raspberry pi'ye Sabit İp vermek (DDNS)</a></h1>
+      <h1 class="entry-title"><a href="/mac/12/" rel="bookmark" title="Mac OS X silinemeyen dosyalar ve yetersiz alan sorunu" itemprop="url">Mac OS X silinemeyen dosyalar ve yetersiz alan sorunu</a></h1>
     
   </header>
   <div class="entry-content">
-    <p>Sorunla karşılaşmamak için uygulamaya geçmeden önce konuyu baştan sona kadar okumanızı tavsiye ederim.</p>
+    <p>Mac sistemlerde dosyalar günlüklü bir biçimde tutulduğu için siz dosyalarınızı silseniz bile “<b>Time Machine</b>” için dosyalar tutulur “<a href="/linux/2014/09/29/11.html">Clever Files</a>” içerisinde de bunları bulabilirsiniz. İşte bu sorunu çözmek için silinemeyen ya da başla bir uygulama tarafından tutulan uygulamaları aşağıda gösterildiği gibi silebiliyoruz.
+*bu işlemden sonra dosyaları düzgün bir biçimde geri döndürme olanağınız yoktur.
+(Recovery programları ile bazıları hasarlı olarak kurtarılabiliyor.)</p>
 
-<p>Mevcut internet bağlantınızda modeminizi kapattığınız an ip adresiniz anında değişir tabi aylık ekstra ücret karşılığında statik ip adresi almadıysanız. İşte bizde para vermemek için ip adresimiz değiştiği an bunu dns server’a iletecek bir yazılım kurulumu yapacağız.</p>
-
-<p>İlk olarak bu hizmeti veren <a href="http://freedns.afraid.org/signup/">http://freedns.afraid.org/signup/</a> siteye üye oluyoruz. Sonrasında sol üst köşeden Dynamic DNS linkine tıklıyoruz.</p>
-
-<p><img src="/assets/5-1.png" alt="My helpful screenshot" /><br /></p>
-
-<p>Sonra add a new subdomain butonuna tıklayarak aşağıdaki  ilk 3 kısmı dolduruyoruz.</p>
-
-<p><img src="/assets/5-2.png" alt="My helpful screenshot" /><br /></p>
-
-<p>İçi boş kırmızı kare’nin üstüne geliyoruz ve sağ tıklayıp adresi kopyala diyoruz.</p>
-
-<p><img src="/assets/5-3.png" alt="My helpful screenshot" /><br /></p>
-
-<p><b>http://www.freedns.afraid.org/dynamic/update.php?Z09NUEtktOamNvQ<strong>**</strong><em>**</em>Q5MTMz</b>
-Yukardakine benzer bir adres karşınıza çıkacak bu adresdeki kırmızı kısım ilerki adımlarda işimize yarıycak bi kenarda dursun şimdilik.</p>
-
-<p>Şimdi Raspberry pi’nin terminal kısmına aşağıdaki kodu yazıyoruz.</p>
-
-<p>sudo apt-get install inadyn (inadyn programını yüklemiş olduk)
-Şimdi bu programdaki şeyleri biraz değiştirmek gerekiyor, aşağıdaki komutu giriyoruz.</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">nano</span> <span class="sr">/etc/in</span><span class="n">adyn</span><span class="o">.</span><span class="n">conf</span></code></pre></div>
-
-<p>Karşınıza gelen ekrana;</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">--</span><span class="n">username</span> <span class="n">kullan</span><span class="err">ı</span><span class="n">c</span><span class="err">ı</span> <span class="n">ad</span><span class="err">ı</span><span class="n">n</span><span class="err">ı</span><span class="n">z</span>
-<span class="o">--</span><span class="n">password</span> <span class="err">ş</span><span class="n">ifreniz</span>
-<span class="o">--</span><span class="n">update_period</span> <span class="mi">3600</span>
-<span class="o">--</span><span class="n">forced_update_period</span> <span class="mi">14400</span>
-<span class="o">--</span><span class="k">alias</span> <span class="n">adresiniz</span><span class="o">.</span><span class="n">mooo</span><span class="o">.</span><span class="n">com</span><span class="p">,</span><span class="no">Z09NUEtktOamNvQ</span><span class="o">**********</span><span class="no">Q5MTMz</span>
-<span class="o">--</span><span class="n">background</span> 
-<span class="o">--</span><span class="n">dyndns_system</span> <span class="n">default</span><span class="vi">@freedns</span><span class="o">.</span><span class="n">afraid</span><span class="o">.</span><span class="n">org</span> 
-<span class="o">--</span><span class="n">syslog</span></code></pre></div>
-
-<p>Yukarıdaki değişiklikleri yapıyoruz ve Ctrl + X deyip kaydediyoruz. Y’ye basıyoruz Enter’a basıp çıkıyoruz.
-update_period 3600 kısmından 3600 saniyede bir değişim oluyor siz bunu değiştirebilirsiniz.</p>
-
-<p><img src="/assets/5-4.png" alt="My helpful screenshot" /><br /></p>
-
-<p>İşlem tamam ama raspberry her açıldığında bunu otomatik hale getirmemiz gerekiyor bunun içinde aşağıdaki adımları yapmanız gerekiyor.</p>
-
-<p>İlk olarak aşağıdaki komutu yazıyoruz;</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">export</span> <span class="no">EDITOR</span><span class="o">=</span><span class="n">gedit</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">crontab</span> <span class="o">-</span><span class="n">e</span></code></pre></div>
-
-<p>Sonrasında açılan kısımda aşağıdaki kodu en alt kısma ekliyoruz.</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="vi">@reboot</span> <span class="sr">/usr/s</span><span class="n">bin</span><span class="o">/</span><span class="n">inadyn</span></code></pre></div>
-
-<p>Ctrl + X ‘e basıp kaydediyoruz. Sonra Y ve Enter diyoruz. Artık işlem tamam reboot komutuyla yada fişi takıp çıkararak raspberry’i tekrar başlatıyoruz. ve yeniden açılınca aşağıdaki kodu yazıyoruz bu sayede yaptığımız işlemler başarılı olup olmadığını anlayabiliyoruz.</p>
-
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">ps</span> <span class="o">-</span><span class="n">A</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">inadyn</span></code></pre></div>
-
-<p>Kendi ip adresinizi bulup birde linke tıklayıp ikisininde aynı olduğunu gördüğünüzde işlem tamam demektir.
-Kolay gelsin.</p>
+<p><br /><img src="/assets/12-1.png" alt="My helpful screenshot" /><br /></p>
 
 
   </div><!-- /.entry-content -->
@@ -414,6 +403,18 @@ Kolay gelsin.</p>
       <li>
         
           <a href="/page4">4</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/page5">5</a>
+        
+      </li>
+    
+      <li>
+        
+          <a href="/page6">6</a>
         
       </li>
     
