@@ -5,7 +5,7 @@ date:   2015-05-21 21:00:00
 categories: Oracle, PL/SQL
 ---
 
-{% highlight ruby %}
+
 	DECLARE –Değişken Tanımlama
 	   message  varchar2(20):= 'Merhaba Dünya!';
 	BEGIN -- Gövde
@@ -22,7 +22,7 @@ categories: Oracle, PL/SQL
 		dbms_output.put_line(num2); --5
 		dbms_output.put_line(num3); --5
 	End;
-{% endhighlight %}
+
 
 	Large Object (LOB) Veri Tipi – BFILE, BLOB, CLOB, NCLOB – Büyük verileri tutmak için Video binary gibi tipler. 
 	Subtype –Alt tipler, kullanıcının oluşturduğu.
