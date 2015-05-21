@@ -5,14 +5,14 @@ date:   2015-05-21 21:00:00
 categories: Oracle, PL/SQL
 ---
 
-{% highlight ruby %}
+{% highlight sql %}
 	DECLARE –Değişken Tanımlama
 	   message  varchar2(20):= 'Merhaba Dünya!';
 	BEGIN -- Gövde
 	   dbms_output.put_line(message);
 	END; -- Bitiş
 {% endhighlight %}
-	/
+	
 
 	Declare
 		num1 Integer:= 5;
