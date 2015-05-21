@@ -151,15 +151,13 @@
   </header>
   <div class="entry-content">
     
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">DECLARE</span> <span class="err">–</span><span class="no">De</span><span class="err">ğ</span><span class="n">i</span><span class="err">ş</span><span class="n">ken</span> <span class="no">Tan</span><span class="err">ı</span><span class="n">mlama</span>
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">DECLARE</span> <span class="err">–</span><span class="n">De</span><span class="err">ğ</span><span class="n">i</span><span class="err">ş</span><span class="n">ken</span> <span class="n">Tan</span><span class="err">ı</span><span class="n">mlama</span>
 	   <span class="n">message</span>  <span class="n">varchar2</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span><span class="o">=</span> <span class="s1">&#39;Merhaba Dünya!&#39;</span><span class="p">;</span>
-	<span class="k">BEGIN</span> <span class="o">--</span> <span class="n">G</span><span class="err">ö</span><span class="n">vde</span>
-	   <span class="n">dbms_output</span><span class="o">.</span><span class="n">put_line</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
-	<span class="k">END</span><span class="p">;</span> <span class="o">--</span> <span class="no">Biti</span><span class="err">ş</span></code></pre></div>
+	<span class="k">BEGIN</span> <span class="c1">-- Gövde</span>
+	   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+	<span class="k">END</span><span class="p">;</span> <span class="c1">-- Bitiş</span></code></pre></div>
 
-<pre><code>/
-
-Declare
+<pre><code>Declare
 	num1 Integer:= 5;
 	num2 Real:=5;
 	num3 double precision:=5;
@@ -463,6 +461,11 @@ END;
 
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">gem</span> <span class="n">install</span> <span class="n">bundler</span>
 <span class="n">bundle</span> <span class="n">install</span></code></pre></div>
+
+<p>Çalıştırılmak istendiğinde;</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">bundle</span> <span class="nb">exec</span> <span class="n">jekyll</span> <span class="n">serve</span>
+<span class="n">bundle</span> <span class="nb">exec</span> <span class="n">jekyll</span> <span class="n">build</span></code></pre></div>
 
 
   </div><!-- /.entry-content -->
