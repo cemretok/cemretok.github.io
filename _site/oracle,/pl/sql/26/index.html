@@ -128,7 +128,7 @@
         <p class="entry-reading-time">
           <i class="fa fa-clock-o"></i>
           
-          Okuma Süresi ~4 Dakika
+          Okuma Süresi ~9 Dakika
         </p><!-- /.entry-reading-time -->
         
       </div><!-- /.header-title-wrap -->
@@ -141,261 +141,256 @@
 	   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
 	<span class="k">END</span><span class="p">;</span> <span class="c1">-- Bitiş</span></code></pre></div>
 
-<pre><code>Declare
-	num1 Integer:= 5;
-	num2 Real:=5;
-	num3 double precision:=5;
-Begin
-	dbms_output.put_line(num1); --5
-	dbms_output.put_line(num2); --5
-	dbms_output.put_line(num3); --5
-End;
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">Declare</span>
+		<span class="n">num1</span> <span class="nb">Integer</span><span class="p">:</span><span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+		<span class="n">num2</span> <span class="nb">Real</span><span class="p">:</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span>
+		<span class="n">num3</span> <span class="n">double</span> <span class="k">precision</span><span class="p">:</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span>
+	<span class="k">Begin</span>
+		<span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="n">num1</span><span class="p">);</span> <span class="c1">--5</span>
+		<span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="n">num2</span><span class="p">);</span> <span class="c1">--5</span>
+		<span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="n">num3</span><span class="p">);</span> <span class="c1">--5</span>
+	<span class="k">End</span><span class="p">;</span></code></pre></div>
 
-
-Large Object (LOB) Veri Tipi – BFILE, BLOB, CLOB, NCLOB – Büyük verileri tutmak için Video binary gibi tipler. 
+<pre><code>Large Object (LOB) Veri Tipi – BFILE, BLOB, CLOB, NCLOB – Büyük verileri tutmak için Video binary gibi tipler. 
 Subtype –Alt tipler, kullanıcının oluşturduğu.
-
-DECLARE
-   SUBTYPE name IS char(20);
-   SUBTYPE message IS varchar2(100);
-   salutation name; -- salutation char(20) türünde bir değişken
-   greetings message; --  greetings varchar2(100) türünde bir değişken
-BEGIN
-   salutation := 'Reader '; 
-   greetings := 'Welcome to the World of PL/SQL';
-   dbms_output.put_line('Hello ' || salutation || greetings); -- || birleştirme operatörü
-END;
-/
-
-Yerel ve Genel Değişken tanımlamaları
-
-DECLARE
-   -- Genel değişkene iç bloğun içinden ulaşılabilir.
-   num1 number := 95; 
-BEGIN 
-   dbms_output.put_line('Dış Değişken num1: ' || num1);
-   DECLARE 
-	  -- Yerel değişkene bloğun dışından ulaşılamaz.
-	  num1 number := 195; 
-   BEGIN 
-	  dbms_output.put_line('İç Değişken num1: ' || num1);
-   END; 
-END;
-/
-
-Constant (Sabit) Tanımlama 
-PI CONSTANT NUMBER := 3.141592654;
-
-(') işaretinin yazımı
- message  varchar2(30):= ''That''s tutorialspoint.com!'';
- 
-Conditions
-
-IF
-
-IF (a &lt;= 20) THEN
-   S1; 
-ELSE 
-   S2;
-END IF;
-
-IF ( a = 10 ) THEN
-	  dbms_output.put_line('Value of a is 10' );
-   ELSIF ( a = 20 ) THEN
-	  dbms_output.put_line('Value of a is 20' );
-   ELSE
-	   dbms_output.put_line('None of the values is matching');
-END IF;
 </code></pre>
 
-<p>CASE grade
-      when ‘A’ then dbms_output.put_line(‘Excellent’);
-      when ‘B’ then dbms_output.put_line(‘Very good’);
-      when ‘F’ then dbms_output.put_line(‘Better try again’);
-      else dbms_output.put_line(‘No such grade’);
-   END CASE;</p>
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">DECLARE</span>
+	   <span class="n">SUBTYPE</span> <span class="n">name</span> <span class="k">IS</span> <span class="nb">char</span><span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+	   <span class="n">SUBTYPE</span> <span class="n">message</span> <span class="k">IS</span> <span class="n">varchar2</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+	   <span class="n">salutation</span> <span class="n">name</span><span class="p">;</span> <span class="c1">-- salutation char(20) türünde bir değişken</span>
+	   <span class="n">greetings</span> <span class="n">message</span><span class="p">;</span> <span class="c1">--  greetings varchar2(100) türünde bir değişken</span>
+	<span class="k">BEGIN</span>
+	   <span class="n">salutation</span> <span class="p">:</span><span class="o">=</span> <span class="s1">&#39;Reader &#39;</span><span class="p">;</span> 
+	   <span class="n">greetings</span> <span class="p">:</span><span class="o">=</span> <span class="s1">&#39;Welcome to the World of PL/SQL&#39;</span><span class="p">;</span>
+	   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39;Hello &#39;</span> <span class="o">||</span> <span class="n">salutation</span> <span class="o">||</span> <span class="n">greetings</span><span class="p">);</span> <span class="c1">-- || birleştirme operatörü</span>
+	<span class="k">END</span><span class="p">;</span></code></pre></div>
 
-<p>case 
-      when grade = ‘A’ then dbms_output.put_line(‘Excellent’);
-      when grade = ‘B’ then dbms_output.put_line(‘Very good’);
-      when grade = ‘F’ then dbms_output.put_line(‘Better try again’);
-      else dbms_output.put_line(‘No such grade’);
-   end case;</p>
+<pre><code>Yerel ve Genel Değişken tanımlamaları
+</code></pre>
+
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">DECLARE</span>
+	   <span class="c1">-- Genel değişkene iç bloğun içinden ulaşılabilir.</span>
+	   <span class="n">num1</span> <span class="nb">number</span> <span class="p">:</span><span class="o">=</span> <span class="mi">95</span><span class="p">;</span> 
+	<span class="k">BEGIN</span> 
+	   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39;Dış Değişken num1: &#39;</span> <span class="o">||</span> <span class="n">num1</span><span class="p">);</span>
+	   <span class="k">DECLARE</span> 
+		  <span class="c1">-- Yerel değişkene bloğun dışından ulaşılamaz.</span>
+		  <span class="n">num1</span> <span class="nb">number</span> <span class="p">:</span><span class="o">=</span> <span class="mi">195</span><span class="p">;</span> 
+	   <span class="k">BEGIN</span> 
+		  <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39;İç Değişken num1: &#39;</span> <span class="o">||</span> <span class="n">num1</span><span class="p">);</span>
+	   <span class="k">END</span><span class="p">;</span> 
+	<span class="k">END</span><span class="p">;</span></code></pre></div>
+
+<pre><code>Constant (Sabit) Tanımlama 
+</code></pre>
+
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">PI</span> <span class="n">CONSTANT</span> <span class="nb">NUMBER</span> <span class="p">:</span><span class="o">=</span> <span class="mi">3</span><span class="p">.</span><span class="mi">141592654</span><span class="p">;</span></code></pre></div>
+
+<pre><code>(') işaretinin yazımı
+</code></pre>
+
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">message</span>  <span class="n">varchar2</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span><span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="n">That</span><span class="s1">&#39;&#39;</span><span class="n">s</span> <span class="n">tutorialspoint</span><span class="p">.</span><span class="n">com</span><span class="o">!</span><span class="s1">&#39;&#39;</span><span class="p">;</span></code></pre></div>
+
+<pre><code>Conditions
+</code></pre>
+
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">IF</span>
+
+	<span class="n">IF</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">20</span><span class="p">)</span> <span class="k">THEN</span>
+	   <span class="n">S1</span><span class="p">;</span> 
+	<span class="k">ELSE</span> 
+	   <span class="n">S2</span><span class="p">;</span>
+	<span class="k">END</span> <span class="n">IF</span><span class="p">;</span>
+
+	<span class="n">IF</span> <span class="p">(</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">)</span> <span class="k">THEN</span>
+		  <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39;Value of a is 10&#39;</span> <span class="p">);</span>
+	   <span class="n">ELSIF</span> <span class="p">(</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">20</span> <span class="p">)</span> <span class="k">THEN</span>
+		  <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39;Value of a is 20&#39;</span> <span class="p">);</span>
+	   <span class="k">ELSE</span>
+		   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39;None of the values is matching&#39;</span><span class="p">);</span>
+	<span class="k">END</span> <span class="n">IF</span><span class="p">;</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">CASE</span> <span class="n">grade</span>
+      <span class="k">when</span> <span class="s1">&#39;A&#39;</span> <span class="k">then</span> <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39;Excellent&#39;</span><span class="p">);</span>
+      <span class="k">when</span> <span class="s1">&#39;B&#39;</span> <span class="k">then</span> <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39;Very good&#39;</span><span class="p">);</span>
+      <span class="k">when</span> <span class="s1">&#39;F&#39;</span> <span class="k">then</span> <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39;Better try again&#39;</span><span class="p">);</span>
+      <span class="k">else</span> <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39;No such grade&#39;</span><span class="p">);</span>
+   <span class="k">END</span> <span class="k">CASE</span><span class="p">;</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">case</span> 
+      <span class="k">when</span> <span class="n">grade</span> <span class="o">=</span> <span class="s1">&#39;A&#39;</span> <span class="k">then</span> <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39;Excellent&#39;</span><span class="p">);</span>
+      <span class="k">when</span> <span class="n">grade</span> <span class="o">=</span> <span class="s1">&#39;B&#39;</span> <span class="k">then</span> <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39;Very good&#39;</span><span class="p">);</span>
+      <span class="k">when</span> <span class="n">grade</span> <span class="o">=</span> <span class="s1">&#39;F&#39;</span> <span class="k">then</span> <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39;Better try again&#39;</span><span class="p">);</span>
+      <span class="k">else</span> <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39;No such grade&#39;</span><span class="p">);</span>
+   <span class="k">end</span> <span class="k">case</span><span class="p">;</span></code></pre></div>
 
 <p>LOOP</p>
 
-<p>DECLARE
-	   x number := 10;
-	BEGIN
-	   LOOP
-		  dbms_output.put_line(x);
-		  x := x + 10;
-		  IF x &gt; 50 THEN
-			 exit;
-		  END IF;
-	   END LOOP;
-	   – after exit, control resumes here
-	   dbms_output.put_line(‘After Exit x is: ‘ || x);
-	END;
-	/</p>
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">DECLARE</span>
+	   <span class="n">x</span> <span class="nb">number</span> <span class="p">:</span><span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+	<span class="k">BEGIN</span>
+	   <span class="n">LOOP</span>
+		  <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+		  <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>
+		  <span class="n">IF</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">50</span> <span class="k">THEN</span>
+			 <span class="n">exit</span><span class="p">;</span>
+		  <span class="k">END</span> <span class="n">IF</span><span class="p">;</span>
+	   <span class="k">END</span> <span class="n">LOOP</span><span class="p">;</span>
+	   <span class="c1">-- after exit, control resumes here</span>
+	   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39;After Exit x is: &#39;</span> <span class="o">||</span> <span class="n">x</span><span class="p">);</span>
+	<span class="k">END</span><span class="p">;</span></code></pre></div>
 
-<pre><code>LOOP
-  dbms_output.put_line(x);
-  x := x + 10;
-  exit WHEN x &gt; 50;    END LOOP;
-</code></pre>
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">LOOP</span>
+      <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+      <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">10</span><span class="p">;</span>
+      <span class="n">exit</span> <span class="k">WHEN</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">;</span>
+   <span class="k">END</span> <span class="n">LOOP</span><span class="p">;</span></code></pre></div>
 
 <p>WHILE</p>
 
-<pre><code>WHILE a &lt; 20 LOOP
-  dbms_output.put_line('value of a: ' || a);
-  a := a + 1;    END LOOP;
-</code></pre>
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">WHILE</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="mi">20</span> <span class="n">LOOP</span>
+      <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39;value of a: &#39;</span> <span class="o">||</span> <span class="n">a</span><span class="p">);</span>
+      <span class="n">a</span> <span class="p">:</span><span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="k">END</span> <span class="n">LOOP</span><span class="p">;</span></code></pre></div>
 
 <p>FOR</p>
 
-<pre><code>DECLARE
-   a number(2);
-BEGIN
-   FOR a in 10 .. 20 LOOP
-	   dbms_output.put_line('value of a: ' || a);
-  END LOOP;
-END;
-/
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">DECLARE</span>
+	   <span class="n">a</span> <span class="nb">number</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+	<span class="k">BEGIN</span>
+	   <span class="k">FOR</span> <span class="n">a</span> <span class="k">in</span> <span class="mi">10</span> <span class="p">..</span> <span class="mi">20</span> <span class="n">LOOP</span>
+		   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39;value of a: &#39;</span> <span class="o">||</span> <span class="n">a</span><span class="p">);</span>
+	  <span class="k">END</span> <span class="n">LOOP</span><span class="p">;</span>
+	<span class="k">END</span><span class="p">;</span></code></pre></div>
 
-DECLARE
-   a number(2) ;
-BEGIN
-   FOR a IN REVERSE 10 .. 20 LOOP
-	  dbms_output.put_line('value of a: ' || a);
-   END LOOP;
-END;
-/
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">DECLARE</span>
+	   <span class="n">a</span> <span class="nb">number</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">;</span>
+	<span class="k">BEGIN</span>
+	   <span class="k">FOR</span> <span class="n">a</span> <span class="k">IN</span> <span class="n">REVERSE</span> <span class="mi">10</span> <span class="p">..</span> <span class="mi">20</span> <span class="n">LOOP</span>
+		  <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39;value of a: &#39;</span> <span class="o">||</span> <span class="n">a</span><span class="p">);</span>
+	   <span class="k">END</span> <span class="n">LOOP</span><span class="p">;</span>
+	<span class="k">END</span><span class="p">;</span></code></pre></div>
 
-IF a &gt; 15 THEN EXIT;   or    EXIT WHEN a &gt; 15; 
---Loopdan çıkmak için kullanılır.
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">IF</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">15</span> <span class="k">THEN</span> <span class="n">EXIT</span><span class="p">;</span>   <span class="k">or</span>    <span class="n">EXIT</span> <span class="k">WHEN</span> <span class="n">a</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">;</span>  <span class="c1">--Loopdan çıkmak için kullanılır.</span></code></pre></div>
 
-CONTINUE -- Loopda atlamak için kullanılır.
-GOTO loopstart; -- &lt;&lt;loopstart&gt;&gt; etiketine gider
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">CONTINUE</span> <span class="c1">-- Loopda atlamak için kullanılır.</span>
+    <span class="k">GOTO</span> <span class="n">loopstart</span><span class="p">;</span> <span class="c1">-- &lt;&lt;loopstart&gt;&gt; etiketine gider</span></code></pre></div>
 
-Genel Fonksiyonlar
+<pre><code>Genel Fonksiyonlar
 </code></pre>
 
-<p>greetings varchar2(11) := ‘hello world’;
-   dbms_output.put_line(UPPER(greetings)); – HELLO WORLD
-   dbms_output.put_line(LOWER(greetings)); – hello world
-   dbms_output.put_line(INITCAP(greetings)); – Hello World
-   dbms_output.put_line ( SUBSTR (greetings, 1, 1)); – h
-   dbms_output.put_line ( SUBSTR (greetings, -1, 1)); – d
-   dbms_output.put_line ( SUBSTR (greetings, 7, 5)); – World
-   dbms_output.put_line ( SUBSTR (greetings, 2)); – ello World
-   dbms_output.put_line ( INSTR (greetings, ‘e’)); – 2</p>
-
-<p>greetings varchar2(30) := ‘……Hello World…..’;
-   dbms_output.put_line(RTRIM(greetings,’.’)); – ……Hello World 
-   dbms_output.put_line(LTRIM(greetings, ‘.’)); – Hello World…..
-   dbms_output.put_line(TRIM( ‘.’ from greetings)); – Hello World</p>
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">greetings</span> <span class="n">varchar2</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span> <span class="p">:</span><span class="o">=</span> <span class="s1">&#39;hello world&#39;</span><span class="p">;</span>
+   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="k">UPPER</span><span class="p">(</span><span class="n">greetings</span><span class="p">));</span> <span class="c1">-- HELLO WORLD</span>
+   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="k">LOWER</span><span class="p">(</span><span class="n">greetings</span><span class="p">));</span> <span class="c1">-- hello world</span>
+   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="n">INITCAP</span><span class="p">(</span><span class="n">greetings</span><span class="p">));</span> <span class="c1">-- Hello World</span>
+   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span> <span class="p">(</span> <span class="n">SUBSTR</span> <span class="p">(</span><span class="n">greetings</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span> <span class="c1">-- h</span>
+   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span> <span class="p">(</span> <span class="n">SUBSTR</span> <span class="p">(</span><span class="n">greetings</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span> <span class="c1">-- d</span>
+   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span> <span class="p">(</span> <span class="n">SUBSTR</span> <span class="p">(</span><span class="n">greetings</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span> <span class="c1">-- World</span>
+   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span> <span class="p">(</span> <span class="n">SUBSTR</span> <span class="p">(</span><span class="n">greetings</span><span class="p">,</span> <span class="mi">2</span><span class="p">));</span> <span class="c1">-- ello World</span>
+   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span> <span class="p">(</span> <span class="n">INSTR</span> <span class="p">(</span><span class="n">greetings</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">));</span> <span class="c1">-- 2</span>
+   
+   <span class="n">greetings</span> <span class="n">varchar2</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span> <span class="p">:</span><span class="o">=</span> <span class="s1">&#39;......Hello World.....&#39;</span><span class="p">;</span>
+   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="n">RTRIM</span><span class="p">(</span><span class="n">greetings</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">));</span> <span class="c1">-- ......Hello World </span>
+   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="n">LTRIM</span><span class="p">(</span><span class="n">greetings</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">));</span> <span class="c1">-- Hello World.....</span>
+   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="k">TRIM</span><span class="p">(</span> <span class="s1">&#39;.&#39;</span> <span class="k">from</span> <span class="n">greetings</span><span class="p">));</span> <span class="c1">-- Hello World</span></code></pre></div>
 
 <p>Array (Varray)</p>
 
-<p>CREATE OR REPLACE TYPE varray_type_name IS VARRAY(n) of <element_type> -- Tip oluşturma
-   CREATE Or REPLACE TYPE namearray AS VARRAY(3) OF VARCHAR2(10); -- Tip oluşturma</element_type></p>
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">TYPE</span> <span class="n">varray_type_name</span> <span class="k">IS</span> <span class="n">VARRAY</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">of</span> <span class="o">&lt;</span><span class="n">element_type</span><span class="o">&gt;</span> <span class="c1">-- Tip oluşturma</span>
+   <span class="k">CREATE</span> <span class="k">Or</span> <span class="k">REPLACE</span> <span class="k">TYPE</span> <span class="n">namearray</span> <span class="k">AS</span> <span class="n">VARRAY</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">OF</span> <span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">-- Tip oluşturma</span>
+   
+   <span class="k">TYPE</span> <span class="n">namearray</span> <span class="k">IS</span> <span class="n">VARRAY</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="k">OF</span> <span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span> <span class="c1">-- Basitleştirilmiş tip oluşturma</span></code></pre></div>
 
-<p>TYPE namearray IS VARRAY(5) OF VARCHAR2(10); – Basitleştirilmiş tip oluşturma</p>
-
-<p>DECLARE
-	   type namesarray IS VARRAY(5) OF VARCHAR2(10);
-	   type grades IS VARRAY(5) OF INTEGER;
-	   names namesarray;
-	   marks grades;
-	   total integer;
-	BEGIN
-	   names := namesarray(‘Kavita’, ‘Pritam’, ‘Ayan’, ‘Rishav’, ‘Aziz’);
-	   marks:= grades(98, 97, 78, 87, 92);
-	   total := names.count;
-	   dbms_output.put_line(‘Total ‘|| total || ‘ Students’);
-	   FOR i in 1 .. total LOOP
-		  dbms_output.put_line(‘Student: ‘ || names(i) || ‘
-		  Marks: ‘ || marks(i));
-	   END LOOP;
-	END;
-	/</p>
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">DECLARE</span>
+	   <span class="k">type</span> <span class="n">namesarray</span> <span class="k">IS</span> <span class="n">VARRAY</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="k">OF</span> <span class="n">VARCHAR2</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+	   <span class="k">type</span> <span class="n">grades</span> <span class="k">IS</span> <span class="n">VARRAY</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="k">OF</span> <span class="nb">INTEGER</span><span class="p">;</span>
+	   <span class="k">names</span> <span class="n">namesarray</span><span class="p">;</span>
+	   <span class="n">marks</span> <span class="n">grades</span><span class="p">;</span>
+	   <span class="n">total</span> <span class="nb">integer</span><span class="p">;</span>
+	<span class="k">BEGIN</span>
+	   <span class="k">names</span> <span class="p">:</span><span class="o">=</span> <span class="n">namesarray</span><span class="p">(</span><span class="s1">&#39;Kavita&#39;</span><span class="p">,</span> <span class="s1">&#39;Pritam&#39;</span><span class="p">,</span> <span class="s1">&#39;Ayan&#39;</span><span class="p">,</span> <span class="s1">&#39;Rishav&#39;</span><span class="p">,</span> <span class="s1">&#39;Aziz&#39;</span><span class="p">);</span>
+	   <span class="n">marks</span><span class="p">:</span><span class="o">=</span> <span class="n">grades</span><span class="p">(</span><span class="mi">98</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">92</span><span class="p">);</span>
+	   <span class="n">total</span> <span class="p">:</span><span class="o">=</span> <span class="k">names</span><span class="p">.</span><span class="k">count</span><span class="p">;</span>
+	   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39;Total &#39;</span><span class="o">||</span> <span class="n">total</span> <span class="o">||</span> <span class="s1">&#39; Students&#39;</span><span class="p">);</span>
+	   <span class="k">FOR</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span> <span class="p">..</span> <span class="n">total</span> <span class="n">LOOP</span>
+		  <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39;Student: &#39;</span> <span class="o">||</span> <span class="k">names</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">||</span> <span class="s1">&#39;</span>
+<span class="s1">		  Marks: &#39;</span> <span class="o">||</span> <span class="n">marks</span><span class="p">(</span><span class="n">i</span><span class="p">));</span>
+	   <span class="k">END</span> <span class="n">LOOP</span><span class="p">;</span>
+	<span class="k">END</span><span class="p">;</span></code></pre></div>
 
 <pre><code>Tanımlamalar
-
-v_EmpName  emp.ename%TYPE; -- ename kolonu tipinde değişken oluşturur.
-
-DECLARE
-   v_EmpName  emp.ename%TYPE;
-BEGIN
-   SELECT ename INTO v_EmpName FROM emp WHERE ROWNUM = 1;
-   DBMS_OUTPUT.PUT_LINE('Name = ' || v_EmpName);
-END;
-/
-
-v_emp emp%ROWTYPE; -- emp tablosu tipinde değişken oluşturur.	
-
-DECLARE
-  v_emp emp%ROWTYPE;
-BEGIN
-  v_emp.empno := 10;
-  v_emp.ename := 'XXXXXXX';
-END;
-/
- 
-Procedure
-
-CREATE OR REPLACE PROCEDURE -- Yeni oluştur yada varolanı değiştir.
-
-CREATE OR REPLACE PROCEDURE deneme1
-AS
-BEGIN
-   dbms_output.put_line('Merhaba Dünya!');
-END;
-/
-
-BEGIN
-   greetings; -- bu şekilde çağrılırsa Merhaba Dünya! basılır.
-   DROP PROCEDURE greetings; -- Prosedür silinir.
-END;
-/
-
-DECLARE
-   a number;
-PROCEDURE squareNum(x IN OUT number) IS --Parametre x alıyor ve dönüyor.
-BEGIN
-  x := x * x;
-END; --prosedür bitti
-BEGIN -- başka bir sorgu
-   a:= 23;
-   squareNum(a); -- prosedürü çağır
-   dbms_output.put_line(' Square of (23): ' || a);
-END;
-/
-
-Function
- 
-CREATE OR REPLACE FUNCTION -- Yeni oluştur yada varolanı değiştir.
-
-CREATE OR REPLACE FUNCTION totalCustomers
-RETURN number IS
-   total number(2) := 0;
-BEGIN
-   SELECT count(*) into total
-   FROM customers;
-   
-   RETURN total;
-END;
-/
-
-DECLARE
-   c number(2);
-BEGIN
-   c := totalCustomers();
-   dbms_output.put_line('Total no. of Customers: ' || c);
-END;
-/
 </code></pre>
+
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">v_EmpName</span>  <span class="n">emp</span><span class="p">.</span><span class="n">ename</span><span class="o">%</span><span class="k">TYPE</span><span class="p">;</span> <span class="c1">-- ename kolonu tipinde değişken oluşturur.</span>
+	
+	<span class="k">DECLARE</span>
+	   <span class="n">v_EmpName</span>  <span class="n">emp</span><span class="p">.</span><span class="n">ename</span><span class="o">%</span><span class="k">TYPE</span><span class="p">;</span>
+	<span class="k">BEGIN</span>
+	   <span class="k">SELECT</span> <span class="n">ename</span> <span class="k">INTO</span> <span class="n">v_EmpName</span> <span class="k">FROM</span> <span class="n">emp</span> <span class="k">WHERE</span> <span class="n">ROWNUM</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+	   <span class="n">DBMS_OUTPUT</span><span class="p">.</span><span class="n">PUT_LINE</span><span class="p">(</span><span class="s1">&#39;Name = &#39;</span> <span class="o">||</span> <span class="n">v_EmpName</span><span class="p">);</span>
+	<span class="k">END</span><span class="p">;</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">v_emp</span> <span class="n">emp</span><span class="o">%</span><span class="n">ROWTYPE</span><span class="p">;</span> <span class="c1">-- emp tablosu tipinde değişken oluşturur.	</span>
+	
+	<span class="k">DECLARE</span>
+	  <span class="n">v_emp</span> <span class="n">emp</span><span class="o">%</span><span class="n">ROWTYPE</span><span class="p">;</span>
+	<span class="k">BEGIN</span>
+	  <span class="n">v_emp</span><span class="p">.</span><span class="n">empno</span> <span class="p">:</span><span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+	  <span class="n">v_emp</span><span class="p">.</span><span class="n">ename</span> <span class="p">:</span><span class="o">=</span> <span class="s1">&#39;XXXXXXX&#39;</span><span class="p">;</span>
+	<span class="k">END</span><span class="p">;</span></code></pre></div>
+
+<pre><code>Procedure
+</code></pre>
+
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">PROCEDURE</span> <span class="c1">-- Yeni oluştur yada varolanı değiştir.</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">PROCEDURE</span> <span class="n">deneme1</span>
+	<span class="k">AS</span>
+	<span class="k">BEGIN</span>
+	   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39;Merhaba Dünya!&#39;</span><span class="p">);</span>
+	<span class="k">END</span><span class="p">;</span>
+
+	
+	<span class="k">BEGIN</span>
+	   <span class="n">greetings</span><span class="p">;</span> <span class="c1">-- bu şekilde çağrılırsa Merhaba Dünya! basılır.</span>
+	   <span class="k">DROP</span> <span class="k">PROCEDURE</span> <span class="n">greetings</span><span class="p">;</span> <span class="c1">-- Prosedür silinir.</span>
+	<span class="k">END</span><span class="p">;</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">DECLARE</span>
+	   <span class="n">a</span> <span class="nb">number</span><span class="p">;</span>
+	<span class="k">PROCEDURE</span> <span class="n">squareNum</span><span class="p">(</span><span class="n">x</span> <span class="k">IN</span> <span class="k">OUT</span> <span class="nb">number</span><span class="p">)</span> <span class="k">IS</span> <span class="c1">--Parametre x alıyor ve dönüyor.</span>
+	<span class="k">BEGIN</span>
+	  <span class="n">x</span> <span class="p">:</span><span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+	<span class="k">END</span><span class="p">;</span> <span class="c1">--prosedür bitti</span>
+	<span class="k">BEGIN</span> <span class="c1">-- başka bir sorgu</span>
+	   <span class="n">a</span><span class="p">:</span><span class="o">=</span> <span class="mi">23</span><span class="p">;</span>
+	   <span class="n">squareNum</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="c1">-- prosedürü çağır</span>
+	   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39; Square of (23): &#39;</span> <span class="o">||</span> <span class="n">a</span><span class="p">);</span>
+	<span class="k">END</span><span class="p">;</span></code></pre></div>
+
+<pre><code>Function
+</code></pre>
+
+<div class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="c1">-- Yeni oluştur yada varolanı değiştir.</span>
+	
+	<span class="k">CREATE</span> <span class="k">OR</span> <span class="k">REPLACE</span> <span class="k">FUNCTION</span> <span class="n">totalCustomers</span>
+	<span class="k">RETURN</span> <span class="nb">number</span> <span class="k">IS</span>
+	   <span class="n">total</span> <span class="nb">number</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">:</span><span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="k">BEGIN</span>
+	   <span class="k">SELECT</span> <span class="k">count</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">into</span> <span class="n">total</span>
+	   <span class="k">FROM</span> <span class="n">customers</span><span class="p">;</span>
+	   
+	   <span class="k">RETURN</span> <span class="n">total</span><span class="p">;</span>
+	<span class="k">END</span><span class="p">;</span>
+
+	
+	<span class="k">DECLARE</span>
+	   <span class="k">c</span> <span class="nb">number</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+	<span class="k">BEGIN</span>
+	   <span class="k">c</span> <span class="p">:</span><span class="o">=</span> <span class="n">totalCustomers</span><span class="p">();</span>
+	   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="s1">&#39;Total no. of Customers: &#39;</span> <span class="o">||</span> <span class="k">c</span><span class="p">);</span>
+	<span class="k">END</span><span class="p">;</span></code></pre></div>
 
       <footer class="entry-meta">
         <span class="entry-tags"></span>

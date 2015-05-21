@@ -13,7 +13,7 @@ categories: Oracle, PL/SQL
 	END; -- Bitiş
 {% endhighlight %}
 	
-
+{% highlight sql %}
 	Declare
 		num1 Integer:= 5;
 		num2 Real:=5;
@@ -23,11 +23,12 @@ categories: Oracle, PL/SQL
 		dbms_output.put_line(num2); --5
 		dbms_output.put_line(num3); --5
 	End;
-
+{% endhighlight %}
 
 	Large Object (LOB) Veri Tipi – BFILE, BLOB, CLOB, NCLOB – Büyük verileri tutmak için Video binary gibi tipler. 
 	Subtype –Alt tipler, kullanıcının oluşturduğu.
 
+{% highlight sql %}
 	DECLARE
 	   SUBTYPE name IS char(20);
 	   SUBTYPE message IS varchar2(100);
@@ -38,10 +39,11 @@ categories: Oracle, PL/SQL
 	   greetings := 'Welcome to the World of PL/SQL';
 	   dbms_output.put_line('Hello ' || salutation || greetings); -- || birleştirme operatörü
 	END;
-	/
+{% endhighlight %}
 
 	Yerel ve Genel Değişken tanımlamaları
 
+{% highlight sql %}
 	DECLARE
 	   -- Genel değişkene iç bloğun içinden ulaşılabilir.
 	   num1 number := 95; 
@@ -54,16 +56,21 @@ categories: Oracle, PL/SQL
 		  dbms_output.put_line('İç Değişken num1: ' || num1);
 	   END; 
 	END;
-	/
+{% endhighlight %}
 
 	Constant (Sabit) Tanımlama 
+{% highlight sql %}
 	PI CONSTANT NUMBER := 3.141592654;
+{% endhighlight %}
 
 	(') işaretinin yazımı
+{% highlight sql %}
 	 message  varchar2(30):= ''That''s tutorialspoint.com!'';
+{% endhighlight %}
  
 	Conditions
 
+{% highlight sql %}
 	IF
 
 	IF (a <= 20) THEN
@@ -79,6 +86,9 @@ categories: Oracle, PL/SQL
 	   ELSE
 		   dbms_output.put_line('None of the values is matching');
 	END IF;
+{% endhighlight %}
+
+{% highlight sql %}
 
    CASE grade
       when 'A' then dbms_output.put_line('Excellent');
@@ -86,16 +96,21 @@ categories: Oracle, PL/SQL
       when 'F' then dbms_output.put_line('Better try again');
       else dbms_output.put_line('No such grade');
    END CASE;
+
+{% endhighlight %}
    
+{% highlight sql %}
    case 
       when grade = 'A' then dbms_output.put_line('Excellent');
       when grade = 'B' then dbms_output.put_line('Very good');
       when grade = 'F' then dbms_output.put_line('Better try again');
       else dbms_output.put_line('No such grade');
    end case;
+{% endhighlight %}
    
    LOOP
-   
+
+{% highlight sql %}
    DECLARE
 	   x number := 10;
 	BEGIN
@@ -109,23 +124,28 @@ categories: Oracle, PL/SQL
 	   -- after exit, control resumes here
 	   dbms_output.put_line('After Exit x is: ' || x);
 	END;
-	/
+{% endhighlight %}
 	
+{% highlight sql %}
 	LOOP
       dbms_output.put_line(x);
       x := x + 10;
       exit WHEN x > 50;
    END LOOP;
+{% endhighlight %}
    
    WHILE
-   
+
+{% highlight sql %}  
     WHILE a < 20 LOOP
       dbms_output.put_line('value of a: ' || a);
       a := a + 1;
    END LOOP;
+{% endhighlight %}
    
    FOR
-   
+ 
+{% highlight sql %} 
     DECLARE
 	   a number(2);
 	BEGIN
@@ -133,8 +153,9 @@ categories: Oracle, PL/SQL
 		   dbms_output.put_line('value of a: ' || a);
 	  END LOOP;
 	END;
-	/
-	
+{% endhighlight %}
+
+{% highlight sql %}	
 	DECLARE
 	   a number(2) ;
 	BEGIN
@@ -142,16 +163,20 @@ categories: Oracle, PL/SQL
 		  dbms_output.put_line('value of a: ' || a);
 	   END LOOP;
 	END;
-	/
+{% endhighlight %}
 	
-	IF a > 15 THEN EXIT;   or    EXIT WHEN a > 15; 
-	--Loopdan çıkmak için kullanılır.
+{% highlight sql %}
+	IF a > 15 THEN EXIT;   or    EXIT WHEN a > 15;  --Loopdan çıkmak için kullanılır.
+{% endhighlight %}
 	
+{% highlight sql %}	
 	CONTINUE -- Loopda atlamak için kullanılır.
     GOTO loopstart; -- <<loopstart>> etiketine gider
+{% endhighlight %}
 	
 	Genel Fonksiyonlar
-	
+
+{% highlight sql %}	
    greetings varchar2(11) := 'hello world';
    dbms_output.put_line(UPPER(greetings)); -- HELLO WORLD
    dbms_output.put_line(LOWER(greetings)); -- hello world
@@ -166,15 +191,20 @@ categories: Oracle, PL/SQL
    dbms_output.put_line(RTRIM(greetings,'.')); -- ......Hello World 
    dbms_output.put_line(LTRIM(greetings, '.')); -- Hello World.....
    dbms_output.put_line(TRIM( '.' from greetings)); -- Hello World
+
+{% endhighlight %}
    
    
    Array (Varray)
-   
+  
+{% highlight sql %} 
    CREATE OR REPLACE TYPE varray_type_name IS VARRAY(n) of <element_type> -- Tip oluşturma
    CREATE Or REPLACE TYPE namearray AS VARRAY(3) OF VARCHAR2(10); -- Tip oluşturma
    
    TYPE namearray IS VARRAY(5) OF VARCHAR2(10); -- Basitleştirilmiş tip oluşturma
-   
+{% endhighlight %}
+
+{% highlight sql %}   
    DECLARE
 	   type namesarray IS VARRAY(5) OF VARCHAR2(10);
 	   type grades IS VARRAY(5) OF INTEGER;
@@ -191,10 +221,11 @@ categories: Oracle, PL/SQL
 		  Marks: ' || marks(i));
 	   END LOOP;
 	END;
-	/
+{% endhighlight %}
 	
 	Tanımlamalar
-	
+
+{% highlight sql %}	
 	v_EmpName  emp.ename%TYPE; -- ename kolonu tipinde değişken oluşturur.
 	
 	DECLARE
@@ -203,8 +234,9 @@ categories: Oracle, PL/SQL
 	   SELECT ename INTO v_EmpName FROM emp WHERE ROWNUM = 1;
 	   DBMS_OUTPUT.PUT_LINE('Name = ' || v_EmpName);
 	END;
-	/
+{% endhighlight %}
 
+{% highlight sql %}
 	v_emp emp%ROWTYPE; -- emp tablosu tipinde değişken oluşturur.	
 	
 	DECLARE
@@ -213,25 +245,29 @@ categories: Oracle, PL/SQL
 	  v_emp.empno := 10;
 	  v_emp.ename := 'XXXXXXX';
 	END;
-	/
+{% endhighlight %}
  
     Procedure
-	
+
+{% highlight sql %}	
 	CREATE OR REPLACE PROCEDURE -- Yeni oluştur yada varolanı değiştir.
-	
+{% endhighlight %}
+
+{% highlight sql %}	
 	CREATE OR REPLACE PROCEDURE deneme1
 	AS
 	BEGIN
 	   dbms_output.put_line('Merhaba Dünya!');
 	END;
-	/
+
 	
 	BEGIN
 	   greetings; -- bu şekilde çağrılırsa Merhaba Dünya! basılır.
 	   DROP PROCEDURE greetings; -- Prosedür silinir.
 	END;
-	/
-	
+{% endhighlight %}
+
+{% highlight sql %}
 	DECLARE
 	   a number;
 	PROCEDURE squareNum(x IN OUT number) IS --Parametre x alıyor ve dönüyor.
@@ -243,9 +279,11 @@ categories: Oracle, PL/SQL
 	   squareNum(a); -- prosedürü çağır
 	   dbms_output.put_line(' Square of (23): ' || a);
 	END;
-	/
+{% endhighlight %}
 	
 	Function
+
+{% highlight sql %}
 	 
 	CREATE OR REPLACE FUNCTION -- Yeni oluştur yada varolanı değiştir.
 	
@@ -258,7 +296,7 @@ categories: Oracle, PL/SQL
 	   
 	   RETURN total;
 	END;
-	/
+
 	
 	DECLARE
 	   c number(2);
@@ -266,4 +304,5 @@ categories: Oracle, PL/SQL
 	   c := totalCustomers();
 	   dbms_output.put_line('Total no. of Customers: ' || c);
 	END;
-	/
+
+{% endhighlight %}
