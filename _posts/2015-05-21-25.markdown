@@ -37,7 +37,7 @@ gem install bundler
 bundle install
 {% endhighlight %}
 
-Çalıştırılmak istendiğinde;
+Çalıştırılmak istendiğinde
 
 {% highlight ruby %}
 bundle exec jekyll serve
