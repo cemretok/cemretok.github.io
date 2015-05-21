@@ -6,61 +6,61 @@ categories: Oracle, PL/SQL
 ---
 
 
-DECLARE –Değişken Tanımlama
-   message  varchar2(20):= 'Merhaba Dünya!';
-BEGIN -- Gövde
-   dbms_output.put_line(message);
-END; -- Bitiş
-/
+	DECLARE –Değişken Tanımlama
+	   message  varchar2(20):= 'Merhaba Dünya!';
+	BEGIN -- Gövde
+	   dbms_output.put_line(message);
+	END; -- Bitiş
+	/
 
-Declare
-    num1 Integer:= 5;
-    num2 Real:=5;
-    num3 double precision:=5;
-Begin
-    dbms_output.put_line(num1); --5
-    dbms_output.put_line(num2); --5
-    dbms_output.put_line(num3); --5
-End;
+	Declare
+		num1 Integer:= 5;
+		num2 Real:=5;
+		num3 double precision:=5;
+	Begin
+		dbms_output.put_line(num1); --5
+		dbms_output.put_line(num2); --5
+		dbms_output.put_line(num3); --5
+	End;
 
-Large Object (LOB) Veri Tipi – BFILE, BLOB, CLOB, NCLOB – Büyük verileri tutmak için Video binary gibi tipler. 
-Subtype –Alt tipler, kullanıcının oluşturduğu.
+	Large Object (LOB) Veri Tipi – BFILE, BLOB, CLOB, NCLOB – Büyük verileri tutmak için Video binary gibi tipler. 
+	Subtype –Alt tipler, kullanıcının oluşturduğu.
 
-DECLARE
-   SUBTYPE name IS char(20);
-   SUBTYPE message IS varchar2(100);
-   salutation name; -- salutation char(20) türünde bir değişken
-   greetings message; --  greetings varchar2(100) türünde bir değişken
-BEGIN
-   salutation := 'Reader '; 
-   greetings := 'Welcome to the World of PL/SQL';
-   dbms_output.put_line('Hello ' || salutation || greetings); -- || birleştirme operatörü
-END;
-/
+	DECLARE
+	   SUBTYPE name IS char(20);
+	   SUBTYPE message IS varchar2(100);
+	   salutation name; -- salutation char(20) türünde bir değişken
+	   greetings message; --  greetings varchar2(100) türünde bir değişken
+	BEGIN
+	   salutation := 'Reader '; 
+	   greetings := 'Welcome to the World of PL/SQL';
+	   dbms_output.put_line('Hello ' || salutation || greetings); -- || birleştirme operatörü
+	END;
+	/
 
-Yerel ve Genel Değişken tanımlamaları
+	Yerel ve Genel Değişken tanımlamaları
 
-DECLARE
-   -- Genel değişkene iç bloğun içinden ulaşılabilir.
-   num1 number := 95; 
-BEGIN 
-   dbms_output.put_line('Dış Değişken num1: ' || num1);
-   DECLARE 
-      -- Yerel değişkene bloğun dışından ulaşılamaz.
-      num1 number := 195; 
-   BEGIN 
-      dbms_output.put_line('İç Değişken num1: ' || num1);
-   END; 
-END;
-/
+	DECLARE
+	   -- Genel değişkene iç bloğun içinden ulaşılabilir.
+	   num1 number := 95; 
+	BEGIN 
+	   dbms_output.put_line('Dış Değişken num1: ' || num1);
+	   DECLARE 
+		  -- Yerel değişkene bloğun dışından ulaşılamaz.
+		  num1 number := 195; 
+	   BEGIN 
+		  dbms_output.put_line('İç Değişken num1: ' || num1);
+	   END; 
+	END;
+	/
 
-Constant (Sabit) Tanımlama 
-PI CONSTANT NUMBER := 3.141592654;
+	Constant (Sabit) Tanımlama 
+	PI CONSTANT NUMBER := 3.141592654;
 
-(') işaretinin yazımı
- message  varchar2(30):= ''That''s tutorialspoint.com!'';
+	(') işaretinin yazımı
+	 message  varchar2(30):= ''That''s tutorialspoint.com!'';
  
-Conditions
+	Conditions
 
 	IF
 
