@@ -27,7 +27,11 @@ Yukardakine benzer bir adres karşınıza çıkacak bu adresdeki kırmızı kıs
 
 Şimdi Raspberry pi'nin terminal kısmına aşağıdaki kodu yazıyoruz.
 
-sudo apt-get install inadyn (inadyn programını yüklemiş olduk)
+{% highlight ruby %}
+sudo apt-get install inadyn
+{% endhighlight %}
+
+ (inadyn programını yüklemiş olduk)
 Şimdi bu programdaki şeyleri biraz değiştirmek gerekiyor, aşağıdaki komutu giriyoruz.
 
 
