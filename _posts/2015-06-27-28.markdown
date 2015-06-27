@@ -1,0 +1,19 @@
+---
+layout: post
+title:  "Java MySql bağlantıısnda karakter sorunu"
+date:   2015-06-18 21:30:00
+categories: Java, MySql
+---
+
+
+{% highlight sql %}
+jdbc:mysql://localhost:3306/dbname?useUnicode=yes&characterEncoding=UTF-8&user=root&password=
+{% endhighlight %}
+
+BD;
+
+Tablo Karşılaştırma : utf8_turkish_ci
+Veri Tabanı Karşılaştırma : utf8_turkish_ci
+Sunucu Bağlantısı Karşılaştırması : utf8_turkish_ci
+
+
