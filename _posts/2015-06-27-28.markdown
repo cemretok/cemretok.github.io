@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Java MySql bağlantıısnda karakter sorunu"
+title:  "Java MySql bağlantısında karakter sorunu"
 date:   2015-06-18 21:30:00
 categories: Java, MySql
 ---
