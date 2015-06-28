@@ -5,4 +5,4 @@ date:   2015-06-18 21:00:00
 categories: Raspberry Pi
 ---
 
-<br>http://cemretok.github.io/assets/27-1.png<br>
+<br><b><a href="http://cemretok.github.io/assets/27-1.png">http://cemretok.github.io/assets/27-1.png</a><b><br>
