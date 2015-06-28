@@ -5,15 +5,18 @@ date:   2015-06-18 21:30:00
 categories: Java, MySql
 ---
 
-
+DB connection;
 {% highlight sql %}
-jdbc:mysql://localhost:3306/dbname?useUnicode=yes&characterEncoding=UTF-8&user=root&password=
+jdbc:mysql://localhost:3306/dbname?user=root&password=
 {% endhighlight %}
 
-BD;
+DB character sets;
 
-Tablo Karşılaştırma : utf8_turkish_ci
-Veri Tabanı Karşılaştırma : utf8_turkish_ci
-Sunucu Bağlantısı Karşılaştırması : utf8_turkish_ci
+<br>![My helpful screenshot]({{ site.url }}/assets/28-1.png)<br>
+
+<br>
+
+Eclipse kullanılıyorsa, <b>Run>Run Configurations>Common>Encoding>Other>UTF-8<b>
+
 
 
