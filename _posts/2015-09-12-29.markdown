@@ -6,7 +6,5 @@ categories: Java, android, Mac
 ---
 
 
-<b><a href="http://cemretok.github.io/assets/29-1.png">http://cemretok.github.io/assets/29-1.png</a><b><br>
 
-
-
+![My helpful screenshot]({{ site.url }}/assets/29-1.png)<br>
