@@ -1,0 +1,16 @@
+---
+layout: post
+title:  "Mysql batch insert"
+date:   2015-06-18 21:30:00
+categories: Mysql, Batch, hibernate, JDBC
+---
+
+
+350.000.000 Milyon Row'luk bir insert işlemi 25 saat gibi kısa bir sürede gerçekleşebilmesi için Mysql my.cnf my.ini dosyalarında [mysqld] altına;
+
+[mysqld]
+innodb_buffer_pool_size=2G
+
+Yukarıdaki gibi ekleme yapmak gerekiyor. Ram miktarı mevcut sisteme göre değiştirilebilir, 4gb'lik bir Mac bilgisayarda bu değer uygun.
+
+Hibernate Batch işlemleri için uygun değil nedenide batch insertlerde id ile ilgili sıkıntı yaşaması. Bu nedenle en uygun batch işlemi için JDBC batch kullanılmalı. Örnekler mevcut gayette kolay uygulanabiliyor.
