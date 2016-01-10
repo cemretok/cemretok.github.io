@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  "Mysql batch insert"
+title:  "MySQL'de batch insert nasıl yapılır?"
 date:   2015-06-18 21:30:00
 categories: Mysql, Batch, hibernate, JDBC
 ---
 
+MySQL'de batch insert
 
 350.000.000 Milyon Row'luk bir insert işlemi 25 saat gibi kısa bir sürede gerçekleşebilmesi için Mysql my.cnf my.ini dosyalarında [mysqld] altına;
 
