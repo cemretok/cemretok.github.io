@@ -1,0 +1,42 @@
+---
+layout: post
+title:  "Mac Os X Apache Spark Kurulumu 1.6.0"
+date:   2015-06-18 21:30:00
+categories: homebrew, spark, apache spark, scala, java, 1.6.0
+---
+
+Mac Os X Apache Spark kurulumunu anlatıcam. Kurulum örnekleri var fakat türkçe değil. 
+
+İlk olarak Java kurulumunu yapıyoruz Oracle'ın sitesinden JDK indirip kurmanız yeterli.
+Sonraki adım homebrew aracılığıyla spark'ın kurulumu tabi öncelikle sisteminizde homebrew yüklü olmalı tabi homebrew'ın yüklenebilmesi içinde ruby yüklü olmalı (netten Türkçe kaynak bulunabilir), o nedenle homebrew'in yüklü olduğunu varsayalım.
+
+Sonraki aşama terminale;
+
+{% highlight sql %}
+$ brew install scala
+$ brew install apache-spark
+{% endhighlight %}
+
+Sonraki aşama terminale;
+
+{% highlight sql %}
+$ cd /
+$ nano .bash_profile
+{% endhighlight %}
+
+İçine aşağıdaki alanı girin fakat 1.6.0 yazan sürüme dikkat edin brew ile hangi sürümü yiklediyseniz onu yazın;
+
+{% highlight sql %}
+if which java > /dev/null; then export JAVA_HOME=$(/usr/libexec/java_home); fi
+if which pyspark > /dev/null; then
+  export SPARK_HOME="/usr/local/Cellar/apache-spark/1.6.0/libexec/"
+  export PYSPARK_SUBMIT_ARGS="--master local[2]"
+fi
+{% endhighlight %}
+
+Sonra bunu işleyin ve çalıştırmak için;
+
+{% highlight sql %}
+$ source .bash_profile
+$ spark-shell
+{% endhighlight %}
