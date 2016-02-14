@@ -3,6 +3,7 @@ layout: post
 title:  "Dinamik DNS ile Raspberry pi'ye Sabit İp vermek (DDNS)"
 date:   2014-09-28 21:51:27
 categories: [linux]
+tags: [linux]
 ---
 Sorunla karşılaşmamak için uygulamaya geçmeden önce konuyu baştan sona kadar okumanızı tavsiye ederim.
 

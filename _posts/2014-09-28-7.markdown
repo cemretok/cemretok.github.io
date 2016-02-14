@@ -3,6 +3,7 @@ layout: post
 title:  "Raspberry Pi ile video Oynatmak (Film izlemek)"
 date:   2014-09-28 21:51:27
 categories: [linux]
+tags: [linux]
 ---
 Raspberry'nin video işlemcisi oldukça gelişmiş olduğu için media player olarak kullanılabilmekte ve hatta videolara altyazı dahi eklenebiliyor.
 

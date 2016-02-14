@@ -3,6 +3,7 @@ layout: post
 title:  "SSH ile sansürü önleme, yasaklı sitelere girme, güvenli internet"
 date:   2015-04-01 13:32:27
 categories: [ssh]
+tags: [ssh]
 ---
 
 SSH terminal aracılığıyla uzaktan yönetimi sahlayan bir teknoloji ve iki taraflı şifreleme sağlıyor. Yani güvenli bir bağlantı kuruluyor. Develeporler da demişki biz bunu interneti iletmek içinde kullanabiliriz hadi yapalım o zaman demişler ve Ssh üzerinden internet'e bağlanma olayı gerçekleşmiş. Mac için anlatacağım bu yöntem windows makinalarda da işliyor ama Putty adlı aracı kullanmak gerek nette nasıl olduğu bulunabilir. Ben burayı knowladge base olarak kullandığımdan dolayı mac için olanı anlatıcam öncelikle SSHTunnel uygulamasını indiriyoruz.

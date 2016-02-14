@@ -3,6 +3,7 @@ layout: post
 title:  "Linux'e VNC ile bağlanmak (Masaüstüne)"
 date:   2014-09-28 21:51:27
 categories: [linux]
+tags: [linux]
 ---
 Öncelikle <b>VNC</b> herhangi bir bilgisayarın masaüstüne uzaktan bağlanmaya yarayan bir protokoldür.
 

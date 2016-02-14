@@ -3,6 +3,7 @@ layout: post
 title:  "SubTeacher (Altyazı Kelime Öğretici)"
 date:   2014-09-29 21:51:27
 categories: [java]
+tags: [java]
 ---
 SubTeacher'ı can sıkıntısına JavaFX ile geliştirdim, geliştirmeyede devam ediyorum. İngilizce altyazılı film izlerken aklıma takılan kelimeler oluyordu onları öğrenmek için, en azından aklımda kalması için bir yöntem arıyordum ki bulamadım, bende bu nedenle SubTeacher'ı geliştirmeye başladım. Kaynak kodlar herkese açıktır. Github sayfasından [SubTeacher](https://github.com/cemretok/SubTeacher) ulaşılabilir.
 

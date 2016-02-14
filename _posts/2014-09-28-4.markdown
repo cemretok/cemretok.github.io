@@ -3,6 +3,7 @@ layout: post
 title:  "Raspberry Pi'ye Sabit İp vermek (Yerel İp)"
 date:   2014-09-28 21:51:27
 categories: [linux]
+tags: [linux]
 ---
 <b>Sorunla karşılaşmamak için uygulamaya geçmeden önce yazıyı baştan sona kadar okumanızı tavsiye ederim.</b>
 

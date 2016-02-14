@@ -3,6 +3,7 @@ layout: post
 title:  "PL/SQL Notları"
 date:   2015-05-21 21:00:00
 categories: [PL/SQL]
+tags: [PL/SQL]
 ---
 
 {% highlight sql %}

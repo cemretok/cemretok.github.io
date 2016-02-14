@@ -5,8 +5,8 @@
     <description>Blog ve KB</description>
     <link>http://cemretok.com//</link>
     <atom:link href="http://cemretok.com//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 14 Feb 2016 20:18:09 +0200</pubDate>
-    <lastBuildDate>Sun, 14 Feb 2016 20:18:09 +0200</lastBuildDate>
+    <pubDate>Sun, 14 Feb 2016 20:36:36 +0200</pubDate>
+    <lastBuildDate>Sun, 14 Feb 2016 20:36:36 +0200</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -16,6 +16,8 @@
         <pubDate>Sun, 14 Feb 2016 16:30:00 +0200</pubDate>
         <link>http://cemretok.com//2016/32/</link>
         <guid isPermaLink="true">http://cemretok.com//2016/32/</guid>
+        
+        <category>Sublime</category>
         
         
         <category>Sublime</category>
@@ -57,6 +59,8 @@ Sonraki adım homebrew aracılığıyla spark’ın kurulumu tabi öncelikle sis
         <link>http://cemretok.com//2015/31/</link>
         <guid isPermaLink="true">http://cemretok.com//2015/31/</guid>
         
+        <category>apache spark</category>
+        
         
         <category>apache spark</category>
         
@@ -85,6 +89,8 @@ Sonraki adım homebrew aracılığıyla spark’ın kurulumu tabi öncelikle sis
         <link>http://cemretok.com//2015/30/</link>
         <guid isPermaLink="true">http://cemretok.com//2015/30/</guid>
         
+        <category>Mysql</category>
+        
         
         <category>Mysql</category>
         
@@ -97,6 +103,8 @@ Sonraki adım homebrew aracılığıyla spark’ın kurulumu tabi öncelikle sis
         <pubDate>Fri, 19 Jun 2015 00:30:00 +0300</pubDate>
         <link>http://cemretok.com//2015/29/</link>
         <guid isPermaLink="true">http://cemretok.com//2015/29/</guid>
+        
+        <category>android</category>
         
         
         <category>android</category>
@@ -120,6 +128,8 @@ Sonraki adım homebrew aracılığıyla spark’ın kurulumu tabi öncelikle sis
         <link>http://cemretok.com//2015/28/</link>
         <guid isPermaLink="true">http://cemretok.com//2015/28/</guid>
         
+        <category>Java</category>
+        
         
         <category>Java</category>
         
@@ -132,6 +142,8 @@ Sonraki adım homebrew aracılığıyla spark’ın kurulumu tabi öncelikle sis
         <pubDate>Fri, 19 Jun 2015 00:00:00 +0300</pubDate>
         <link>http://cemretok.com//2015/27/</link>
         <guid isPermaLink="true">http://cemretok.com//2015/27/</guid>
+        
+        <category>Raspberry Pi</category>
         
         
         <category>Raspberry Pi</category>
@@ -422,6 +434,8 @@ Subtype –Alt tipler, kullanıcının oluşturduğu.
         <link>http://cemretok.com//2015/26/</link>
         <guid isPermaLink="true">http://cemretok.com//2015/26/</guid>
         
+        <category>PL/SQL</category>
+        
         
         <category>PL/SQL</category>
         
@@ -467,6 +481,8 @@ Subtype –Alt tipler, kullanıcının oluşturduğu.
         <link>http://cemretok.com//2015/25/</link>
         <guid isPermaLink="true">http://cemretok.com//2015/25/</guid>
         
+        <category>Jekyll</category>
+        
         
         <category>Jekyll</category>
         
@@ -491,6 +507,8 @@ Subtype –Alt tipler, kullanıcının oluşturduğu.
         <link>http://cemretok.com//2015/24/</link>
         <guid isPermaLink="true">http://cemretok.com//2015/24/</guid>
         
+        <category>ssh</category>
+        
         
         <category>ssh</category>
         
@@ -507,6 +525,8 @@ Subtype –Alt tipler, kullanıcının oluşturduğu.
         <pubDate>Mon, 30 Mar 2015 14:13:27 +0300</pubDate>
         <link>http://cemretok.com//2015/23/</link>
         <guid isPermaLink="true">http://cemretok.com//2015/23/</guid>
+        
+        <category>linux</category>
         
         
         <category>linux</category>

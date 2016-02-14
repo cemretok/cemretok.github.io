@@ -3,6 +3,7 @@ layout: post
 title:  "Ssh bağlantısında RSA sorunu (Shh host key verification failed)"
 date:   2014-09-28 21:51:27
 categories: [linux]
+tags: [linux]
 ---
 <b>Bir hata ile karşılaşmamak için tüm yazıyı okuduktan sonra uygulamaya geçmenizde fayda var.</b>
 

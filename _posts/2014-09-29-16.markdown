@@ -3,6 +3,7 @@ layout: post
 title:  "Linux ile Modül Programlama"
 date:   2014-09-29 21:51:27
 categories: [linux]
+tags: [linux]
 ---
 Modüller çekirdek için yazılan programlardır. User space olarak tanımladığımız ve hergün kullandığımız işletim sisteminin bir alt katmanıdır. Kısacası linux çekirdeğinin içidir. Bizde burada çalışan bir "Hello World" uygulaması yapıcaz.
 

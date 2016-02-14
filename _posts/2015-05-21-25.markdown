@@ -3,6 +3,7 @@ layout: post
 title:  "Jekyll derleme hatası"
 date:   2015-05-21 21:00:00
 categories: [Jekyll]
+tags: [Jekyll]
 ---
 
 Aşağıdaki hata alınırsa [KAYNAK](https://help.github.com/articles/using-jekyll-with-pages/) linkindeki talimatlar takip edilmeli

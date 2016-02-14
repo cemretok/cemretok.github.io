@@ -3,6 +3,7 @@ layout: post
 title:  "DigitalOcean'da Linux Sisteme OpenVPN Kurulumu"
 date:   2014-09-29 21:51:27
 categories: [linux]
+tags: [linux]
 ---
 İşlemlere başlamadan önce yazının tamamını okumanızı tavsiye ederim zira adımlardaki ufak bir değişiklik bütün aşamaları etkilemektedir.
 

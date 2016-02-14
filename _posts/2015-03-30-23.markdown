@@ -3,6 +3,7 @@ layout: post
 title:  "Linux daemon -init.d"
 date:   2015-03-30 11:13:27
 categories: [linux]
+tags: [linux]
 ---
 
 Linux ile programların servis gibi otomatik başlaması.

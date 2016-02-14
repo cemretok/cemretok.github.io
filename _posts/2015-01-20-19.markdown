@@ -3,6 +3,7 @@ layout: post
 title:  "Android APK imzalama"
 date:   2015-01-20 21:51:27
 categories: [android]
+tags: [android]
 ---
 
 Apk'yı imzalamak için gerekli olan işlemler ve ek bilgiler

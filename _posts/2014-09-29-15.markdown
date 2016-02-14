@@ -3,6 +3,7 @@ layout: post
 title:  "Linux Çekirdek Güncellemesi"
 date:   2014-09-29 21:51:27
 categories: [linux]
+tags: [linux]
 ---
 <b>Bu yazıyı tamamen okuduktan sonra işlemleri yapmaya başlarsanız hatayla karşılaşma oranınınız en aza iner. Altta bulunan not kısmı karşılaşılabilecek potansiyel hataları ve çözüm yollarını anlatmaktadır.</b>
 
