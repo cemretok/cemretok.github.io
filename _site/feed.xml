@@ -3,10 +3,10 @@
   <channel>
     <title>Cemre Tok</title>
     <description>Blog ve KB</description>
-    <link>http://cemretok.com//</link>
-    <atom:link href="http://cemretok.com//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 14 Feb 2016 19:52:47 +0200</pubDate>
-    <lastBuildDate>Sun, 14 Feb 2016 19:52:47 +0200</lastBuildDate>
+    <link>http://cemretok.com/</link>
+    <atom:link href="http://cemretok.com/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sun, 14 Feb 2016 20:06:34 +0200</pubDate>
+    <lastBuildDate>Sun, 14 Feb 2016 20:06:34 +0200</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -14,8 +14,8 @@
         <description>&lt;p&gt;Site: &lt;a href=&quot;https://packagecontrol.io/installation&quot;&gt;https://packagecontrol.io/installation&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 14 Feb 2016 16:30:00 +0200</pubDate>
-        <link>http://cemretok.com//2016/32/</link>
-        <guid isPermaLink="true">http://cemretok.com//2016/32/</guid>
+        <link>http://cemretok.com/2016/32/</link>
+        <guid isPermaLink="true">http://cemretok.com/2016/32/</guid>
         
         
         <category>Sublime</category>
@@ -54,8 +54,8 @@ Sonraki adım homebrew aracılığıyla spark’ın kurulumu tabi öncelikle sis
 
 </description>
         <pubDate>Fri, 19 Jun 2015 00:30:00 +0300</pubDate>
-        <link>http://cemretok.com//2015/31/</link>
-        <guid isPermaLink="true">http://cemretok.com//2015/31/</guid>
+        <link>http://cemretok.com/2015/31/</link>
+        <guid isPermaLink="true">http://cemretok.com/2015/31/</guid>
         
         
         <category>apache spark</category>
@@ -82,8 +82,8 @@ Sonraki adım homebrew aracılığıyla spark’ın kurulumu tabi öncelikle sis
 &lt;p&gt;Yıkardaki gibi soru işaretinden sonraki kısmın eklenmesi gerekiyor. İşin ilginç tarafı eklenmeyincede çalışıyor ama mysql dokümanlarında ekleyin yazıyor. Eski sürümlerde koyulması zorlu olabilir belki ama 5.5 versiyonunda koyulmasada çalışıyor.&lt;/p&gt;
 </description>
         <pubDate>Fri, 19 Jun 2015 00:30:00 +0300</pubDate>
-        <link>http://cemretok.com//2015/30/</link>
-        <guid isPermaLink="true">http://cemretok.com//2015/30/</guid>
+        <link>http://cemretok.com/2015/30/</link>
+        <guid isPermaLink="true">http://cemretok.com/2015/30/</guid>
         
         
         <category>Mysql</category>
@@ -95,8 +95,8 @@ Sonraki adım homebrew aracılığıyla spark’ın kurulumu tabi öncelikle sis
         <description>&lt;p&gt;&lt;img src=&quot;/images/29-1.png&quot; alt=&quot;Resim&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Fri, 19 Jun 2015 00:30:00 +0300</pubDate>
-        <link>http://cemretok.com//2015/29/</link>
-        <guid isPermaLink="true">http://cemretok.com//2015/29/</guid>
+        <link>http://cemretok.com/2015/29/</link>
+        <guid isPermaLink="true">http://cemretok.com/2015/29/</guid>
         
         
         <category>android</category>
@@ -117,8 +117,8 @@ Sonraki adım homebrew aracılığıyla spark’ın kurulumu tabi öncelikle sis
 
 </description>
         <pubDate>Fri, 19 Jun 2015 00:30:00 +0300</pubDate>
-        <link>http://cemretok.com//2015/28/</link>
-        <guid isPermaLink="true">http://cemretok.com//2015/28/</guid>
+        <link>http://cemretok.com/2015/28/</link>
+        <guid isPermaLink="true">http://cemretok.com/2015/28/</guid>
         
         
         <category>Java</category>
@@ -130,8 +130,8 @@ Sonraki adım homebrew aracılığıyla spark’ın kurulumu tabi öncelikle sis
         <description>&lt;p&gt;&lt;br /&gt;&lt;b&gt;&lt;a href=&quot;http://cemretok.github.io/images/27-1.png&quot;&gt;http://cemretok.github.io/images/27-1.png&lt;/a&gt;&lt;b&gt;&lt;br /&gt;&lt;/b&gt;&lt;/b&gt;&lt;/p&gt;
 </description>
         <pubDate>Fri, 19 Jun 2015 00:00:00 +0300</pubDate>
-        <link>http://cemretok.com//2015/27/</link>
-        <guid isPermaLink="true">http://cemretok.com//2015/27/</guid>
+        <link>http://cemretok.com/2015/27/</link>
+        <guid isPermaLink="true">http://cemretok.com/2015/27/</guid>
         
         
         <category>Raspberry Pi</category>
@@ -419,8 +419,8 @@ Subtype –Alt tipler, kullanıcının oluşturduğu.
 	&lt;span class=&quot;k&quot;&gt;END&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 </description>
         <pubDate>Fri, 22 May 2015 00:00:00 +0300</pubDate>
-        <link>http://cemretok.com//2015/26/</link>
-        <guid isPermaLink="true">http://cemretok.com//2015/26/</guid>
+        <link>http://cemretok.com/2015/26/</link>
+        <guid isPermaLink="true">http://cemretok.com/2015/26/</guid>
         
         
         <category>PL/SQL</category>
@@ -464,8 +464,8 @@ Subtype –Alt tipler, kullanıcının oluşturduğu.
 
 </description>
         <pubDate>Fri, 22 May 2015 00:00:00 +0300</pubDate>
-        <link>http://cemretok.com//2015/25/</link>
-        <guid isPermaLink="true">http://cemretok.com//2015/25/</guid>
+        <link>http://cemretok.com/2015/25/</link>
+        <guid isPermaLink="true">http://cemretok.com/2015/25/</guid>
         
         
         <category>Jekyll</category>
@@ -488,8 +488,8 @@ Subtype –Alt tipler, kullanıcının oluşturduğu.
 
 </description>
         <pubDate>Wed, 01 Apr 2015 16:32:27 +0300</pubDate>
-        <link>http://cemretok.com//2015/24/</link>
-        <guid isPermaLink="true">http://cemretok.com//2015/24/</guid>
+        <link>http://cemretok.com/2015/24/</link>
+        <guid isPermaLink="true">http://cemretok.com/2015/24/</guid>
         
         
         <category>ssh</category>
@@ -505,8 +505,8 @@ Subtype –Alt tipler, kullanıcının oluşturduğu.
 
 </description>
         <pubDate>Mon, 30 Mar 2015 14:13:27 +0300</pubDate>
-        <link>http://cemretok.com//2015/23/</link>
-        <guid isPermaLink="true">http://cemretok.com//2015/23/</guid>
+        <link>http://cemretok.com/2015/23/</link>
+        <guid isPermaLink="true">http://cemretok.com/2015/23/</guid>
         
         
         <category>linux</category>
