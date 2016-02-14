@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Android APK imzalama</title>
+  <title>Cemre Tok</title>
   <meta name="description" content="Blog ve KB">
   <meta name="author" content="Cemre Tok">
   <meta name="HandheldFriendly" content="True">
@@ -43,7 +43,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://cemretok.com//2015/19/">
+  <link rel="canonical" href="http://cemretok.com//2016/2016-01-13-31/">
   <link rel="alternate" type="application/rss+xml" title="Cemre Tok" href="/feed.xml">
 </head>
 
@@ -155,30 +155,39 @@
         <article class="post-container post-container--single">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="20 Jan 2015" class="post-meta__date date">20 Jan 2015</time> &#8226; <span class="post-meta__tags">on </span>
+      <time datetime="14 Feb 2016" class="post-meta__date date">14 Feb 2016</time> &#8226; <span class="post-meta__tags">on </span>
     </div>
-    <h1 class="post-title">Android APK imzalama</h1>
+    <h1 class="post-title"></h1>
   </header>
 
   <section class="post">
-    <p>Apk’yı imzalamak için gerekli olan işlemler ve ek bilgiler</p>
+    <p>Mac Os X Apache Spark kurulumunu anlatıcam. Kurulum örnekleri var fakat türkçe değil.</p>
 
-<p><br /><img src="/images/19-1.png" alt="Resim" /><br /></p>
+<p>İlk olarak Java kurulumunu yapıyoruz Oracle’ın sitesinden JDK indirip kurmanız yeterli.
+Sonraki adım homebrew aracılığıyla spark’ın kurulumu tabi öncelikle sisteminizde homebrew yüklü olmalı tabi homebrew’ın yüklenebilmesi içinde ruby yüklü olmalı (netten Türkçe kaynak bulunabilir), o nedenle homebrew’in yüklü olduğunu varsayalım.</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">cordova</span> <span class="n">build</span> <span class="o">--</span><span class="n">release</span> <span class="n">android</span></code></pre></figure>
+<p>Sonraki aşama terminale;</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">keytool</span> <span class="o">-</span><span class="n">genkey</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">keystore</span> <span class="n">my</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">key</span><span class="p">.</span><span class="nf">keystore</span> <span class="o">-</span><span class="k">alias</span> <span class="n">alias_name</span> <span class="o">-</span><span class="n">keyalg</span> <span class="no">RSA</span> <span class="o">-</span><span class="n">keysize</span> <span class="mi">2048</span> <span class="o">-</span><span class="n">validity</span> <span class="mi">10000</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="err">$</span> <span class="n">brew</span> <span class="n">install</span> <span class="n">scala</span>
+<span class="err">$</span> <span class="n">brew</span> <span class="n">install</span> <span class="n">apache</span><span class="o">-</span><span class="n">spark</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">jarsigner</span> <span class="o">-</span><span class="n">verbose</span> <span class="o">-</span><span class="n">sigalg</span> <span class="no">SHA1withRSA</span> <span class="o">-</span><span class="n">digestalg</span> <span class="no">SHA1</span> <span class="o">-</span><span class="n">keystore</span> <span class="n">my</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">key</span><span class="p">.</span><span class="nf">keystore</span> <span class="no">HelloWorld</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">unsigned</span><span class="p">.</span><span class="nf">apk</span> <span class="n">alias_name</span></code></pre></figure>
+<p>Sonraki aşama terminale;</p>
 
-<p>Zipalign için android sdk ile bu işlemi yapmak gerekiyor<br />
-Dizin;</p>
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="err">$</span> <span class="n">cd</span> <span class="o">/</span>
+<span class="err">$</span> <span class="n">nano</span> <span class="p">.</span><span class="n">bash_profile</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">adt</span><span class="o">-</span><span class="n">bundle</span><span class="o">-</span><span class="n">mac</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="mi">20140702</span><span class="o">/</span><span class="n">sdk</span><span class="o">/</span><span class="n">build</span><span class="o">-</span><span class="n">tools</span><span class="o">/</span><span class="n">android</span><span class="o">-</span><span class="mi">4</span><span class="o">.</span><span class="mi">4</span><span class="no">W</span><span class="o">/</span><span class="n">zipalign</span> </code></pre></figure>
+<p>İçine aşağıdaki alanı girin fakat 1.6.0 yazan sürüme dikkat edin brew ile hangi sürümü yiklediyseniz onu yazın;</p>
 
-<p>Komutun başındaki<b> ./ </b>işaretine dikkat etmek gerekiyor.</p>
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">if</span> <span class="n">which</span> <span class="n">java</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="k">null</span><span class="p">;</span> <span class="k">then</span> <span class="n">export</span> <span class="n">JAVA_HOME</span><span class="o">=</span><span class="err">$</span><span class="p">(</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">libexec</span><span class="o">/</span><span class="n">java_home</span><span class="p">);</span> <span class="n">fi</span>
+<span class="n">if</span> <span class="n">which</span> <span class="n">pyspark</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="k">null</span><span class="p">;</span> <span class="k">then</span>
+  <span class="n">export</span> <span class="n">SPARK_HOME</span><span class="o">=</span><span class="nv">"/usr/local/Cellar/apache-spark/1.6.0/libexec/"</span>
+  <span class="n">export</span> <span class="n">PYSPARK_SUBMIT_ARGS</span><span class="o">=</span><span class="nv">"--master local[2]"</span>
+<span class="n">fi</span></code></pre></figure>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">.</span><span class="nf">/</span><span class="n">zipalign</span> <span class="o">-</span><span class="n">v</span> <span class="mi">4</span> <span class="no">HelloWorld</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">unsigned</span><span class="p">.</span><span class="nf">apk</span> <span class="no">HelloWorld</span><span class="p">.</span><span class="nf">apk</span></code></pre></figure>
+<p>Sonra bunu işleyin ve çalıştırmak için;</p>
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="err">$</span> <span class="k">source</span> <span class="p">.</span><span class="n">bash_profile</span>
+<span class="err">$</span> <span class="n">spark</span><span class="o">-</span><span class="n">shell</span></code></pre></figure>
 
 
   </section>

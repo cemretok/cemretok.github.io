@@ -167,22 +167,22 @@
 
 <p>Kullanacağımız programlar <b>tightvncserver ve vncviewer</b></p>
 
-<p>Öncelikle vnc kuracağımız linux sisteme ssh ile ya da doğrudan terminale erişebiliyor olmamız lazım. Ben raspberry pi kullandığım için ona bağlanıcam eğer ssh kullanımını bilmiyorsanız  <a href="http://cemretok.com/linux/2014/09/28/1.html">BU BAĞLANTIDAN</a> fikir edinebilirsiniz.</p>
+<p>Öncelikle vnc kuracağımız linux sisteme ssh ile ya da doğrudan terminale erişebiliyor olmamız lazım. Ben raspberry pi kullandığım için ona bağlanıcam eğer ssh kullanımını bilmiyorsanız  <a href="http://cemretok.github.io/2014/1/">BU BAĞLANTIDAN</a> fikir edinebilirsiniz.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>  <span class="p">(</span><span class="no">APT</span> <span class="n">paketini</span> <span class="n">g</span><span class="err">ü</span><span class="n">celledik</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="http://cemretok.com/images/2-1.png" alt="My helpful screenshot" /><br /></p>
+<p><img src="/images/2-1.png" alt="Resim" /><br /></p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">tightvncserver</span> <span class="p">(</span><span class="no">Ba</span><span class="err">ğ</span><span class="n">lant</span><span class="err">ı</span><span class="n">y</span><span class="err">ı</span> <span class="err">ç</span><span class="n">ekti</span> <span class="n">ve</span> <span class="n">y</span><span class="err">ü</span><span class="n">klemeye</span> <span class="n">ba</span><span class="err">ş</span><span class="n">lad</span><span class="err">ı</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="http://cemretok.com/images/2-2.png" alt="My helpful screenshot" /><br />
+<p><img src="/images/2-2.png" alt="Resim" /><br />
 Yükleme işlemi bittikten sonra aşağıdaki komutu yazıyoruz.<br /></p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">vncserver</span> <span class="p">:</span><span class="mi">1</span> <span class="p">(</span><span class="no">Bo</span><span class="err">ş</span><span class="n">lu</span><span class="err">ğ</span><span class="n">a</span> <span class="n">dikkat!</span><span class="p">)</span></code></pre></figure>
 
-<p><img src="http://cemretok.com/images/2-3.png" alt="My helpful screenshot" /><br /><br />
+<p><img src="/images/2-3.png" alt="Resim" /><br /><br />
 Tabi bu sırada size bağlandığınız bilgisayarın kullanıcı adı şifresini sorabilir, girdikten sonra işlem tamam. VNC servisini artık kullanabilirisiniz.<br /><br />
-<img src="http://cemretok.com/images/2-4.png" alt="My helpful screenshot" /><br />
+<img src="/images/2-4.png" alt="Resim" /><br />
 VNC copy
 VNC viewer
 Şimdi sıra geldi nasıl bağlantı kuracağımıza eğer benim gibi Mac sistem kullanıyorsanız vncviewer güzel bir program tavsiye ederim. Programı kurun yükleyin karşınıza aşağıdaki gibi bir ekran gelecek oradaki ip kısmına yerel/genel bağlandığınız bilgisayarın ip adresini girip sonuna :1 yazarak bağlanabilirsiniz. Tabi tekrardan kullanıcı adı şifre sorabilir onlarıda girmeyi unutmayın.</p>
@@ -195,22 +195,22 @@ VNC viewer
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">cd</span> <span class="sr">/home/</span><span class="n">pi</span></code></pre></figure>
 
-<p><img src="http://cemretok.com/images/2-5.png" alt="My helpful screenshot" /><br />
+<p><img src="/images/2-5.png" alt="Resim" /><br />
 Daha sonra bu dizinde aşağıdaki komutla bir gizli config dosyası açıyoruz.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">cd</span> <span class="p">.</span><span class="nf">config</span></code></pre></figure>
 
-<p><img src="http://cemretok.com/images/2-6.png" alt="My helpful screenshot" /><br />
+<p><img src="/images/2-6.png" alt="Resim" /><br />
 Daha sonra autostart diye bir klasör açıyoruz</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">mkdir</span> <span class="n">autostart</span></code></pre></figure>
 
-<p><img src="http://cemretok.com/images/2-7.png" alt="My helpful screenshot" /><br />
+<p><img src="/images/2-7.png" alt="Resim" /><br />
 İçine bir dosya açıyoruz.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">nano</span> <span class="n">tightvnc</span><span class="p">.</span><span class="nf">desktop</span></code></pre></figure>
 
-<p><img src="http://cemretok.com/images/2-8.png" alt="My helpful screenshot" /><br />
+<p><img src="/images/2-8.png" alt="Resim" /><br />
 Son olarak aşağıdaki komutları içersine kopyalıyoruz. CTRL + X kombinasyonunu uygulayıp (kaydedip) enter’a basıp kapatıyoruz.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">[</span><span class="no">Desktop</span> <span class="no">Entry</span><span class="p">]</span>
@@ -219,7 +219,7 @@ Son olarak aşağıdaki komutları içersine kopyalıyoruz. CTRL + X kombinasyon
 <span class="no">Exec</span><span class="o">=</span><span class="n">vncserver</span> <span class="p">:</span><span class="mi">1</span>
 <span class="no">StartupNotify</span><span class="o">=</span><span class="kp">false</span></code></pre></figure>
 
-<p><img src="http://cemretok.com/images/2-9.png" alt="My helpful screenshot" /><br />
+<p><img src="/images/2-9.png" alt="Resim" /><br />
 Artık otomatik olarak başlayan bir vnc serverımız bulunmaktadır. İp adresini bildiğiniz sürece istediğiniz yerden anında bağlanabilirsiniz.</p>
 
 

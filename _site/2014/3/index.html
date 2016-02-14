@@ -163,11 +163,11 @@
   <section class="post">
     <p><b>Sorun yaşanmaması için yazıyı baştan sona kadar iyice okuduktan sonra uygulamaya geçmenizi öneririm.</b></p>
 
-<p>Raspberry Pi’yi açtığımız her seferde ekrana bağlayıp startx ve login işlemlerini yapmaktansa bunu otomatik yapabilecek bir hale getirebiliyoruz. Örneğin elektrik kesildiğinde raspberry yeniden başlar ama login ekranını geçmeden işletim sistemi açılmaz işte biz bunu otomatik bir hale getireceğiz ve sistem her açılışında bize ihtiyaç duymayacak. Ssh ve Terminal bağlantısı kullanacağımız için eğer bilginiz yoksa  <a href="http://cemretok.com/linux/2014/09/28/1.html">BU BAĞLANTIDAN</a> yazı size fikir verecektir. İlk olarak /etc kısmında varolan inittab dosyasını okumak için alttaki komutu giriyoruz.</p>
+<p>Raspberry Pi’yi açtığımız her seferde ekrana bağlayıp startx ve login işlemlerini yapmaktansa bunu otomatik yapabilecek bir hale getirebiliyoruz. Örneğin elektrik kesildiğinde raspberry yeniden başlar ama login ekranını geçmeden işletim sistemi açılmaz işte biz bunu otomatik bir hale getireceğiz ve sistem her açılışında bize ihtiyaç duymayacak. Ssh ve Terminal bağlantısı kullanacağımız için eğer bilginiz yoksa  <a href="http://cemretok.github.io/2014/1/">BU BAĞLANTIDAN</a> yazı size fikir verecektir. İlk olarak /etc kısmında varolan inittab dosyasını okumak için alttaki komutu giriyoruz.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">nano</span> <span class="sr">/etc/ini</span><span class="n">ttab</span></code></pre></figure>
 
-<p><img src="http://cemretok.com/images/3-1.png" alt="My helpful screenshot" /><br />
+<p><img src="/images/3-1.png" alt="Resim" /><br />
 Sonrasında açılan dosyada aşağıdaki satırı buluyoruz. (Dosyada dolanmak için klavyedeki ok işaretleri kullanılabilir.)</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mi">1</span><span class="p">:</span><span class="mi">2345</span><span class="ss">:respawn:/</span><span class="n">sbin</span><span class="o">/</span><span class="n">getty</span> <span class="mi">115200</span> <span class="n">tty1</span></code></pre></figure>
@@ -180,7 +180,7 @@ Sonrasında açılan dosyada aşağıdaki satırı buluyoruz. (Dosyada dolanmak 
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mi">1</span><span class="p">:</span><span class="mi">2345</span><span class="ss">:respawn:/</span><span class="n">bin</span><span class="o">/</span><span class="n">login</span> <span class="o">-</span><span class="n">f</span> <span class="n">pi</span> <span class="n">tty1</span> <span class="o">&lt;</span><span class="sr">/dev/</span><span class="n">tty1</span> <span class="o">&gt;</span><span class="sr">/dev/</span><span class="n">tty1</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span></code></pre></figure>
 
-<p><img src="http://cemretok.com/images/3-2.png" alt="My helpful screenshot" /><br /></p>
+<p><img src="/images/3-2.png" alt="Resim" /><br /></p>
 
 <p>Sonrasında <b>ctrl+x</b> diyoruz kaydetmek için Y tuşuna basıyoruz. Çıkmak için Enter’a tıklıyoruz. Login işlemini hallettik sonraki adımlarda masaüstünü yani startx’i otomatik hale getireceğiz. İlk olarak “<b>cd</b>” komutuyla ana dizine gelin.</p>
 
@@ -190,13 +190,13 @@ Sonrasında açılan dosyada aşağıdaki satırı buluyoruz. (Dosyada dolanmak 
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">nano</span> <span class="sr">/etc/</span><span class="n">rc</span><span class="p">.</span><span class="nf">local</span></code></pre></figure>
 
-<p><img src="http://cemretok.com/images/3-3.png" alt="My helpful screenshot" /><br /></p>
+<p><img src="/images/3-3.png" alt="Resim" /><br /></p>
 
 <p>Çıkan yazıların en sonunda exit 0  (exit sıfır) görmemiz gerekiyor onun bir üst satırına aşağıdaki komutu koyucaz.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">su</span> <span class="o">-</span><span class="n">l</span> <span class="n">pi</span> <span class="o">-</span><span class="n">c</span> <span class="n">startx</span></code></pre></figure>
 
-<p><img src="http://cemretok.com/images/3-4.png" alt="My helpful screenshot" /><br />
+<p><img src="/images/3-4.png" alt="Resim" /><br />
 ctrl+x yapıyoruz ve Y tuşuna tıklayarak kaydediyoruz. Enter’a basıp çıkıyoruz. İşlemler tamam artık kendi kendine login işlemini yapan ve masaüstü ortamını açabilen bir raspberryniz var.</p>
 
 

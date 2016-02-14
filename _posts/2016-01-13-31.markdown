@@ -2,7 +2,7 @@
 layout: post
 title:  "Mac Os X Apache Spark Kurulumu 1.6.0"
 date:   2015-06-18 21:30:00
-categories: [homebrew], [spark], [apache], [spark], [scala], [java], [1.6.0]
+categories: [apache spark]
 ---
 
 Mac Os X Apache Spark kurulumunu anlatıcam. Kurulum örnekleri var fakat türkçe değil. 

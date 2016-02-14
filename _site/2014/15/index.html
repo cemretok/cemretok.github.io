@@ -169,49 +169,49 @@
 
 <p>1) İlk başta “<b>uname -a</b>” komutu ile çekirdek versiyonunu öğreniyoruz.</p>
 
-<p><br /><img src="http://cemretok.com/images/15-1.png" alt="My helpful screenshot" /><br /></p>
+<p><br /><img src="/images/15-1.png" alt="Resim" /><br /></p>
 
 <p>2)  “<b>Kernel</b>” adında bir dosya oluşturdum ve içerisine Linux’un son stabil versiyonu olan “<b>3.16.3</b>” paketini taşıdım. Bu paket kernel.org sitesinden indirilebilir. “<b>tar.xz</b>” uzantılı olanı ve patch dasyasını indireceksiniz.</p>
 
-<p><br /><img src="http://cemretok.com/images/15-2.png" alt="My helpful screenshot" /><br /></p>
+<p><br /><img src="/images/15-2.png" alt="Resim" /><br /></p>
 
 <p>3) Kernel dosyası içindeki çekirdeği sıkıştırılmış formattan çıkarttım.</p>
 
-<p><br /><img src="http://cemretok.com/images/15-3.png" alt="My helpful screenshot" /><br /></p>
+<p><br /><img src="/images/15-3.png" alt="Resim" /><br /></p>
 
 <p>4)   Sonrasında Linux versiyonunun yanındaki patch’in  çekirdeğe kurulumunu yaptım “<b>-R</b>” burada “<b>repeat</b>” yani tekrar anlamı taşıyor.</p>
 
-<p><br /><img src="http://cemretok.com/images/15-4.png" alt="My helpful screenshot" /><br /></p>
+<p><br /><img src="/images/15-4.png" alt="Resim" /><br /></p>
 
 <p>5) Çekirdeğin kullanıcı isteğine göre modüllerinin eklenip çıkartılması için gerekli olan “<b>make menuconfig</b>” komutunu çalıştırdım ama gerekli kütüphaneler olmadığı için çalışmadı bu nedenle “<b>apt-get install libncurses5-dev</b>” komutuyla “<b>libncurses5-dev</b>“ paketini kurdum. Eğer “<b>make menuconfig</b>” işlemini yapmazsanız, yükleme yaparken yaklaşık 50 kadar soruya tek tek cevap vermeniz gerekecek o yüzden yapmanızı tavsiye ederim.</p>
 
-<p><br /><img src="http://cemretok.com/images/15-5.png" alt="My helpful screenshot" /><br /></p>
+<p><br /><img src="/images/15-5.png" alt="Resim" /><br /></p>
 
 <p>6) Ardından “<b>make menuconfig</b>” komutunu çalıştırdım.</p>
 
-<p><br /><img src="http://cemretok.com/images/15-6.png" alt="My helpful screenshot" /><br /></p>
+<p><br /><img src="/images/15-6.png" alt="Resim" /><br /></p>
 
-<p><br /><img src="http://cemretok.com/images/15-7.png" alt="My helpful screenshot" /><br /></p>
+<p><br /><img src="/images/15-7.png" alt="Resim" /><br /></p>
 
 <p>Herhangi bir değişiklik yapmadım. İstenirse modüller eklenip çıkartılabiliyor ama sonra USB belleğim ya da Internetim neden çalışmıyor diyebilirsiniz, dikkatli işlem yapmak gerekiyor.</p>
 
 <p>7) Sonrasında “<b>apt-get install kernel-package</b>” gerekli olan “<b>kernel-package</b>” aracını yükledim. Kernel’ı derliyor.</p>
 
-<p><br /><img src="http://cemretok.com/images/15-8.png" alt="My helpful screenshot" /><br /></p>
+<p><br /><img src="/images/15-8.png" alt="Resim" /><br /></p>
 
 <p>8) Derleme komutu “<b>make-kpkg kernel-image kernel_headers –initrd</b>”</p>
 
-<p><br /><img src="http://cemretok.com/images/15-9.png" alt="My helpful screenshot" /><br /></p>
+<p><br /><img src="/images/15-9.png" alt="Resim" /><br /></p>
 
 <p>Benim yaptığım derleme işlemi toplamda 1 saat 50 dakika sürdü.</p>
 
 <p>10) Sonrasında  kernel dosyası içinde oluşan “<b>.deb</b>” uzantılı paketleri yükledim. Biri image diğeri header paketi. Bunların yedeğini almakta fayda var derlemesi 2 saat sürüyor.</p>
 
-<p><br /><img src="http://cemretok.com/images/15-10.png" alt="My helpful screenshot" /><br /></p>
+<p><br /><img src="/images/15-10.png" alt="Resim" /><br /></p>
 
 <p>11) Yükleme işlemi bittikten sonra linux’u yeniden başlatıyoruz. Bilgisayar açıldığı sırada “<b>Shift</b>” tuşuna basılı tutuyoruz.</p>
 
-<p><br /><img src="http://cemretok.com/images/15-11.png" alt="My helpful screenshot" /><br /></p>
+<p><br /><img src="/images/15-11.png" alt="Resim" /><br /></p>
 
 <p>Karşımıza buna benzer bir ekran gelecek buradan çalıştırmak istediğimiz çekirdek sürümünü seçiyoruz. Bir önceki sürüm “<b>Previous Linux Versions</b>” sekmesinde gözükecektir. Biz son yüklediğimiz versiyonu seçiyoruz ve başlatıyoruz.</p>
 
@@ -225,7 +225,7 @@
 
 <p>Şu sayfada -&gt;http://kernel.ubuntu.com/~kernel-ppa/mainline/ bütün kernel sürümlerini bulmak mümkün örneğin “<b>3.15.10</b>” sürümünü ele alalım.</p>
 
-<p><br /><img src="http://cemretok.com/images/15-12.png" alt="My helpful screenshot" /><br />
+<p><br /><img src="/images/15-12.png" alt="Resim" /><br />
 Seçtiğimiz paketleri aşağıdaki gibi bir komutla indirip, yüklüyoruz.</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">cd</span> <span class="sr">/kernel &amp;&amp; wget http:/</span><span class="o">/</span><span class="n">kernel</span><span class="p">.</span><span class="nf">ubuntu</span><span class="p">.</span><span class="nf">com</span><span class="o">/~</span><span class="n">kernel</span><span class="o">-</span><span class="n">ppa</span><span class="o">/</span><span class="n">mainline</span><span class="o">/</span><span class="n">v3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="n">utopic</span><span class="o">/</span><span class="n">linux</span><span class="o">-</span><span class="n">headers</span><span class="o">-</span><span class="mi">3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="mo">031510</span><span class="o">-</span><span class="n">generic_3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="mo">031510</span><span class="o">.</span><span class="mi">201408132333</span><span class="n">_i386</span><span class="p">.</span><span class="nf">deb</span> <span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="n">kernel</span><span class="p">.</span><span class="nf">ubuntu</span><span class="p">.</span><span class="nf">com</span><span class="o">/~</span><span class="n">kernel</span><span class="o">-</span><span class="n">ppa</span><span class="o">/</span><span class="n">mainline</span><span class="o">/</span><span class="n">v3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="n">utopic</span><span class="o">/</span><span class="n">linux</span><span class="o">-</span><span class="n">headers</span><span class="o">-</span><span class="mi">3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="mo">031510_3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="mo">031510</span><span class="o">.</span><span class="mi">201408132333</span><span class="n">_all</span><span class="p">.</span><span class="nf">deb</span> <span class="n">http</span><span class="ss">:/</span><span class="o">/</span><span class="n">kernel</span><span class="p">.</span><span class="nf">ubuntu</span><span class="p">.</span><span class="nf">com</span><span class="o">/~</span><span class="n">kernel</span><span class="o">-</span><span class="n">ppa</span><span class="o">/</span><span class="n">mainline</span><span class="o">/</span><span class="n">v3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="n">utopic</span><span class="o">/</span><span class="n">linux</span><span class="o">-</span><span class="n">image</span><span class="o">-</span><span class="mi">3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="mo">031510</span><span class="o">-</span><span class="n">generic_3</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">10</span><span class="o">-</span><span class="mo">031510</span><span class="o">.</span><span class="mi">201408132333</span><span class="n">_i386</span><span class="p">.</span><span class="nf">deb</span> <span class="o">&amp;&amp;</span> <span class="n">sudo</span> <span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="o">*</span><span class="p">.</span><span class="nf">deb</span></code></pre></figure>

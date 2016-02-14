@@ -2,7 +2,7 @@
 layout: post
 title:  "Sublime için paket yöneticisi"
 date:   2016-02-14 14:30:00
-categories: [Sublime], [package manager],
+categories: [Sublime]
 ---
 
 

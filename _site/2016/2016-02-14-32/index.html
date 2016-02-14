@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Android APK imzalama</title>
+  <title>Cemre Tok</title>
   <meta name="description" content="Blog ve KB">
   <meta name="author" content="Cemre Tok">
   <meta name="HandheldFriendly" content="True">
@@ -43,7 +43,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://cemretok.com//2015/19/">
+  <link rel="canonical" href="http://cemretok.com//2016/2016-02-14-32/">
   <link rel="alternate" type="application/rss+xml" title="Cemre Tok" href="/feed.xml">
 </head>
 
@@ -155,31 +155,13 @@
         <article class="post-container post-container--single">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="20 Jan 2015" class="post-meta__date date">20 Jan 2015</time> &#8226; <span class="post-meta__tags">on </span>
+      <time datetime="14 Feb 2016" class="post-meta__date date">14 Feb 2016</time> &#8226; <span class="post-meta__tags">on </span>
     </div>
-    <h1 class="post-title">Android APK imzalama</h1>
+    <h1 class="post-title"></h1>
   </header>
 
   <section class="post">
-    <p>Apk’yı imzalamak için gerekli olan işlemler ve ek bilgiler</p>
-
-<p><br /><img src="/images/19-1.png" alt="Resim" /><br /></p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">cordova</span> <span class="n">build</span> <span class="o">--</span><span class="n">release</span> <span class="n">android</span></code></pre></figure>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">keytool</span> <span class="o">-</span><span class="n">genkey</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">keystore</span> <span class="n">my</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">key</span><span class="p">.</span><span class="nf">keystore</span> <span class="o">-</span><span class="k">alias</span> <span class="n">alias_name</span> <span class="o">-</span><span class="n">keyalg</span> <span class="no">RSA</span> <span class="o">-</span><span class="n">keysize</span> <span class="mi">2048</span> <span class="o">-</span><span class="n">validity</span> <span class="mi">10000</span></code></pre></figure>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">jarsigner</span> <span class="o">-</span><span class="n">verbose</span> <span class="o">-</span><span class="n">sigalg</span> <span class="no">SHA1withRSA</span> <span class="o">-</span><span class="n">digestalg</span> <span class="no">SHA1</span> <span class="o">-</span><span class="n">keystore</span> <span class="n">my</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">key</span><span class="p">.</span><span class="nf">keystore</span> <span class="no">HelloWorld</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">unsigned</span><span class="p">.</span><span class="nf">apk</span> <span class="n">alias_name</span></code></pre></figure>
-
-<p>Zipalign için android sdk ile bu işlemi yapmak gerekiyor<br />
-Dizin;</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">adt</span><span class="o">-</span><span class="n">bundle</span><span class="o">-</span><span class="n">mac</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="mi">20140702</span><span class="o">/</span><span class="n">sdk</span><span class="o">/</span><span class="n">build</span><span class="o">-</span><span class="n">tools</span><span class="o">/</span><span class="n">android</span><span class="o">-</span><span class="mi">4</span><span class="o">.</span><span class="mi">4</span><span class="no">W</span><span class="o">/</span><span class="n">zipalign</span> </code></pre></figure>
-
-<p>Komutun başındaki<b> ./ </b>işaretine dikkat etmek gerekiyor.</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="p">.</span><span class="nf">/</span><span class="n">zipalign</span> <span class="o">-</span><span class="n">v</span> <span class="mi">4</span> <span class="no">HelloWorld</span><span class="o">-</span><span class="n">release</span><span class="o">-</span><span class="n">unsigned</span><span class="p">.</span><span class="nf">apk</span> <span class="no">HelloWorld</span><span class="p">.</span><span class="nf">apk</span></code></pre></figure>
-
+    <p>Site: <a href="https://packagecontrol.io/installation">https://packagecontrol.io/installation</a></p>
 
   </section>
   
