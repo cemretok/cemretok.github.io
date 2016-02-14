@@ -8,7 +8,7 @@ categories: linux
 
 Normalde terminal yada komut satırına "<b>ssh kullanıcıadı@ipadresi</b>" yazdığımızda ssh ile karşı tarafa kolayca bağlanabiliyorduk. Ama şimdi karşımıza şu görseldekine benzer bir sorun çıktı.
 
-![My helpful screenshot]({{ site.url }}/images/1-1.png)
+![Resim](/images/1-1.png)
 
 Sorunun ana nedeni daha önceden aynı ip ile bir bağlantı gerçekleştirilmiş olmasıdır. Bundan ötürüde iki taraf arasında RSA şifresi atanmıştır. Bir farklılık olduğunu anlayan sistem "<b>man in the middle attack</b>" saldırısı olabileceğinden süphelenir işte bu yüzden önceki ip (pc) ye ait olan RSA şifresini kaldırmak gerekir bunun içinde komut satırına ana dizine gelerek (cd komutu ile gelinebilir)
 {% highlight ruby %}
