@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>DigitalOcean'da Linux Sisteme OpenVPN Kurulumu</title>
+  <meta name="description" content="Blog ve KB">
+  <meta name="author" content="Cemre Tok">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cemre Tok">
+  <meta name="twitter:description" content="Blog ve KB">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Cemre Tok">
+  <meta property="og:description" content="Blog ve KB">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/images/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/images/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/images/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/images/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/images/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-194x194.png" sizes="194x194">
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/images/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/images/favicons/manifest.json">
+  <link rel="shortcut icon" href="/images/favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#ffc40d">
+  <meta name="msapplication-TileImage" content="/images/favicons/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://cemretok.com//2014/10/">
+  <link rel="alternate" type="application/rss+xml" title="Cemre Tok" href="/feed.xml">
+</head>
+
+
+  <body>
+    <span class="mobile btn-mobile-menu">
+  <i class="icon icon-list btn-mobile-menu__icon"></i>
+  <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+</span>
+  
+<header class="panel-cover" style="background-image: url(/images/cover.jpg)">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+        <a href="/" title="link to home of Cemre Tok">
+          <img src="/images/profile.jpg" class="user-image" alt="My Profile Photo">
+          <h1 class="panel-cover__title panel-title">Cemre Tok</h1>
+        </a>
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">Blog ve KB</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="link to Cemre Tok blog" class="blog-button">Blog</a></li>
+            </ul>
+          </nav>
+
+          <nav class="cover-navigation navigation--social">
+            <ul class="navigation">
+          
+            
+              <!-- Twitter -->
+              <li class="navigation__item">
+                <a href="http://twitter.com/cemretok" title="@cemretok on Twitter" target="_blank">
+                  <i class="icon icon-social-twitter"></i>
+                  <span class="label">Twitter</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- Facebook -->
+              <li class="navigation__item">
+                <a href="http://fb.me/tokcemre" title="tokcemre on Facebook" target="_blank">
+                  <i class="icon icon-social-facebook"></i>
+                  <span class="label">Facebook</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- LinkedIn -->
+              <li class="navigation__item">
+                <a href="https://www.linkedin.com/in/cemre-tok-3a65b75b" title="cemre-tok-3a65b75b on LinkedIn" target="_blank">
+                  <i class="icon icon-social-linkedin"></i>
+                  <span class="label">LinkedIn</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- GitHub -->
+              <li class="navigation__item">
+                <a href="https://www.github.com/cemretok" title="cemretok on GitHub" target="_blank">
+                  <i class="icon icon-social-github"></i>
+                  <span class="label">GitHub</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- Email -->
+              <li class="navigation__item">
+                <a href="mailto:josh@joshgerdes.com" title="Email josh@joshgerdes.com" target="_blank">
+                  <i class="icon icon-mail"></i>
+                  <span class="label">Email</span>
+                </a>
+              </li>
+            
+
+            <!-- RSS -->
+            <li class="navigation__item">
+              <a href="/feed.xml" title="Subscribe" target="_blank">
+                <i class="icon icon-rss"></i>
+                <span class="label">RSS</span>
+              </a>
+            </li>
+          
+            </ul>
+          </nav>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <article class="post-container post-container--single">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="30 Sep 2014" class="post-meta__date date">30 Sep 2014</time> &#8226; <span class="post-meta__tags">on </span>
+    </div>
+    <h1 class="post-title">DigitalOcean'da Linux Sisteme OpenVPN Kurulumu</h1>
+  </header>
+
+  <section class="post">
+    <p>İşlemlere başlamadan önce yazının tamamını okumanızı tavsiye ederim zira adımlardaki ufak bir değişiklik bütün aşamaları etkilemektedir.</p>
+
+<p>Öncelikle <a href="https://www.digitalocean.com/?refcode=d1aec2dabdc0">www.digitalocean.com</a> sitesinden bahsetmek istiyorum. Sitenin amacı ucuz, hızlı, performaslı bir cloud hizmetler vermek. Biraz daha detaya inecek olursak size bulut üstünde yönetmeniz için bir işletim sistemi veriyor. En son halinde Ubuntu, Fedora, Debian ve CentOS işletim sistemlerini kurmanıza izin veriyor. Çok kolay bir kullanıma sahip olan <a href="https://www.digitalocean.com/?refcode=d1aec2dabdc0">www.digitalocean.com</a> 55 saniye gibi iddalı bir sürede herşeyi hazır ve nazır bir biçimde önünüze getiriyor.</p>
+
+<p>Üye olmak isterseniz şu adresten <a href="https://www.digitalocean.com/?refcode=d1aec2dabdc0">www.digitalocean.com</a> ulaşılabiliyor. Ayrıca DROPLET DODROPLET PYTHONDROPLET promo kodları ile 10 dolar gibi bir miktar kazanabiliyorsunuz. Neredeyse iki ayda bir yeni promo kodu yayınladığı için hiç para vermeden hizmet alan kullanıcılar var.</p>
+
+<p>Şimdi gelelim ana konumuza, VPN  servisi bildiğiniz gibi özel sanal ağ demek yani bizim hükümetin yasakladığı sitelere başka bir ülke aracılığıyla giriş yapabiliriz demek. Ya da başka amaçlar için kullanabilirsiniz orası sizin kullanım amacınıza bağlı.</p>
+
+<p>Üye olduktan sonra CREATE kısmına geliyoruz ve CREATE DROPLET yazan kısma tıklıyoruz. Ardından resimde gösterilen alanları doldurup seçicez.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="mi">1</span><span class="p">)</span> <span class="err">İ</span><span class="n">sim</span> <span class="n">veriyoruz</span><span class="o">.</span>
+<span class="mi">2</span><span class="p">)</span> <span class="no">Server</span> <span class="err">ö</span><span class="n">zelliklerini</span> <span class="n">se</span><span class="err">ç</span><span class="n">iyoruz</span><span class="o">.</span>
+<span class="mi">3</span><span class="p">)</span> <span class="no">Amsterdam</span><span class="s1">'ı seçiyoruz. (Türkiye'</span><span class="n">ye</span> <span class="n">g</span><span class="err">ö</span><span class="n">re</span> <span class="n">h</span><span class="err">ı</span><span class="n">z</span> <span class="n">a</span><span class="err">çı</span><span class="n">s</span><span class="err">ı</span><span class="n">ndan</span> <span class="n">en</span> <span class="n">iyi</span> <span class="n">verimi</span> <span class="n">burdan</span> <span class="n">alabiliyoruz</span><span class="o">.</span><span class="p">)</span>
+<span class="mi">4</span><span class="p">)</span> <span class="no">Ubuntuyu</span> <span class="n">se</span><span class="err">ç</span><span class="n">ip</span> <span class="mi">12</span><span class="p">.</span><span class="nf">x</span><span class="p">.</span><span class="nf">x</span>  <span class="mi">32</span> <span class="n">bit</span> <span class="n">versiyonunu</span> <span class="n">se</span><span class="err">ç</span><span class="n">iyoruz</span> <span class="n">e</span><span class="err">ğ</span><span class="n">er</span> <span class="n">bu</span> <span class="n">sizde</span> <span class="n">g</span><span class="err">ö</span><span class="n">z</span><span class="err">ü</span><span class="n">km</span><span class="err">ü</span><span class="n">yorsa</span> <span class="n">yaz</span><span class="err">ı</span><span class="n">n</span><span class="err">ı</span><span class="n">n</span> <span class="n">tamam</span><span class="err">ı</span><span class="n">n</span><span class="err">ı</span> <span class="n">okuman</span><span class="err">ı</span><span class="n">z</span><span class="err">ı</span> <span class="n">tavsiye</span> <span class="n">ederim</span><span class="o">.</span>
+<span class="mi">5</span><span class="p">)</span> <span class="no">SSH</span> <span class="n">key</span> <span class="err">ö</span><span class="n">nemli</span> <span class="n">bunu</span> <span class="n">nas</span><span class="err">ı</span><span class="n">l</span> <span class="n">ekleyece</span><span class="err">ğ</span><span class="n">inizi</span> <span class="p">[</span><span class="err">Ş</span><span class="no">U</span> <span class="no">ADRESTEN</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="err">öğ</span><span class="n">renebilirsiniz</span><span class="o">.</span>
+<span class="mi">6</span><span class="p">)</span> <span class="no">CREATE</span> <span class="no">DROPLET</span> <span class="n">diyoruz</span><span class="o">.</span></code></pre></figure>
+
+<p><br /><img src="http://cemretok.com/images/10-1.png" alt="My helpful screenshot" /><br /></p>
+
+<p>İşlem tamam 55 saniye sonra artık sizinde online bir işletim sisteminiz var ve biz buna OpenVPN kurucaz.</p>
+
+<p>OpenVPN yazılımının bizim bulutta şeçtiğimiz işletim sistemine göre olanını şu adresten <a href="http://openvpn.net/index.php/access-server/download-openvpn-as-sw.html">OpenVPN</a> üstüne sağ tıklayıp yükleme linkini alıcaz. Eğer sizde CREATE DORPLET kısmındaki sürümle OpenVPN sürümü uyuşmazsa uyuşan bir işletim sistemi yada VPN yazılımı seçebilirsiniz o size kalmış.</p>
+
+<p><br /><img src="http://cemretok.com/images/10-2.png" alt="My helpful screenshot" /><br /></p>
+
+<p><br /><img src="http://cemretok.com/images/10-3.png" alt="My helpful screenshot" /><br /></p>
+
+<p>SSH önemli demiştik Windowsda Putty’i kuruyoruz Mac de ise terminalle direk bağlanabiliyoruz.</p>
+
+<p><br /><img src="http://cemretok.com/images/10-4.png" alt="My helpful screenshot" /><br /></p>
+
+<p>Daha sonra başına wget gelecek şekilde kopyaladığımız linki buraya yapıştırıyoruz.</p>
+
+<p><br /><img src="http://cemretok.com/images/10-5.png" alt="My helpful screenshot" /><br /></p>
+
+<p>Yukardaki komutu yazdıktan sonra aşağıdaki bir yükleme ekranı çıkacak sonrasında içi boş kırmızı kare içine aldığım ilk yerde yazan yazının aynısını başında dpkg -i gelecek şekilde yazıyoruz.</p>
+
+<p><br /><img src="http://cemretok.com/images/10-6.png" alt="My helpful screenshot" /><br /></p>
+
+<p>Sonrasında karşımıza aşağıdaki gibi bir yazı gelecek.</p>
+
+<p><br /><img src="http://cemretok.com/images/10-8.png" alt="My helpful screenshot" /><br /></p>
+
+<p>Artık OpenVPN yüklendi buna bir şifre belirtmek gerekiyor aşağıdaki gibi yapıyoruz.</p>
+
+<p><br /><img src="http://cemretok.com/images/10-9.png" alt="My helpful screenshot" /><br /></p>
+
+<p>Bir yukarda yazan http://5.xxx.xxx.159:943/admin yazan linki kendi tarayıcımızda açıyoruz. Karşımıza aşağıdaki gibi bir ekran gelecek giriş yerine openvpn şifre yerine belirtmiş olduğunuz şifreyi yazıyoruz.</p>
+
+<p><br /><img src="http://cemretok.com/images/10-9.png" alt="My helpful screenshot" /><br /></p>
+
+<p>Giriş yaptıktan sonra lisans sözleşmeleri okuyup karşınıza çıkan her şeye evet diyoruz. Sonrasında, sonunda admin yazmayan linki tarayıcımızda açıyoruz. http://5.xxx.xxx.159:943 karşımıza gelen ekrana kullanıcı adı ve şifresini yazıyoruz.</p>
+
+<p><br /><img src="http://cemretok.com/images/10-10.png" alt="My helpful screenshot" /><br /></p>
+
+<p>Sonrasınada karşınıza aşağıdaki gibi bir ekran gelecek. Oradanda işletim sisteminize uygun olan client yazılımını indiriyoruz.</p>
+
+<p><br /><img src="http://cemretok.com/images/10-11.png" alt="My helpful screenshot" /><br /></p>
+
+<p>İndirdiğimiz yazılımı bilgisayara kuruyoruz ve işlemimiz tamam. Eğer size kullanıcı adı ve şifre sorarsa yukarda belirtiğimiz gibi yazarsanız işlem tamam kolay gelsin gayet hızlı size ait bir VPN servisiniz olmuş oldu. Ek olarak aynı anda iki tane makinanın girmesine izin verdiği söyleniyor ama denemek gerek kolay gelsin.</p>
+
+
+  </section>
+  
+</article>
+
+
+
+      </div>
+
+      <footer class="footer">
+  <span class="footer__copyright">&copy; 2016 Cemre Tok.</span>
+</footer> 
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+    </div>
+  </body>
+</html>

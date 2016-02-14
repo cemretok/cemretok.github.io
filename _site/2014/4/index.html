@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Raspberry Pi'ye Sabit İp vermek (Yerel İp)</title>
+  <meta name="description" content="Blog ve KB">
+  <meta name="author" content="Cemre Tok">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cemre Tok">
+  <meta name="twitter:description" content="Blog ve KB">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Cemre Tok">
+  <meta property="og:description" content="Blog ve KB">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="/images/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/images/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/images/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/images/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/images/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/images/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/images/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/images/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-194x194.png" sizes="194x194">
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/images/favicons/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/images/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/images/favicons/manifest.json">
+  <link rel="shortcut icon" href="/images/favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#ffc40d">
+  <meta name="msapplication-TileImage" content="/images/favicons/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="canonical" href="http://cemretok.com//2014/4/">
+  <link rel="alternate" type="application/rss+xml" title="Cemre Tok" href="/feed.xml">
+</head>
+
+
+  <body>
+    <span class="mobile btn-mobile-menu">
+  <i class="icon icon-list btn-mobile-menu__icon"></i>
+  <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+</span>
+  
+<header class="panel-cover" style="background-image: url(/images/cover.jpg)">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+        <a href="/" title="link to home of Cemre Tok">
+          <img src="/images/profile.jpg" class="user-image" alt="My Profile Photo">
+          <h1 class="panel-cover__title panel-title">Cemre Tok</h1>
+        </a>
+        <hr class="panel-cover__divider">
+        <p class="panel-cover__description">Blog ve KB</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary">
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="link to Cemre Tok blog" class="blog-button">Blog</a></li>
+            </ul>
+          </nav>
+
+          <nav class="cover-navigation navigation--social">
+            <ul class="navigation">
+          
+            
+              <!-- Twitter -->
+              <li class="navigation__item">
+                <a href="http://twitter.com/cemretok" title="@cemretok on Twitter" target="_blank">
+                  <i class="icon icon-social-twitter"></i>
+                  <span class="label">Twitter</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- Facebook -->
+              <li class="navigation__item">
+                <a href="http://fb.me/tokcemre" title="tokcemre on Facebook" target="_blank">
+                  <i class="icon icon-social-facebook"></i>
+                  <span class="label">Facebook</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- LinkedIn -->
+              <li class="navigation__item">
+                <a href="https://www.linkedin.com/in/cemre-tok-3a65b75b" title="cemre-tok-3a65b75b on LinkedIn" target="_blank">
+                  <i class="icon icon-social-linkedin"></i>
+                  <span class="label">LinkedIn</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- GitHub -->
+              <li class="navigation__item">
+                <a href="https://www.github.com/cemretok" title="cemretok on GitHub" target="_blank">
+                  <i class="icon icon-social-github"></i>
+                  <span class="label">GitHub</span>
+                </a>
+              </li>
+            
+
+            
+              <!-- Email -->
+              <li class="navigation__item">
+                <a href="mailto:josh@joshgerdes.com" title="Email josh@joshgerdes.com" target="_blank">
+                  <i class="icon icon-mail"></i>
+                  <span class="label">Email</span>
+                </a>
+              </li>
+            
+
+            <!-- RSS -->
+            <li class="navigation__item">
+              <a href="/feed.xml" title="Subscribe" target="_blank">
+                <i class="icon icon-rss"></i>
+                <span class="label">RSS</span>
+              </a>
+            </li>
+          
+            </ul>
+          </nav>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <article class="post-container post-container--single">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="29 Sep 2014" class="post-meta__date date">29 Sep 2014</time> &#8226; <span class="post-meta__tags">on </span>
+    </div>
+    <h1 class="post-title">Raspberry Pi'ye Sabit İp vermek (Yerel İp)</h1>
+  </header>
+
+  <section class="post">
+    <p><b>Sorunla karşılaşmamak için uygulamaya geçmeden önce yazıyı baştan sona kadar okumanızı tavsiye ederim.</b></p>
+
+<p>Yerel ağımızda bazen cihazların ip adresleri değişir gerek kira süresi gerekse başka bir cihazın sizin eski ip adresinizi almasıyla meydana gelen bu sorunu önlemek için yapılan bir yöntem var. Oldukça kolay olan bu yöntemi aşağıdaki adımları sırasıyla yaparsanız kolayca halledebilirsiniz. Ben ssh ile bağlanıcam <a href="http://cemretok.com/linux/2014/09/28/1.html">BU BAĞLANTIDAN</a> ssh ile ilgili fikir edinebilirsiniz.</p>
+
+<p>Aşağıdaki kod ağ ayarlarına girerek oradan sabit bir yerel ip vermemize olanak sağlayacak</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">nano</span> <span class="sr">/etc/ne</span><span class="n">twork</span><span class="o">/</span><span class="n">interfaces4</span><span class="o">-</span><span class="mi">2</span></code></pre></figure>
+
+<p><img src="http://cemretok.com/images/4-1.png" alt="My helpful screenshot" /><br />
+Karşınıza aşağıdaki şekildeki gibi bir ekran gelicek.</p>
+
+<p><img src="http://cemretok.com/images/4-2.png" alt="My helpful screenshot" /><br /></p>
+
+<p>Sonrasında açılan sayfada aşağıda anlattıklarımı kendinize göre ekleyin.</p>
+
+<p>address 192.168.2.24  (Görüldüğü gibi ben 24 verdim bu benim şu anki mevcut yerel ip adresim size tavsiyem sizde mevcut ip adresinizi verin mevcut ip adresinizi öğrenmek istiyorsanız komut satırınıza ifconfig yazmanız yeterli )</p>
+
+<p><img src="http://cemretok.com/images/4-3.png" alt="My helpful screenshot" /><br /></p>
+
+<p>netmask 255.255.255.0 (255 cihaza kadar ip adresi verebileceğinizi belirtiyor. Bu alt ağ içerisindesiniz )</p>
+
+<p>gateway 192.168.2.1  (Bu aslında modemin ip adresi. Siz kendi modeminizin ip adresini gireceksiniz. Mevcut ip adresiniz xxx.xxx.xxx.xxx olduğunu varsayalım. Mevcut ip adresinizin sonuna 1 koyun. xxx.xxx.xxx.1 )</p>
+
+<p>network 192.168.2.0  (Modemin ip adresi xxx.xxx.xxx.0 olmalıdır.)</p>
+
+<p>broadcast 192.168.2.255 (xxx.xxx.xxx.255 olmalıdır.)</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">address</span> <span class="mi">192</span><span class="o">.</span><span class="mi">168</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">24</span>
+<span class="n">netmask</span> <span class="mi">255</span><span class="o">.</span><span class="mi">255</span><span class="o">.</span><span class="mi">255</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">gateway</span> <span class="mi">192</span><span class="o">.</span><span class="mi">168</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">1</span>
+<span class="n">network</span> <span class="mi">192</span><span class="o">.</span><span class="mi">168</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">broadcast</span> <span class="mi">192</span><span class="o">.</span><span class="mi">168</span><span class="o">.</span><span class="mi">2</span><span class="o">.</span><span class="mi">255</span></code></pre></figure>
+
+<p>Şu sekilde gözükecektir.</p>
+
+<p><img src="http://cemretok.com/images/4-4.png" alt="My helpful screenshot" /><br /></p>
+
+<p>Son olarak Ctrl + X diyoruz ve Y tuşuna başıyoruz. Enter’a tıkladıktan sonra sistemi yeniden başlatmamız gerekiyor.</p>
+
+<p>isterseniz reboot komutunu kullanın istersenizde fişini çıkarıp takabilirsiniz.</p>
+
+<p>Not: reboot komutunun uygulanması için Super User olmak gerekiyor onun içinde aşağıdaki komutu kullanın.</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">sudo</span> <span class="n">su</span></code></pre></figure>
+
+<p>Şifre sorabilir Raspberry’nin kendi şifresi raspberry</p>
+
+<p>Sonrasında reboot derseniz sistem yeniden başlar.</p>
+
+
+  </section>
+  
+</article>
+
+
+
+      </div>
+
+      <footer class="footer">
+  <span class="footer__copyright">&copy; 2016 Cemre Tok.</span>
+</footer> 
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+    </div>
+  </body>
+</html>
