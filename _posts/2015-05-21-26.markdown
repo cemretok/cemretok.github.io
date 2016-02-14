@@ -1,0 +1,308 @@
+---
+layout: post
+title:  "PL/SQL Notları"
+date:   2015-05-21 21:00:00
+categories: Oracle, PL/SQL
+---
+
+{% highlight sql %}
+	DECLARE –Değişken Tanımlama
+	   message  varchar2(20):= 'Merhaba Dünya!';
+	BEGIN -- Gövde
+	   dbms_output.put_line(message);
+	END; -- Bitiş
+{% endhighlight %}
+	
+{% highlight sql %}
+	Declare
+		num1 Integer:= 5;
+		num2 Real:=5;
+		num3 double precision:=5;
+	Begin
+		dbms_output.put_line(num1); --5
+		dbms_output.put_line(num2); --5
+		dbms_output.put_line(num3); --5
+	End;
+{% endhighlight %}
+
+	Large Object (LOB) Veri Tipi – BFILE, BLOB, CLOB, NCLOB – Büyük verileri tutmak için Video binary gibi tipler. 
+	Subtype –Alt tipler, kullanıcının oluşturduğu.
+
+{% highlight sql %}
+	DECLARE
+	   SUBTYPE name IS char(20);
+	   SUBTYPE message IS varchar2(100);
+	   salutation name; -- salutation char(20) türünde bir değişken
+	   greetings message; --  greetings varchar2(100) türünde bir değişken
+	BEGIN
+	   salutation := 'Reader '; 
+	   greetings := 'Welcome to the World of PL/SQL';
+	   dbms_output.put_line('Hello ' || salutation || greetings); -- || birleştirme operatörü
+	END;
+{% endhighlight %}
+
+	Yerel ve Genel Değişken tanımlamaları
+
+{% highlight sql %}
+	DECLARE
+	   -- Genel değişkene iç bloğun içinden ulaşılabilir.
+	   num1 number := 95; 
+	BEGIN 
+	   dbms_output.put_line('Dış Değişken num1: ' || num1);
+	   DECLARE 
+		  -- Yerel değişkene bloğun dışından ulaşılamaz.
+		  num1 number := 195; 
+	   BEGIN 
+		  dbms_output.put_line('İç Değişken num1: ' || num1);
+	   END; 
+	END;
+{% endhighlight %}
+
+	Constant (Sabit) Tanımlama 
+{% highlight sql %}
+	PI CONSTANT NUMBER := 3.141592654;
+{% endhighlight %}
+
+	(') işaretinin yazımı
+{% highlight sql %}
+	 message  varchar2(30):= ''That''s tutorialspoint.com!'';
+{% endhighlight %}
+ 
+	Conditions
+
+{% highlight sql %}
+	IF
+
+	IF (a <= 20) THEN
+	   S1; 
+	ELSE 
+	   S2;
+	END IF;
+
+	IF ( a = 10 ) THEN
+		  dbms_output.put_line('Value of a is 10' );
+	   ELSIF ( a = 20 ) THEN
+		  dbms_output.put_line('Value of a is 20' );
+	   ELSE
+		   dbms_output.put_line('None of the values is matching');
+	END IF;
+{% endhighlight %}
+
+{% highlight sql %}
+
+   CASE grade
+      when 'A' then dbms_output.put_line('Excellent');
+      when 'B' then dbms_output.put_line('Very good');
+      when 'F' then dbms_output.put_line('Better try again');
+      else dbms_output.put_line('No such grade');
+   END CASE;
+
+{% endhighlight %}
+   
+{% highlight sql %}
+   case 
+      when grade = 'A' then dbms_output.put_line('Excellent');
+      when grade = 'B' then dbms_output.put_line('Very good');
+      when grade = 'F' then dbms_output.put_line('Better try again');
+      else dbms_output.put_line('No such grade');
+   end case;
+{% endhighlight %}
+   
+   LOOP
+
+{% highlight sql %}
+   DECLARE
+	   x number := 10;
+	BEGIN
+	   LOOP
+		  dbms_output.put_line(x);
+		  x := x + 10;
+		  IF x > 50 THEN
+			 exit;
+		  END IF;
+	   END LOOP;
+	   -- after exit, control resumes here
+	   dbms_output.put_line('After Exit x is: ' || x);
+	END;
+{% endhighlight %}
+	
+{% highlight sql %}
+	LOOP
+      dbms_output.put_line(x);
+      x := x + 10;
+      exit WHEN x > 50;
+   END LOOP;
+{% endhighlight %}
+   
+   WHILE
+
+{% highlight sql %}  
+    WHILE a < 20 LOOP
+      dbms_output.put_line('value of a: ' || a);
+      a := a + 1;
+   END LOOP;
+{% endhighlight %}
+   
+   FOR
+ 
+{% highlight sql %} 
+    DECLARE
+	   a number(2);
+	BEGIN
+	   FOR a in 10 .. 20 LOOP
+		   dbms_output.put_line('value of a: ' || a);
+	  END LOOP;
+	END;
+{% endhighlight %}
+
+{% highlight sql %}	
+	DECLARE
+	   a number(2) ;
+	BEGIN
+	   FOR a IN REVERSE 10 .. 20 LOOP
+		  dbms_output.put_line('value of a: ' || a);
+	   END LOOP;
+	END;
+{% endhighlight %}
+	
+{% highlight sql %}
+	IF a > 15 THEN EXIT;   or    EXIT WHEN a > 15;  --Loopdan çıkmak için kullanılır.
+{% endhighlight %}
+	
+{% highlight sql %}	
+	CONTINUE -- Loopda atlamak için kullanılır.
+    GOTO loopstart; -- <<loopstart>> etiketine gider
+{% endhighlight %}
+	
+	Genel Fonksiyonlar
+
+{% highlight sql %}	
+   greetings varchar2(11) := 'hello world';
+   dbms_output.put_line(UPPER(greetings)); -- HELLO WORLD
+   dbms_output.put_line(LOWER(greetings)); -- hello world
+   dbms_output.put_line(INITCAP(greetings)); -- Hello World
+   dbms_output.put_line ( SUBSTR (greetings, 1, 1)); -- h
+   dbms_output.put_line ( SUBSTR (greetings, -1, 1)); -- d
+   dbms_output.put_line ( SUBSTR (greetings, 7, 5)); -- World
+   dbms_output.put_line ( SUBSTR (greetings, 2)); -- ello World
+   dbms_output.put_line ( INSTR (greetings, 'e')); -- 2
+   
+   greetings varchar2(30) := '......Hello World.....';
+   dbms_output.put_line(RTRIM(greetings,'.')); -- ......Hello World 
+   dbms_output.put_line(LTRIM(greetings, '.')); -- Hello World.....
+   dbms_output.put_line(TRIM( '.' from greetings)); -- Hello World
+
+{% endhighlight %}
+   
+   
+   Array (Varray)
+  
+{% highlight sql %} 
+   CREATE OR REPLACE TYPE varray_type_name IS VARRAY(n) of <element_type> -- Tip oluşturma
+   CREATE Or REPLACE TYPE namearray AS VARRAY(3) OF VARCHAR2(10); -- Tip oluşturma
+   
+   TYPE namearray IS VARRAY(5) OF VARCHAR2(10); -- Basitleştirilmiş tip oluşturma
+{% endhighlight %}
+
+{% highlight sql %}   
+   DECLARE
+	   type namesarray IS VARRAY(5) OF VARCHAR2(10);
+	   type grades IS VARRAY(5) OF INTEGER;
+	   names namesarray;
+	   marks grades;
+	   total integer;
+	BEGIN
+	   names := namesarray('Kavita', 'Pritam', 'Ayan', 'Rishav', 'Aziz');
+	   marks:= grades(98, 97, 78, 87, 92);
+	   total := names.count;
+	   dbms_output.put_line('Total '|| total || ' Students');
+	   FOR i in 1 .. total LOOP
+		  dbms_output.put_line('Student: ' || names(i) || '
+		  Marks: ' || marks(i));
+	   END LOOP;
+	END;
+{% endhighlight %}
+	
+	Tanımlamalar
+
+{% highlight sql %}	
+	v_EmpName  emp.ename%TYPE; -- ename kolonu tipinde değişken oluşturur.
+	
+	DECLARE
+	   v_EmpName  emp.ename%TYPE;
+	BEGIN
+	   SELECT ename INTO v_EmpName FROM emp WHERE ROWNUM = 1;
+	   DBMS_OUTPUT.PUT_LINE('Name = ' || v_EmpName);
+	END;
+{% endhighlight %}
+
+{% highlight sql %}
+	v_emp emp%ROWTYPE; -- emp tablosu tipinde değişken oluşturur.	
+	
+	DECLARE
+	  v_emp emp%ROWTYPE;
+	BEGIN
+	  v_emp.empno := 10;
+	  v_emp.ename := 'XXXXXXX';
+	END;
+{% endhighlight %}
+ 
+    Procedure
+
+{% highlight sql %}	
+	CREATE OR REPLACE PROCEDURE -- Yeni oluştur yada varolanı değiştir.
+{% endhighlight %}
+
+{% highlight sql %}	
+	CREATE OR REPLACE PROCEDURE deneme1
+	AS
+	BEGIN
+	   dbms_output.put_line('Merhaba Dünya!');
+	END;
+
+	
+	BEGIN
+	   greetings; -- bu şekilde çağrılırsa Merhaba Dünya! basılır.
+	   DROP PROCEDURE greetings; -- Prosedür silinir.
+	END;
+{% endhighlight %}
+
+{% highlight sql %}
+	DECLARE
+	   a number;
+	PROCEDURE squareNum(x IN OUT number) IS --Parametre x alıyor ve dönüyor.
+	BEGIN
+	  x := x * x;
+	END; --prosedür bitti
+	BEGIN -- başka bir sorgu
+	   a:= 23;
+	   squareNum(a); -- prosedürü çağır
+	   dbms_output.put_line(' Square of (23): ' || a);
+	END;
+{% endhighlight %}
+	
+	Function
+
+{% highlight sql %}
+	 
+	CREATE OR REPLACE FUNCTION -- Yeni oluştur yada varolanı değiştir.
+	
+	CREATE OR REPLACE FUNCTION totalCustomers
+	RETURN number IS
+	   total number(2) := 0;
+	BEGIN
+	   SELECT count(*) into total
+	   FROM customers;
+	   
+	   RETURN total;
+	END;
+
+	
+	DECLARE
+	   c number(2);
+	BEGIN
+	   c := totalCustomers();
+	   dbms_output.put_line('Total no. of Customers: ' || c);
+	END;
+
+{% endhighlight %}

@@ -1,0 +1,26 @@
+---
+layout: post
+title:  "SubTeacher (Altyazı Kelime Öğretici)"
+date:   2014-09-29 21:51:27
+categories: java
+---
+SubTeacher'ı can sıkıntısına JavaFX ile geliştirdim, geliştirmeyede devam ediyorum. İngilizce altyazılı film izlerken aklıma takılan kelimeler oluyordu onları öğrenmek için, en azından aklımda kalması için bir yöntem arıyordum ki bulamadım, bende bu nedenle SubTeacher'ı geliştirmeye başladım. Kaynak kodlar herkese açıktır. Github sayfasından [SubTeacher][2] ulaşılabilir.
+
+<br>![My helpful screenshot]({{ site.url }}/images/14-1.png)<br>
+<br>![My helpful screenshot]({{ site.url }}/images/14-2.png)<br>
+*Resimler Matrix'e ait
+
+Resimlerde de görüldüğü gibi uygulama istenileni yapıyor. Daha sonraki geliştirme sürecinde de [README.md][1] sayfasında belirttiğim gibi geliştirmeler olacak, bunlar;
+
+Çekimli kelimelerin çevrilmesi.
+Çeviri sıklığı seçeneği eklenmesi. (Cümlede bir ya da on satırda bir çeviri gibi...)
+Bağlaçların çevrilmemesi.
+Veritabanının kaldırılıp online aktarıma geçilmesi.
+Vakit olursa programın online halde de çalışmasını planlıyorum.
+Veritabanındaki kelimelerin düzeltilmesi.
+Seviyeye göre çeviri yapılması. (database'in düzenlenmesi gerekiyor -uzun iş-)
+Çok ütapik olacak ama kim bilir belki ilerde dil işleme bile yapılabilir.
+
+
+[1]: https://github.com/cemretok/SubTeacher/blob/master/README.md
+[2]: https://github.com/cemretok/SubTeacher

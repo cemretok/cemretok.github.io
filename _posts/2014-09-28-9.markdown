@@ -1,0 +1,14 @@
+---
+layout: post
+title:  "Linux da dosya kısayolu oluşturmak"
+date:   2014-09-28 21:51:27
+categories: linux
+---
+Dosyaların kısa yolunu oluşturmak için gerekli olan komut;
+
+
+{% highlight ruby %}
+ln -s /dosya/yolu      kısayoladı
+{% endhighlight %}
+<br>![My helpful screenshot]({{ site.url }}/images/9-1.png)<br>
+Bu kod bulunduğunuz dizine <b>/dosya/yolunu</b> verdiğiniz dosyanın kısa yolunu yerleştirir.

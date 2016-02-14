@@ -1,0 +1,20 @@
+---
+layout: post
+title:  "Java MySql bağlantısında karakter sorunu"
+date:   2015-06-18 21:30:00
+categories: Java, MySql
+---
+
+DB connection;
+{% highlight sql %}
+jdbc:mysql://localhost:3306/dbname?user=root&password=
+{% endhighlight %}
+
+DB character sets;
+
+<b><a href="http://cemretok.github.io/images/28-1.png">http://cemretok.github.io/images/28-1.png</a><b><br>
+
+Eclipse kullanılıyorsa, <b>Run>Run Configurations>Common>Encoding>Other>UTF-8<b>
+
+
+

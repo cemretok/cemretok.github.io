@@ -1,0 +1,39 @@
+# Site settings
+title: Cemre Tok
+description: 'Blog ve KB'
+url: 'http://cemretok.com'
+baseurl: '/'
+# google_analytics: 'UA-XXXXXX-X'
+# disqus_shortname: 'your-disqus-name'
+
+author:
+  name: 'Cemre Tok'
+  email: josh@joshgerdes.com
+  twitter_username: cemretok
+  facebook_username: tokcemre
+  github_username:  cemretok
+  linkedin_username:  cemre-tok-3a65b75b
+
+defaults:
+  -
+    scope:
+      path: ''
+      type: 'posts'
+    values:
+        layout: 'post'
+
+# Build settings
+destination: _site
+paginate: 10
+permalink: /:year/:title/
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  # use Github Flavored Markdown
+  input: GFM
+  # do not replace newlines by <br>s
+  hard_wrap: false
+
+gems: ['jekyll-paginate']
+exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']

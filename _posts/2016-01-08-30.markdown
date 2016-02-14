@@ -1,0 +1,27 @@
+---
+layout: post
+title:  "MySQL'de batch insert nasıl yapılır?"
+date:   2015-06-18 21:30:00
+categories: Mysql, Batch, hibernate, JDBC
+---
+
+MySQL'de batch insert
+
+350.000.000 Milyon Row'luk bir insert işlemi 25 saat gibi kısa bir sürede gerçekleşebilmesi için Mysql my.cnf my.ini dosyalarında [mysqld] altına;
+
+{% highlight sql %}
+[mysqld]
+innodb_buffer_pool_size=2G
+{% endhighlight %}
+
+Yukarıdaki gibi ekleme yapmak gerekiyor. Ram miktarı mevcut sisteme göre değiştirilebilir, 4gb'lik bir Mac bilgisayarda bu değer uygun.
+
+Hibernate Batch işlemleri için uygun değil nedenide batch insertlerde id ile ilgili sıkıntı yaşaması. Bu nedenle en uygun batch işlemi için JDBC batch kullanılmalı. Örnekler mevcut gayette kolay uygulanabiliyor.
+
+Mysql connection string'ine 
+
+{% highlight sql %}
+jdbc:mysql://localhost:8889/db_adi?rewriteBatchedStatements=true
+{% endhighlight %}
+
+Yıkardaki gibi soru işaretinden sonraki kısmın eklenmesi gerekiyor. İşin ilginç tarafı eklenmeyincede çalışıyor ama mysql dokümanlarında ekleyin yazıyor. Eski sürümlerde koyulması zorlu olabilir belki ama 5.5 versiyonunda koyulmasada çalışıyor.

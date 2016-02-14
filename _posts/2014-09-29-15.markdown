@@ -1,0 +1,80 @@
+---
+layout: post
+title:  "Linux Çekirdek Güncellemesi"
+date:   2014-09-29 21:51:27
+categories: linux
+---
+<b>Bu yazıyı tamamen okuduktan sonra işlemleri yapmaya başlarsanız hatayla karşılaşma oranınınız en aza iner. Altta bulunan not kısmı karşılaşılabilecek potansiyel hataları ve çözüm yollarını anlatmaktadır.</b>
+
+Linux -Ubuntu- sistemde çekirdek güncellemesi yapıcaz ben sanal sürücüde gerçekleştirdim bu işlemi yaklaşık 2 saat kadar sürdü. Herhangi bir linux dağıtımında da fazla bir değişiklik olmadan aynı kodların çalıştığını belirtmek isterim.
+
+-Zor Yöntem-
+
+1) İlk başta "<b>uname -a</b>" komutu ile çekirdek versiyonunu öğreniyoruz.
+
+<br>![My helpful screenshot]({{ site.url }}/images/15-1.png)<br>
+
+2)  “<b>Kernel</b>” adında bir dosya oluşturdum ve içerisine Linux’un son stabil versiyonu olan “<b>3.16.3</b>” paketini taşıdım. Bu paket kernel.org sitesinden indirilebilir. "<b>tar.xz</b>" uzantılı olanı ve patch dasyasını indireceksiniz.
+
+<br>![My helpful screenshot]({{ site.url }}/images/15-2.png)<br>
+
+3) Kernel dosyası içindeki çekirdeği sıkıştırılmış formattan çıkarttım.
+
+<br>![My helpful screenshot]({{ site.url }}/images/15-3.png)<br>
+
+4)   Sonrasında Linux versiyonunun yanındaki patch’in  çekirdeğe kurulumunu yaptım "<b>-R</b>" burada "<b>repeat</b>" yani tekrar anlamı taşıyor.
+
+<br>![My helpful screenshot]({{ site.url }}/images/15-4.png)<br>
+
+5) Çekirdeğin kullanıcı isteğine göre modüllerinin eklenip çıkartılması için gerekli olan “<b>make menuconfig</b>” komutunu çalıştırdım ama gerekli kütüphaneler olmadığı için çalışmadı bu nedenle “<b>apt-get install libncurses5-dev</b>” komutuyla “<b>libncurses5-dev</b>“ paketini kurdum. Eğer “<b>make menuconfig</b>” işlemini yapmazsanız, yükleme yaparken yaklaşık 50 kadar soruya tek tek cevap vermeniz gerekecek o yüzden yapmanızı tavsiye ederim.
+
+<br>![My helpful screenshot]({{ site.url }}/images/15-5.png)<br>
+
+6) Ardından “<b>make menuconfig</b>” komutunu çalıştırdım.
+
+<br>![My helpful screenshot]({{ site.url }}/images/15-6.png)<br>
+
+<br>![My helpful screenshot]({{ site.url }}/images/15-7.png)<br>
+
+Herhangi bir değişiklik yapmadım. İstenirse modüller eklenip çıkartılabiliyor ama sonra USB belleğim ya da Internetim neden çalışmıyor diyebilirsiniz, dikkatli işlem yapmak gerekiyor.
+
+7) Sonrasında "<b>apt-get install kernel-package</b>" gerekli olan “<b>kernel-package</b>” aracını yükledim. Kernel'ı derliyor.
+
+<br>![My helpful screenshot]({{ site.url }}/images/15-8.png)<br>
+
+8) Derleme komutu “<b>make-kpkg kernel-image kernel_headers --initrd</b>”
+
+<br>![My helpful screenshot]({{ site.url }}/images/15-9.png)<br>
+
+
+
+Benim yaptığım derleme işlemi toplamda 1 saat 50 dakika sürdü.
+
+10) Sonrasında  kernel dosyası içinde oluşan “<b>.deb</b>” uzantılı paketleri yükledim. Biri image diğeri header paketi. Bunların yedeğini almakta fayda var derlemesi 2 saat sürüyor.
+
+<br>![My helpful screenshot]({{ site.url }}/images/15-10.png)<br>
+
+11) Yükleme işlemi bittikten sonra linux'u yeniden başlatıyoruz. Bilgisayar açıldığı sırada "<b>Shift</b>" tuşuna basılı tutuyoruz.
+
+<br>![My helpful screenshot]({{ site.url }}/images/15-11.png)<br>
+
+Karşımıza buna benzer bir ekran gelecek buradan çalıştırmak istediğimiz çekirdek sürümünü seçiyoruz. Bir önceki sürüm "<b>Previous Linux Versions</b>" sekmesinde gözükecektir. Biz son yüklediğimiz versiyonu seçiyoruz ve başlatıyoruz.
+
+12) Terminal satırına "<b>uname -a</b>" komutunu giriyoruz ve yüklediğiniz çekirdeğin sürümünü görüyorsanız işlem tamam demektir. Görmüyorsanız alttaki not kısmını okuyun. Aynı işi yapan "<b>uname -r</b>" ile sadece sürümü görüntülersiniz.
+
+<b>**Not: Eğer yaptığınız kernel güncellemesi mevcut işletim sistemiyle uyuşmazlık yaşarsa sistemdeki bütün sürücüler hata vermeye başlar.  Bu nedenle kullandığınız kernel sürümüyle update edeceğiniz kernel sürümünün yakın olmasına dikkat edin kernel da 3.16.7 diyorsa siz 3.16.40 ya da 3.17.0 gibi güncellemeleri kurun. Zira sistemi kullanılmaz hale getirme olasılığınız çok yüksek.</b>
+
+-Kolay Yöntem-
+
+Aslında işlemler 12. adımda bitti fakat bir yöntem daha var ondan da bahsetmek istiyorum. Yazının başlarında hazır "<b>.deb</b>" kernel paketlerinden bahsetmiştik işte bunların yüklenmesi ile ilgili bikaç şey söylemek istiyorum.
+
+Şu sayfada ->http://kernel.ubuntu.com/~kernel-ppa/mainline/ bütün kernel sürümlerini bulmak mümkün örneğin "<b>3.15.10</b>" sürümünü ele alalım.
+
+<br>![My helpful screenshot]({{ site.url }}/images/15-12.png)<br>
+Seçtiğimiz paketleri aşağıdaki gibi bir komutla indirip, yüklüyoruz.
+
+
+{% highlight ruby %}
+cd /kernel && wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v3.15.10-utopic/linux-headers-3.15.10-031510-generic_3.15.10-031510.201408132333_i386.deb http://kernel.ubuntu.com/~kernel-ppa/mainline/v3.15.10-utopic/linux-headers-3.15.10-031510_3.15.10-031510.201408132333_all.deb http://kernel.ubuntu.com/~kernel-ppa/mainline/v3.15.10-utopic/linux-image-3.15.10-031510-generic_3.15.10-031510.201408132333_i386.deb && sudo dpkg -i *.deb
+{% endhighlight %}
+Bu dosyaların "<b>cd /kernel</b>cd /kernel" komutu ile "<b>kernel</b>" dizinine "<b>wget</b>" aracı ile indiriyorum sonrasında "<b>sudo dpkg -i *.deb</b>" ile de inen paketlerin kurulumunu yapıyorum. Böylece 2 saat derlemekle uğraşmadan hazır derlenmiş paketin kurulumunu yapabiliyorum. Gayet kolay bir yöntem.

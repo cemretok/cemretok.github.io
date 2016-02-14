@@ -1,0 +1,88 @@
+---
+layout: post
+title:  "Dinamik DNS ile Raspberry pi'ye Sabit İp vermek (DDNS)"
+date:   2014-09-28 21:51:27
+categories: linux
+---
+Sorunla karşılaşmamak için uygulamaya geçmeden önce konuyu baştan sona kadar okumanızı tavsiye ederim.
+
+Mevcut internet bağlantınızda modeminizi kapattığınız an ip adresiniz anında değişir tabi aylık ekstra ücret karşılığında statik ip adresi almadıysanız. İşte bizde para vermemek için ip adresimiz değiştiği an bunu dns server'a iletecek bir yazılım kurulumu yapacağız.
+
+İlk olarak bu hizmeti veren [http://freedns.afraid.org/signup/][1] siteye üye oluyoruz. Sonrasında sol üst köşeden Dynamic DNS linkine tıklıyoruz.
+
+![My helpful screenshot]({{ site.url }}/images/5-1.png)<br>
+
+
+
+Sonra add a new subdomain butonuna tıklayarak aşağıdaki  ilk 3 kısmı dolduruyoruz.
+
+![My helpful screenshot]({{ site.url }}/images/5-2.png)<br>
+
+İçi boş kırmızı kare'nin üstüne geliyoruz ve sağ tıklayıp adresi kopyala diyoruz.
+
+![My helpful screenshot]({{ site.url }}/images/5-3.png)<br>
+
+<b>http://www.freedns.afraid.org/dynamic/update.php?Z09NUEtktOamNvQ**********Q5MTMz</b>
+Yukardakine benzer bir adres karşınıza çıkacak bu adresdeki kırmızı kısım ilerki adımlarda işimize yarıycak bi kenarda dursun şimdilik.
+
+Şimdi Raspberry pi'nin terminal kısmına aşağıdaki kodu yazıyoruz.
+
+{% highlight ruby %}
+sudo apt-get install inadyn
+{% endhighlight %}
+
+ (inadyn programını yüklemiş olduk)
+Şimdi bu programdaki şeyleri biraz değiştirmek gerekiyor, aşağıdaki komutu giriyoruz.
+
+
+{% highlight ruby %}
+sudo nano /etc/inadyn.conf
+{% endhighlight %}
+Karşınıza gelen ekrana;
+
+
+{% highlight ruby %}
+--username kullanıcı adınız
+--password şifreniz
+--update_period 3600
+--forced_update_period 14400
+--alias adresiniz.mooo.com,Z09NUEtktOamNvQ**********Q5MTMz
+--background 
+--dyndns_system default@freedns.afraid.org 
+--syslog
+{% endhighlight %}
+
+
+Yukarıdaki değişiklikleri yapıyoruz ve Ctrl + X deyip kaydediyoruz. Y'ye basıyoruz Enter'a basıp çıkıyoruz.
+update_period 3600 kısmından 3600 saniyede bir değişim oluyor siz bunu değiştirebilirsiniz.
+
+
+
+![My helpful screenshot]({{ site.url }}/images/5-4.png)<br>
+
+
+
+İşlem tamam ama raspberry her açıldığında bunu otomatik hale getirmemiz gerekiyor bunun içinde aşağıdaki adımları yapmanız gerekiyor.
+
+İlk olarak aşağıdaki komutu yazıyoruz;
+
+
+{% highlight ruby %}
+export EDITOR=gedit && sudo crontab -e
+{% endhighlight %}
+Sonrasında açılan kısımda aşağıdaki kodu en alt kısma ekliyoruz.
+
+
+{% highlight ruby %}
+@reboot /usr/sbin/inadyn
+{% endhighlight %}
+Ctrl + X 'e basıp kaydediyoruz. Sonra Y ve Enter diyoruz. Artık işlem tamam reboot komutuyla yada fişi takıp çıkararak raspberry'i tekrar başlatıyoruz. ve yeniden açılınca aşağıdaki kodu yazıyoruz bu sayede yaptığımız işlemler başarılı olup olmadığını anlayabiliyoruz.
+
+
+{% highlight ruby %}
+ps -A | grep inadyn
+{% endhighlight %}
+Kendi ip adresinizi bulup birde linke tıklayıp ikisininde aynı olduğunu gördüğünüzde işlem tamam demektir.
+Kolay gelsin.
+
+[1]: http://freedns.afraid.org/signup/
