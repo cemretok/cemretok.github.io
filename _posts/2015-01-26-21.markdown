@@ -2,7 +2,7 @@
 layout: post
 title:  "Dex2jar Mac"
 date:   2015-01-26 21:51:27
-categories: android
+categories: [android]
 ---
 
 Apk'nın sonuna .zip ekle dosyayı aç <b>classes.dex</b> dosyasını al dex2jar'ın içine koy cd ile dex2jar'ın içine git ve aşağıdaki komutu çalıştır.

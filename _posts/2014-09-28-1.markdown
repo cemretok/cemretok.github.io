@@ -2,7 +2,7 @@
 layout: post
 title:  "Ssh bağlantısında RSA sorunu (Shh host key verification failed)"
 date:   2014-09-28 21:51:27
-categories: linux
+categories: [linux]
 ---
 <b>Bir hata ile karşılaşmamak için tüm yazıyı okuduktan sonra uygulamaya geçmenizde fayda var.</b>
 
@@ -25,6 +25,3 @@ Sonrasında terminale "<b>ssh kullanıcıadı@192.168.2.10</b>" yazılır yeni b
 
 Not: Kullanıcı adı bağlanacağınız pc'nin kullanıcı adıdır. İp adresi yine bağlanılacak pc'nin ip adresidir.
 
-[jekyll]:      http://jekyllrb.com
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-help]: https://github.com/jekyll/jekyll-help

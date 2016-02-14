@@ -2,7 +2,7 @@
 layout: post
 title:  "Linux Çekirdek Güncellemesi"
 date:   2014-09-29 21:51:27
-categories: linux
+categories: [linux]
 ---
 <b>Bu yazıyı tamamen okuduktan sonra işlemleri yapmaya başlarsanız hatayla karşılaşma oranınınız en aza iner. Altta bulunan not kısmı karşılaşılabilecek potansiyel hataları ve çözüm yollarını anlatmaktadır.</b>
 
@@ -12,39 +12,39 @@ Linux -Ubuntu- sistemde çekirdek güncellemesi yapıcaz ben sanal sürücüde g
 
 1) İlk başta "<b>uname -a</b>" komutu ile çekirdek versiyonunu öğreniyoruz.
 
-<br>![My helpful screenshot]({{ site.url }}/images/15-1.png)<br>
+<br>![Resim](/images/15-1.png)<br>
 
 2)  “<b>Kernel</b>” adında bir dosya oluşturdum ve içerisine Linux’un son stabil versiyonu olan “<b>3.16.3</b>” paketini taşıdım. Bu paket kernel.org sitesinden indirilebilir. "<b>tar.xz</b>" uzantılı olanı ve patch dasyasını indireceksiniz.
 
-<br>![My helpful screenshot]({{ site.url }}/images/15-2.png)<br>
+<br>![Resim](/images/15-2.png)<br>
 
 3) Kernel dosyası içindeki çekirdeği sıkıştırılmış formattan çıkarttım.
 
-<br>![My helpful screenshot]({{ site.url }}/images/15-3.png)<br>
+<br>![Resim](/images/15-3.png)<br>
 
 4)   Sonrasında Linux versiyonunun yanındaki patch’in  çekirdeğe kurulumunu yaptım "<b>-R</b>" burada "<b>repeat</b>" yani tekrar anlamı taşıyor.
 
-<br>![My helpful screenshot]({{ site.url }}/images/15-4.png)<br>
+<br>![Resim](/images/15-4.png)<br>
 
 5) Çekirdeğin kullanıcı isteğine göre modüllerinin eklenip çıkartılması için gerekli olan “<b>make menuconfig</b>” komutunu çalıştırdım ama gerekli kütüphaneler olmadığı için çalışmadı bu nedenle “<b>apt-get install libncurses5-dev</b>” komutuyla “<b>libncurses5-dev</b>“ paketini kurdum. Eğer “<b>make menuconfig</b>” işlemini yapmazsanız, yükleme yaparken yaklaşık 50 kadar soruya tek tek cevap vermeniz gerekecek o yüzden yapmanızı tavsiye ederim.
 
-<br>![My helpful screenshot]({{ site.url }}/images/15-5.png)<br>
+<br>![Resim](/images/15-5.png)<br>
 
 6) Ardından “<b>make menuconfig</b>” komutunu çalıştırdım.
 
-<br>![My helpful screenshot]({{ site.url }}/images/15-6.png)<br>
+<br>![Resim](/images/15-6.png)<br>
 
-<br>![My helpful screenshot]({{ site.url }}/images/15-7.png)<br>
+<br>![Resim](/images/15-7.png)<br>
 
 Herhangi bir değişiklik yapmadım. İstenirse modüller eklenip çıkartılabiliyor ama sonra USB belleğim ya da Internetim neden çalışmıyor diyebilirsiniz, dikkatli işlem yapmak gerekiyor.
 
 7) Sonrasında "<b>apt-get install kernel-package</b>" gerekli olan “<b>kernel-package</b>” aracını yükledim. Kernel'ı derliyor.
 
-<br>![My helpful screenshot]({{ site.url }}/images/15-8.png)<br>
+<br>![Resim](/images/15-8.png)<br>
 
 8) Derleme komutu “<b>make-kpkg kernel-image kernel_headers --initrd</b>”
 
-<br>![My helpful screenshot]({{ site.url }}/images/15-9.png)<br>
+<br>![Resim](/images/15-9.png)<br>
 
 
 
@@ -52,11 +52,11 @@ Benim yaptığım derleme işlemi toplamda 1 saat 50 dakika sürdü.
 
 10) Sonrasında  kernel dosyası içinde oluşan “<b>.deb</b>” uzantılı paketleri yükledim. Biri image diğeri header paketi. Bunların yedeğini almakta fayda var derlemesi 2 saat sürüyor.
 
-<br>![My helpful screenshot]({{ site.url }}/images/15-10.png)<br>
+<br>![Resim](/images/15-10.png)<br>
 
 11) Yükleme işlemi bittikten sonra linux'u yeniden başlatıyoruz. Bilgisayar açıldığı sırada "<b>Shift</b>" tuşuna basılı tutuyoruz.
 
-<br>![My helpful screenshot]({{ site.url }}/images/15-11.png)<br>
+<br>![Resim](/images/15-11.png)<br>
 
 Karşımıza buna benzer bir ekran gelecek buradan çalıştırmak istediğimiz çekirdek sürümünü seçiyoruz. Bir önceki sürüm "<b>Previous Linux Versions</b>" sekmesinde gözükecektir. Biz son yüklediğimiz versiyonu seçiyoruz ve başlatıyoruz.
 
@@ -70,7 +70,7 @@ Aslında işlemler 12. adımda bitti fakat bir yöntem daha var ondan da bahsetm
 
 Şu sayfada ->http://kernel.ubuntu.com/~kernel-ppa/mainline/ bütün kernel sürümlerini bulmak mümkün örneğin "<b>3.15.10</b>" sürümünü ele alalım.
 
-<br>![My helpful screenshot]({{ site.url }}/images/15-12.png)<br>
+<br>![Resim](/images/15-12.png)<br>
 Seçtiğimiz paketleri aşağıdaki gibi bir komutla indirip, yüklüyoruz.
 
 

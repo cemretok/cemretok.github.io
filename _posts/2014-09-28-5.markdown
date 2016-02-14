@@ -2,25 +2,25 @@
 layout: post
 title:  "Dinamik DNS ile Raspberry pi'ye Sabit İp vermek (DDNS)"
 date:   2014-09-28 21:51:27
-categories: linux
+categories: [linux]
 ---
 Sorunla karşılaşmamak için uygulamaya geçmeden önce konuyu baştan sona kadar okumanızı tavsiye ederim.
 
 Mevcut internet bağlantınızda modeminizi kapattığınız an ip adresiniz anında değişir tabi aylık ekstra ücret karşılığında statik ip adresi almadıysanız. İşte bizde para vermemek için ip adresimiz değiştiği an bunu dns server'a iletecek bir yazılım kurulumu yapacağız.
 
-İlk olarak bu hizmeti veren [http://freedns.afraid.org/signup/][1] siteye üye oluyoruz. Sonrasında sol üst köşeden Dynamic DNS linkine tıklıyoruz.
+İlk olarak bu hizmeti veren [http://freedns.afraid.org/signup/](http://freedns.afraid.org/signup/) siteye üye oluyoruz. Sonrasında sol üst köşeden Dynamic DNS linkine tıklıyoruz.
 
-![My helpful screenshot]({{ site.url }}/images/5-1.png)<br>
+![Resim](/images/5-1.png)<br>
 
 
 
 Sonra add a new subdomain butonuna tıklayarak aşağıdaki  ilk 3 kısmı dolduruyoruz.
 
-![My helpful screenshot]({{ site.url }}/images/5-2.png)<br>
+![Resim](/images/5-2.png)<br>
 
 İçi boş kırmızı kare'nin üstüne geliyoruz ve sağ tıklayıp adresi kopyala diyoruz.
 
-![My helpful screenshot]({{ site.url }}/images/5-3.png)<br>
+![Resim](/images/5-3.png)<br>
 
 <b>http://www.freedns.afraid.org/dynamic/update.php?Z09NUEtktOamNvQ**********Q5MTMz</b>
 Yukardakine benzer bir adres karşınıza çıkacak bu adresdeki kırmızı kısım ilerki adımlarda işimize yarıycak bi kenarda dursun şimdilik.
@@ -58,7 +58,7 @@ update_period 3600 kısmından 3600 saniyede bir değişim oluyor siz bunu deği
 
 
 
-![My helpful screenshot]({{ site.url }}/images/5-4.png)<br>
+![Resim](/images/5-4.png)<br>
 
 
 
@@ -85,4 +85,3 @@ ps -A | grep inadyn
 Kendi ip adresinizi bulup birde linke tıklayıp ikisininde aynı olduğunu gördüğünüzde işlem tamam demektir.
 Kolay gelsin.
 
-[1]: http://freedns.afraid.org/signup/

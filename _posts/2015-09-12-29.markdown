@@ -2,9 +2,9 @@
 layout: post
 title:  "Mac sistemde Android SDK PATH sorunu"
 date:   2015-06-18 21:30:00
-categories: Java, android, Mac
+categories: [Java], [android], [Mac]
 ---
 
 
 
-![My helpful screenshot]({{ site.url }}/images/29-1.png)<br>
+![Resim](/images/29-1.png)<br>

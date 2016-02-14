@@ -2,7 +2,7 @@
 layout: post
 title:  "Raspberry Pi ile video Oynatmak (Film izlemek)"
 date:   2014-09-28 21:51:27
-categories: linux
+categories: [linux]
 ---
 Raspberry'nin video işlemcisi oldukça gelişmiş olduğu için media player olarak kullanılabilmekte ve hatta videolara altyazı dahi eklenebiliyor.
 
@@ -13,7 +13,7 @@ Raspberry'nin video işlemcisi oldukça gelişmiş olduğu için media player ol
 sudo apt-get update (Paket güncellemesi)
 sudo apt-get -y install omxplayer (omxplayer kurulumu)
 {% endhighlight %}
-<br>![My helpful screenshot]({{ site.url }}/images/7-1.png)<br>
+<br>![Resim](/images/7-1.png)<br>
 İki Yöntem var ilki;
 
 Komut Satırı ile olan:
@@ -23,9 +23,9 @@ Sonrasında Videolarınızın olduğu dizine gelerek (cd komutuyla gelinebiliyor
 {% highlight ruby %}
 omxplayer filmadi.avi
 {% endhighlight %}
-<br>![My helpful screenshot]({{ site.url }}/images/7-2.png)<br>
+<br>![Resim](/images/7-2.png)<br>
 
-<br>![My helpful screenshot]({{ site.url }}/images/7-3.png)<br>
+<br>![Resim](/images/7-3.png)<br>
 Bu anlattıklarım zor olandı şimdi bilindik çift tıklama yöntemine geçelim:
 
 İlk yüklemeyi yaptıktan sonra aşağıdaki kod ile bir program daha yüklememiz gerekiyor
@@ -34,14 +34,14 @@ Bu anlattıklarım zor olandı şimdi bilindik çift tıklama yöntemine geçeli
 {% highlight ruby %}
 sudo apt-get install xterm
 {% endhighlight %}
-<br>![My helpful screenshot]({{ site.url }}/images/7-4.png)<br>
+<br>![Resim](/images/7-4.png)<br>
 Bunu yükledikten sonra aşağıdaki parametreleri izleyeceğiniz bir avi dosyasına sağ tıklayıp open with sonra customize sonrasında Custom Command Line'a geliyoruz ve oraya aşağıdaki parametreleri yazıyoruz.
 
 
 {% highlight ruby %}
 xterm -fullscreen -fg black -bg black -e omxplayer -o hdmi -r %f
 {% endhighlight %}
-<br>![My helpful screenshot]({{ site.url }}/images/7-5.png)<br>
+<br>![Resim](/images/7-5.png)<br>
 Tamam diyoruz ve çıkıyoruz.
 
 Artık filmin üstüne çift tıkladığınızda açılan esc ye bastığınızda çıkan, space'e bastığınızda duran ok'lara bastığınızda ileri geri giden bir medya playerınız var.

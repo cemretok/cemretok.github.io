@@ -2,7 +2,7 @@
 layout: post
 title:  "MySQL'de batch insert nasıl yapılır?"
 date:   2015-06-18 21:30:00
-categories: Mysql, Batch, hibernate, JDBC
+categories: [Mysql], [Batch], [hibernate], [JDBC]
 ---
 
 MySQL'de batch insert

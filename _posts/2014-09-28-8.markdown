@@ -2,7 +2,7 @@
 layout: post
 title:  "Raspberry dosya taşıma okuma hatası (İzin)"
 date:   2014-09-28 21:51:27
-categories: linux
+categories: [linux]
 ---
 Raspberry linux dağıtımı olduğu için aşağıdaki kod hangi dizine "<b>777</b>" yani tam izin vereceğinizi belirtiyor.
 
@@ -15,4 +15,4 @@ sudo chmod 777 /Klasör/yolu (Tek bir klasör için)
 {% highlight ruby %}
 sudo chmod -R 777 /Klasör/yolu (Hem klasör hemde alt dizinleri için)
 {% endhighlight %}
-<br>![My helpful screenshot]({{ site.url }}/images/8-1.png)<br>
+<br>![Resim](/images/8-1.png)<br>
