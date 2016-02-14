@@ -5,9 +5,26 @@
     <description>Blog ve KB</description>
     <link>http://cemretok.com//</link>
     <atom:link href="http://cemretok.com//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 14 Feb 2016 16:15:38 +0200</pubDate>
-    <lastBuildDate>Sun, 14 Feb 2016 16:15:38 +0200</lastBuildDate>
+    <pubDate>Sun, 14 Feb 2016 17:54:05 +0200</pubDate>
+    <lastBuildDate>Sun, 14 Feb 2016 17:54:05 +0200</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
+    
+      <item>
+        <title>Sublime için paket yöneticisi</title>
+        <description>&lt;p&gt;Site: https://packagecontrol.io/installation&lt;/p&gt;
+</description>
+        <pubDate>Sun, 14 Feb 2016 16:30:00 +0200</pubDate>
+        <link>http://cemretok.com//2016/32/</link>
+        <guid isPermaLink="true">http://cemretok.com//2016/32/</guid>
+        
+        
+        <category>Sublime,</category>
+        
+        <category>package</category>
+        
+        <category>manager,</category>
+        
+      </item>
     
       <item>
         <title>Welcome to Jekyll!</title>
@@ -538,23 +555,6 @@ Subtype –Alt tipler, kullanıcının oluşturduğu.
         <category>linux,</category>
         
         <category>mac</category>
-        
-      </item>
-    
-      <item>
-        <title>Linux daemon -init.d</title>
-        <description>&lt;p&gt;Linux ile programların servis gibi otomatik başlaması.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;http://cemretok.com/images/23-1.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;
-&lt;img src=&quot;http://cemretok.com/images/23-2.png&quot; alt=&quot;My helpful screenshot&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Mon, 30 Mar 2015 14:13:27 +0300</pubDate>
-        <link>http://cemretok.com//2015/23/</link>
-        <guid isPermaLink="true">http://cemretok.com//2015/23/</guid>
-        
-        
-        <category>linux</category>
         
       </item>
     
