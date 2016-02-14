@@ -1,1 +1,0 @@
-# Bu Sitede HPSTR Jekyll Theme Kullanılmıştır
