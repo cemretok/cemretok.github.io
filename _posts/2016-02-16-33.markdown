@@ -19,7 +19,7 @@ Terminalden o script dizinine giderek çalışma izni verdik.
 cemretok$ chmod +x script.sh
 ~~~
 
-Daha sonra script''in başına yada sonuna birşey koymadan çalıştırmak için aşağıdaki gibi "alias" oluşturduk.
+Daha sonra script'in başına yada sonuna birşey koymadan çalıştırmak için aşağıdaki gibi "alias" oluşturduk.
 ~~~ bash
-cemretok$ alias script=''script.sh''
+cemretok$ alias script=script.sh
 ~~~
