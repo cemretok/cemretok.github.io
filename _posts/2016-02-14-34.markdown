@@ -1,0 +1,25 @@
+---
+layout: post
+title:  "Linux ile sh ve dizin olmaksızın script çalıştırma"
+date:   2016-02-16 22:12:00
+categories: [Terminal]
+tags: [Terminal, linux, sh]
+---
+
+
+Öncelikle yazdığımız sh script'i istediğimiz bir dizine koyuyoruz. 
+
+{% highlight ruby %}
+export set PATH=$PATH:<script/dizini>
+export set PATH=$PATH:/Users/cemretok/bin
+{% endhighlight %}
+
+Terminalden o script dizinine giderek çalışma izni verdik.
+{% highlight ruby %}
+cemretok$ chmod +x script.sh
+{% endhighlight %}
+
+Daha sonra script'in başına yada sonuna birşey koymadan çalıştırmak için aşağıdaki gibi "alias" oluşturduk.
+{% highlight ruby %}
+cemretok$ alias script='script.sh'
+{% endhighlight %}

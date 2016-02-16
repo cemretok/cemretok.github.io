@@ -1,0 +1,10 @@
+---
+layout: post
+title:  "Terminal için başlangıç komutları"
+date:   2016-02-14 14:30:00
+categories: [Terminal]
+tags: [Terminal]
+---
+
+
+brew install tmux
