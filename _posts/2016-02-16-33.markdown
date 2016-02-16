@@ -9,13 +9,13 @@ tags: [Terminal, linux, sh]
 
 Öncelikle yazdığımız sh script'i istediğimiz bir dizine koyuyoruz. 
 
-~~~bash
+~~~ bash
 export set PATH=$PATH:<script/dizini>
 export set PATH=$PATH:/Users/cemretok/bin
 ~~~
 
 Terminalden o script dizinine giderek çalışma izni verdik.
-~~~bash
+~~~ bash
 cemretok$ chmod +x script.sh
 ~~~
 
