@@ -9,17 +9,17 @@ tags: [Terminal, linux, sh]
 
 Öncelikle yazdığımız sh script'i istediğimiz bir dizine koyuyoruz. 
 
-{% highlight ruby %}
+~~~bash
 export set PATH=$PATH:<script/dizini>
 export set PATH=$PATH:/Users/cemretok/bin
-{% endhighlight %}
+~~~
 
 Terminalden o script dizinine giderek çalışma izni verdik.
-{% highlight ruby %}
+~~~bash
 cemretok$ chmod +x script.sh
-{% endhighlight %}
+~~~
 
-Daha sonra script'in başına yada sonuna birşey koymadan çalıştırmak için aşağıdaki gibi "alias" oluşturduk.
-{% highlight ruby %}
-cemretok$ alias script='script.sh'
-{% endhighlight %}
+Daha sonra script''in başına yada sonuna birşey koymadan çalıştırmak için aşağıdaki gibi "alias" oluşturduk.
+~~~ bash
+cemretok$ alias script=''script.sh''
+~~~
