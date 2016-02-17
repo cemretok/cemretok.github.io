@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Terminal için başlangıç komutları</title>
+  <title>Linux ile sh ve dizin olmaksızın script çalıştırma</title>
   <meta name="description" content="Blog ve KB">
   <meta name="author" content="Cemre Tok">
   <meta name="HandheldFriendly" content="True">
@@ -147,13 +147,28 @@
         <article class="post-container post-container--single">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="14 Feb 2016" class="post-meta__date date">14 Feb 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Terminal">Terminal</a> </span>
+      <time datetime="17 Feb 2016" class="post-meta__date date">17 Feb 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Terminal">Terminal</a> </span>
     </div>
-    <h1 class="post-title">Terminal için başlangıç komutları</h1>
+    <h1 class="post-title">Linux ile sh ve dizin olmaksızın script çalıştırma</h1>
   </header>
 
   <section class="post">
-    <p>brew install tmux</p>
+    <p>Öncelikle yazdığımız sh script’i istediğimiz bir dizine koyuyoruz.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nb">export set </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:&lt;script/dizini&gt;
+<span class="nb">export set </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/Users/cemretok/bin
+</code></pre>
+</div>
+
+<p>Terminalden o script dizinine giderek çalışma izni verdik.
+~~~ bash
+cemretok$ chmod +x script.sh
+~~~</p>
+
+<p>Daha sonra script’in başına yada sonuna birşey koymadan çalıştırmak için aşağıdaki gibi “alias” oluşturduk.
+~~~ bash
+cemretok$ alias script=’script.sh’
+~~~</p>
 
   </section>
   
