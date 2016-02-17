@@ -15,11 +15,13 @@ export set PATH=$PATH:/Users/cemretok/bin
 ~~~
 
 Terminalden o script dizinine giderek çalışma izni verdik.
+
 ~~~ bash
 cemretok$ chmod +x script.sh
 ~~~
 
 Daha sonra script'in başına yada sonuna birşey koymadan çalıştırmak için aşağıdaki gibi "alias" oluşturduk.
+
 ~~~ bash
 cemretok$ alias script='script.sh'
 ~~~

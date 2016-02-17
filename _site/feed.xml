@@ -5,8 +5,8 @@
     <description>Blog ve KB</description>
     <link>http://cemretok.com//</link>
     <atom:link href="http://cemretok.com//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 18 Feb 2016 00:10:29 +0200</pubDate>
-    <lastBuildDate>Thu, 18 Feb 2016 00:10:29 +0200</lastBuildDate>
+    <pubDate>Thu, 18 Feb 2016 00:13:00 +0200</pubDate>
+    <lastBuildDate>Thu, 18 Feb 2016 00:13:00 +0200</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -18,15 +18,17 @@
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Terminalden o script dizinine giderek çalışma izni verdik.
-~~~ bash
-cemretok$ chmod +x script.sh
-~~~&lt;/p&gt;
+&lt;p&gt;Terminalden o script dizinine giderek çalışma izni verdik.&lt;/p&gt;
 
-&lt;p&gt;Daha sonra script’in başına yada sonuna birşey koymadan çalıştırmak için aşağıdaki gibi “alias” oluşturduk.
-~~~ bash
-cemretok$ alias script=’script.sh’
-~~~&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;cemretok$ &lt;/span&gt;chmod +x script.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Daha sonra script’in başına yada sonuna birşey koymadan çalıştırmak için aşağıdaki gibi “alias” oluşturduk.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;cemretok$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;script.sh&#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 </description>
         <pubDate>Wed, 17 Feb 2016 00:12:00 +0200</pubDate>
         <link>http://cemretok.com//2016/33/</link>
