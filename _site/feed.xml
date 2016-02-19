@@ -5,8 +5,8 @@
     <description>Blog ve KB</description>
     <link>http://cemretok.com//</link>
     <atom:link href="http://cemretok.com//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 18 Feb 2016 00:13:00 +0200</pubDate>
-    <lastBuildDate>Thu, 18 Feb 2016 00:13:00 +0200</lastBuildDate>
+    <pubDate>Fri, 19 Feb 2016 12:54:12 +0200</pubDate>
+    <lastBuildDate>Fri, 19 Feb 2016 12:54:12 +0200</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -38,6 +38,30 @@
         
         
         <category>Terminal</category>
+        
+      </item>
+    
+      <item>
+        <title>Şifreli Blog Post&#39;u denemesi (deneme)</title>
+        <description>&lt;p&gt;—–BEGIN PGP MESSAGE—–
+Version: GnuPG v1&lt;/p&gt;
+
+&lt;p&gt;jA0EBwMCKEcwRyKvVblg0sAGAeUBsUmrQvyLCn0A8whBn1GmcBtees6pSJSBGx2v
+yLLiBQFy/7K0zdfpfXSkIlXSdUwrrJqOg0FIN6eCEdgp3xNXoyvbABZhGp8ElC0B
+B9oG3LMXfZaht5U2ET8VvuNF4wORJzp3sBLjDiln2GIJt3GE1Kw5LX6B0OlYsrx+
+KlR0AY9N1V53AZIpNN4jANvXtn0ZBQtC4ya4Q7gsxi13kIfna+zY571m5DMrLX8E
+te5s09JBK9gdk2uIF4DCALm+mtWhoVef
+=pKmX
+—–END PGP MESSAGE—–&lt;/p&gt;
+</description>
+        <pubDate>Tue, 16 Feb 2016 14:53:00 +0200</pubDate>
+        <link>http://cemretok.com//2016/34/</link>
+        <guid isPermaLink="true">http://cemretok.com//2016/34/</guid>
+        
+        <category>sh</category>
+        
+        
+        <category>Encryption</category>
         
       </item>
     
@@ -517,32 +541,6 @@ Subtype –Alt tipler, kullanıcının oluşturduğu.
         
         
         <category>Jekyll</category>
-        
-      </item>
-    
-      <item>
-        <title>SSH ile sansürü önleme, yasaklı sitelere girme, güvenli internet</title>
-        <description>&lt;p&gt;SSH terminal aracılığıyla uzaktan yönetimi sahlayan bir teknoloji ve iki taraflı şifreleme sağlıyor. Yani güvenli bir bağlantı kuruluyor. Develeporler da demişki biz bunu interneti iletmek içinde kullanabiliriz hadi yapalım o zaman demişler ve Ssh üzerinden internet’e bağlanma olayı gerçekleşmiş. Mac için anlatacağım bu yöntem windows makinalarda da işliyor ama Putty adlı aracı kullanmak gerek nette nasıl olduğu bulunabilir. Ben burayı knowladge base olarak kullandığımdan dolayı mac için olanı anlatıcam öncelikle SSHTunnel uygulamasını indiriyoruz.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/24-1.png&quot; alt=&quot;Resim&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Server yazan kısma tıklıyoruz ve linux serverımızın ip adresini yazıyoruz port’u 22 yazıyoruz kullanıcı adını yeni oluşturduğumuz yetkisiz kullanıcının adını yazıyoruz ben “tunnel” dedim şifreyide yine belirlediğimiz şifreyi yazıyoruz. Bu kullanıcı açma içini bilmiyorsanız nette bulunabilir çok kolay 1 dakikanızı almaz. Neyse şimdi asıl olaya gelelim dediğimiz gibi 22. porttan ssh ile bağlanıcaz. Yukardan Sessions’a gelip oturum açmamız gerek oluşturduğumuz server’ı seçiyoruz. AirPort’u seçiyoruz ve 8080 portunu ayarlıyoruz ki bu 8080 portu üzerinden bütün interneti aktarız. Aşağıdaki toggle butonu “on” konumuna getirdikten sonra işi yarılıyoruz. Sonraki adımda Mac’in proxy ayarını yapıcaz bunun için ağ ayarlarına giricez.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/images/24-2.png&quot; alt=&quot;Resim&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;Resimdeki kısmı heralde herkes biliyordur, bilmiyorsanızda sistem ayarları bölümünden ağ ayarlarına tıklayınca geliyor. Burda SOCKS Proxy’i seçip server adına “localhost” yazıyoruz. Port kısmınada 8080 yazarsak Tamam deyip uygularsak ayarları artık işlem tamam demektir.&lt;/p&gt;
-
-&lt;p&gt;Bu işlemi yaptıktan sonra diyelimki bilgisayarı açıp kapattınız bunun için de bu SSHTunnel uygulamasına giriyorsunuz ki onu başlangıçta otomatik açılacak şekilde ayarlarsanız işiniz kolaylaşır, neyse girdikten sonra AirProxy’e gelip on konumuna getirmeniz yeterli yada programı açtıktan sonra en tepede oluşan küçük ikona tıklayıp “Start All Sessions” dersenizde işlem tamam demektir. Kapatmak içinde aynısını yapabilirsiniz. Eğer torrent falanda kullanıyorsanız onun içinde programın “Session” kısmından gerekli ayarları yapabilirsiniz.&lt;/p&gt;
-
-</description>
-        <pubDate>Wed, 01 Apr 2015 16:32:27 +0300</pubDate>
-        <link>http://cemretok.com//2015/24/</link>
-        <guid isPermaLink="true">http://cemretok.com//2015/24/</guid>
-        
-        <category>ssh</category>
-        
-        
-        <category>ssh</category>
         
       </item>
     

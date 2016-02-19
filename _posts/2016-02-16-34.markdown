@@ -1,0 +1,18 @@
+---
+layout: post
+title:  "Şifreli Blog Post'u denemesi (deneme)"
+date:  2016-02-16 12:53:00
+categories: [Encryption]
+tags: [sh]
+---
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG v1
+
+jA0EBwMCKEcwRyKvVblg0sAGAeUBsUmrQvyLCn0A8whBn1GmcBtees6pSJSBGx2v
+yLLiBQFy/7K0zdfpfXSkIlXSdUwrrJqOg0FIN6eCEdgp3xNXoyvbABZhGp8ElC0B
+B9oG3LMXfZaht5U2ET8VvuNF4wORJzp3sBLjDiln2GIJt3GE1Kw5LX6B0OlYsrx+
+KlR0AY9N1V53AZIpNN4jANvXtn0ZBQtC4ya4Q7gsxi13kIfna+zY571m5DMrLX8E
+te5s09JBK9gdk2uIF4DCALm+mtWhoVef
+=pKmX
+-----END PGP MESSAGE-----
