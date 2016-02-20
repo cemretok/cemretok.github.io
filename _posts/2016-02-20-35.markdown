@@ -1,0 +1,22 @@
+---
+layout: post
+title:  "MAMP server ile MySql'den büyük database export etme"
+date:   2016-02-20 15:36:00
+categories: [Database]
+tags: [MySql]
+---
+
+Öncelikte Mac dizininde aşağıdaki komut ile mysqldump'ın bununduğu yere gidilir.
+
+~~~~ bash
+cd /applications/MAMP/library/bin
+~~~
+
+Sonra aşağıdaki kod çalıştırılır;
+
+~~~ bash
+./mysqldump -u [Kullanıcı adi] -p[Şifre] databaseadi > /dizin/dbismi.sql
+~~~
+
+Dikkat edilmesi gereken yer eğer şifre yoksa -p'den sonra bişey yazılmaz ama şifre varsa -p'den sonra boşluk bırakmadan şifre yazılır.
+
