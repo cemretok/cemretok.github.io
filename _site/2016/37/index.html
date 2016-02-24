@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Cemre Tok</title>
+  <title>Raspberry Pi'ye Postgresql yükleme</title>
   <meta name="description" content="Blog ve KB">
   <meta name="author" content="Cemre Tok">
   <meta name="HandheldFriendly" content="True">
@@ -43,7 +43,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://cemretok.com//page4/">
+  <link rel="canonical" href="http://cemretok.com//2016/37/">
   <link rel="alternate" type="application/rss+xml" title="Cemre Tok" href="/feed.xml">
 </head>
 
@@ -144,92 +144,101 @@
 
     <div class="content-wrapper">
       <div class="content-wrapper__inner">
-        <div class="main-post-list">
+        <article class="post-container post-container--single">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="22 Feb 2016" class="post-meta__date date">22 Feb 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Postgresql">Postgresql</a> </span>
+    </div>
+    <h1 class="post-title">Raspberry Pi'ye Postgresql yükleme</h1>
+  </header>
 
-  <ol class="post-list">
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2014/7/" title="Raspberry Pi ile video Oynatmak (Film izlemek)">Raspberry Pi ile video Oynatmak (Film izlemek)</a></h2>
-        <p class="excerpt">Raspberry’nin video işlemcisi oldukça gelişmiş olduğu için media player olarak kullanılabilmekte ve hatta videolara altyazı dahi eklenebiliyor.
+  <section class="post">
+    <p>Postgresql’in Raspberry için kurulum işlemleri.</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="29 Sep 2014" class="post-list__meta--date date">29 Sep 2014</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#linux">linux</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2014/6/" title="Raspberry Pi'ye Java yüklemek">Raspberry Pi'ye Java yüklemek</a></h2>
-        <p class="excerpt">Java heryerde çalıştığı için neden Raspberryde de olmasın dedim ve basit kurulumunun nasıl olacağını, ardından “.jar” dosyalarını nasıl çalıştıracağınızı anlattım.
+<p><b>Kolay Yol<b></b></b></p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="29 Sep 2014" class="post-list__meta--date date">29 Sep 2014</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#linux">linux</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2014/5/" title="Dinamik DNS ile Raspberry pi'ye Sabit İp vermek (DDNS)">Dinamik DNS ile Raspberry pi'ye Sabit İp vermek (DDNS)</a></h2>
-        <p class="excerpt">Sorunla karşılaşmamak için uygulamaya geçmeden önce konuyu baştan sona kadar okumanızı tavsiye ederim.
+<p>Yükleme ve pgAdmin3 üstünden bağlanma.</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="29 Sep 2014" class="post-list__meta--date date">29 Sep 2014</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#linux">linux</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2014/4/" title="Raspberry Pi'ye Sabit İp vermek (Yerel İp)">Raspberry Pi'ye Sabit İp vermek (Yerel İp)</a></h2>
-        <p class="excerpt"><b>Sorunla karşılaşmamak için uygulamaya geçmeden önce yazıyı baştan sona kadar okumanızı tavsiye ederim.</b>
+<pre><code class="language-code">sudo apt-get install postgresql
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="29 Sep 2014" class="post-list__meta--date date">29 Sep 2014</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#linux">linux</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2014/3/" title="Raspberry Pi otomatik başlatma (Autologin)">Raspberry Pi otomatik başlatma (Autologin)</a></h2>
-        <p class="excerpt"><b>Sorun yaşanmaması için yazıyı baştan sona kadar iyice okuduktan sonra uygulamaya geçmenizi öneririm.</b>
+/etc/postgresql/9.4/main/pg_hba.conf
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="29 Sep 2014" class="post-list__meta--date date">29 Sep 2014</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#linux">linux</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2014/2/" title="Linux'e VNC ile bağlanmak (Masaüstüne)">Linux'e VNC ile bağlanmak (Masaüstüne)</a></h2>
-        <p class="excerpt">Öncelikle <b>VNC</b> herhangi bir bilgisayarın masaüstüne uzaktan bağlanmaya yarayan bir protokoldür.
+host    all    all    all    md5
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="29 Sep 2014" class="post-list__meta--date date">29 Sep 2014</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#linux">linux</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2014/1/" title="Ssh bağlantısında RSA sorunu (Shh host key verification failed)">Ssh bağlantısında RSA sorunu (Shh host key verification failed)</a></h2>
-        <p class="excerpt"><b>Bir hata ile karşılaşmamak için tüm yazıyı okuduktan sonra uygulamaya geçmenizde fayda var.</b>
+/etc/postgresql/9.4/main/postgresql.conf
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="29 Sep 2014" class="post-list__meta--date date">29 Sep 2014</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#linux">linux</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-  </ol>
+listen_addresses = '*'
 
-  <hr class="post-list__divider ">
+sudo -u postgres psql postgres
 
+\password postgres
+</code></pre>
+
+<p><b>Zor Yol<b></b></b></p>
+
+<p>jessie yazan kısım önemli raspberry için hangi sürümü kullanıyosanız onu solundaki adresten bakarak seçmek gerekiyor.</p>
+
+<pre><code class="language-code">echo "deb-src http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
+</code></pre>
+
+<p>Doğru kaynağımı çektin onun kontrolü</p>
+
+<pre><code class="language-code">wget -qO - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+</code></pre>
+
+<p>Update et ve yükselt komutu</p>
+
+<pre><code class="language-code">sudo apt-get update
+sudo apt-get upgrade
+</code></pre>
+
+<p>Bağımlı olduğu programları otomatik yükler.</p>
+
+<pre><code class="language-code">sudo apt-get install build-essential fakeroot
+</code></pre>
+
+<p>İstenen bağımlılıkları yükler. Benim yüklediğim tarihte 9.5 son sürümdü onu yükledim siz deminki adresten son sürüme bakabilirsiniz.</p>
+
+<pre><code class="language-code">sudo apt-get build-dep postgresql-9.5
+sudo apt-get build-dep postgresql-common
+sudo apt-get build-dep postgresql-client-common
+sudo apt-get build-dep pgdg-keyring
+</code></pre>
+
+<p><b>Derleme işlemi, burası önemli Root yetkisiyle yapmamak gerekiyor ve uzun sürüyor. RP 2 de 30 dk kadar<b></b></b></p>
+
+<pre><code class="language-code">cd /tmp
+apt-get source --compile postgresql-9.5
+apt-get source --compile postgresql-common
+apt-get source --compile postgresql-client-common
+apt-get source --compile pgdg-keyring
+</code></pre>
+
+<p>Kendi Repository’imizi oluşturuyoruz.</p>
+
+<pre><code class="language-code">sudo mkdir /var/local/repository
+echo "deb [ trusted=yes ] file:///var/local/repository ./" | sudo tee /etc/apt/sources.list.d/my_own_repo.list
+cd /var/local/repository
+sudo mv /tmp/*.deb .
+dpkg-scanpackages ./ | sudo tee Packages &gt; /dev/null &amp;&amp; sudo gzip -f Packages
+</code></pre>
+
+<p>Listeyi update edin.</p>
+
+<pre><code class="language-code">sudo apt-get update
+</code></pre>
+
+<p>Son olarakta yüklüyoruz.</p>
+
+<pre><code class="language-code">sudo apt-get install postgresql-9.5
+</code></pre>
+
+  </section>
   
-      <nav class="pagination" role="navigation">
-  
-    
-      <a rel="prev" class="posts newer btn small" href="/page3/">← Eski Yazılar</a>
-    
-  
+</article>
 
-  <span class="pagination__page-number">Sayfa 4 - 4</span>
 
-  
-</nav>
-  
 
-</div>
       </div>
 
       <footer class="footer">

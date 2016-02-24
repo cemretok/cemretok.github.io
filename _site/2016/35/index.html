@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Cemre Tok</title>
+  <title>MAMP server ile MySql'den büyük database export etme</title>
   <meta name="description" content="Blog ve KB">
   <meta name="author" content="Cemre Tok">
   <meta name="HandheldFriendly" content="True">
@@ -43,7 +43,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://cemretok.com//page4/">
+  <link rel="canonical" href="http://cemretok.com//2016/35/">
   <link rel="alternate" type="application/rss+xml" title="Cemre Tok" href="/feed.xml">
 </head>
 
@@ -144,92 +144,36 @@
 
     <div class="content-wrapper">
       <div class="content-wrapper__inner">
-        <div class="main-post-list">
+        <article class="post-container post-container--single">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="20 Feb 2016" class="post-meta__date date">20 Feb 2016</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#MySql">MySql</a> </span>
+    </div>
+    <h1 class="post-title">MAMP server ile MySql'den büyük database export etme</h1>
+  </header>
 
-  <ol class="post-list">
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2014/7/" title="Raspberry Pi ile video Oynatmak (Film izlemek)">Raspberry Pi ile video Oynatmak (Film izlemek)</a></h2>
-        <p class="excerpt">Raspberry’nin video işlemcisi oldukça gelişmiş olduğu için media player olarak kullanılabilmekte ve hatta videolara altyazı dahi eklenebiliyor.
+  <section class="post">
+    <p>Öncelikte Mac dizininde aşağıdaki komut ile mysqldump’ın bununduğu yere gidilir.</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="29 Sep 2014" class="post-list__meta--date date">29 Sep 2014</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#linux">linux</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2014/6/" title="Raspberry Pi'ye Java yüklemek">Raspberry Pi'ye Java yüklemek</a></h2>
-        <p class="excerpt">Java heryerde çalıştığı için neden Raspberryde de olmasın dedim ve basit kurulumunun nasıl olacağını, ardından “.jar” dosyalarını nasıl çalıştıracağınızı anlattım.
+<p>~~~~ bash
+cd /applications/MAMP/library/bin
+~~~</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="29 Sep 2014" class="post-list__meta--date date">29 Sep 2014</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#linux">linux</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2014/5/" title="Dinamik DNS ile Raspberry pi'ye Sabit İp vermek (DDNS)">Dinamik DNS ile Raspberry pi'ye Sabit İp vermek (DDNS)</a></h2>
-        <p class="excerpt">Sorunla karşılaşmamak için uygulamaya geçmeden önce konuyu baştan sona kadar okumanızı tavsiye ederim.
+<p>Sonra aşağıdaki kod çalıştırılır;</p>
 
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="29 Sep 2014" class="post-list__meta--date date">29 Sep 2014</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#linux">linux</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2014/4/" title="Raspberry Pi'ye Sabit İp vermek (Yerel İp)">Raspberry Pi'ye Sabit İp vermek (Yerel İp)</a></h2>
-        <p class="excerpt"><b>Sorunla karşılaşmamak için uygulamaya geçmeden önce yazıyı baştan sona kadar okumanızı tavsiye ederim.</b>
-
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="29 Sep 2014" class="post-list__meta--date date">29 Sep 2014</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#linux">linux</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2014/3/" title="Raspberry Pi otomatik başlatma (Autologin)">Raspberry Pi otomatik başlatma (Autologin)</a></h2>
-        <p class="excerpt"><b>Sorun yaşanmaması için yazıyı baştan sona kadar iyice okuduktan sonra uygulamaya geçmenizi öneririm.</b>
-
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="29 Sep 2014" class="post-list__meta--date date">29 Sep 2014</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#linux">linux</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2014/2/" title="Linux'e VNC ile bağlanmak (Masaüstüne)">Linux'e VNC ile bağlanmak (Masaüstüne)</a></h2>
-        <p class="excerpt">Öncelikle <b>VNC</b> herhangi bir bilgisayarın masaüstüne uzaktan bağlanmaya yarayan bir protokoldür.
-
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="29 Sep 2014" class="post-list__meta--date date">29 Sep 2014</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#linux">linux</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2014/1/" title="Ssh bağlantısında RSA sorunu (Shh host key verification failed)">Ssh bağlantısında RSA sorunu (Shh host key verification failed)</a></h2>
-        <p class="excerpt"><b>Bir hata ile karşılaşmamak için tüm yazıyı okuduktan sonra uygulamaya geçmenizde fayda var.</b>
-
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="29 Sep 2014" class="post-list__meta--date date">29 Sep 2014</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#linux">linux</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-  </ol>
-
-  <hr class="post-list__divider ">
-
-  
-      <nav class="pagination" role="navigation">
-  
-    
-      <a rel="prev" class="posts newer btn small" href="/page3/">← Eski Yazılar</a>
-    
-  
-
-  <span class="pagination__page-number">Sayfa 4 - 4</span>
-
-  
-</nav>
-  
-
+<div class="highlighter-rouge"><pre class="highlight"><code>./mysqldump -u <span class="o">[</span>Kullanıcı adi] -p[Şifre] databaseadi &gt; /dizin/dbismi.sql
+</code></pre>
 </div>
+
+<p>Dikkat edilmesi gereken yer eğer şifre yoksa -p’den sonra bişey yazılmaz ama şifre varsa -p’den sonra boşluk bırakmadan şifre yazılır.</p>
+
+
+  </section>
+  
+</article>
+
+
+
       </div>
 
       <footer class="footer">
