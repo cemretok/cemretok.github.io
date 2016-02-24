@@ -8,7 +8,7 @@ tags: [Postgresql]
 
 Postgresql'in Raspberry için kurulum işlemleri.
 
-<b>Kolay Yol<b>
+Kolay Yol
 
 Yükleme ve pgAdmin3 üstünden bağlanma.
 
@@ -29,7 +29,7 @@ sudo -u postgres psql postgres
 ~~~
 
 
-<b>Zor Yol<b>
+Zor Yol
 
 jessie yazan kısım önemli raspberry için hangi sürümü kullanıyosanız onu solundaki adresten bakarak seçmek gerekiyor.
 
@@ -65,7 +65,7 @@ sudo apt-get build-dep postgresql-client-common
 sudo apt-get build-dep pgdg-keyring
 ~~~
 
-<b>Derleme işlemi, burası önemli Root yetkisiyle yapmamak gerekiyor ve uzun sürüyor. RP 2 de 30 dk kadar<b>
+Derleme işlemi, burası önemli Root yetkisiyle yapmamak gerekiyor ve uzun sürüyor. RP 2 de 30 dk kadar
 
 ~~~ code
 cd /tmp
