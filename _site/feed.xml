@@ -5,8 +5,8 @@
     <description>Blog ve KB</description>
     <link>http://cemretok.com//</link>
     <atom:link href="http://cemretok.com//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Wed, 24 Feb 2016 22:39:36 +0200</pubDate>
-    <lastBuildDate>Wed, 24 Feb 2016 22:39:36 +0200</lastBuildDate>
+    <pubDate>Wed, 24 Feb 2016 22:42:05 +0200</pubDate>
+    <lastBuildDate>Wed, 24 Feb 2016 22:42:05 +0200</lastBuildDate>
     <generator>Jekyll v3.0.2</generator>
     
       <item>
@@ -17,7 +17,7 @@
 
 &lt;p&gt;Yükleme ve pgAdmin3 üstünden bağlanma.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;sudo apt-get install postgresql
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install postgresql
 
 /etc/postgresql/9.4/main/pg_hba.conf
 
@@ -25,71 +25,81 @@ host    all    all    all    md5
 
 /etc/postgresql/9.4/main/postgresql.conf
 
-listen_addresses = &#39;*&#39;
+listen_addresses &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;*&#39;&lt;/span&gt;
 
 sudo -u postgres psql postgres
 
-\password postgres
+&lt;span class=&quot;se&quot;&gt;\p&lt;/span&gt;assword postgres
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Zor Yol&lt;/p&gt;
 
 &lt;p&gt;jessie yazan kısım önemli raspberry için hangi sürümü kullanıyosanız onu solundaki adresten bakarak seçmek gerekiyor.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;echo &quot;deb-src http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main&quot; | sudo tee /etc/apt/sources.list.d/pgdg.list
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;deb-src http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main&quot;&lt;/span&gt; | sudo tee /etc/apt/sources.list.d/pgdg.list
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Doğru kaynağımı çektin onun kontrolü&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;wget -qO - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget -qO - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Update et ve yükselt komutu&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;sudo apt-get update
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
 sudo apt-get upgrade
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Bağımlı olduğu programları otomatik yükler.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;sudo apt-get install build-essential fakeroot
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install build-essential fakeroot
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;İstenen bağımlılıkları yükler. Benim yüklediğim tarihte 9.5 son sürümdü onu yükledim siz deminki adresten son sürüme bakabilirsiniz.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;sudo apt-get build-dep postgresql-9.5
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get build-dep postgresql-9.5
 sudo apt-get build-dep postgresql-common
 sudo apt-get build-dep postgresql-client-common
 sudo apt-get build-dep pgdg-keyring
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Derleme işlemi, burası önemli Root yetkisiyle yapmamak gerekiyor ve uzun sürüyor. RP 2 de 30 dk kadar&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;cd /tmp
-apt-get source --compile postgresql-9.5
-apt-get source --compile postgresql-common
-apt-get source --compile postgresql-client-common
-apt-get source --compile pgdg-keyring
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /tmp
+apt-get &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; --compile postgresql-9.5
+apt-get &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; --compile postgresql-common
+apt-get &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; --compile postgresql-client-common
+apt-get &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; --compile pgdg-keyring
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Kendi Repository’imizi oluşturuyoruz.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;sudo mkdir /var/local/repository
-echo &quot;deb [ trusted=yes ] file:///var/local/repository ./&quot; | sudo tee /etc/apt/sources.list.d/my_own_repo.list
-cd /var/local/repository
-sudo mv /tmp/*.deb .
-dpkg-scanpackages ./ | sudo tee Packages &amp;gt; /dev/null &amp;amp;&amp;amp; sudo gzip -f Packages
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mkdir /var/local/repository
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;deb [ trusted=yes ] file:///var/local/repository ./&quot;&lt;/span&gt; | sudo tee /etc/apt/sources.list.d/my_own_repo.list
+&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /var/local/repository
+sudo mv /tmp/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.deb .
+dpkg-scanpackages ./ | sudo tee Packages &amp;gt; /dev/null &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo gzip -f Packages
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Listeyi update edin.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;sudo apt-get update
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Son olarakta yüklüyoruz.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;sudo apt-get install postgresql-9.5
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install postgresql-9.5
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 </description>
         <pubDate>Mon, 22 Feb 2016 21:36:00 +0200</pubDate>
         <link>http://cemretok.com//2016/37/</link>
@@ -106,9 +116,10 @@ dpkg-scanpackages ./ | sudo tee Packages &amp;gt; /dev/null &amp;amp;&amp;amp; s
         <title>Eclips açılışında donma sorunu</title>
         <description>&lt;p&gt;Eclipse açılışında donma sorunu varsa&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-code&quot;&gt;cd /workspace/.metadata/.plugins
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /workspace/.metadata/.plugins
 rm -rf org.eclipse.core.resources
 &lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Dersek workspace ile ilgili olan bütün konfigürasyonlar uçar ve projelerimizi tekrar import ettiğimizde sorun çözülmüş olur.&lt;/p&gt;
 
@@ -128,9 +139,9 @@ rm -rf org.eclipse.core.resources
         <title>MAMP server ile MySql&#39;den büyük database export etme</title>
         <description>&lt;p&gt;Öncelikte Mac dizininde aşağıdaki komut ile mysqldump’ın bununduğu yere gidilir.&lt;/p&gt;
 
-&lt;p&gt;~~~~ bash
-cd /applications/MAMP/library/bin
-~~~&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /applications/MAMP/library/bin
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;Sonra aşağıdaki kod çalıştırılır;&lt;/p&gt;
 

@@ -12,7 +12,7 @@ Kolay Yol
 
 Yükleme ve pgAdmin3 üstünden bağlanma.
 
-~~~ code
+~~~ bash
 sudo apt-get install postgresql
 
 /etc/postgresql/9.4/main/pg_hba.conf
@@ -33,32 +33,32 @@ Zor Yol
 
 jessie yazan kısım önemli raspberry için hangi sürümü kullanıyosanız onu solundaki adresten bakarak seçmek gerekiyor.
 
-~~~ code
+~~~ bash
 echo "deb-src http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main" | sudo tee /etc/apt/sources.list.d/pgdg.list
 ~~~
 
 Doğru kaynağımı çektin onun kontrolü
 
-~~~ code
+~~~ bash
 wget -qO - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 ~~~
 
 Update et ve yükselt komutu
 
-~~~ code
+~~~ bash
 sudo apt-get update
 sudo apt-get upgrade
 ~~~
 
 Bağımlı olduğu programları otomatik yükler.
 
-~~~ code
+~~~ bash
 sudo apt-get install build-essential fakeroot
 ~~~
 
 İstenen bağımlılıkları yükler. Benim yüklediğim tarihte 9.5 son sürümdü onu yükledim siz deminki adresten son sürüme bakabilirsiniz.
 
-~~~ code
+~~~ bash
 sudo apt-get build-dep postgresql-9.5
 sudo apt-get build-dep postgresql-common
 sudo apt-get build-dep postgresql-client-common
@@ -67,7 +67,7 @@ sudo apt-get build-dep pgdg-keyring
 
 Derleme işlemi, burası önemli Root yetkisiyle yapmamak gerekiyor ve uzun sürüyor. RP 2 de 30 dk kadar
 
-~~~ code
+~~~ bash
 cd /tmp
 apt-get source --compile postgresql-9.5
 apt-get source --compile postgresql-common
@@ -77,7 +77,7 @@ apt-get source --compile pgdg-keyring
 
 Kendi Repository'imizi oluşturuyoruz.
 
-~~~ code
+~~~ bash
 sudo mkdir /var/local/repository
 echo "deb [ trusted=yes ] file:///var/local/repository ./" | sudo tee /etc/apt/sources.list.d/my_own_repo.list
 cd /var/local/repository
@@ -87,12 +87,12 @@ dpkg-scanpackages ./ | sudo tee Packages > /dev/null && sudo gzip -f Packages
 
 Listeyi update edin.
 
-~~~ code
+~~~ bash
 sudo apt-get update
 ~~~
 
 Son olarakta yüklüyoruz.
 
-~~~ code
+~~~ bash
 sudo apt-get install postgresql-9.5
 ~~~

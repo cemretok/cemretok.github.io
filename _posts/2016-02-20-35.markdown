@@ -8,7 +8,7 @@ tags: [MySql]
 
 Öncelikte Mac dizininde aşağıdaki komut ile mysqldump'ın bununduğu yere gidilir.
 
-~~~~ bash
+~~~ bash
 cd /applications/MAMP/library/bin
 ~~~
 
