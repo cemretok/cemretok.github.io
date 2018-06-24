@@ -43,7 +43,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://cemretok.com//2016/35/">
+  <link rel="canonical" href="http://localhost:4000//2016/35/">
   <link rel="alternate" type="application/rss+xml" title="Cemre Tok" href="/feed.xml">
 </head>
 
@@ -155,15 +155,13 @@
   <section class="post">
     <p>Öncelikte Mac dizininde aşağıdaki komut ile mysqldump’ın bununduğu yere gidilir.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="nb">cd</span> /applications/MAMP/library/bin
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /applications/MAMP/library/bin
+</code></pre></div></div>
 
 <p>Sonra aşağıdaki kod çalıştırılır;</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>./mysqldump -u <span class="o">[</span>Kullanıcı adi] -p[Şifre] databaseadi &gt; /dizin/dbismi.sql
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./mysqldump <span class="nt">-u</span> <span class="o">[</span>Kullanıcı adi] <span class="nt">-p</span><span class="o">[</span>Şifre] databaseadi <span class="o">&gt;</span> /dizin/dbismi.sql
+</code></pre></div></div>
 
 <p>Dikkat edilmesi gereken yer eğer şifre yoksa -p’den sonra bişey yazılmaz ama şifre varsa -p’den sonra boşluk bırakmadan şifre yazılır.</p>
 

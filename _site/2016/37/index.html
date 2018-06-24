@@ -43,7 +43,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://cemretok.com//2016/37/">
+  <link rel="canonical" href="http://localhost:4000//2016/37/">
   <link rel="alternate" type="application/rss+xml" title="Cemre Tok" href="/feed.xml">
 </head>
 
@@ -159,7 +159,7 @@
 
 <p>Yükleme ve pgAdmin3 üstünden bağlanma.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo apt-get install postgresql
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get install postgresql
 
 /etc/postgresql/9.4/main/pg_hba.conf
 
@@ -169,79 +169,69 @@ host    all    all    all    md5
 
 listen_addresses <span class="o">=</span> <span class="s1">'*'</span>
 
-sudo -u postgres psql postgres
+<span class="nb">sudo</span> <span class="nt">-u</span> postgres psql postgres
 
 <span class="se">\p</span>assword postgres
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Zor Yol</p>
 
 <p>jessie yazan kısım önemli raspberry için hangi sürümü kullanıyosanız onu solundaki adresten bakarak seçmek gerekiyor.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"deb-src http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main"</span> | sudo tee /etc/apt/sources.list.d/pgdg.list
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"deb-src http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main"</span> | <span class="nb">sudo </span>tee /etc/apt/sources.list.d/pgdg.list
+</code></pre></div></div>
 
 <p>Doğru kaynağımı çektin onun kontrolü</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>wget -qO - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget <span class="nt">-qO</span> - https://www.postgresql.org/media/keys/ACCC4CF8.asc | <span class="nb">sudo </span>apt-key add -
+</code></pre></div></div>
 
 <p>Update et ve yükselt komutu</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo apt-get update
-sudo apt-get upgrade
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update
+<span class="nb">sudo </span>apt-get upgrade
+</code></pre></div></div>
 
 <p>Bağımlı olduğu programları otomatik yükler.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo apt-get install build-essential fakeroot
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get install build-essential fakeroot
+</code></pre></div></div>
 
 <p>İstenen bağımlılıkları yükler. Benim yüklediğim tarihte 9.5 son sürümdü onu yükledim siz deminki adresten son sürüme bakabilirsiniz.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo apt-get build-dep postgresql-9.5
-sudo apt-get build-dep postgresql-common
-sudo apt-get build-dep postgresql-client-common
-sudo apt-get build-dep pgdg-keyring
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get build-dep postgresql-9.5
+<span class="nb">sudo </span>apt-get build-dep postgresql-common
+<span class="nb">sudo </span>apt-get build-dep postgresql-client-common
+<span class="nb">sudo </span>apt-get build-dep pgdg-keyring
+</code></pre></div></div>
 
 <p>Derleme işlemi, burası önemli Root yetkisiyle yapmamak gerekiyor ve uzun sürüyor. RP 2 de 30 dk kadar</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="nb">cd</span> /tmp
-apt-get <span class="nb">source</span> --compile postgresql-9.5
-apt-get <span class="nb">source</span> --compile postgresql-common
-apt-get <span class="nb">source</span> --compile postgresql-client-common
-apt-get <span class="nb">source</span> --compile pgdg-keyring
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /tmp
+apt-get <span class="nb">source</span> <span class="nt">--compile</span> postgresql-9.5
+apt-get <span class="nb">source</span> <span class="nt">--compile</span> postgresql-common
+apt-get <span class="nb">source</span> <span class="nt">--compile</span> postgresql-client-common
+apt-get <span class="nb">source</span> <span class="nt">--compile</span> pgdg-keyring
+</code></pre></div></div>
 
 <p>Kendi Repository’imizi oluşturuyoruz.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo mkdir /var/local/repository
-<span class="nb">echo</span> <span class="s2">"deb [ trusted=yes ] file:///var/local/repository ./"</span> | sudo tee /etc/apt/sources.list.d/my_own_repo.list
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>mkdir /var/local/repository
+<span class="nb">echo</span> <span class="s2">"deb [ trusted=yes ] file:///var/local/repository ./"</span> | <span class="nb">sudo </span>tee /etc/apt/sources.list.d/my_own_repo.list
 <span class="nb">cd</span> /var/local/repository
-sudo mv /tmp/<span class="k">*</span>.deb .
-dpkg-scanpackages ./ | sudo tee Packages &gt; /dev/null <span class="o">&amp;&amp;</span> sudo gzip -f Packages
-</code></pre>
-</div>
+<span class="nb">sudo </span>mv /tmp/<span class="k">*</span>.deb <span class="nb">.</span>
+dpkg-scanpackages ./ | <span class="nb">sudo </span>tee Packages <span class="o">&gt;</span> /dev/null <span class="o">&amp;&amp;</span> <span class="nb">sudo </span>gzip <span class="nt">-f</span> Packages
+</code></pre></div></div>
 
 <p>Listeyi update edin.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo apt-get update
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get update
+</code></pre></div></div>
 
 <p>Son olarakta yüklüyoruz.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo apt-get install postgresql-9.5
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get install postgresql-9.5
+</code></pre></div></div>
 
   </section>
   

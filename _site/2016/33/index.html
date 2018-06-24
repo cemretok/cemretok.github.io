@@ -43,7 +43,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://cemretok.com//2016/33/">
+  <link rel="canonical" href="http://localhost:4000//2016/33/">
   <link rel="alternate" type="application/rss+xml" title="Cemre Tok" href="/feed.xml">
 </head>
 
@@ -155,22 +155,19 @@
   <section class="post">
     <p>Öncelikle yazdığımız sh script’i istediğimiz bir dizine koyuyoruz.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="nb">export set </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:&lt;script/dizini&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">export set </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:&lt;script/dizini&gt;
 <span class="nb">export set </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/Users/cemretok/bin
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Terminalden o script dizinine giderek çalışma izni verdik.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">cemretok$ </span>chmod +x script.sh
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cemretok<span class="nv">$ </span>chmod +x script.sh
+</code></pre></div></div>
 
 <p>Daha sonra script’in başına yada sonuna birşey koymadan çalıştırmak için aşağıdaki gibi “alias” oluşturduk.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code><span class="gp">cemretok$ </span><span class="nb">alias </span><span class="nv">script</span><span class="o">=</span><span class="s1">'script.sh'</span>
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cemretok<span class="nv">$ </span><span class="nb">alias </span><span class="nv">script</span><span class="o">=</span><span class="s1">'script.sh'</span>
+</code></pre></div></div>
 
   </section>
   

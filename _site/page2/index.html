@@ -43,7 +43,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://cemretok.com//page2/">
+  <link rel="canonical" href="http://localhost:4000//page2/">
   <link rel="alternate" type="application/rss+xml" title="Cemre Tok" href="/feed.xml">
 </head>
 
@@ -149,6 +149,17 @@
   <ol class="post-list">
     
       <li>
+        <h2 class="post-list__post-title post-title"><a href="/2015/28/" title="Java MySql bağlantısında karakter sorunu">Java MySql bağlantısında karakter sorunu</a></h2>
+        <p class="excerpt">DB connection;
+
+<figure class="highlight"><pre><code class="language-sql" data-lang="sql"><span class="n">jdbc</span><span class="p">:</span><span class="n">mysql</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">3306</span><span class="o">/</span><span class="n">dbname</span><span class="o">?</span><span class="k">user</span><span class="o">=</span><span class="n">root</span><span class="o">&amp;</span><span class="n">password</span><span class="o">=</span></code></pre></figure>
+
+&hellip;</p>
+        <div class="post-list__meta"><time datetime="19 Jun 2015" class="post-list__meta--date date">19 Jun 2015</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Java">Java</a> </span></div>
+        <hr class="post-list__divider">
+      </li>
+    
+      <li>
         <h2 class="post-list__post-title post-title"><a href="/2015/27/" title="Raspberry Lamp kurulum">Raspberry Lamp kurulum</a></h2>
         <p class="excerpt"><br /><b><a href="http://cemretok.github.io/images/27-1.png">http://cemretok.github.io/images/27-1.png</a><b><br /></b></b>
 &hellip;</p>
@@ -161,19 +172,19 @@
         <p class="excerpt">
 <figure class="highlight"><pre><code class="language-sql" data-lang="sql">	<span class="k">DECLARE</span> <span class="err">–</span><span class="n">De</span><span class="err">ğ</span><span class="n">i</span><span class="err">ş</span><span class="n">ken</span> <span class="n">Tan</span><span class="err">ı</span><span class="n">mlama</span>
 	   <span class="n">message</span>  <span class="n">varchar2</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span><span class="o">=</span> <span class="s1">'Merhaba Dünya!'</span><span class="p">;</span>
-	<span class="k">BEGIN</span> <span class="c1">-- Gövde
-</span>	   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
-	<span class="k">END</span><span class="p">;</span> <span class="o">--</span> <span class="n">Biti</span><span class="err">ş</span></code></pre></figure>
+	<span class="k">BEGIN</span> <span class="c1">-- Gövde</span>
+	   <span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="n">message</span><span class="p">);</span>
+	<span class="k">END</span><span class="p">;</span> <span class="c1">-- Bitiş</span></code></pre></figure>
 
 <figure class="highlight"><pre><code class="language-sql" data-lang="sql">	<span class="k">Declare</span>
 		<span class="n">num1</span> <span class="n">Integer</span><span class="p">:</span><span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
 		<span class="n">num2</span> <span class="n">Real</span><span class="p">:</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span>
 		<span class="n">num3</span> <span class="n">double</span> <span class="k">precision</span><span class="p">:</span><span class="o">=</span><span class="mi">5</span><span class="p">;</span>
 	<span class="k">Begin</span>
-		<span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="n">num1</span><span class="p">);</span> <span class="c1">--5
-</span>		<span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="n">num2</span><span class="p">);</span> <span class="c1">--5
-</span>		<span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="n">num3</span><span class="p">);</span> <span class="c1">--5
-</span>	<span class="k">End</span><span class="p">;</span></code></pre></figure>
+		<span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="n">num1</span><span class="p">);</span> <span class="c1">--5</span>
+		<span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="n">num2</span><span class="p">);</span> <span class="c1">--5</span>
+		<span class="n">dbms_output</span><span class="p">.</span><span class="n">put_line</span><span class="p">(</span><span class="n">num3</span><span class="p">);</span> <span class="c1">--5</span>
+	<span class="k">End</span><span class="p">;</span></code></pre></figure>
 
 &hellip;</p>
         <div class="post-list__meta"><time datetime="22 May 2015" class="post-list__meta--date date">22 May 2015</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#PL/SQL">PL/SQL</a> </span></div>
@@ -240,15 +251,6 @@
 
 &hellip;</p>
         <div class="post-list__meta"><time datetime="20 Jan 2015" class="post-list__meta--date date">20 Jan 2015</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#android">android</a> </span></div>
-        <hr class="post-list__divider">
-      </li>
-    
-      <li>
-        <h2 class="post-list__post-title post-title"><a href="/2015/18/" title="Crontab -e Komutunun Kullanımı">Crontab -e Komutunun Kullanımı</a></h2>
-        <p class="excerpt">Komut satırına <b>crontab -e</b> yazıldığında açılan sayfanın en altına aşağıdaki komut yazılır
-
-&hellip;</p>
-        <div class="post-list__meta"><time datetime="19 Jan 2015" class="post-list__meta--date date">19 Jan 2015</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#linux">linux</a> </span></div>
         <hr class="post-list__divider">
       </li>
     

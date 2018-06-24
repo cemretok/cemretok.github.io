@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Cemre Tok</title>
+  <title>Java'nın bilinmeyenleri - Bölüm 1</title>
   <meta name="description" content="Blog ve KB">
   <meta name="author" content="Cemre Tok">
   <meta name="HandheldFriendly" content="True">
@@ -43,7 +43,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="http://cemretok.com//2016/2015-04-01-24/">
+  <link rel="canonical" href="http://localhost:4000//2018/38/">
   <link rel="alternate" type="application/rss+xml" title="Cemre Tok" href="/feed.xml">
 </head>
 
@@ -119,14 +119,6 @@
             
 
             
-              <!-- Email -->
-              <li class="navigation__item">
-                <a href="mailto:josh@joshgerdes.com" title="Email josh@joshgerdes.com" target="_blank">
-                  <i class="icon icon-mail"></i>
-                  <span class="label">Email</span>
-                </a>
-              </li>
-            
 
             <!-- RSS -->
             <li class="navigation__item">
@@ -155,24 +147,33 @@
         <article class="post-container post-container--single">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="14 Feb 2016" class="post-meta__date date">14 Feb 2016</time> &#8226; <span class="post-meta__tags">on </span>
+      <time datetime="21 Jun 2018" class="post-meta__date date">21 Jun 2018</time> &#8226; <span class="post-meta__tags">on <a href="/tags/#Java">Java</a> </span>
     </div>
-    <h1 class="post-title"></h1>
+    <h1 class="post-title">Java'nın bilinmeyenleri - Bölüm 1</h1>
   </header>
 
   <section class="post">
-    <p>SSH terminal aracılığıyla uzaktan yönetimi sahlayan bir teknoloji ve iki taraflı şifreleme sağlıyor. Yani güvenli bir bağlantı kuruluyor. Develeporler da demişki biz bunu interneti iletmek içinde kullanabiliriz hadi yapalım o zaman demişler ve Ssh üzerinden internet’e bağlanma olayı gerçekleşmiş. Mac için anlatacağım bu yöntem windows makinalarda da işliyor ama Putty adlı aracı kullanmak gerek nette nasıl olduğu bulunabilir. Ben burayı knowladge base olarak kullandığımdan dolayı mac için olanı anlatıcam öncelikle SSHTunnel uygulamasını indiriyoruz.</p>
+    <h3 id="1--neden-şifreler-string-yerine-char-içinde-tutulur">1- Neden şifreler String yerine char[] içinde tutulur?</h3>
 
-<p><img src="/images/24-1.png" alt="Resim" /><br /></p>
+<p>String <strong>immutable</strong> olduğu için değiştirilemez özelliğe sahiptir bu nedenle program JVM de çalıştığı sürece set ettiğiniz şifre değeri sürekli orada kalacaktır. Unutulmamalıdır ki Stringe set ettiğiniz her değer bir referans aracılığı ile yapılmakta bu da Stringin asıl değerini değil onun yerine referansının değerinin değişmesine neden olur.</p>
 
-<p>Server yazan kısma tıklıyoruz ve linux serverımızın ip adresini yazıyoruz port’u 22 yazıyoruz kullanıcı adını yeni oluşturduğumuz yetkisiz kullanıcının adını yazıyoruz ben “tunnel” dedim şifreyide yine belirlediğimiz şifreyi yazıyoruz. Bu kullanıcı açma içini bilmiyorsanız nette bulunabilir çok kolay 1 dakikanızı almaz. Neyse şimdi asıl olaya gelelim dediğimiz gibi 22. porttan ssh ile bağlanıcaz. Yukardan Sessions’a gelip oturum açmamız gerek oluşturduğumuz server’ı seçiyoruz. AirPort’u seçiyoruz ve 8080 portunu ayarlıyoruz ki bu 8080 portu üzerinden bütün interneti aktarız. Aşağıdaki toggle butonu “on” konumuna getirdikten sonra işi yarılıyoruz. Sonraki adımda Mac’in proxy ayarını yapıcaz bunun için ağ ayarlarına giricez.</p>
+<p>string x = “obafemi”;
+x.concat(“ martins”);
+system.out.println(“x = “ + x);</p>
 
-<p><img src="/images/24-2.png" alt="Resim" /><br /></p>
+<p>Not: immutable bir nesnenin atandığı referans degişkeni immutable degildir.</p>
 
-<p>Resimdeki kısmı heralde herkes biliyordur, bilmiyorsanızda sistem ayarları bölümünden ağ ayarlarına tıklayınca geliyor. Burda SOCKS Proxy’i seçip server adına “localhost” yazıyoruz. Port kısmınada 8080 yazarsak Tamam deyip uygularsak ayarları artık işlem tamam demektir.</p>
+<p>string x = “obafemi”;
+x = x.concat(“ martins”);
+system.out.println(“x = “ + x);</p>
 
-<p>Bu işlemi yaptıktan sonra diyelimki bilgisayarı açıp kapattınız bunun için de bu SSHTunnel uygulamasına giriyorsunuz ki onu başlangıçta otomatik açılacak şekilde ayarlarsanız işiniz kolaylaşır, neyse girdikten sonra AirProxy’e gelip on konumuna getirmeniz yeterli yada programı açtıktan sonra en tepede oluşan küçük ikona tıklayıp “Start All Sessions” dersenizde işlem tamam demektir. Kapatmak içinde aynısını yapabilirsiniz. Eğer torrent falanda kullanıyorsanız onun içinde programın “Session” kısmından gerekli ayarları yapabilirsiniz.</p>
+<p>Kısacası Stringin immutable olabilmesi için String sınıfının içinde kullanılan her fonksiyon (uppercase, concat vb.) içerde yeni bir nesne yaratarak bunun referansını döndürür.</p>
 
+<h3 id="2--bir-sınıfı-nasıl-immutable-hale-getirebiliriz-ve-bunun-amacı-nedir">2- Bir sınıfı nasıl immutable hale getirebiliriz ve bunun amacı nedir?</h3>
+
+<p>İkinci sorunun cevabı <strong>thread koruması</strong> (thread-safety) için değişmez  sınıflar yaratılır. Nesnenin içeriği değişmediği için bu sayede thread içerisinde bu sınıfların senkron olması sağlanır.</p>
+
+<p>İlk soruya gelecek olursak bunun için öncelikle sınıfın final tanımlanması gerekir bu sayede başka bir obje tarafından extend edilip türetilmesinin önüne geçilir. Sonrasında eğer değişkenler varsa bunlar final ve private tanımlanır böylece değişmeyeceklerdir. Sonrasında, normalde set get fonksiyonlarını yazdığımız sınıfların set fonksiyonları yazılmaz bunun yerine değişkeler constructor aracılığı ile atanır. Eğer bu sınıfa ait bir nesnenin yeni bir değişken üzetmesi isteniyorsa içeriğinde yeni bir değişken yaratılır ve bunun referansı geri dönülür, aynı string sınıfının concat yada uppercase fonksiyonlarında olduğu gibi.</p>
 
   </section>
   
@@ -183,7 +184,7 @@
       </div>
 
       <footer class="footer">
-  <span class="footer__copyright">&copy; 2016 Cemre Tok.</span>
+  <span class="footer__copyright">&copy; 2018 Cemre Tok.</span>
 </footer> 
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

@@ -3,21 +3,56 @@
   <channel>
     <title>Cemre Tok</title>
     <description>Blog ve KB</description>
-    <link>http://cemretok.com//</link>
-    <atom:link href="http://cemretok.com//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 21 Jun 2018 14:39:26 +0300</pubDate>
-    <lastBuildDate>Thu, 21 Jun 2018 14:39:26 +0300</lastBuildDate>
-    <generator>Jekyll v3.0.2</generator>
+    <link>http://localhost:4000//</link>
+    <atom:link href="http://localhost:4000//feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sun, 24 Jun 2018 20:27:47 +0300</pubDate>
+    <lastBuildDate>Sun, 24 Jun 2018 20:27:47 +0300</lastBuildDate>
+    <generator>Jekyll v3.7.3</generator>
     
       <item>
-        <title>Raspberry Pi&#39;ye Postgresql yükleme</title>
+        <title>Java'nın bilinmeyenleri - Bölüm 1</title>
+        <description>&lt;h3 id=&quot;1--neden-şifreler-string-yerine-char-içinde-tutulur&quot;&gt;1- Neden şifreler String yerine char[] içinde tutulur?&lt;/h3&gt;
+
+&lt;p&gt;String &lt;strong&gt;immutable&lt;/strong&gt; olduğu için değiştirilemez özelliğe sahiptir bu nedenle program JVM de çalıştığı sürece set ettiğiniz şifre değeri sürekli orada kalacaktır. Unutulmamalıdır ki Stringe set ettiğiniz her değer bir referans aracılığı ile yapılmakta bu da Stringin asıl değerini değil onun yerine referansının değerinin değişmesine neden olur.&lt;/p&gt;
+
+&lt;p&gt;string x = “obafemi”;
+x.concat(“ martins”);
+system.out.println(“x = “ + x);&lt;/p&gt;
+
+&lt;p&gt;Not: immutable bir nesnenin atandığı referans degişkeni immutable degildir.&lt;/p&gt;
+
+&lt;p&gt;string x = “obafemi”;
+x = x.concat(“ martins”);
+system.out.println(“x = “ + x);&lt;/p&gt;
+
+&lt;p&gt;Kısacası Stringin immutable olabilmesi için String sınıfının içinde kullanılan her fonksiyon (uppercase, concat vb.) içerde yeni bir nesne yaratarak bunun referansını döndürür.&lt;/p&gt;
+
+&lt;h3 id=&quot;2--bir-sınıfı-nasıl-immutable-hale-getirebiliriz-ve-bunun-amacı-nedir&quot;&gt;2- Bir sınıfı nasıl immutable hale getirebiliriz ve bunun amacı nedir?&lt;/h3&gt;
+
+&lt;p&gt;İkinci sorunun cevabı &lt;strong&gt;thread koruması&lt;/strong&gt; (thread-safety) için değişmez  sınıflar yaratılır. Nesnenin içeriği değişmediği için bu sayede thread içerisinde bu sınıfların senkron olması sağlanır.&lt;/p&gt;
+
+&lt;p&gt;İlk soruya gelecek olursak bunun için öncelikle sınıfın final tanımlanması gerekir bu sayede başka bir obje tarafından extend edilip türetilmesinin önüne geçilir. Sonrasında eğer değişkenler varsa bunlar final ve private tanımlanır böylece değişmeyeceklerdir. Sonrasında, normalde set get fonksiyonlarını yazdığımız sınıfların set fonksiyonları yazılmaz bunun yerine değişkeler constructor aracılığı ile atanır. Eğer bu sınıfa ait bir nesnenin yeni bir değişken üzetmesi isteniyorsa içeriğinde yeni bir değişken yaratılır ve bunun referansı geri dönülür, aynı string sınıfının concat yada uppercase fonksiyonlarında olduğu gibi.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 21 Jun 2018 22:36:00 +0300</pubDate>
+        <link>http://localhost:4000//2018/38/</link>
+        <guid isPermaLink="true">http://localhost:4000//2018/38/</guid>
+        
+        <category>Java</category>
+        
+        
+        <category>Java</category>
+        
+      </item>
+    
+      <item>
+        <title>Raspberry Pi'ye Postgresql yükleme</title>
         <description>&lt;p&gt;Postgresql’in Raspberry için kurulum işlemleri.&lt;/p&gt;
 
 &lt;p&gt;Kolay Yol&lt;/p&gt;
 
 &lt;p&gt;Yükleme ve pgAdmin3 üstünden bağlanma.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install postgresql
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get install postgresql
 
 /etc/postgresql/9.4/main/pg_hba.conf
 
@@ -25,85 +60,75 @@ host    all    all    all    md5
 
 /etc/postgresql/9.4/main/postgresql.conf
 
-listen_addresses &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&#39;*&#39;&lt;/span&gt;
+listen_addresses &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'*'&lt;/span&gt;
 
-sudo -u postgres psql postgres
+&lt;span class=&quot;nb&quot;&gt;sudo&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; postgres psql postgres
 
 &lt;span class=&quot;se&quot;&gt;\p&lt;/span&gt;assword postgres
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Zor Yol&lt;/p&gt;
 
 &lt;p&gt;jessie yazan kısım önemli raspberry için hangi sürümü kullanıyosanız onu solundaki adresten bakarak seçmek gerekiyor.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;deb-src http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main&quot;&lt;/span&gt; | sudo tee /etc/apt/sources.list.d/pgdg.list
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;deb-src http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main&quot;&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;tee /etc/apt/sources.list.d/pgdg.list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Doğru kaynağımı çektin onun kontrolü&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget -qO - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget &lt;span class=&quot;nt&quot;&gt;-qO&lt;/span&gt; - https://www.postgresql.org/media/keys/ACCC4CF8.asc | &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-key add -
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Update et ve yükselt komutu&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
-sudo apt-get upgrade
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get upgrade
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Bağımlı olduğu programları otomatik yükler.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install build-essential fakeroot
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get install build-essential fakeroot
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;İstenen bağımlılıkları yükler. Benim yüklediğim tarihte 9.5 son sürümdü onu yükledim siz deminki adresten son sürüme bakabilirsiniz.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get build-dep postgresql-9.5
-sudo apt-get build-dep postgresql-common
-sudo apt-get build-dep postgresql-client-common
-sudo apt-get build-dep pgdg-keyring
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get build-dep postgresql-9.5
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get build-dep postgresql-common
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get build-dep postgresql-client-common
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get build-dep pgdg-keyring
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Derleme işlemi, burası önemli Root yetkisiyle yapmamak gerekiyor ve uzun sürüyor. RP 2 de 30 dk kadar&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /tmp
-apt-get &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; --compile postgresql-9.5
-apt-get &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; --compile postgresql-common
-apt-get &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; --compile postgresql-client-common
-apt-get &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; --compile pgdg-keyring
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /tmp
+apt-get &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--compile&lt;/span&gt; postgresql-9.5
+apt-get &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--compile&lt;/span&gt; postgresql-common
+apt-get &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--compile&lt;/span&gt; postgresql-client-common
+apt-get &lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--compile&lt;/span&gt; pgdg-keyring
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Kendi Repository’imizi oluşturuyoruz.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mkdir /var/local/repository
-&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;deb [ trusted=yes ] file:///var/local/repository ./&quot;&lt;/span&gt; | sudo tee /etc/apt/sources.list.d/my_own_repo.list
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;mkdir /var/local/repository
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;deb [ trusted=yes ] file:///var/local/repository ./&quot;&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;tee /etc/apt/sources.list.d/my_own_repo.list
 &lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /var/local/repository
-sudo mv /tmp/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.deb .
-dpkg-scanpackages ./ | sudo tee Packages &amp;gt; /dev/null &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo gzip -f Packages
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;mv /tmp/&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;.deb &lt;span class=&quot;nb&quot;&gt;.&lt;/span&gt;
+dpkg-scanpackages ./ | &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;tee Packages &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /dev/null &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;gzip &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; Packages
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Listeyi update edin.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Son olarakta yüklüyoruz.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install postgresql-9.5
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get install postgresql-9.5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Mon, 22 Feb 2016 21:36:00 +0200</pubDate>
-        <link>http://cemretok.com//2016/37/</link>
-        <guid isPermaLink="true">http://cemretok.com//2016/37/</guid>
+        <link>http://localhost:4000//2016/37/</link>
+        <guid isPermaLink="true">http://localhost:4000//2016/37/</guid>
         
         <category>Postgresql</category>
         
@@ -116,17 +141,16 @@ dpkg-scanpackages ./ | sudo tee Packages &amp;gt; /dev/null &lt;span class=&quot
         <title>Eclips açılışında donma sorunu</title>
         <description>&lt;p&gt;Eclipse açılışında donma sorunu varsa&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /workspace/.metadata/.plugins
-rm -rf org.eclipse.core.resources
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /workspace/.metadata/.plugins
+rm &lt;span class=&quot;nt&quot;&gt;-rf&lt;/span&gt; org.eclipse.core.resources
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Dersek workspace ile ilgili olan bütün konfigürasyonlar uçar ve projelerimizi tekrar import ettiğimizde sorun çözülmüş olur.&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 22 Feb 2016 21:36:00 +0200</pubDate>
-        <link>http://cemretok.com//2016/36/</link>
-        <guid isPermaLink="true">http://cemretok.com//2016/36/</guid>
+        <link>http://localhost:4000//2016/36/</link>
+        <guid isPermaLink="true">http://localhost:4000//2016/36/</guid>
         
         <category>Eclipse</category>
         
@@ -136,25 +160,23 @@ rm -rf org.eclipse.core.resources
       </item>
     
       <item>
-        <title>MAMP server ile MySql&#39;den büyük database export etme</title>
+        <title>MAMP server ile MySql'den büyük database export etme</title>
         <description>&lt;p&gt;Öncelikte Mac dizininde aşağıdaki komut ile mysqldump’ın bununduğu yere gidilir.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /applications/MAMP/library/bin
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /applications/MAMP/library/bin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Sonra aşağıdaki kod çalıştırılır;&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./mysqldump -u &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Kullanıcı adi] -p[Şifre] databaseadi &amp;gt; /dizin/dbismi.sql
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;./mysqldump &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Kullanıcı adi] &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;Şifre] databaseadi &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; /dizin/dbismi.sql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Dikkat edilmesi gereken yer eğer şifre yoksa -p’den sonra bişey yazılmaz ama şifre varsa -p’den sonra boşluk bırakmadan şifre yazılır.&lt;/p&gt;
 
 </description>
         <pubDate>Sat, 20 Feb 2016 17:36:00 +0200</pubDate>
-        <link>http://cemretok.com//2016/35/</link>
-        <guid isPermaLink="true">http://cemretok.com//2016/35/</guid>
+        <link>http://localhost:4000//2016/35/</link>
+        <guid isPermaLink="true">http://localhost:4000//2016/35/</guid>
         
         <category>MySql</category>
         
@@ -167,26 +189,23 @@ rm -rf org.eclipse.core.resources
         <title>Linux ile sh ve dizin olmaksızın script çalıştırma</title>
         <description>&lt;p&gt;Öncelikle yazdığımız sh script’i istediğimiz bir dizine koyuyoruz.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export set &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:&amp;lt;script/dizini&amp;gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export set &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:&amp;lt;script/dizini&amp;gt;
 &lt;span class=&quot;nb&quot;&gt;export set &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PATH&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$PATH&lt;/span&gt;:/Users/cemretok/bin
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Terminalden o script dizinine giderek çalışma izni verdik.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;cemretok$ &lt;/span&gt;chmod +x script.sh
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cemretok&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;chmod +x script.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Daha sonra script’in başına yada sonuna birşey koymadan çalıştırmak için aşağıdaki gibi “alias” oluşturduk.&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;cemretok$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;script.sh&#39;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cemretok&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;script&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'script.sh'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 </description>
         <pubDate>Wed, 17 Feb 2016 00:12:00 +0200</pubDate>
-        <link>http://cemretok.com//2016/33/</link>
-        <guid isPermaLink="true">http://cemretok.com//2016/33/</guid>
+        <link>http://localhost:4000//2016/33/</link>
+        <guid isPermaLink="true">http://localhost:4000//2016/33/</guid>
         
         <category>Terminal</category>
         
@@ -196,7 +215,7 @@ rm -rf org.eclipse.core.resources
       </item>
     
       <item>
-        <title>Şifreli Blog Post&#39;u denemesi (deneme)</title>
+        <title>Şifreli Blog Post'u denemesi (deneme)</title>
         <description>&lt;p&gt;—–BEGIN PGP MESSAGE—–
 Version: GnuPG v1&lt;/p&gt;
 
@@ -209,8 +228,8 @@ te5s09JBK9gdk2uIF4DCALm+mtWhoVef
 —–END PGP MESSAGE—–&lt;/p&gt;
 </description>
         <pubDate>Tue, 16 Feb 2016 14:53:00 +0200</pubDate>
-        <link>http://cemretok.com//2016/34/</link>
-        <guid isPermaLink="true">http://cemretok.com//2016/34/</guid>
+        <link>http://localhost:4000//2016/34/</link>
+        <guid isPermaLink="true">http://localhost:4000//2016/34/</guid>
         
         <category>sh</category>
         
@@ -224,8 +243,8 @@ te5s09JBK9gdk2uIF4DCALm+mtWhoVef
         <description>&lt;p&gt;Site: &lt;a href=&quot;https://packagecontrol.io/installation&quot;&gt;https://packagecontrol.io/installation&lt;/a&gt;&lt;/p&gt;
 </description>
         <pubDate>Sun, 14 Feb 2016 16:30:00 +0200</pubDate>
-        <link>http://cemretok.com//2016/32/</link>
-        <guid isPermaLink="true">http://cemretok.com//2016/32/</guid>
+        <link>http://localhost:4000//2016/32/</link>
+        <guid isPermaLink="true">http://localhost:4000//2016/32/</guid>
         
         <category>Sublime</category>
         
@@ -266,8 +285,8 @@ Sonraki adım homebrew aracılığıyla spark’ın kurulumu tabi öncelikle sis
 
 </description>
         <pubDate>Fri, 19 Jun 2015 00:30:00 +0300</pubDate>
-        <link>http://cemretok.com//2015/31/</link>
-        <guid isPermaLink="true">http://cemretok.com//2015/31/</guid>
+        <link>http://localhost:4000//2015/31/</link>
+        <guid isPermaLink="true">http://localhost:4000//2015/31/</guid>
         
         <category>apache spark</category>
         
@@ -277,7 +296,7 @@ Sonraki adım homebrew aracılığıyla spark’ın kurulumu tabi öncelikle sis
       </item>
     
       <item>
-        <title>MySQL&#39;de batch insert nasıl yapılır?</title>
+        <title>MySQL'de batch insert nasıl yapılır?</title>
         <description>&lt;p&gt;MySQL’de batch insert&lt;/p&gt;
 
 &lt;p&gt;350.000.000 Milyon Row’luk bir insert işlemi 25 saat gibi kısa bir sürede gerçekleşebilmesi için Mysql my.cnf my.ini dosyalarında [mysqld] altına;&lt;/p&gt;
@@ -296,8 +315,8 @@ Sonraki adım homebrew aracılığıyla spark’ın kurulumu tabi öncelikle sis
 &lt;p&gt;Yıkardaki gibi soru işaretinden sonraki kısmın eklenmesi gerekiyor. İşin ilginç tarafı eklenmeyincede çalışıyor ama mysql dokümanlarında ekleyin yazıyor. Eski sürümlerde koyulması zorlu olabilir belki ama 5.5 versiyonunda koyulmasada çalışıyor.&lt;/p&gt;
 </description>
         <pubDate>Fri, 19 Jun 2015 00:30:00 +0300</pubDate>
-        <link>http://cemretok.com//2015/30/</link>
-        <guid isPermaLink="true">http://cemretok.com//2015/30/</guid>
+        <link>http://localhost:4000//2015/30/</link>
+        <guid isPermaLink="true">http://localhost:4000//2015/30/</guid>
         
         <category>Mysql</category>
         
@@ -311,37 +330,13 @@ Sonraki adım homebrew aracılığıyla spark’ın kurulumu tabi öncelikle sis
         <description>&lt;p&gt;&lt;img src=&quot;/images/29-1.png&quot; alt=&quot;Resim&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
 </description>
         <pubDate>Fri, 19 Jun 2015 00:30:00 +0300</pubDate>
-        <link>http://cemretok.com//2015/29/</link>
-        <guid isPermaLink="true">http://cemretok.com//2015/29/</guid>
+        <link>http://localhost:4000//2015/29/</link>
+        <guid isPermaLink="true">http://localhost:4000//2015/29/</guid>
         
         <category>android</category>
         
         
         <category>android</category>
-        
-      </item>
-    
-      <item>
-        <title>Java MySql bağlantısında karakter sorunu</title>
-        <description>&lt;p&gt;DB connection;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span class=&quot;n&quot;&gt;jdbc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;localhost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3306&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dbname&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;user&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;root&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;DB character sets;&lt;/p&gt;
-
-&lt;p&gt;&lt;b&gt;&lt;a href=&quot;http://cemretok.github.io/images/28-1.png&quot;&gt;http://cemretok.github.io/images/28-1.png&lt;/a&gt;&lt;b&gt;&lt;br /&gt;&lt;/b&gt;&lt;/b&gt;&lt;/p&gt;
-
-&lt;p&gt;Eclipse kullanılıyorsa, &lt;b&gt;Run&amp;gt;Run Configurations&amp;gt;Common&amp;gt;Encoding&amp;gt;Other&amp;gt;UTF-8&lt;b&gt;&lt;/b&gt;&lt;/b&gt;&lt;/p&gt;
-
-</description>
-        <pubDate>Fri, 19 Jun 2015 00:30:00 +0300</pubDate>
-        <link>http://cemretok.com//2015/28/</link>
-        <guid isPermaLink="true">http://cemretok.com//2015/28/</guid>
-        
-        <category>Java</category>
-        
-        
-        <category>Java</category>
         
       </item>
     

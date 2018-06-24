@@ -1,0 +1,29 @@
+---
+layout: post
+title:  "Java'nın bilinmeyenleri - Bölüm 1"
+date:   2018-06-21 19:36:00
+categories: [Java]
+tags: [Java]
+---
+
+### 1- Neden şifreler String yerine char[] içinde tutulur? 
+
+String **immutable** olduğu için değiştirilemez özelliğe sahiptir bu nedenle program JVM de çalıştığı sürece set ettiğiniz şifre değeri sürekli orada kalacaktır. Unutulmamalıdır ki Stringe set ettiğiniz her değer bir referans aracılığı ile yapılmakta bu da Stringin asıl değerini değil onun yerine referansının değerinin değişmesine neden olur.
+
+string x = "obafemi";
+x.concat(" martins");
+system.out.println("x = " + x); 
+
+Not: immutable bir nesnenin atandığı referans degişkeni immutable degildir.
+
+string x = "obafemi";
+x = x.concat(" martins");
+system.out.println("x = " + x); 
+
+Kısacası Stringin immutable olabilmesi için String sınıfının içinde kullanılan her fonksiyon (uppercase, concat vb.) içerde yeni bir nesne yaratarak bunun referansını döndürür.
+
+### 2- Bir sınıfı nasıl immutable hale getirebiliriz ve bunun amacı nedir?
+
+İkinci sorunun cevabı **thread koruması** (thread-safety) için değişmez  sınıflar yaratılır. Nesnenin içeriği değişmediği için bu sayede thread içerisinde bu sınıfların senkron olması sağlanır. 
+
+İlk soruya gelecek olursak bunun için öncelikle sınıfın final tanımlanması gerekir bu sayede başka bir obje tarafından extend edilip türetilmesinin önüne geçilir. Sonrasında eğer değişkenler varsa bunlar final ve private tanımlanır böylece değişmeyeceklerdir. Sonrasında, normalde set get fonksiyonlarını yazdığımız sınıfların set fonksiyonları yazılmaz bunun yerine değişkeler constructor aracılığı ile atanır. Eğer bu sınıfa ait bir nesnenin yeni bir değişken üzetmesi isteniyorsa içeriğinde yeni bir değişken yaratılır ve bunun referansı geri dönülür, aynı string sınıfının concat yada uppercase fonksiyonlarında olduğu gibi.
