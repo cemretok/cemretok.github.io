@@ -10,15 +10,19 @@ tags: [Java]
 
 String **immutable** olduğu için değiştirilemez özelliğe sahiptir bu nedenle program JVM de çalıştığı sürece set ettiğiniz şifre değeri sürekli orada kalacaktır. Unutulmamalıdır ki Stringe set ettiğiniz her değer bir referans aracılığı ile yapılmakta bu da Stringin asıl değerini değil onun yerine referansının değerinin değişmesine neden olur.
 
+~~~ bash
 string x = "obafemi";
 x.concat(" martins");
 system.out.println("x = " + x); 
+~~~
 
 Not: immutable bir nesnenin atandığı referans degişkeni immutable degildir.
 
+~~~ bash
 string x = "obafemi";
 x = x.concat(" martins");
 system.out.println("x = " + x); 
+~~~
 
 Kısacası Stringin immutable olabilmesi için String sınıfının içinde kullanılan her fonksiyon (uppercase, concat vb.) içerde yeni bir nesne yaratarak bunun referansını döndürür.
 
