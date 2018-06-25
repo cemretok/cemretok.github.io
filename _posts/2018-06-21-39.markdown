@@ -1,0 +1,13 @@
+---
+layout: post
+title:  "Java'nın bilinmeyenleri - Bölüm 2"
+date:   2018-06-21 19:36:00
+categories: [Java]
+tags: [Java]
+---
+
+### Bir sınıfı nasıl immutable hale getirebiliriz ve bunun amacı nedir?
+
+İkinci sorunun cevabı **thread koruması** (thread-safety) için değişmez  sınıflar yaratılır. Nesnenin içeriği değişmediği için bu sayede thread içerisinde bu sınıfların senkron olması sağlanır. 
+
+İlk soruya gelecek olursak bunun için öncelikle sınıfın final tanımlanması gerekir bu sayede başka bir obje tarafından extend edilip türetilmesinin önüne geçilir. Sonrasında eğer değişkenler varsa bunlar final ve private tanımlanır böylece değişmeyeceklerdir. Sonrasında, normalde set get fonksiyonlarını yazdığımız sınıfların set fonksiyonları yazılmaz bunun yerine değişkeler constructor aracılığı ile atanır. Eğer bu sınıfa ait bir nesnenin yeni bir değişken üzetmesi isteniyorsa içeriğinde yeni bir değişken yaratılır ve bunun referansı geri dönülür, aynı string sınıfının concat yada uppercase fonksiyonlarında olduğu gibi.

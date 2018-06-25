@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
 
-  <title>Java'nın bilinmeyenleri - Bölüm 1</title>
-  <meta name="description" content="Neden şifreler String yerine char[] içinde tutulur?
+  <title>Java'nın bilinmeyenleri - Bölüm 2</title>
+  <meta name="description" content="Bir sınıfı nasıl immutable hale getirebiliriz ve bunun amacı nedir?
 
 ">
   <meta name="author" content="Cemre Tok">
@@ -18,8 +18,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Java'nın bilinmeyenleri - Bölüm 1">
-  <meta name="twitter:description" content="Neden şifreler String yerine char[] içinde tutulur?
+  <meta name="twitter:title" content="Java'nın bilinmeyenleri - Bölüm 2">
+  <meta name="twitter:description" content="Bir sınıfı nasıl immutable hale getirebiliriz ve bunun amacı nedir?
 
 ">
   
@@ -28,8 +28,8 @@
   <meta name="twitter:image" content="/images/favicons/favicon-194x194.png" />
 
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Java'nın bilinmeyenleri - Bölüm 1">
-  <meta property="og:description" content="Neden şifreler String yerine char[] içinde tutulur?
+  <meta property="og:title" content="Java'nın bilinmeyenleri - Bölüm 2">
+  <meta property="og:description" content="Bir sınıfı nasıl immutable hale getirebiliriz ve bunun amacı nedir?
 
 ">
   <meta property="og:image" content="/images/favicons/favicon-194x194.png" />
@@ -55,7 +55,7 @@
   <meta name="theme-color" content="#ffffff">
   
   <link rel="stylesheet" href="/css/main.css?1529921929165070000">
-  <link rel="canonical" href="http://localhost:4000/2018/38/">
+  <link rel="canonical" href="http://localhost:4000/2018/39/">
   <link rel="alternate" type="application/rss+xml" title="Cemre Tok" href="/feed.xml">
 </head>
 
@@ -164,27 +164,15 @@
       &#8226; <span class="post-meta__tags">on <a href="/tags/#Java">Java</a> </span>
       
     </div>
-    <h1 class="post-title">Java'nın bilinmeyenleri - Bölüm 1</h1>
+    <h1 class="post-title">Java'nın bilinmeyenleri - Bölüm 2</h1>
   </header>
 
   <section class="post">
-    <h3 id="neden-şifreler-string-yerine-char-içinde-tutulur">Neden şifreler String yerine char[] içinde tutulur?</h3>
+    <h3 id="bir-sınıfı-nasıl-immutable-hale-getirebiliriz-ve-bunun-amacı-nedir">Bir sınıfı nasıl immutable hale getirebiliriz ve bunun amacı nedir?</h3>
 
-<p>String <strong>immutable</strong> olduğu için değiştirilemez özelliğe sahiptir bu nedenle program JVM de çalıştığı sürece set ettiğiniz şifre değeri sürekli orada kalacaktır. Unutulmamalıdır ki Stringe set ettiğiniz her değer bir referans aracılığı ile yapılmakta bu da Stringin asıl değerini değil onun yerine referansının değerinin değişmesine neden olur.</p>
+<p>İkinci sorunun cevabı <strong>thread koruması</strong> (thread-safety) için değişmez  sınıflar yaratılır. Nesnenin içeriği değişmediği için bu sayede thread içerisinde bu sınıfların senkron olması sağlanır.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>string x <span class="o">=</span> <span class="s2">"obafemi"</span><span class="p">;</span>
-x.concat<span class="o">(</span><span class="s2">" martins"</span><span class="o">)</span><span class="p">;</span>
-system.out.println<span class="o">(</span><span class="s2">"x = "</span> + x<span class="o">)</span><span class="p">;</span> 
-</code></pre></div></div>
-
-<p>Not: immutable bir nesnenin atandığı referans degişkeni immutable degildir.</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>string x <span class="o">=</span> <span class="s2">"obafemi"</span><span class="p">;</span>
-x <span class="o">=</span> x.concat<span class="o">(</span><span class="s2">" martins"</span><span class="o">)</span><span class="p">;</span>
-system.out.println<span class="o">(</span><span class="s2">"x = "</span> + x<span class="o">)</span><span class="p">;</span> 
-</code></pre></div></div>
-
-<p>Kısacası Stringin immutable olabilmesi için String sınıfının içinde kullanılan her fonksiyon (uppercase, concat vb.) içerde yeni bir nesne yaratarak bunun referansını döndürür.</p>
+<p>İlk soruya gelecek olursak bunun için öncelikle sınıfın final tanımlanması gerekir bu sayede başka bir obje tarafından extend edilip türetilmesinin önüne geçilir. Sonrasında eğer değişkenler varsa bunlar final ve private tanımlanır böylece değişmeyeceklerdir. Sonrasında, normalde set get fonksiyonlarını yazdığımız sınıfların set fonksiyonları yazılmaz bunun yerine değişkeler constructor aracılığı ile atanır. Eğer bu sınıfa ait bir nesnenin yeni bir değişken üzetmesi isteniyorsa içeriğinde yeni bir değişken yaratılır ve bunun referansı geri dönülür, aynı string sınıfının concat yada uppercase fonksiyonlarında olduğu gibi.</p>
 
   </section>
   

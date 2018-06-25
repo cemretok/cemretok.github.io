@@ -5,13 +5,32 @@
     <description>Blog ve KB</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 24 Jun 2018 22:52:37 +0300</pubDate>
-    <lastBuildDate>Sun, 24 Jun 2018 22:52:37 +0300</lastBuildDate>
-    <generator>Jekyll v3.6.2</generator>
+    <pubDate>Mon, 25 Jun 2018 13:18:49 +0300</pubDate>
+    <lastBuildDate>Mon, 25 Jun 2018 13:18:49 +0300</lastBuildDate>
+    <generator>Jekyll v3.7.3</generator>
+    
+      <item>
+        <title>Java'nın bilinmeyenleri - Bölüm 2</title>
+        <description>&lt;h3 id=&quot;bir-sınıfı-nasıl-immutable-hale-getirebiliriz-ve-bunun-amacı-nedir&quot;&gt;Bir sınıfı nasıl immutable hale getirebiliriz ve bunun amacı nedir?&lt;/h3&gt;
+
+&lt;p&gt;İkinci sorunun cevabı &lt;strong&gt;thread koruması&lt;/strong&gt; (thread-safety) için değişmez  sınıflar yaratılır. Nesnenin içeriği değişmediği için bu sayede thread içerisinde bu sınıfların senkron olması sağlanır.&lt;/p&gt;
+
+&lt;p&gt;İlk soruya gelecek olursak bunun için öncelikle sınıfın final tanımlanması gerekir bu sayede başka bir obje tarafından extend edilip türetilmesinin önüne geçilir. Sonrasında eğer değişkenler varsa bunlar final ve private tanımlanır böylece değişmeyeceklerdir. Sonrasında, normalde set get fonksiyonlarını yazdığımız sınıfların set fonksiyonları yazılmaz bunun yerine değişkeler constructor aracılığı ile atanır. Eğer bu sınıfa ait bir nesnenin yeni bir değişken üzetmesi isteniyorsa içeriğinde yeni bir değişken yaratılır ve bunun referansı geri dönülür, aynı string sınıfının concat yada uppercase fonksiyonlarında olduğu gibi.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 21 Jun 2018 22:36:00 +0300</pubDate>
+        <link>http://localhost:4000/2018/39/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/39/</guid>
+        
+        <category>Java</category>
+        
+        
+        <category>Java</category>
+        
+      </item>
     
       <item>
         <title>Java'nın bilinmeyenleri - Bölüm 1</title>
-        <description>&lt;h3 id=&quot;1--neden-şifreler-string-yerine-char-içinde-tutulur&quot;&gt;1- Neden şifreler String yerine char[] içinde tutulur?&lt;/h3&gt;
+        <description>&lt;h3 id=&quot;neden-şifreler-string-yerine-char-içinde-tutulur&quot;&gt;Neden şifreler String yerine char[] içinde tutulur?&lt;/h3&gt;
 
 &lt;p&gt;String &lt;strong&gt;immutable&lt;/strong&gt; olduğu için değiştirilemez özelliğe sahiptir bu nedenle program JVM de çalıştığı sürece set ettiğiniz şifre değeri sürekli orada kalacaktır. Unutulmamalıdır ki Stringe set ettiğiniz her değer bir referans aracılığı ile yapılmakta bu da Stringin asıl değerini değil onun yerine referansının değerinin değişmesine neden olur.&lt;/p&gt;
 
@@ -28,12 +47,6 @@ system.out.println&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Kısacası Stringin immutable olabilmesi için String sınıfının içinde kullanılan her fonksiyon (uppercase, concat vb.) içerde yeni bir nesne yaratarak bunun referansını döndürür.&lt;/p&gt;
-
-&lt;h3 id=&quot;2--bir-sınıfı-nasıl-immutable-hale-getirebiliriz-ve-bunun-amacı-nedir&quot;&gt;2- Bir sınıfı nasıl immutable hale getirebiliriz ve bunun amacı nedir?&lt;/h3&gt;
-
-&lt;p&gt;İkinci sorunun cevabı &lt;strong&gt;thread koruması&lt;/strong&gt; (thread-safety) için değişmez  sınıflar yaratılır. Nesnenin içeriği değişmediği için bu sayede thread içerisinde bu sınıfların senkron olması sağlanır.&lt;/p&gt;
-
-&lt;p&gt;İlk soruya gelecek olursak bunun için öncelikle sınıfın final tanımlanması gerekir bu sayede başka bir obje tarafından extend edilip türetilmesinin önüne geçilir. Sonrasında eğer değişkenler varsa bunlar final ve private tanımlanır böylece değişmeyeceklerdir. Sonrasında, normalde set get fonksiyonlarını yazdığımız sınıfların set fonksiyonları yazılmaz bunun yerine değişkeler constructor aracılığı ile atanır. Eğer bu sınıfa ait bir nesnenin yeni bir değişken üzetmesi isteniyorsa içeriğinde yeni bir değişken yaratılır ve bunun referansı geri dönülür, aynı string sınıfının concat yada uppercase fonksiyonlarında olduğu gibi.&lt;/p&gt;
 </description>
         <pubDate>Thu, 21 Jun 2018 22:36:00 +0300</pubDate>
         <link>http://localhost:4000/2018/38/</link>
@@ -324,21 +337,6 @@ Sonraki adım homebrew aracılığıyla spark’ın kurulumu tabi öncelikle sis
         
         
         <category>Mysql</category>
-        
-      </item>
-    
-      <item>
-        <title>Mac sistemde Android SDK PATH sorunu</title>
-        <description>&lt;p&gt;&lt;img src=&quot;/images/29-1.png&quot; alt=&quot;Resim&quot; /&gt;&lt;br /&gt;&lt;/p&gt;
-</description>
-        <pubDate>Fri, 19 Jun 2015 00:30:00 +0300</pubDate>
-        <link>http://localhost:4000/2015/29/</link>
-        <guid isPermaLink="true">http://localhost:4000/2015/29/</guid>
-        
-        <category>android</category>
-        
-        
-        <category>android</category>
         
       </item>
     
