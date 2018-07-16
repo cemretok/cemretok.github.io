@@ -3,6 +3,21 @@
   
     
     <url>
+      <loc>http://localhost:4000/2018/40/</loc>
+      
+        <lastmod>2018-06-25T22:36:00+03:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://localhost:4000/2018/39/</loc>
       
         <lastmod>2018-06-21T22:36:00+03:00</lastmod>
@@ -593,7 +608,7 @@
     <url>
       <loc>http://localhost:4000/feed.xml</loc>
       
-        <lastmod>2018-06-25T13:18:49+03:00</lastmod>
+        <lastmod>2018-07-16T16:00:24+03:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -608,7 +623,7 @@
     <url>
       <loc>http://localhost:4000/humans.txt</loc>
       
-        <lastmod>2018-06-25T13:18:49+03:00</lastmod>
+        <lastmod>2018-07-16T16:00:24+03:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -627,7 +642,7 @@
     <url>
       <loc>http://localhost:4000/css/main.css</loc>
       
-        <lastmod>2018-06-25T13:18:49+03:00</lastmod>
+        <lastmod>2018-07-16T16:00:24+03:00</lastmod>
       
       
         <changefreq>monthly</changefreq>

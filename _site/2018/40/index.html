@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
 
-  <title>Eclips açılışında donma sorunu</title>
-  <meta name="description" content="Eclipse açılışında donma sorunu varsa
+  <title>Java'nın bilinmeyenleri - Bölüm 3</title>
+  <meta name="description" content="Java “pass-by-reference” mı yoksa “pass-by-value” bir dil mi?
 
 ">
   <meta name="author" content="Cemre Tok">
@@ -18,8 +18,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Eclips açılışında donma sorunu">
-  <meta name="twitter:description" content="Eclipse açılışında donma sorunu varsa
+  <meta name="twitter:title" content="Java'nın bilinmeyenleri - Bölüm 3">
+  <meta name="twitter:description" content="Java “pass-by-reference” mı yoksa “pass-by-value” bir dil mi?
 
 ">
   
@@ -28,8 +28,8 @@
   <meta name="twitter:image" content="/images/favicons/favicon-194x194.png" />
 
   <meta property="og:type" content="article">
-  <meta property="og:title" content="Eclips açılışında donma sorunu">
-  <meta property="og:description" content="Eclipse açılışında donma sorunu varsa
+  <meta property="og:title" content="Java'nın bilinmeyenleri - Bölüm 3">
+  <meta property="og:description" content="Java “pass-by-reference” mı yoksa “pass-by-value” bir dil mi?
 
 ">
   <meta property="og:image" content="/images/favicons/favicon-194x194.png" />
@@ -55,7 +55,7 @@
   <meta name="theme-color" content="#ffffff">
   
   <link rel="stylesheet" href="/css/main.css?1531746024074975000">
-  <link rel="canonical" href="http://localhost:4000/2016/36/">
+  <link rel="canonical" href="http://localhost:4000/2018/40/">
   <link rel="alternate" type="application/rss+xml" title="Cemre Tok" href="/feed.xml">
 </head>
 
@@ -159,23 +159,39 @@
         <article class="post-container post-container--single">
   <header class="post-header">
     <div class="post-meta">
-      <time datetime="2016-02-22 21:36" class="post-meta__date date">22 Feb 2016</time>
+      <time datetime="2018-06-25 22:36" class="post-meta__date date">25 Jun 2018</time>
       
-      &#8226; <span class="post-meta__tags">on <a href="/tags/#Eclipse">Eclipse</a> </span>
+      &#8226; <span class="post-meta__tags">on <a href="/tags/#Java">Java</a> </span>
       
     </div>
-    <h1 class="post-title">Eclips açılışında donma sorunu</h1>
+    <h1 class="post-title">Java'nın bilinmeyenleri - Bölüm 3</h1>
   </header>
 
   <section class="post">
-    <p>Eclipse açılışında donma sorunu varsa</p>
+    <h3 id="java-pass-by-reference-mı-yoksa-pass-by-value-bir-dil-mi">Java “pass-by-reference” mı yoksa “pass-by-value” bir dil mi?</h3>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> /workspace/.metadata/.plugins
-rm <span class="nt">-rf</span> org.eclipse.core.resources
+<p>Java pass-by-value bir dildir. Fakat objenin referansını pasladığımızda pass-by-reference bir dilmiş gibi görünür.</p>
+
+<p>Kod ile inceleyecek olursak;</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public static void main<span class="o">(</span>String[] args<span class="o">)</span> <span class="o">{</span>
+    Dog aDog <span class="o">=</span> new Dog<span class="o">(</span><span class="s2">"Max"</span><span class="o">)</span><span class="p">;</span>
+    // nesneyi foo fonksiyonuna gönderdik
+    foo<span class="o">(</span>aDog<span class="o">)</span><span class="p">;</span>
+    // foo fonksiyonu hala aDog değişkeninin gösterdiği <span class="s2">"Max"</span> değerini gönderiyor. <span class="o">(</span>foo fonksiyonunun ilk satırı<span class="o">)</span>
+    aDog.getName<span class="o">()</span>.equals<span class="o">(</span><span class="s2">"Max"</span><span class="o">)</span><span class="p">;</span> // <span class="nb">true</span>, java passes by value
+    aDog.getName<span class="o">()</span>.equals<span class="o">(</span><span class="s2">"Fifi"</span><span class="o">)</span><span class="p">;</span> // <span class="nb">false</span> 
+<span class="o">}</span>
+
+public static void foo<span class="o">(</span>Dog d<span class="o">)</span> <span class="o">{</span>
+    d.getName<span class="o">()</span>.equals<span class="o">(</span><span class="s2">"Max"</span><span class="o">)</span><span class="p">;</span> // <span class="nb">true</span>
+    // d yi <span class="s2">"Fifi"</span> adındaki yeni bir nesneyle değiştiriyoruz.
+    d <span class="o">=</span> new Dog<span class="o">(</span><span class="s2">"Fifi"</span><span class="o">)</span><span class="p">;</span>
+    d.getName<span class="o">()</span>.equals<span class="o">(</span><span class="s2">"Fifi"</span><span class="o">)</span><span class="p">;</span> // <span class="nb">true</span>
+<span class="o">}</span>
 </code></pre></div></div>
 
-<p>Dersek workspace ile ilgili olan bütün konfigürasyonlar uçar ve projelerimizi tekrar import ettiğimizde sorun çözülmüş olur.</p>
-
+<p>Yukardaki örnekte aDog.getName() hala “Max” değerini döndürüyor. Main içindeki aDog referansı foo fonksiyonu içerisinde değişmiyor. Eğer pass-by-referance olsaydı main içindeki son satırda true döndüğünü görmemiz gerekirdi.</p>
 
   </section>
   

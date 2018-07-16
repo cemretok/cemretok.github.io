@@ -5,9 +5,47 @@
     <description>Blog ve KB</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 25 Jun 2018 13:18:49 +0300</pubDate>
-    <lastBuildDate>Mon, 25 Jun 2018 13:18:49 +0300</lastBuildDate>
+    <pubDate>Mon, 16 Jul 2018 16:00:24 +0300</pubDate>
+    <lastBuildDate>Mon, 16 Jul 2018 16:00:24 +0300</lastBuildDate>
     <generator>Jekyll v3.7.3</generator>
+    
+      <item>
+        <title>Java'nın bilinmeyenleri - Bölüm 3</title>
+        <description>&lt;h3 id=&quot;java-pass-by-reference-mı-yoksa-pass-by-value-bir-dil-mi&quot;&gt;Java “pass-by-reference” mı yoksa “pass-by-value” bir dil mi?&lt;/h3&gt;
+
+&lt;p&gt;Java pass-by-value bir dildir. Fakat objenin referansını pasladığımızda pass-by-reference bir dilmiş gibi görünür.&lt;/p&gt;
+
+&lt;p&gt;Kod ile inceleyecek olursak;&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public static void main&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;String[] args&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    Dog aDog &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; new Dog&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Max&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    // nesneyi foo fonksiyonuna gönderdik
+    foo&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;aDog&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    // foo fonksiyonu hala aDog değişkeninin gösterdiği &lt;span class=&quot;s2&quot;&gt;&quot;Max&quot;&lt;/span&gt; değerini gönderiyor. &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;foo fonksiyonunun ilk satırı&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+    aDog.getName&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;.equals&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Max&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; // &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;, java passes by value
+    aDog.getName&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;.equals&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fifi&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; // &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt; 
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+
+public static void foo&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Dog d&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+    d.getName&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;.equals&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Max&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; // &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+    // d yi &lt;span class=&quot;s2&quot;&gt;&quot;Fifi&quot;&lt;/span&gt; adındaki yeni bir nesneyle değiştiriyoruz.
+    d &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; new Dog&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fifi&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    d.getName&lt;span class=&quot;o&quot;&gt;()&lt;/span&gt;.equals&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Fifi&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; // &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Yukardaki örnekte aDog.getName() hala “Max” değerini döndürüyor. Main içindeki aDog referansı foo fonksiyonu içerisinde değişmiyor. Eğer pass-by-referance olsaydı main içindeki son satırda true döndüğünü görmemiz gerekirdi.&lt;/p&gt;
+</description>
+        <pubDate>Mon, 25 Jun 2018 22:36:00 +0300</pubDate>
+        <link>http://localhost:4000/2018/40/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/40/</guid>
+        
+        <category>Java</category>
+        
+        
+        <category>Java</category>
+        
+      </item>
     
       <item>
         <title>Java'nın bilinmeyenleri - Bölüm 2</title>
@@ -307,36 +345,6 @@ Sonraki adım homebrew aracılığıyla spark’ın kurulumu tabi öncelikle sis
         
         
         <category>apache spark</category>
-        
-      </item>
-    
-      <item>
-        <title>MySQL'de batch insert nasıl yapılır?</title>
-        <description>&lt;p&gt;MySQL’de batch insert&lt;/p&gt;
-
-&lt;p&gt;350.000.000 Milyon Row’luk bir insert işlemi 25 saat gibi kısa bir sürede gerçekleşebilmesi için Mysql my.cnf my.ini dosyalarında [mysqld] altına;&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mysqld&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;innodb_buffer_pool_size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;G&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Yukarıdaki gibi ekleme yapmak gerekiyor. Ram miktarı mevcut sisteme göre değiştirilebilir, 4gb’lik bir Mac bilgisayarda bu değer uygun.&lt;/p&gt;
-
-&lt;p&gt;Hibernate Batch işlemleri için uygun değil nedenide batch insertlerde id ile ilgili sıkıntı yaşaması. Bu nedenle en uygun batch işlemi için JDBC batch kullanılmalı. Örnekler mevcut gayette kolay uygulanabiliyor.&lt;/p&gt;
-
-&lt;p&gt;Mysql connection string’ine&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-sql&quot; data-lang=&quot;sql&quot;&gt;&lt;span class=&quot;n&quot;&gt;jdbc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mysql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;localhost&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8889&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;db_adi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;?&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rewriteBatchedStatements&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Yıkardaki gibi soru işaretinden sonraki kısmın eklenmesi gerekiyor. İşin ilginç tarafı eklenmeyincede çalışıyor ama mysql dokümanlarında ekleyin yazıyor. Eski sürümlerde koyulması zorlu olabilir belki ama 5.5 versiyonunda koyulmasada çalışıyor.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 19 Jun 2015 00:30:00 +0300</pubDate>
-        <link>http://localhost:4000/2015/30/</link>
-        <guid isPermaLink="true">http://localhost:4000/2015/30/</guid>
-        
-        <category>Mysql</category>
-        
-        
-        <category>Mysql</category>
         
       </item>
     

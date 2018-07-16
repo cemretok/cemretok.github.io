@@ -1,0 +1,43 @@
+---
+layout: post
+title:  "Java'nın bilinmeyenleri - Bölüm 4"
+date:   2018-07-16 19:36:00
+categories: [Java]
+tags: [Java]
+---
+
+### Reflection nedir, neden ve nasıl kullanılır?
+
+Reflection runtime surasında başka bir class'ın yada kendi sınıfının içerisindeki medhodları görüntülemek, çağırmak yada modifiye etmek için kullanılır.
+
+Kullanımı oldukça kolay fakat tehlikeli olabilmektedir.
+
+1- Görüntülemek;
+
+~~~bash
+  Class example = Example.class;
+  Method[] methods = example.getDeclaredMethods();
+  for (int i = 0; i < methods.length; i++){
+    System.out.println(methods[i].toString());
+~~~
+
+2- Çağırmak;
+
+~~~bash
+    Method method = Example.getClass().getMethod("callExampleFunction", String.class);
+    method.invoke(Example, String.class);
+~~~
+
+3-Modifiye Etmek;
+
+~~~bash
+final Field field = Class.forName(Example.class).getDeclaredField(parameter);
+	// Değişiklik yapabilmek için aktif et
+	field.setAccessible(true);
+	// field olarak belirtilen değişkeni al
+	final Object eskiDeger = field.get(Class.forName(Example.class));
+	// field olarak belirtilen değişkenin yeni değerini ata
+	field.set(eskiDeger, yeniDeger);
+~~~
+
+Kaynak: http://blog.sevagas.com/?Modify-any-Java-class-field-using-reflection
