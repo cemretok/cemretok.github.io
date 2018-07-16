@@ -14,7 +14,7 @@ Kullanımı oldukça kolay fakat tehlikeli olabilmektedir.
 
 1- Görüntülemek;
 
-~~~bash
+~~~java
   Class example = Example.class;
   Method[] methods = example.getDeclaredMethods();
   for (int i = 0; i < methods.length; i++){
@@ -23,14 +23,14 @@ Kullanımı oldukça kolay fakat tehlikeli olabilmektedir.
 
 2- Çağırmak;
 
-~~~bash
+~~~java
     Method method = Example.getClass().getMethod("callExampleFunction", String.class);
     method.invoke(Example, String.class);
 ~~~
 
 3-Modifiye Etmek;
 
-~~~bash
+~~~java
 final Field field = Class.forName(Example.class).getDeclaredField(parameter);
 	// Değişiklik yapabilmek için aktif et
 	field.setAccessible(true);
